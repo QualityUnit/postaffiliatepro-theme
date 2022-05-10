@@ -1,0 +1,139 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+.Block--slider {
+
+	.elementor-column-wrap {
+		z-index: 2;
+	}
+
+	.elementor-element .elementor-swiper {
+		position: relative;
+		top: 3em;
+
+		.swiper-slide {
+
+			@media (max-width: $breakpoint-tablet) {
+				height: 15em;
+			}
+		}
+
+		.swiper-container {
+			max-width: 60em;
+		}
+
+
+		@media (min-width: $breakpoint-tablet) {
+			height: 27em;
+
+			.elementor-slides .swiper-slide {
+				height: 33em;
+			}
+		}
+	}
+
+	.elementor-swiper.has-pagination {
+
+		min-height: 30em;
+
+		@media (min-width: $breakpoint-tablet) {
+			height: 35em;
+		}
+
+		.swiper {
+
+			&-container {
+				display: flex;
+				flex-wrap: wrap;
+				flex-direction: column;
+			}
+
+			&-slide-contents {
+				display: none;
+			}
+
+			&-pagination {
+
+				&-bullet {
+					all: unset;
+
+					@include square(auto);
+					display: block;
+					font-weight: 700;
+					line-height: 1.5;
+					padding: 0.5em 1em;
+					border: 1px solid transparent;
+					border-radius: 0.75em;
+					cursor: pointer;
+
+					&-active {
+
+						@include color(color, primary-color);
+						border-color: currentColor;
+						cursor: default;
+					}
+				}
+
+				&-bullets {
+					position: static;
+					order: -1;
+					margin-bottom: 2em;
+					cursor: default;
+
+					@media (min-width: $breakpoint-tablet) {
+						display: flex;
+						justify-content: center;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+.elementor-slides .swiper-slide {
+
+	&-bg {
+
+		@include square(100%);
+		background-repeat: no-repeat;
+		background-position: center center;
+		overflow: hidden;
+		border-radius: $border-radius;
+	}
+}
+
+.elementor-swiper-button {
+
+	@include square(2em);
+	font-size: 1rem;
+	background: url(../images/slider_btn.svg) center center no-repeat;
+	background-size: contain;
+	right: 0;
+	transform: none;
+
+	&:hover,
+	&:active {
+		background-image: url(../images/slider_btn_hover.svg);
+	}
+
+	&-prev {
+		transform: scaleX(-1);
+		left: 0;
+		right: auto;
+	}
+
+	> * {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		@include square(3.125em);
+		right: 4em;
+
+		&-prev {
+			left: 4em;
+		}
+	}
+}

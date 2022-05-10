@@ -1,0 +1,621 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+#app {
+	padding-top: $header-height;
+}
+
+.Header {
+
+	@include color(background-color, header-background);
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	height: $header-height;
+	padding: 15px 0;
+
+	.wrapper {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.admin-bar {
+
+	.Header {
+		top: 32px;
+	}
+}
+
+.Header__logo {
+	display: flex;
+
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 15px 15px 15px 0;
+
+		img {
+			display: block;
+			max-width: 187px;
+			height: 30px;
+		}
+	}
+}
+
+.Header__items {
+	display: flex;
+	flex-flow: wrap row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+	margin-left: auto;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		flex-flow: wrap row;
+	}
+}
+
+.Header__navigation {
+	display: none;
+
+	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+
+		&.active {
+
+			@include color(background-color, main-background);
+			display: block;
+			position: absolute;
+			border-top-width: 1px;
+			border-top-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+			width: 100%;
+			top: 75px;
+			left: 0;
+			z-index: 9999999;
+			max-height: calc(85vh - 90px);
+			overflow: auto;
+			text-align: center;
+			padding-bottom: 1.5em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.Button {
+		margin-left: 15px;
+		height: 44px;
+
+		span {
+			line-height: 44px;
+		}
+	}
+
+	ul.nav {
+		position: relative;
+		margin-bottom: 0;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+
+		li {
+			position: static;
+			padding: 0 20px;
+			user-select: none;
+
+			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop - 1px) {
+				font-size: 0.875rem;
+				padding: 0 0.5em;
+			}
+
+			&.one-column {
+
+				ul {
+					left: -25px;
+
+					li {
+						padding: 0 45px;
+
+						ul {
+							padding-bottom: 0;
+
+							li {
+								padding: 0;
+							}
+						}
+					}
+				}
+			}
+
+			a {
+
+				@include color(color, main-nav-font-color);
+				position: relative;
+				display: block;
+				line-height: $main-nav-line-height;
+				font-family: $font-secondary;
+				font-weight: $font-weight-semi;
+
+				&::before {
+
+					@include color(background-color, main-nav-underline);
+					content: "";
+					position: absolute;
+					bottom: 13px;
+					left: 50%;
+					width: 0;
+					height: 3px;
+					transition: all 0.3s;
+				}
+			}
+
+			&.active {
+
+				a {
+
+					&::before {
+						left: 0;
+						width: 100%;
+					}
+				}
+			}
+
+			@media (hover: hover) {
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					a {
+
+						&::before {
+							left: 0;
+							width: 100%;
+						}
+					}
+				}
+
+				&:hover {
+
+					ul {
+
+						@media (min-width: $breakpoint-tablet-landscape) {
+							display: flex;
+							justify-content: center;
+						}
+					}
+				}
+			}
+
+			&:last-of-type {
+
+				a {
+					padding-right: 0;
+				}
+			}
+
+			&.menu-item-has-children {
+
+				a {
+
+					&::after {
+						content: "\e821";
+						font-family: fontello, sans-serif;
+						font-size: 12px;
+						font-weight: 900;
+						display: inline-block;
+						margin-left: 10px;
+					}
+				}
+			}
+		}
+
+		ul {
+
+			display: none;
+			position: relative;
+
+			&.active {
+				display: block;
+			}
+
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				.admin-bar & {
+					top: 104px;
+				}
+
+				&.active {
+					display: flex;
+				}
+
+				flex-flow: nowrap row;
+				justify-content: flex-start;
+				align-items: flex-start;
+				position: fixed;
+
+				top: 73px;
+				left: 0;
+				right: 0;
+				z-index: 2;
+				margin: auto;
+				width: $breakpoint-tablet-landscape;
+				padding: 45px 0 25px;
+
+				&::after {
+					content: "";
+
+					@include color(background-color, main-nav-submenu-background);
+					position: absolute;
+					top: 0;
+					width: 100vw;
+					height: 100%;
+					box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.08);
+					z-index: -1;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				width: $breakpoint-desktop;
+			}
+
+			li {
+				padding: 0 30px;
+				overflow: hidden;
+
+				&:first-of-type {
+					padding-right: 30px;
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					width: 25%;
+				}
+			}
+
+			a {
+
+				@include color(color, main-nav-submenu-font-color, !important);
+				font-size: 0.875rem;
+				line-height: $main-nav-submenu-line-height;
+				font-family: $font-secondary;
+				font-weight: $font-weight-semi;
+				white-space: nowrap;
+				text-align: left;
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(color, main-nav-submenu-font-color-hover, !important);
+				}
+
+				&::before,
+				&::after {
+					display: none !important;
+				}
+			}
+
+			a[href="#"] {
+				margin-bottom: 20px;
+				font-size: 14px;
+				line-height: 0;
+				pointer-events: none;
+				cursor: default;
+				padding: 10px 0;
+				z-index: 1;
+			}
+
+			ul {
+				display: flex;
+				position: static;
+				flex-flow: wrap column;
+				justify-content: flex-start;
+				align-items: flex-start;
+
+				li {
+					position: relative;
+					display: flex;
+					flex-flow: wrap row;
+					justify-content: flex-start;
+					align-items: center;
+					max-width: 184px;
+					margin-bottom: 20px;
+					padding: 0;
+					overflow: visible;
+
+					&.label {
+
+						a {
+							position: relative;
+							width: 100%;
+							overflow: hidden;
+
+							&::after {
+
+								@include color(background-color, primary-color);
+								@include color(color, font-color-light);
+								content: "";
+								position: absolute;
+								top: 8px;
+								right: 0;
+								display: inline-block !important;
+								font-family: $font-primary !important;
+								padding: 2px 4px;
+								border-radius: 2px;
+								font-size: 10px;
+								line-height: 1;
+								text-transform: uppercase;
+							}
+						}
+
+						&-new {
+
+							a {
+
+								&::after {
+									content: "new";
+								}
+							}
+						}
+
+						&-top {
+
+							a {
+
+								&::after {
+									content: "top";
+								}
+							}
+						}
+
+						&-trending {
+
+							a {
+
+								&::after {
+									content: "trending";
+								}
+							}
+						}
+					}
+
+					&::before {
+						position: absolute;
+						left: 0;
+						top: 2px;
+						pointer-events: none;
+						z-index: 1;
+						content: "";
+						display: block;
+						width: 24px;
+						height: 24px;
+						font-size: 20px;
+					}
+
+					&::after {
+						content: "";
+						position: absolute;
+						left: -20px;
+						bottom: -10px;
+						height: calc(100% + 20px);
+						width: 0;
+						background-color: #feefe0;
+						transition: all 0.5s ease;
+					}
+
+					&:hover {
+
+						&::after {
+							width: calc(100% + 120px);
+						}
+					}
+
+					a {
+						font-family: $font-secondary;
+						padding-left: 33px;
+						z-index: 1;
+					}
+
+					&:first-of-type {
+						padding-right: 0;
+					}
+
+					.menu-item-description {
+						display: none;
+
+						@media (min-width: $breakpoint-tablet-landscape) {
+
+							@include color(color, font-color-medium);
+							display: block;
+							font-size: 12px;
+							line-height: 1.5;
+							font-weight: $font-weight-normal;
+							margin-top: -3px;
+							white-space: break-spaces;
+						}
+					}
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					padding: 15px 0 0;
+				}
+			}
+		}
+	}
+
+	.icon-header-menu {
+
+		&::before {
+			width: 1.5em;
+			height: 1.75em;
+			background: url(../images/iconsmenu-sprite.svg?v3) no-repeat;
+		}
+	}
+
+	$iconHeader: (
+		"wix": 100% 100%,
+		"braintree": 0 0,
+		"stripe": 100% 0,
+		"mailchimp": 50% 100%,
+		"drupal": 50 0%,
+		"joomla": 0 100%
+	);
+
+	@each $icon, $pos in $iconHeader {
+		.icon-header-menu-#{$icon}:before {
+			background-position: $pos;
+		}
+	}
+
+	.label-overview {
+
+		a[href="#"],
+		[class^="fontello-"]::before,
+		[class*="fontello-"]::before {
+			color: $saturated-blueish-menu !important;
+		}
+
+		::after {
+			background-color: $desaturated-blueish-menu !important;
+		}
+	}
+
+	.label-product {
+
+		a[href="#"],
+		[class^="fontello-"]::before,
+		[class*="fontello-"]::before {
+			color: $primary !important;
+		}
+
+		::after {
+			background-color: $desaturated-blue !important;
+		}
+	}
+
+	.label-use-for {
+
+		a[href="#"],
+		[class^="fontello-"]::before,
+		[class*="fontello-"]::before {
+			color: $saturated-blue !important;
+		}
+
+		::after {
+			background-color: $desaturated-blue !important;
+		}
+	}
+
+	.label-integrations {
+		padding: 0 70px 0 30px !important;
+
+		ul li {
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		a[href="#"] {
+			color: #ababab !important;
+		}
+
+		> * {
+			position: relative;
+			z-index: 1;
+		}
+
+		::after {
+			background-color: $lightest-gray !important;
+			left: -10px !important;
+			bottom: 2px !important;
+			height: 30px !important;
+			z-index: 0;
+		}
+	}
+
+	.label-learn {
+
+		a[href="#"],
+		[class^="fontello-"]::before,
+		[class*="fontello-"]::before {
+			color: $saturated-green-menu !important;
+		}
+
+		::after {
+			background-color: $desaturated-green-menu !important;
+		}
+	}
+
+	.label-company {
+
+		a[href="#"],
+		[class^="fontello-"]::before,
+		[class*="fontello-"]::before {
+			color: $saturated-magenta-menu !important;
+		}
+
+		::after {
+			background-color: $desaturated-magenta-menu !important;
+		}
+	}
+
+	.label-sub {
+
+		a[href="#"] {
+			z-index: 0 !important;
+			color: transparent !important;
+
+			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+				display: none;
+			}
+		}
+
+	}
+}
+
+.Header__mobileNavigation {
+	display: block;
+	font-size: 26px;
+	line-height: 60px;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: none;
+	}
+}
+
+
+html[lang="de-DE"],
+html[lang="sk-SK"],
+html[lang="ru-RU"] {
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.Header__navigation ul.nav li {
+			padding: 0 14px !important;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-tablet-landscape) {
+
+	html[lang="vi-VN"] {
+
+		.Header .Button--login {
+			margin-left: 28px !important;
+		}
+	}
+}
+

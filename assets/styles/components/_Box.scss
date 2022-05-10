@@ -1,0 +1,517 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Box {
+
+	.wrapper {
+
+		@include color(background-color, main-background);
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1380px;
+		padding: 65px 120px;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, main-background);
+		padding: 65px 0;
+
+		.wrapper {
+			max-width: 1180px;
+			padding: 65px 20px;
+			background-color: transparent;
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		.wrapper {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		padding: 0;
+
+		.wrapper {
+			padding: 1.5em 0;
+		}
+	}
+}
+
+.Box--gray {
+
+	.wrapper {
+
+		@include color(background-color, newsletter-background);
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, newsletter-background);
+	}
+}
+
+.Box--orange {
+
+	.wrapper {
+
+		@include color(background-color, secondary-color);
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include color(background-color, secondary-color);
+	}
+}
+
+.Box--violet {
+
+	.wrapper {
+		background-color: $desaturated-violet;
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+		background-color: $desaturated-violet;
+	}
+}
+
+.Box--article {
+
+	@include color(background-color, main-background);
+	border-radius: $border-radius-16;
+	box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.06);
+
+	&__inn {
+		position: relative;
+		display: block;
+		padding: 1.125em;
+	}
+
+	&__text {
+		padding: 1.375em 1.375em 0;
+
+		@media (max-width: $breakpoint-tablet-small) {
+			padding: 0;
+			padding-top: 1.125em;
+		}
+	}
+
+	&__image {
+		position: relative;
+		width: calc(100% + 2.25em);
+		height: 10.125em;
+		overflow: hidden;
+		border-radius: $border-radius-14 $border-radius-14 0 0;
+		margin: -1.125em -1.125em 0.75em;
+		// box-shadow: 0 8px 35px 0 rgba(0, 0, 0, 0.1);
+
+		img {
+
+			@include square(100%);
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__date {
+
+		@include color(color, border-color-gray-icon);
+		display: flex;
+		align-items: center;
+		font-family: $font-secondary;
+		font-size: 0.75em;
+		margin-bottom: 1em;
+
+		&__icon {
+
+			@include square(1em);
+			margin-right: 0.75em;
+			color: currentColor;
+		}
+	}
+
+	&__title {
+		font-size: 1.125rem;
+
+		@media (max-width: $breakpoint-tablet-small) {
+			font-size: 1rem;
+		}
+	}
+
+	&__title,
+	&__more {
+		transition: color 0.2s;
+	}
+
+	&__more {
+		font-family: $font-secondary;
+		color: $light-gray-icon;
+		margin-bottom: 0.5em;
+
+		&-arrow {
+
+			width: 1em;
+			margin-left: 0.25em;
+			color: currentColor;
+		}
+	}
+
+	&__tag {
+
+		@include color(color, font-color-light);
+		display: flex;
+		justify-content: flex-end;
+		position: relative;
+		position: absolute;
+		top: 1.5rem;
+		right: 1.5rem;
+		align-items: center;
+		padding: 2px 14px;
+		border-radius: 100px;
+		background-color: $primary;
+		font-family: $font-secondary;
+		font-size: $font-size-smaller;
+		font-weight: 700;
+		z-index: 1;
+
+		.star-icon {
+
+			@include square(1rem);
+			background: url(../images/star-icon.svg) no-repeat;
+			background-size: contain;
+			margin: 0 5px 0 0;
+		}
+	}
+
+	&:hover {
+
+		.Box--article {
+
+			&__title,
+			&__more {
+
+				@include color(color, primary-color);
+			}
+		}
+	}
+}
+
+.Box--main {
+
+	@include color(background-color, main-background);
+	padding: 1.5em;
+	border: 1px solid $light-gray;
+	border-radius: $border-radius-16;
+	transition: all 0.25s;
+	overflow: hidden;
+	margin-bottom: 1.25em;
+
+	.elementor-widget-wrap {
+		display: block;
+		align-items: center;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 2.5em;
+
+		.elementor-widget-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+	}
+
+	* {
+		transition: none;
+	}
+
+	&__more-arrow {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-wide {
+
+			max-width: 52em;
+			margin: 1.5em auto;
+
+			.Box--main {
+
+				&__inn {
+					display: flex;
+					align-items: center;
+				}
+
+				&__image {
+					margin-right: 2.5em;
+					margin-bottom: 0;
+					flex-shrink: 0;
+				}
+
+				&__text {
+					width: 60.4%;
+					margin-right: auto;
+				}
+
+				&__excerpt {
+					margin-bottom: 0;
+				}
+
+				&__more-arrow {
+
+					@include square(3em);
+					display: block;
+					fill: $primary !important;
+				}
+			}
+		}
+	}
+
+
+	&:not(.pillar):active,
+	&:not(.pillar):focus,
+	&:not(.pillar):hover {
+
+		@include color(background-color, primary-color);
+		@include color(color, font-color-light);
+		box-shadow: 0 0 5em -0.625em rgba(0, 0, 0, 0);
+
+		* {
+			color: currentColor;
+		}
+
+		svg {
+			fill: currentColor !important;
+		}
+	}
+
+	&__logo {
+		display: block;
+		margin-bottom: 1.5rem;
+
+		img {
+			max-height: 3em !important;
+		}
+	}
+
+	&__image,
+	&__thumbnail,
+	.elementor-widget-image:first-child {
+		float: left;
+		margin-bottom: 0;
+
+		.elementor-image {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
+
+		.Box--main:not(.pillar) & {
+
+			@include square(4em);
+			background-color: $light-primary;
+			border-radius: $border-radius-14;
+			padding: 1em;
+		}
+
+		.Box--main:not(.pillar) &:empty {
+
+			&::before {
+
+				@include square(100%);
+				content: url(../images/icon_chain.svg);
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 1.5rem;
+
+			.Box--main:not(.pillar) & {
+
+				@include square(5.25em);
+				padding: 1.5em;
+			}
+		}
+	}
+
+	&__title,
+	.elementor-widget-heading {
+		width: calc(100% - 5rem);
+		float: right;
+		position: static;
+		margin-bottom: 0;
+
+		* {
+			position: static;
+			font-size: 1rem;
+		}
+
+		.elementor-widget-container {
+			margin-bottom: 0 !important;
+		}
+
+		h3 {
+			margin-bottom: 0.25em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 100%;
+
+			* {
+				font-size: 1.125rem;
+			}
+		}
+	}
+
+	&__excerpt,
+	.elementor-widget-text-editor {
+		width: calc(100% - 5rem);
+		float: right;
+
+		p,
+		> a {
+			display: block;
+			font-size: 0.8125rem;
+			line-height: 1.3;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			width: 100%;
+
+			p,
+			> a {
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+			}
+		}
+	}
+
+	&__title {
+		max-height: 2.75em;
+		overflow: hidden;
+
+		a {
+
+			@include color(color, font-color-dark);
+		}
+	}
+
+	&__excerpt {
+
+		@include color(color, font-color-normal);
+		overflow: hidden;
+
+		p,
+		> a {
+
+			@include color(color, font-color-level3);
+			margin-bottom: 5px;
+
+			a {
+
+				@include color(color, font-color-level3);
+			}
+		}
+	}
+}
+
+.Box--primary {
+
+	@extend .Box--main;
+	box-shadow: 0 4px 4em 0 rgba($black-real, 0.04);
+	border: none;
+
+	&:hover {
+
+		@include color(background-color, primary-color);
+	}
+
+	&.elementor-column {
+
+		.elementor-column-wrap {
+
+			.elementor-widget-wrap {
+				justify-content: flex-start;
+			}
+		}
+	}
+
+	.elementor-widget {
+		position: static;
+
+		a {
+
+			&::before {
+
+				@include posCustom(-2.5em);
+				position: absolute;
+				content: "";
+			}
+		}
+	}
+
+	&__thumbnail,
+	.elementor-widget-image:first-of-type {
+
+		@include square(4em, !important);
+		display: flex;
+		background-color: $light-primary;
+		border-radius: $border-radius;
+		padding: 1em;
+
+		img {
+
+			@include square(100%);
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			@include square(5.25em, !important);
+			padding: 1.5em;
+			border-radius: $border-radius-14;
+		}
+	}
+}
+
+.Box--center {
+
+	.elementor-widget-image .elementor-widget-container {
+		display: flex;
+		align-items: center;
+	}
+
+	* {
+		text-align: left !important;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		* {
+			justify-content: center !important;
+			text-align: center !important;
+		}
+
+		.elementor-widget-container {
+			display: flex;
+		}
+	}
+}

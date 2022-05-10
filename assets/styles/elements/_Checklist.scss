@@ -1,0 +1,102 @@
+/* stylelint-disable no-descending-specificity */
+
+%checklist {
+	list-style: none;
+	padding-left: 0.5em;
+	text-align: left;
+
+	li {
+
+		@include color(color, font-color-dark, !important);
+		position: relative;
+		font-size: 1rem;
+		padding-left: 1.5em;
+		margin-bottom: 0.35em;
+
+		&::before {
+
+			@include circle(1em);
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 4px;
+			left: -0.5em;
+			background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
+			background-size: 50%;
+			padding: 0.25em;
+			font-size: 1.25em;
+			margin: 0;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin-top: 1em;
+
+		li {
+			padding-left: 0.5em;
+
+			&::before {
+
+				@include color(color, primary-color);
+				@include square(auto);
+				content: "\2022";
+				background: none;
+				padding: 0;
+				top: 0;
+			}
+		}
+	}
+}
+
+.checklist {
+
+	.elementor-text-editor.elementor-text-editor {
+		width: auto;
+
+		ul:not([class]) {
+
+			@extend %checklist;
+		}
+	}
+
+	&-slim {
+
+		.elementor-text-editor.elementor-text-editor {
+
+			ul {
+
+				font-weight: 400 !important;
+			}
+		}
+	}
+}
+
+.elementor-text-editor.elementor-text-editor ul,
+ul.checklist {
+
+	li {
+		position: relative;
+
+		&::before {
+
+			@include circle(1em);
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 4px;
+			left: 0;
+			background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
+			background-size: 50%;
+			padding: 0.25em;
+			font-size: 1.25em;
+			margin: 0;
+		}
+	}
+
+	@include color(color, font-color-normal);
+}
+
+.elementor-text-editor.elementor-text-editor ul li {
+	padding-left: 2em;
+}

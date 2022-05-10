@@ -1,0 +1,295 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+input[type="submit"],
+input[type="button"],
+button,
+.button,
+.Button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	height: $button-height-normal;
+	padding: 0 $button-padding-normal;
+	border: 0;
+	border-radius: $border-radius-6;
+	font-family: $font-secondary;
+	font-size: $button-font-size-normal;
+	font-weight: $font-weight-semi;
+	cursor: pointer;
+}
+
+.Button + .Button {
+	margin-left: 15px;
+
+	&--outline {
+		top: 1px;
+	}
+}
+
+.Button--full {
+
+	@include color(background, primary-color);
+	@include color(color, button-full-font-color);
+	overflow: hidden;
+	border: 1px solid $primary;
+	transition: all 0.2s;
+
+	span,
+	strong {
+		position: relative;
+		z-index: 2;
+		font-weight: $font-weight-semi;
+		line-height: $button-height-normal;
+	}
+
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(background, button-full-background-color-1);
+		border-color: $dark-primary;
+	}
+}
+
+.Button--normal {
+	color: #fff;
+	background-color: $primary;
+	transition: all 0.3s;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: $dark-primary;
+	}
+}
+
+.Button--white {
+
+	@include color(background, content-color-light);
+	@include color(color, content-color-dark);
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+		line-height: $button-height-normal;
+	}
+
+	&::before {
+
+		@include color(background, content-color-light);
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius / 2);
+		opacity: 1;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&::after {
+
+		@include color(background, content-color-dark);
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: ($border-radius / 2);
+		opacity: 0;
+		transition: opacity 0.75s;
+		z-index: 1;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(color, content-color-light);
+
+		&::before {
+			opacity: 0;
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+}
+
+.Button--outline {
+
+	@include color(color, font-color-dark);
+	@include color(border-color, border-color-dark);
+	border-width: 1px;
+	border-style: solid;
+	overflow: hidden;
+	transition: all 0.3s;
+
+	&-light {
+
+		@include color(color, font-color-level3);
+		@include color(border-color, border-color-inputs);
+	}
+
+	span {
+		position: relative;
+		z-index: 2;
+		// font-weight: 400;
+		line-height: $button-height-normal;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		@include color(color, primary-color);
+		@include color(border-color, primary-color);
+	}
+}
+
+.Button--icon {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
+
+	img,
+	svg {
+
+		@include square(1.75em);
+
+		&:first-child {
+			margin-right: 0.75em;
+		}
+
+		&:last-child {
+			margin-left: 0.75em;
+		}
+	}
+}
+
+.Button--copy {
+	margin-bottom: 50px;
+	margin-left: 30px;
+	margin-top: 10px;
+	padding: 0 20px;
+	background-color: transparent;
+
+	span {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: flex-start;
+		align-items: center;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			background-image: url(../images/icon-copy.svg);
+			transition: opacity 0.3s;
+		}
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+
+		span {
+
+			&::before {
+				background-image: url(../images/icon-copy-hover.svg);
+			}
+		}
+	}
+}
+
+.Button--back {
+	margin-top: 20px;
+}
+
+.Button--app {
+	display: inline-block;
+	width: auto;
+	height: 3.4375em;
+	min-width: 10em;
+
+	&::after {
+		display: none !important;
+	}
+
+	+ .Button--app {
+		margin-left: 1.5em;
+	}
+}
+
+.Button--narrow {
+	height: 2.625rem;
+
+	span,
+	strong {
+		line-height: 3;
+		font-weight: 400;
+	}
+}
+
+.Button--big {
+	height: 72px;
+	padding: 0 30px;
+	font-size: 18px;
+
+	span,
+	strong {
+		line-height: 72px;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		height: 60px;
+		padding: 0 25px;
+		font-size: 16px;
+
+		span,
+		strong {
+			line-height: 60px;
+		}
+	}
+}
+
+.Button--inaction {
+
+	@include color(color, font-color-dark);
+	display: inline-flex;
+	align-items: center;
+	font-family: $font-secondary;
+	font-size: 0.875rem;
+
+	&::before {
+		content: url(../images/play_seeinaction.svg);
+		margin-right: 0.75em;
+		line-height: 0;
+	}
+
+	&:hover {
+
+		@include color(color, primary-color);
+	}
+}

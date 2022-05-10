@@ -1,0 +1,63 @@
+/* stylelint-disable selector-class-pattern */
+
+.Category__header {
+	padding: 0;
+
+	&--inn {
+		text-align: center;
+	}
+
+	.wrapper__wide,
+	.wrapper.wrapper {
+		display: flex;
+		flex-flow: nowrap column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 1.5em;
+		background-color: rgb(243, 230, 255);
+
+		@media (min-width: $breakpoint-tablet) {
+			background: url(../images/features_bg.svg) 15% center no-repeat;
+			background-size: cover;
+		}
+	}
+
+	&__title,
+	&__subtitle {
+		max-width: 30em;
+		text-align: center;
+	}
+
+	&__subtitle {
+		font-size: $font-size-smaller;
+		margin-bottom: 2rem;
+	}
+
+	@media (max-width: $breakpoint-tablet-small) {
+
+		&__subtitle {
+			display: none;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper {
+			background-position: center center;
+			height: 20.3em;
+		}
+
+		&__title {
+			font-size: 3rem;
+		}
+
+		.searchField {
+			width: 26.75em;
+
+			input {
+				width: 100%;
+			}
+		}
+	}
+}

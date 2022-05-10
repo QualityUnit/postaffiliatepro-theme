@@ -1,0 +1,302 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Pricing {
+	$pricing-border: 1px !global;
+
+	@include color(background-color, secondary-background);
+	padding: 90px 0;
+	overflow: hidden;
+	margin: 0 5%;
+	border-radius: $border-radius-16;
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		max-width: 1180px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	&__header {
+		position: relative;
+		text-align: center;
+
+		&__title {
+			font-size: $font-size-bigger;
+			line-height: $line-height-h1;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: $font-size-h2-l;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				padding: 0 5em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				padding: 0;
+			}
+		}
+
+		&__title__second {
+			margin: 0 auto 1.125em;
+			font-size: 1rem;
+			line-height: 1.63;
+			color: #666;
+			max-width: 610px;
+			text-align: center;
+		}
+
+		&__tag {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: center;
+
+			&-title {
+
+				@include color(color, font-color-dark);
+				@include color(background-color, button-outline-color);
+				margin: 0 1em 1em 0;
+				padding: 3px 1em;
+				border-radius: 1em;
+				font-size: 0.75rem;
+				font-weight: 600;
+				line-height: 1.42;
+				text-align: center;
+			}
+		}
+
+		&__currency-switcher {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			top: -4em;
+			right: 0;
+			z-index: 1;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				top: 14px;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				right: 4.375em;
+			}
+
+			&-switch {
+				position: relative;
+				display: inline-block;
+				width: 30px;
+				height: 17px;
+				margin: 0 10px;
+
+				input {
+					visibility: collapse;
+					background-color: $white;
+				}
+			}
+
+			&-slider {
+				position: absolute;
+				cursor: pointer;
+				top: -3px;
+				left: -5px;
+				right: -5px;
+				bottom: -3px;
+				background-color: $primary;
+				transition: 0.4s;
+
+				&::before {
+					position: absolute;
+					content: "";
+					height: 17px;
+					width: 17px;
+					left: 3px;
+					bottom: 3px;
+					background-color: $white;
+					transition: 0.4s;
+				}
+			}
+
+			input:checked + &-slider::before {
+				transform: translateX(16px);
+			}
+
+			&-slider,
+			&-round {
+				border-radius: 34px;
+
+				&::before {
+					border-radius: 50%;
+				}
+			}
+
+			&-usd,
+			&-eur {
+				font-family: $font-primary;
+				font-size: $font-size-default;
+			}
+
+			.Tooltip {
+				left: auto;
+				right: -4em;
+
+				&::after {
+					left: 85%;
+				}
+			}
+		}
+	}
+}
+
+.PricingTable {
+	margin-top: 2.5em;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		max-width: 1000px;
+		margin: 1.25em auto 2.5em;
+	}
+
+	&__header {
+		display: none;
+		justify-content: center;
+		align-content: center;
+		width: 100%;
+		text-align: center;
+		font-family: $font-secondary;
+		font-weight: 600;
+		border-bottom: $pricing-border solid $pricing-gray;
+		padding: 0.75em 0.5em;
+		max-height: 3em;
+
+		&__icon {
+
+			@include square(1.5em, !important);
+			margin-right: 0.75em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			display: flex;
+		}
+	}
+
+	&__wrap {
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			@include color(background-color, main-background);
+			box-shadow: 0 3px 1.25em 0 rgba($black-real, 0.05);
+			border-radius: $border-radius-16;
+			width: 33.33%;
+
+			&--wide {
+				display: flex;
+				flex-wrap: wrap;
+				width: 66.66%;
+				margin-right: 2em;
+
+				.PricingTable__column {
+					width: 50%;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	&__column {
+		position: relative;
+		padding: 4em 1em 1.875em;
+
+		@media (max-width: $breakpoint-tablet-landscape - 1px) {
+
+			@include color(background-color, main-background);
+			box-shadow: 0 3px 1.25em 0 rgba($black-real, 0.05);
+			border-radius: $border-radius-16;
+			margin-bottom: 2em;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			padding: 4em 1.875em 1.875em;
+		}
+
+		.tag.tag {
+			position: absolute;
+			top: 1em;
+			right: 1.875em;
+		}
+
+		&__title {
+
+			h3 {
+				font-size: $font-size-h2-s;
+			}
+		}
+
+		&__price {
+			display: flex;
+			font-size: 1.25rem;
+		}
+
+		&__list {
+			border-top: $pricing-border solid #f1f1f1;
+			margin: 1.875em -1.875em 0;
+			padding: 1.875em 1.875em 0;
+
+			ul {
+
+				@include color(color, font-color-dark);
+				font-family: $font-primary;
+			}
+
+			.highlight.small {
+				display: inline-block;
+				line-height: 2.14;
+
+				&::before {
+					background-color: $primary;
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 25%;
+					width: 0;
+					height: 3px;
+					transition: all 0.3s;
+				}
+
+				&:hover::before {
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+
+		.Button {
+			width: 100%;
+			margin: 1.5em 0;
+
+			span {
+				line-height: 2.75;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			+ .PricingTable__column {
+				border-left: $pricing-border solid #f1f1f1;
+			}
+		}
+	}
+}
+
+.price {
+
+	&-hide {
+		display: none;
+	}
+
+	&-show {
+		display: inline-block;
+	}
+}

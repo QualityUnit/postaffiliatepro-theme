@@ -1,0 +1,19 @@
+/* stylelint-disable selector-class-pattern */
+
+.pricingPlan--element {
+
+	@media (max-width: $breakpoint-tablet) {
+		background: url(../images/pricing_plan_mobile.svg) center right no-repeat;
+
+		.tag {
+			display: none;
+		}
+
+		.elementor-widget-wrap {
+			border-radius: $border-radius-16;
+			background-color: $lightest-gray;
+			padding: 1em 1.5em 0 !important;
+			width: 75%;
+		}
+	}
+}

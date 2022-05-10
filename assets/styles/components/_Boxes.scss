@@ -1,0 +1,198 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Boxes {
+
+	@media (max-width: $breakpoint-tablet) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+
+	.wrapper {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+
+		&.elementor-top-column {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	&.has-four {
+
+		@media (min-width: $breakpoint-tablet-small) and (max-width: $breakpoint-tablet-landscape) {
+
+			.elementor-row {
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+
+			.elementor-column {
+				margin: 1em 0;
+				width: calc(50% - 1em);
+
+				+ .elementor-column {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	&--primary {
+
+		&.elementor-inner-section .elementor-row {
+			align-items: stretch;
+		}
+
+		.elementor-column {
+
+			@extend .Box--primary;
+
+			@media (min-width: $breakpoint-desktop) {
+				margin: 0;
+
+				+ .elementor-column {
+					margin-left: 1.5em;
+				}
+			}
+		}
+	}
+
+	&--dotted {
+
+		.elementor-column:not(.pillar) {
+
+			box-shadow: none;
+			overflow: visible;
+
+			&:hover {
+				background-color: $white !important;
+				color: $black !important;
+				box-shadow: 0 20px 90px 10px rgba(55, 55, 55, 0.08);
+				z-index: 1;
+
+				.elementor-widget-heading {
+
+					&::before {
+						box-shadow: 0 0 0.5em 0.15em rgba($primary, 0.6);
+					}
+
+					&::after {
+						opacity: 0;
+					}
+				}
+			}
+
+			.elementor-widget-image:first-of-type {
+
+				@include square(5em, !important);
+				background-color: transparent;
+				border-radius: none !important;
+				padding: 0;
+			}
+
+			.elementor-widget-heading {
+				margin-bottom: 1em;
+				position: relative;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					&::before,
+					&::after {
+						display: block;
+						content: "";
+						transition: all 0.2s;
+					}
+
+					&::before {
+
+						@include circle(0.875em);
+						@include color(background-color, primary-color);
+						position: relative;
+						margin: 0 auto 1em;
+						box-shadow: 0 0 0.5em 0 rgba($primary, 0.8);
+						z-index: 1;
+					}
+
+					&::after {
+						position: absolute;
+						height: 1px;
+						width: calc(100% + 12em);
+						top: calc(0.4375em - 1px);
+						left: 50%;
+						transform: translateX(-50%);
+						background: $light-gray;
+					}
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&:first-of-type .elementor-widget-heading {
+
+					&::after {
+						background: linear-gradient(to left, $light-gray 75%, rgba($light-gray, 0));
+					}
+				}
+
+				&:last-of-type .elementor-widget-heading {
+
+					&::after {
+						background: linear-gradient(to right, $light-gray 75%, rgba($light-gray, 0));
+					}
+				}
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&.Boxes {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&--jump {
+
+		.elementor-row {
+			justify-content: space-between;
+			align-items: flex-start;
+			margin: 1em;
+
+			@media (min-width: $breakpoint-desktop) {
+				margin: 0;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-column[class*="Box"] {
+				width: calc(50% - 1.5em) !important;
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.elementor-column[class*="Box"] {
+				min-height: 22.5em;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			@for $margin from 1 to 6 {
+
+				.elementor-column:nth-of-type(#{$margin}) {
+					margin-top: 1.5em * $margin;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 3.75em;
+		margin-bottom: 3.75em;
+	}
+}

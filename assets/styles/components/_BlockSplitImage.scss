@@ -1,0 +1,83 @@
+/* stylelint-disable selector-class-pattern */
+
+.Block {
+
+	&--splitImage.Block {
+
+		.elementor-col-50 {
+
+			&:last-of-type {
+				display: none;
+			}
+
+		}
+
+		@media (max-width: $breakpoint-tablet + 1px) {
+
+			.elementor-col-50.elementor-col-50 {
+
+				&:first-of-type {
+					margin: 3em 0;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet + 1px) {
+
+			.elementor-inner-section {
+
+				.elementor-row {
+
+					&::before,
+					&::after {
+						display: none;
+					}
+				}
+			}
+
+			.elementor-col-50:last-of-type {
+				display: block;
+			}
+		}
+	}
+
+	&--integrations {
+
+		.elementor-inner-section {
+
+			.elementor-row {
+
+				&::before {
+					content: url(../images/block_logos_up.svg);
+					width: 100%;
+				}
+
+				&::after {
+					content: url(../images/block_logos_down.svg);
+					width: 100%;
+					order: 2;
+				}
+			}
+		}
+	}
+
+	&--team {
+
+		.elementor-inner-section {
+
+			.elementor-row {
+
+				&::before {
+					content: url(../images/block_team_up.svg);
+					width: 100%;
+				}
+
+				&::after {
+					content: url(../images/block_team_down.svg);
+					width: 100%;
+					order: 2;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,158 @@
+/* stylelint-disable selector-class-pattern */
+
+.Reference {
+	overflow: hidden;
+
+	&.Block--background {
+		padding: 0 !important;
+		background-color: transparent;
+
+		.wrapper {
+			padding: 0 !important;
+
+			@media (min-width: $breakpoint-tablet) {
+				background: $lightest-gray url(../images/map_reference.svg) 2em center no-repeat;
+				background-size: contain;
+				padding: 4em !important;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				padding-top: 9.375em !important;
+				padding-bottom: 5.25em !important;
+			}
+		}
+	}
+
+
+	.SliderTestimonials__slider--reference {
+		position: relative;
+
+		.splide {
+			padding: 0;
+			overflow: hidden;
+
+			.splide__list {
+				display: flex;
+				align-items: stretch;
+				width: 100%;
+			}
+		}
+
+		.splide__slide {
+			margin: 0;
+
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+
+			.splide__list {
+				position: relative;
+				left: -1em;
+			}
+
+			.splide__slide {
+				background-color: $lightest-gray;
+				border-radius: $border-radius-16;
+				padding: 3.25em 2.25em;
+				height: auto;
+			}
+		}
+
+		.slide__inn {
+			display: flex;
+			align-items: center;
+			padding: 0;
+
+			@media (max-width: $breakpoint-tablet-small) {
+				flex-direction: column;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				margin-bottom: 4.5em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				padding-left: calc(18.75em - 4em);
+				padding-right: 6.625em;
+			}
+		}
+
+		.SliderTestimonials__slider {
+
+			&__header__photo {
+				width: 25%;
+
+				img {
+					width: 100%;
+					border-radius: 50%;
+				}
+
+				@media (max-width: $breakpoint-tablet-small - 1px) {
+					width: 50%;
+					margin: 0 auto;
+				}
+
+				@media (min-width: $breakpoint-desktop) {
+					width: 30%;
+				}
+			}
+
+			&__content {
+
+				@include color(color, font-color-dark);
+				width: 81%;
+				font-size: 0.8125rem;
+				font-family: $font-secondary;
+				text-align: center;
+
+				&__bottom {
+
+					@include color(color, font-color-dark);
+					margin-top: 1em;
+
+					span {
+						font-weight: 400;
+					}
+				}
+
+				&::before {
+
+					@include square(1.75rem);
+					display: block;
+					background: url(../images/quote.svg) center center no-repeat;
+					background-size: contain;
+					margin: 1.5em auto;
+					content: "";
+				}
+
+				@media (min-width: $breakpoint-tablet-small) {
+					width: 58.9%;
+					margin-left: 11%;
+					font-size: 1.25rem;
+					font-weight: 700;
+					text-align: left;
+
+					&::before {
+
+						@include square(2.2rem);
+						margin: 0 0 0.5em;
+					}
+
+
+					&__bottom {
+						font-size: 1rem;
+					}
+				}
+			}
+
+			&__logo {
+				margin-left: auto;
+
+				img {
+					height: 1.15em;
+					width: auto;
+				}
+			}
+		}
+	}
+}

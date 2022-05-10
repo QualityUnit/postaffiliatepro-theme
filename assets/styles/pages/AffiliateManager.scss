@@ -1,0 +1,91 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.AffiliateManager {
+
+	&__header {
+
+		.wrapper__wide {
+
+			@include color(background-color, secondary-background);
+			border-radius: $border-radius-16;
+			overflow: hidden;
+		}
+
+		&--content {
+			display: flex;
+			flex-direction: column;
+			padding: 2em;
+
+			@media (min-width: $breakpoint-tablet) {
+				padding: 2em 0;
+
+				.Post__header--title {
+					font-size: 2.25rem;
+				}
+			}
+		}
+	}
+
+	&__manager {
+
+		@include color(color, font-color-dark);
+		text-transform: uppercase;
+		font-size: 0.75em;
+		line-height: 2;
+		letter-spacing: 0.2em;
+		margin-bottom: 1em;
+	}
+
+	&__image {
+
+		@include square(100% !important);
+		position: absolute;
+		object-fit: cover;
+
+		&--wrapper {
+			position: relative;
+		}
+	}
+
+	.Post__sidebar__categories__labels {
+
+		li {
+
+			@include color(color, font-color-dark);
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__header {
+
+			.wrapper__wide {
+				display: flex;
+				padding: 0;
+			}
+		}
+
+		&__image {
+
+			&--wrapper {
+				width: 14.5%;
+				height: 0;
+				padding-bottom: 14.5%;
+				border-radius: 0 2.8125em 2.8125em 0;
+				overflow: hidden;
+				margin-right: 5.75em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop-box) {
+
+		.Post__sidebar {
+			padding-left: 0;
+			padding-right: 1.5em;
+		}
+	}
+}

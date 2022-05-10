@@ -1,0 +1,55 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Box--fullWidth {
+
+	+ .Box--fullWidth {
+		margin-top: 0.75em;
+	}
+
+	&__inn {
+		display: flex;
+		align-items: center;
+		background-color: $light-grayBg;
+		transition: all 0.2s;
+		border-radius: $border-radius-16;
+		padding: 1em 1.625em;
+
+		&:hover {
+			background-color: $lighter-gray;
+
+			.Box--fullWidth__arrow {
+				animation: moveArrow 2s linear infinite;
+			}
+		}
+	}
+
+	&__title {
+		margin: 0 !important;
+		font-size: 1rem;
+		line-height: 1.25;
+	}
+
+	&__arrow {
+		margin-left: auto;
+		width: 1.875em;
+
+		@at-root {
+
+			@keyframes moveArrow {
+
+				from,
+				to {
+					transform: translateX(0);
+				}
+
+				20% {
+					transform: translateX(0.5em);
+				}
+
+				80% {
+					transform: translateX(-0.5em);
+				}
+			}
+		}
+	}
+}

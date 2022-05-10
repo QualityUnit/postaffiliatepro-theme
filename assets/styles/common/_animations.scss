@@ -1,0 +1,57 @@
+/* stylelint-disable selector-class-pattern */
+
+@keyframes chatDots {
+
+	0% {
+		opacity: 0.5;
+	}
+
+	15% {
+		transform: translateY(-0.25em);
+	}
+
+	25% {
+		transform: translateY(0);
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.5;
+	}
+}
+
+@mixin shakeX($distanceX: 1em) {
+
+	@at-root {
+
+		@keyframes shakeX {
+
+			from,
+			to {
+				transform: translate3d(0, 0, 0);
+			}
+
+			10%,
+			30%,
+			50%,
+			70%,
+			90% {
+				transform: translate3d(-#{$distanceX}, 0, 0);
+			}
+
+			20%,
+			40%,
+			60%,
+			80% {
+				transform: translate3d(#{$distanceX}, 0, 0);
+			}
+		}
+
+		.shakeX {
+			animation-name: shakeX;
+		}
+	}
+}

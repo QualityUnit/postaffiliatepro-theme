@@ -1,0 +1,59 @@
+/* stylelint-disable selector-class-pattern */
+
+.Post__header__narrow {
+
+	.wrapper__wide {
+		background: $lightest-gray;
+		border-radius: $border-radius-16;
+		overflow: hidden;
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			height: auto;
+		}
+
+		&__text {
+			padding: 0 1.5em;
+		}
+	}
+
+	&__image {
+
+		height: 15em;
+		margin-bottom: 1.5em;
+
+		img {
+
+			@include square(100%);
+			object-fit: cover;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.wrapper__wide {
+			padding: 0;
+		}
+
+		&__breadcrumbs {
+			margin-bottom: 1.5em;
+		}
+
+		&__text {
+			padding: 2.75em 2.75em 2.75em 3.25em;
+		}
+
+		&__title {
+			font-size: 2.5rem;
+		}
+
+		&__image {
+			width: 16.25em;
+			height: 100%;
+			border-radius: 0 2.75em 2.75em 0;
+			overflow: hidden;
+		}
+	}
+}

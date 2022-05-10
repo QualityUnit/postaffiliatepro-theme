@@ -1,0 +1,114 @@
+/* stylelint-disable selector-class-pattern, value-keyword-case */
+
+.BlogPost__share-sidebar {
+	display: none;
+	position: absolute;
+	width: 14em;
+	right: 1em;
+	transition: transform 0.5s;
+
+	&-wrapper {
+		position: sticky;
+		top: 15px + $header-height;
+		width: 100%;
+	}
+
+	&__title {
+		font-family: $font-secondary;
+		font-weight: 700;
+		font-size: 1.125rem;
+	}
+
+	&__items {
+		display: flex;
+		margin-top: 0.75em;
+	}
+
+	&__item {
+		margin-right: 0.25em;
+		font-size: 1.25rem;
+
+		a {
+			display: block;
+			color: #fff;
+			border-radius: 0.15em;
+			line-height: 1;
+			padding: 0.5em;
+			text-align: center;
+			border: 1px solid transparent;
+			transition: all 0.5s;
+
+			&:hover {
+				opacity: 0.8;
+			}
+
+			&[href*="facebook"] {
+				background-color: #1ba6ff;
+			}
+
+			&[href*="twitter"] {
+				background-color: #1164ba;
+			}
+
+			&[href*="linkedin"] {
+				background-color: #0077b4;
+			}
+		}
+	}
+
+	&__trial {
+
+		&__main {
+			display: flex;
+			align-items: center;
+		}
+
+		&__icon {
+			width: 4.75rem;
+			opacity: 1;
+			transition: opacity 0.5s;
+		}
+
+		.Button {
+			padding: 0 2em;
+			margin-top: 1em;
+			width: 100%;
+			text-align: center;
+			border: 1px solid transparent;
+			white-space: nowrap;
+			overflow: visible;
+		}
+	}
+
+	&.inactive {
+
+		.BlogPost__share-sidebar {
+
+			&__item a,
+			&__trial .Button {
+
+				@include color(background-color, main-background);
+				@include color(color, border-color-gray);
+				border-color: currentColor;
+				background: transparent;
+
+				&::after,
+				&::before {
+					opacity: 0;
+				}
+			}
+
+			&__trial__icon {
+				opacity: 0;
+			}
+		}
+	}
+
+	&.scrolled {
+		transform: translateY(calc(-100% - 105px));
+	}
+
+	@media (min-width: 1280px) {
+		display: block;
+	}
+}

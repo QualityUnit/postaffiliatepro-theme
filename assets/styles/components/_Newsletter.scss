@@ -1,0 +1,181 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Newsletter {
+	position: relative;
+	z-index: 1;
+	margin-top: 3em;
+	transform: translateY(1em);
+
+	&__inn {
+
+		@include color(background-color, main-background);
+		display: flex;
+		flex-direction: column;
+		padding: 1.5em;
+		border-radius: $border-radius-30;
+		box-shadow: 0 0 5em -0.625em rgba(0, 0, 0, 0.06);
+
+		@media (min-width: $breakpoint-tablet) {
+
+			flex-direction: row;
+			text-align: left;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			margin: 0 -2.5em;
+			padding: 3em 2.5em;
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		margin-bottom: 1.5em;
+	}
+
+	&__title-mobile {
+		margin-left: 1rem;
+		font-size: 1rem;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	.elementor-widget-wrap {
+		align-content: center;
+	}
+
+	&__form {
+		width: 100%;
+		margin: 0;
+
+		.Input {
+			text-align: center;
+			margin-bottom: 1.5em;
+
+			@media (min-width: $breakpoint-tablet) {
+				height: 3rem;
+			}
+		}
+
+		.Button {
+			min-width: 185px;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+
+			.Input,
+			.Button {
+				width: 100%;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		transform: translateY(25%);
+
+		&__inn {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		&__icon {
+			margin-bottom: 0;
+		}
+
+		&__text {
+			margin-left: 1.5em;
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		&__form {
+			width: auto;
+			margin-left: 1.5rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		transform: translateY(50%);
+
+		&__form {
+			display: flex;
+			justify-content: flex-end;
+			width: 55%;
+
+			form {
+				display: flex;
+			}
+
+			.Input {
+				margin-right: 1.5em;
+				margin-bottom: 0;
+				height: auto;
+			}
+		}
+
+		&__text {
+			width: 45%;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		.Input {
+			min-width: 20em;
+		}
+	}
+}
+
+form.MailChimp {
+
+	.mc-field-group {
+		display: flex;
+		flex-flow: wrap column;
+		align-items: flex-start;
+		margin-bottom: 25px;
+
+		label {
+			display: block;
+			margin-bottom: 3px;
+		}
+
+		input {
+			min-width: 50%;
+		}
+
+		select {
+
+			@include color(border-color, border-color-normal);
+			@include color(color, font-color-normal);
+			width: auto;
+			min-width: 50%;
+			height: $input-height-normal;
+			padding: 0 $input-padding-normal;
+			border-width: $input-border-width-normal;
+			border-style: solid;
+			border-radius: ($border-radius / 2);
+			background-color: transparent;
+			font-size: $input-font-size-normal;
+			font-weight: $font-weight-normal;
+
+			option {
+				padding: 0 $input-padding-normal;
+			}
+		}
+	}
+
+	input[type="submit"],
+	button {
+
+		@extend .Button;
+		@extend .Button--full;
+	}
+}

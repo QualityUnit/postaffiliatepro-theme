@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern */
+
+.Post__header {
+
+	.wrapper__wide {
+		border-radius: $border-radius-16;
+		background-size: cover;
+	}
+
+	$header_images: (
+		"features", "integrations",
+	);
+
+	@each $section in $header_images {
+		&.#{$section} .wrapper__wide {
+			background-image: url(../../images/post_header_#{$section}.svg);
+			background-position: center top;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.customer-support-glossary {
+
+		.wrapper__wide {
+			background-image: url(../../images/post_header_academy.svg);
+			background-position: center top;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&.directory {
+
+		.wrapper__wide {
+			background-image: url(../../images/bg_category_directory.svg);
+		}
+	}
+
+	&.about {
+
+		.wrapper__wide {
+			background: url(../../images/bg_category_about.jpg?v2) center center no-repeat;
+			background-size: contain;
+
+			@media (min-width: $breakpoint-tablet) {
+				background-image: url(../../images/bg_category_about_tablet.jpg?v2);
+				background-size: cover;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				background-image: url(../../images/bg_category_about_desktop.jpg?v2);
+			}
+		}
+	}
+}

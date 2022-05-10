@@ -1,0 +1,95 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+
+.Numbers {
+
+	@extend .Box;
+	@extend .Box--gray;
+
+	.wrapper {
+		counter-reset: numbers-counter;
+
+		> .elementor-column-wrap {
+			z-index: 1;
+
+			> .elementor-widget-wrap {
+
+				> .elementor-widget-text-editor p {
+					text-align: center;
+					font-size: $font-size-default;
+
+					@media (min-width: $breakpoint-tablet) {
+						width: 60%;
+						margin: 0 auto 3em;
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-inner-section .elementor-row {
+				justify-content: space-between;
+				align-items: stretch;
+			}
+
+			&::after {
+				content: "";
+
+				@include posCustom(5em, 1em, 1em, 3em);
+				position: absolute;
+				display: block;
+				background: url(../images/illustration-numbers.svg) right bottom no-repeat;
+				background-size: contain;
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding-left: 8.125em !important;
+			padding-right: 8.125em !important;
+		}
+	}
+
+	.elementor-container {
+		position: relative;
+	}
+
+	.elementor-col-33 {
+
+		@extend .Box--primary;
+		padding-top: 1.5em !important;
+		margin-bottom: 1.5em;
+		counter-increment: numbers-counter;
+
+		.elementor-widget-heading {
+
+			&::before {
+				content: "0" counter(numbers-counter);
+				font-size: 5.25rem;
+				line-height: 1.3;
+				font-family: $font-secondary;
+				font-weight: 600;
+				color: $light-primary;
+			}
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 0.25em;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			min-height: 20.2em;
+			width: calc(50% - 1em);
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(33.3% - 1em);
+		}
+	}
+}

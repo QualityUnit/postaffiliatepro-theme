@@ -1,0 +1,151 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.Article {
+
+	&__header {
+		max-width: 86.25em;
+		margin: 2em auto;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	&__sidebar {
+		margin-top: 3em;
+
+		&__menu {
+			margin-top: 1.5em;
+		}
+
+		&__item {
+			font-family: $font-secondary;
+			margin-top: 0.75em;
+
+			&-url {
+
+				@include color(background-color, main-background);
+				display: flex;
+				border-radius: $border-radius-16;
+				box-shadow: 0 4px 4em rgba($black-real, 0.08);
+				overflow: hidden;
+			}
+
+			&-image {
+				width: 50%;
+				min-height: 4.5em;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center center;
+				}
+			}
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding: 1em;
+				font-size: 1rem;
+
+				strong {
+
+					@include color(color, font-color-dark);
+					display: block;
+					font-size: 0.85em;
+					font-weight: 600;
+				}
+			}
+
+			&-learnmore {
+
+				@include color(color, font-color-level3);
+				display: flex;
+				align-items: center;
+				font-size: 0.75em;
+				margin-top: 0.5em;
+			}
+
+			&-arrow {
+				width: 1em;
+				margin-left: 0.5em;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__sidebar {
+
+			&__menu {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+
+			&__item {
+				width: 48%;
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__header {
+			margin-bottom: 3.5em;
+		}
+
+		&__container {
+			display: flex;
+		}
+
+		&__content {
+			width: 57%;
+
+			.wp-block-image.size-full img {
+				margin-left: -10%;
+				max-width: 120%;
+			}
+		}
+
+		&__sidebar {
+			width: 24.5%;
+			margin-top: 1em;
+			margin-left: auto;
+
+			&__menu {
+				display: block;
+			}
+
+			&__item {
+				width: 100%;
+
+				&:hover {
+
+					.Article__sidebar__item-learnmore {
+
+						@include color(color, primary-color);
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		&__content {
+
+			.wp-block-image.size-full img {
+				margin-left: -19%;
+				max-width: 140%;
+			}
+		}
+	}
+}

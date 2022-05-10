@@ -1,0 +1,168 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../elements/Checklist";
+@import "../elements/PostTypography";
+
+$sidebarWidth: 13.5em;
+$signupSidebarWidth: 16.875em;
+
+.Post {
+
+	&__header {
+
+		.Category__header__title {
+			margin-bottom: auto;
+		}
+
+		.wrapper__wide {
+			border-radius: $border-radius-16;
+			height: 9.375em;
+
+			@media (min-width: $breakpoint-tablet) {
+				height: 14.375em;
+			}
+		}
+	}
+
+	&__logo {
+
+		@include square(9.375em);
+		@include color(background-color, main-background);
+		box-shadow: 0 0.25em 1em 0 rgba(0, 0, 0, 0.08);
+		padding: 1.5em;
+		border-radius: $border-radius-16;
+		display: none;
+
+		img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: flex;
+			position: absolute;
+			top: -8.5em;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.Button {
+			margin: 0;
+			margin-bottom: 1em;
+		}
+
+		@media (min-width: $breakpoint-tablet-small) {
+			display: block;
+
+			.Button {
+				margin: 1.5em 1em 0 0;
+			}
+		}
+	}
+
+	&__sidebar {
+		display: none;
+
+		&__buttons {
+			margin-bottom: 2em;
+
+			.Button {
+				width: 100%;
+				padding: 0 1em;
+				text-align: center;
+				white-space: nowrap;
+				margin: 0;
+
+				+ .Button {
+					margin-top: 0.75em;
+				}
+			}
+		}
+
+		@media (min-width: ($breakpoint-desktop-box - 80px)) {
+			display: block;
+			width: $sidebarWidth;
+		}
+	}
+
+	&__container {
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 1em;
+		}
+	}
+
+	&__content {
+		padding: 0 1.5em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(100% - #{$signupSidebarWidth} + 3em);
+			max-width: 40.625em;
+			padding: 0;
+			margin: 0 auto;
+
+			.Content {
+
+				> {
+
+					.Post__m__negative,
+					.BlockDiscover,
+					.Faq,
+					.wide,
+					.wp-block-embed,
+					.youtube__loader {
+						margin-left: -3.125em;
+						margin-right: -3.125em;
+					}
+
+					figure {
+
+						&.size-full,
+						&.wide,
+						&.size-large {
+							display: flex;
+							justify-content: center;
+							flex-wrap: wrap;
+
+							figcaption {
+								width: 100%;
+							}
+						}
+					}
+				}
+
+				.wp-block-embed,
+				.youtube__loader {
+					border-radius: $border-radius-16;
+					overflow: hidden;
+				}
+			}
+		}
+
+		@media (min-width: ($breakpoint-desktop-box - 80px)) {
+			width: calc(100% - #{$sidebarWidth} - #{$signupSidebarWidth});
+			margin-left: calc(16.25em - #{$sidebarWidth} + 3.25em);
+
+			.Content {
+
+				> {
+
+					.Post__m__negative,
+					.BlockDiscover,
+					.Faq,
+					.wide,
+					.wp-block-embed,
+					.youtube__loader {
+						margin-left: -3em;
+						margin-right: -3em;
+					}
+				}
+			}
+		}
+	}
+}

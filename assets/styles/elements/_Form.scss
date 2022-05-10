@@ -1,0 +1,252 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable value-keyword-case */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+.Input {
+
+	@include color(color, font-color-level3);
+	@include color(border-color, font-color-inputs);
+	@include color(background-color, main-background);
+	width: auto;
+	height: 3rem;
+	padding: 0 $input-padding-normal;
+	border-width: $input-border-width-normal;
+	border-style: solid;
+	border-radius: $border-radius-6;
+	font-size: $input-font-size-normal;
+	font-family: $font-primary;
+	font-weight: $font-weight-normal;
+	outline: none;
+
+	&.error {
+
+		@include color(color, error-color);
+	}
+
+	&:-ms-input-placeholder,
+	&::-ms-input-placeholder {
+
+		color: currentColor;
+		opacity: 1;
+	}
+
+	&::placeholder {
+
+		color: currentColor;
+		opacity: 1;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		height: $input-height-normal;
+	}
+}
+
+input[type="checkbox"] {
+	display: none;
+
+	+ label {
+		display: block;
+
+		p {
+			margin-bottom: 0;
+		}
+
+		&::before {
+
+			@include square(1.4em);
+			position: relative;
+			display: inline-block;
+			content: "";
+			top: 0.35em;
+			background: url(../images/checkbox-unactive.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.5em;
+		}
+	}
+
+	&:checked {
+
+		+ label::before {
+			background-image: url(../images/checkbox-active.svg);
+		}
+	}
+}
+
+label {
+	cursor: pointer;
+}
+
+label.Input {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	z-index: 2;
+
+	.active & {
+		box-shadow: 0 0.25em 0.5em 0 rgba($white, 0.6);
+	}
+
+	&[data-select] {
+
+		&::before {
+			position: absolute;
+			right: 2em;
+			top: 50%;
+			transform: translateY(-50%) rotate(90deg);
+			content: url(../images/icon-arrow.svg);
+			opacity: 0.4;
+			// background: url(../images/icon-arrow.svg);
+		}
+	}
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		display: flex;
+		justify-content: space-between;
+
+		.Signup__form__item {
+			width: 48%;
+		}
+	}
+}
+
+.searchField {
+	position: relative;
+	margin: 0 auto !important;
+	border-top: 0;
+
+	&:focus-within {
+
+		@include color(color, primary-color);
+	}
+
+	i,
+	svg {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	input[type="search"] {
+
+		@include color(background-color, main-background);
+		padding-left: 3.5em;
+		min-width: 18em;
+		font-size: 1rem;
+		width: 100%;
+		height: 3.125em;
+		transition: border-color 0.2s, background-color 0.2s;
+
+		&:focus {
+
+			@include color(color, primary-color);
+		}
+	}
+
+	&-rounded {
+
+		@include color(color, primary-color);
+
+		i {
+			color: currentColor;
+		}
+
+		input[type="search"] {
+
+			@include color(background-color, secondary-color);
+			color: currentColor;
+			border-radius: 1.5em;
+			border-color: transparent;
+
+			&:focus {
+				border-color: currentColor;
+				background-color: transparent;
+
+				&:-ms-input-placeholder,
+				&::-ms-input-placeholder {
+
+					@include color(color, font-color-normal);
+					opacity: 0.5;
+				}
+
+				&::placeholder {
+
+					@include color(color, font-color-normal);
+					opacity: 0.5;
+				}
+			}
+
+			&:-ms-input-placeholder,
+			&::-ms-input-placeholder {
+
+				color: currentColor;
+			}
+
+			&::placeholder {
+
+				color: currentColor;
+			}
+		}
+	}
+}
+
+textarea {
+
+	@include color(color, font-color-level3);
+	@include color(border-color, font-color-inputs);
+	width: 100%;
+	min-height: $input-height-normal;
+	padding: $input-padding-normal;
+	border-width: $input-border-width-normal;
+	border-style: solid;
+	border-radius: ($border-radius / 2);
+	background-color: transparent;
+	font-size: $input-font-size-normal;
+	font-weight: $font-weight-normal;
+}
+
+.pseudoSelect {
+
+	@include color(background-color, main-background);
+	@include color(border-color, font-color-inputs, !important);
+	display: none;
+	position: absolute;
+	top: calc(100% - 6px);
+	width: 100%;
+	max-height: 21.5em;
+	overflow-y: scroll;
+	font-size: $font-size-smaller;
+	border: 1px solid;
+	border-radius: $border-radius-6;
+
+	&.active {
+		display: block;
+		z-index: 1;
+		box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.08);
+	}
+
+	&__option {
+		cursor: pointer;
+		padding: 0.75em 0 0.75em 4.28em;
+
+		&:hover {
+
+			@include color(background-color, primary-color);
+			@include color(color, font-color-light);
+		}
+	}
+}

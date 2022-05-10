@@ -1,0 +1,29 @@
+/* stylelint-disable selector-class-pattern */
+
+.Category__item.pillar {
+
+	&.promotional-materials .Category__item__thumbnail__image {
+		background: url(../../images/features_pillar_promotional-materials.svg?v2) center center no-repeat;
+		background-size: auto 90%;
+	}
+
+	&.reporting .Category__item__thumbnail__image {
+		background: url(../../images/features_pillar_reporting.svg?v2) center center no-repeat;
+		background-size: contain;
+	}
+
+	&.types-of-commissions .Category__item__thumbnail__image {
+		background: url(../../images/features_pillar_commisions.svg?v2) center center no-repeat;
+		background-size: contain;
+	}
+
+	&.user-interface .Category__item__thumbnail__image {
+		background: url(../../images/features_pillar_ui.svg?v2) center center no-repeat;
+		background-size: contain;
+	}
+
+	&.tracking-methods .Category__item__thumbnail__image {
+		background: url(../../images/features_pillar_tracking.svg?v2) center center no-repeat;
+		background-size: contain;
+	}
+}
