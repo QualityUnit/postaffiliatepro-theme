@@ -1,10 +1,11 @@
-/* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
+/* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap */
 /* global $, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
 /* global progressStep, newProgress, btoa */
-/* global debug, textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, productDomain, authTokenName, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, papAccount, papAction, papCampaign, googleScript, capterraScript, textStart, textInvalid, textCreating, recaptchaId, variationId */
+/* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, debug, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, productDomain, authTokenName, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, papAccount, papAction, papCampaign, googleScript, textStart, textInvalid, textCreating, recaptchaId, variationId */
 
 ( function main() {
-	const g2crowdTracking = '<img src="https://tracking.g2crowd.com/funnels/938455d7-8e96-4676-9ae2-427524d169d9.gif?stage=finish&stype=offer">';
+	const capterraScript =
+		"<script src='https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3'></script>";
 
 	function sendApiRequest( options ) {
 		const opt = options;
@@ -539,7 +540,7 @@
 				field[ property ] = field.getField( property );
 			}
 		} );
-	}( sF ) );
+	} )( sF );
 
 	function parseError( response, def ) {
 		if ( response.status === 500 ) {
@@ -635,15 +636,6 @@
 		initDomainField();
 	}
 
-	function getCookie( name ) {
-		const value = `; ${ document.cookie }`;
-		const parts = value.split( `; ${ name }=` );
-
-		if ( parts.length === 2 ) {
-			return parts.pop().split( ';' ).shift();
-		}
-	}
-
 	function doLoading( subscription ) {
 		const options = new Api.installProgress( subscription.id );
 
@@ -681,11 +673,7 @@
 						'created',
 						`${ sF.domainField.value() }.${ productDomain }`,
 					] );
-					if ( typeof Piwik === 'undefined' ) {
-						pkvid = '';
-					} else {
-						pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
-					}
+					pkvid = `?pk_vid=${ Piwik.getTracker().getVisitorId() }`;
 				}
 
 				progressLoader.setProgress( 100 );
@@ -771,18 +759,23 @@
 
 		if ( typeof gtag !== 'undefined' ) {
 			gtag( 'event', $( '#plan' ).val(), {
-				event_category: 'SignUp',
+				event_category: 'PAP SignUp',
 			} );
 		}
 
 		$( googleScript ).appendTo( '#signup' );
+		if ( typeof fbq !== 'undefined' ) {
+			$( "<script>fbq('track', 'StartTrial')</script>" ).appendTo(
+				'#signup'
+			);
+		}
+
 		$( capterraScript ).appendTo( '#signup' );
 		if ( typeof fbq !== 'undefined' ) {
 			$( "<script>fbq('track', 'StartTrial')</script>" ).appendTo(
 				'#signup'
 			);
 		}
-		$( g2crowdTracking ).appendTo( '#signup' );
 
 		if ( typeof _paq !== 'undefined' ) {
 			_paq.push( [ 'setObjectId', subscription.account_id ] );
@@ -832,6 +825,15 @@
 		};
 
 		sendApiRequest( options );
+	}
+
+	function getCookie( name ) {
+		const value = `; ${ document.cookie }`;
+		const parts = value.split( `; ${ name }=` );
+
+		if ( parts.length === 2 ) {
+			return parts.pop().split( ';' ).shift();
+		}
 	}
 
 	function getSourceId() {
@@ -991,6 +993,8 @@
 		} );
 	}
 
-	initFormFields();
-	initFormButton();
-}() );
+	$( () => {
+		initFormFields();
+		initFormButton();
+	} );
+} )();

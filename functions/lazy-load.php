@@ -8,7 +8,7 @@ function video_lazyload( $html ) {
 	$html = preg_replace_callback(
 		'/(\<video.+)(src=".+\<\/video\>)/',
 		function ( $m ) {
-				return $m[1] . 'style="opacity: 0;" data-la' . $m[2];
+			return $m[1] . 'style="opacity: 0;" data-' . $m[2];
 		},
 		$html
 	);
@@ -22,9 +22,9 @@ add_filter( 'the_content', 'video_lazyload', 10 );
  */
 function img_lazyload( $html ) {
 	$html = preg_replace_callback(
-		'/(\<img.+)(src((?!.+?\bset\b).+?)=".+\>)/',
+		'/(\<img.+)(src((?!.+?\bset\b).+?)=".+postaffiliate.+\>)/',
 		function ( $m ) {
-				return $m[1] . 'style="opacity: 0; transition: opacity .5s" data-la' . $m[2];
+			return $m[1] . 'style="opacity: 0; transition: opacity .5s" data-' . $m[2];
 		},
 		$html
 	);
@@ -37,7 +37,7 @@ function img_srcset_lazyload( $html ) {
 	$html = preg_replace_callback(
 		'/(\<img.+)(src=".+)(srcset=".+\>)/',
 		function ( $m ) {
-				return $m[1] . ' data-la' . $m[2] . 'style="opacity: 0; transition: opacity .5s" data-la' . $m[3];
+			return $m[1] . ' data-' . $m[2] . 'style="opacity: 0; transition: opacity .5s" data-' . $m[3];
 		},
 		$html
 	);

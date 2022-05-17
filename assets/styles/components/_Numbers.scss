@@ -1,99 +1,92 @@
-/* stylelint-disable selector-class-pattern */
-
 .Numbers {
 
-	.elementor-container {
+	@extend .Box;
+	@extend .Box--gray;
+
+	.wrapper {
 		counter-reset: numbers-counter;
-		position: relative;
-	}
 
-	.elementor-col-33 {
-		counter-increment: numbers-counter;
-		position: relative;
-		padding-top: 90px;
-		padding-left: 90px;
-		padding-right: 90px;
+		> .elementor-column-wrap {
+			z-index: 1;
 
-		&::before {
-			content: "0" counter(numbers-counter);
-			font-size: 200px;
-			line-height: 165px;
-			font-weight: 700;
-			position: absolute;
-			top: 0;
-			left: 50px;
-			opacity: 0.1;
-		}
+			> .elementor-widget-wrap {
 
-		h2 {
-			font-size: 24px;
-			line-height: 28px !important;
-		}
+				> .elementor-widget-text-editor p {
+					text-align: center;
+					font-size: $font-size-default;
 
-		p {
-			margin-bottom: 0;
-
-			&::after {
-				content: "";
-				display: block;
-				width: 80px;
-				height: 2px;
-				background-color: #000;
-				margin-top: 25px;
-			}
-		}
-	}
-
-	&--red {
-
-		.elementor-col-33 {
-
-			&::before {
-				color: #fff;
-			}
-
-			h2,
-			p {
-				color: #fff;
-			}
-
-			p {
-
-				&::after {
-					background-color: #fff;
+					@media (min-width: $breakpoint-tablet) {
+						width: 60%;
+						margin: 0 auto 3em;
+					}
 				}
 			}
 		}
 
-		.wrapper {
-			background-color: #ff5776;
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-inner-section .elementor-row {
+				justify-content: space-between;
+				align-items: stretch;
+			}
+
+			&::after {
+				content: "";
+
+				@include posCustom(5em, 1em, 1em, 3em);
+				position: absolute;
+				display: block;
+				background: url(../images/illustration-numbers.svg) right bottom no-repeat;
+				background-size: contain;
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding-left: 8.125em !important;
+			padding-right: 8.125em !important;
 		}
 	}
 
-	@media (max-width: $breakpoint-desktop-box) {
-
-		&--red {
-			background-color: #ff5776;
-		}
+	.elementor-container {
+		position: relative;
 	}
 
-	@media (max-width: $breakpoint-desktop) {
+	.elementor-col-33 {
 
-		.elementor-col-33 {
-			padding-left: 40px;
-			padding-right: 40px;
+		@extend .Box--primary;
+		padding-top: 1.5em !important;
+		margin-bottom: 1.5em;
+		counter-increment: numbers-counter;
+
+		.elementor-widget-heading {
 
 			&::before {
-				font-size: 160px;
-				left: 0;
+				content: "0" counter(numbers-counter);
+				font-size: 5.25rem;
+				line-height: 1.3;
+				font-family: $font-secondary;
+				font-weight: 600;
+				color: $light-primary;
 			}
 		}
-	}
 
-	@media (max-width: $breakpoint-tablet) {
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 0.25em;
+		}
 
-		.elementor-col-33 {
-			width: 100%;
+		p {
+			margin-bottom: 0;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			min-height: 20.2em;
+			width: calc(50% - 1em);
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			width: calc(33.3% - 1em);
 		}
 	}
 }

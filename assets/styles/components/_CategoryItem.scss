@@ -73,10 +73,30 @@
 			padding: 2.5em;
 		}
 	}
+
+	&:not(.pillar):not(.Category__item--blogLike) {
+
+		&:hover {
+
+			@include color(color, font-color-light);
+
+			* {
+				color: currentColor;
+			}
+		}
+
+		.Category__item {
+
+			&__thumbnail {
+
+				@include square(5.25em);
+			}
+		}
+	}
 }
 
 .Category__item.pillar {
-
+	position: relative;
 	align-items: center;
 	background: url(../../images/bg_dots-full.svg)  0 10% no-repeat;
 	background-size: 100% auto;
@@ -100,7 +120,6 @@
 	.Category__item {
 
 		&__thumbnail {
-			position: relative;
 			justify-content: center;
 			width: 42%;
 			height: 9em;
@@ -120,14 +139,11 @@
 
 				&__image {
 					position: absolute;
-					display: block;
 					top: 0;
 					left: 0;
-					width: 350px;
+					width: 100%;
+					max-width: 350px;
 					height: 100%;
-					background-size: auto 90%;
-					background-position: center;
-					background-repeat: no-repeat;
 				}
 			}
 		}
@@ -191,7 +207,6 @@
 .Category__item--blogLike {
 	border-radius: $border-radius-16;
 	box-shadow: 0 15px 66px -15px rgba($black-real, 0.12);
-	overflow: hidden;
 	transition: transform 0.2s;
 	cursor: pointer;
 	margin-bottom: 1.375em;
@@ -201,25 +216,120 @@
 	}
 
 	&__thumbnail {
+		position: relative;
 		display: block;
 		height: 9.375em;
+
+		&::before {
+
+			@include posZero;
+			content: "";
+			position: absolute;
+			background: linear-gradient(to right, transparent 25%, rgba(#222, 0.75));
+			border-radius: $border-radius-16 $border-radius-16 0 0;
+		}
+
+		.postLabel {
+			--labelcolor: #{$tag};
+
+			@include color(color, font-color-dark);
+			position: absolute;
+			display: flex;
+			align-items: center;
+			top: 2.5em;
+			right: -0.5em;
+			border-radius: 5px;
+			background-color: var(--labelcolor);
+			padding: 0.75em 1em 0.75em 0.15em;
+			font-size: 0.625rem;
+			font-weight: 600;
+			line-height: 1.25;
+
+			&[class*="postLabel__"] {
+
+				&::before {
+					margin-top: 0;
+				}
+			}
+
+			&::before {
+
+				content: "\e82e";
+				font-family: fontello; /* stylelint-disable-line */
+				line-height: 1;
+				margin-top: -0.15em;
+				margin-right: 0.5em;
+				z-index: 1;
+			}
+
+			svg {
+
+				fill: var(--labelcolor);
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: calc(100% - 3px);
+			}
+
+			&__time {
+
+				&::before {
+					content: url(../../images/icon-clock.svg);
+				}
+			}
+
+			&__video {
+				--labelcolor: #{$lighter-gray};
+				top: 6em;
+
+				&::before {
+					content: url(../../images/icon-play.svg);
+				}
+			}
+		}
 
 		img {
 
 			@include square(100%);
 			object-fit: cover;
+			border-radius: $border-radius-16 $border-radius-16 0 0;
 		}
 	}
 
 	&__content {
 		padding: 2em;
-		text-align: center;
 
-		.Blog__item__meta__categories {
-			margin-bottom: 1em;
+		&[style*=":"] {
+			mask-image: linear-gradient(to bottom, $black-real calc(100% - 6em), transparent calc(100% - 1em));
+			mask-size: cover;
 		}
 
 		p {
+
+			@include color(color, font-color-normal);
+			font-size: 0.875rem;
+
+			strong {
+
+				@include color(color, font-color-dark);
+				font-weight: 600;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		.checklist {
+
+			li::before {
+				background-image: url(../../images/icon-post-check.svg);
+			}
+		}
+
+		.learn-more {
+
+			@include color(color, font-color-level3);
 			font-size: 0.875rem;
 		}
 

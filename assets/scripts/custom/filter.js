@@ -20,7 +20,7 @@
 		const filterItems = queryAll(
 			".Category__sidebar__item input[type='radio']"
 		);
-		const search = query( "input[type='search']" );
+		const search = query( ".searchField input[type='search']" );
 		const { hash } = window.location;
 		const activeFilter = {
 			collections: '',
@@ -35,12 +35,8 @@
 		const count =
 			queryAll( '.list li' ).length -
 			queryAll( ".list li[style*='none']" ).length;
-		if ( query( '.Category__content__description' ) ) {
-			query( '.Category__content__description span' ).textContent = count;
-			query( '.Category__content__description div' ).classList.add(
-				'show'
-			);
-		}
+		query( '.Category__content__description span' ).textContent = count;
+		query( '.Category__content__description div' ).classList.add( 'show' );
 
 		// Adds numbered classes to each featured article so we can assign image to it
 		if ( pillars !== null ) {
@@ -58,7 +54,7 @@
 					const val = filterItem.value;
 					const name = filterItem.getAttribute( 'name' );
 
-					if ( name === 'category' ) {
+					if ( name === 'category' || name === 'type' ) {
 						window.history.pushState( {}, '', `#${ val }` );
 						if ( val.length === 0 ) {
 							window.history.pushState( {}, '', ' ' );
@@ -94,7 +90,7 @@
 				filterItem.addEventListener( 'change', () => {
 					function regex( activeFilterCategory ) {
 						if ( activeFilterCategory !== '' ) {
-							return new RegExp( `^${ activeFilterCategory }$` );
+							return new RegExp( `${ activeFilterCategory }` );
 						}
 						return '';
 					}
@@ -134,25 +130,33 @@
 		// URL filter
 		if ( hash.length ) {
 			const filteredHash = hash.replace( '#', '' );
+			filterItems.forEach( ( element ) => {
+				const filterItem = element;
+				const val = filterItem.value;
+				const name = filterItem.getAttribute( 'name' );
+
+				if ( filteredHash === val ) {
+					filterItem.checked = true;
+
+					activeFilter[ name ] = val;
+					recountVisible();
+				}
+			} );
 
 			listItems.forEach( ( element ) => {
 				const listItem = element;
 				const dataCategory = listItem.dataset.category
 					? listItem.dataset.category
 					: '';
+				const dataType = listItem.dataset.type
+					? listItem.dataset.type
+					: '';
 
-				if ( ! dataCategory.includes( filteredHash ) ) {
+				if (
+					! dataCategory.includes( activeFilter.category ) ||
+					! dataType.includes( activeFilter.type )
+				) {
 					listItem.style.display = 'none';
-				}
-			} );
-
-			filterItems.forEach( ( element ) => {
-				const filterItem = element;
-				const val = filterItem.value;
-
-				if ( filteredHash === val ) {
-					filterItem.checked = true;
-					recountVisible();
 				}
 			} );
 		}

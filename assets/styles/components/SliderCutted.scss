@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-
 @import "../common/mixins";
 @import "../common/variables";
 
@@ -11,12 +9,21 @@
 	.splide {
 
 		&__pagination {
+			position: absolute;
+			z-index: 1;
+			bottom: 0.5em;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 0;
 
 			li + li {
 				margin-left: 0.25em;
 			}
 
 			&__page {
+
+				@include square(10px);
+				margin: 0.35em;
 				opacity: 1;
 
 				&.is-active {
@@ -27,11 +34,67 @@
 				}
 			}
 		}
+
+		&__arrows {
+			display: none;
+		}
 	}
 
 	@media (min-width: $breakpoint-tablet) {
 		margin: 0 auto 5em;
 		mask-image: radial-gradient(circle 4em at 3em 50%, $white 0%, $white 50%, transparent 50%), radial-gradient(circle 4em at calc(100% - 3em) 50%, $white 0%, $white 50%, transparent 50%), linear-gradient(to right, transparent, $black-real 2em, $black-real calc(100% - 2em), transparent);
+
+		.splide {
+
+			&__arrows {
+				display: flex;
+				position: absolute;
+				pointer-events: none;
+				width: calc(100% - 3em);
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 2;
+
+				.splide__arrow {
+					all: unset;
+					pointer-events: auto;
+
+					@include color(background-color, main-background);
+					@include color(color, primary-color);
+					@include square(3em);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: -0.5em 0.5em 1.375em 0 rgba($black-real, 0.08);
+					border-radius: 50%;
+					transition: all 0.2s;
+					cursor: pointer;
+
+					&::before {
+						display: none;
+					}
+
+					&:hover {
+
+						@include color(background-color, primary-color);
+						@include color(color, font-color-light);
+					}
+
+					svg {
+
+						@include square(1em);
+						display: block;
+						color: currentColor;
+					}
+
+					&--next {
+						margin-left: auto;
+						box-shadow: 0.5em 0.5em 1.375em 0 rgba($black-real, 0.08);
+					}
+				}
+			}
+		}
 
 		&__slide {
 			padding: 3em;

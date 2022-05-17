@@ -4,7 +4,7 @@ function ms_awards() {
 	ob_start();
 	?>
 	<?php 
-		$years   = array_unique( get_categories( array( 'taxonomy' => 'ms_awards_years' ) ), SORT_REGULAR );
+		$years   = get_categories( array( 'taxonomy' => 'ms_awards_years' ) );
 		$counter = 0;
 	foreach ( $years as $year ) {
 		++$counter;
@@ -49,6 +49,7 @@ function ms_awards() {
 	<?php } ?>
 
 	<?php
+	set_custom_source( 'pages/Awards' );
 	return ob_get_clean();
 }
 add_shortcode( 'awards', 'ms_awards' );

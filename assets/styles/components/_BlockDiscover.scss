@@ -1,47 +1,45 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
-
 .BlockDiscover {
-	position: relative;
-	margin: 2.5em auto;
+	background-repeat: no-repeat;
+	background-position: 95% -4px;
+	background-size: auto 110%;
+	margin: 40px -50px;
 	padding: 40px !important;
-	border-radius: $border-radius-16;
-	background: url(../images/cta_new_bg.svg) left top no-repeat;
-	background-size: cover;
+	border-radius: $border-radius;
 
-	&::before {
-
-		@media (min-width: $breakpoint-tablet) {
-
-			@include posZero;
-			position: absolute;
-			content: "";
-			background: url(../images/cta_new_chat.png) 100% bottom no-repeat;
-			background-size: 50% auto;
-		}
-
-		@media (min-width: $breakpoint-desktop) {
-			background-size: auto 100%;
-			background-position: 95% bottom;
-		}
+	&--discover {
+		background-color: #fa9531;
+		background-image: url(../images/bg_discover.png);
 	}
 
-	.Button + .Button {
-		top: 0;
+	&--support-portal {
+		background-color: #fa9531;
+		background-image: url(../images/bg_support_portal.png);
+		background-position: 95% 100%;
+		background-size: 55% auto;
+
+		p {
+			padding-right: 3em;
+
+			&:first-of-type {
+				padding-right: 0;
+			}
+		}
 	}
 
 	h4 {
 
 		@include color(color, font-color-light);
 		margin: 0;
-		font-size: 1.75rem;
-		line-height: 1.285;
-		font-weight: 600;
+		font-size: 42px;
+		line-height: 48px;
+		font-weight: 700;
+		max-width: 45%;
 	}
 
 	p {
 
 		@include color(color, font-color-light, !important);
+		max-width: 50%;
 		margin-bottom: 15px !important;
 		letter-spacing: 0 !important;
 
@@ -50,6 +48,20 @@
 			@include color(color, font-color-light);
 			font-size: $font-size-bigger;
 			line-height: $line-height-bigger;
+		}
+	}
+
+	.Button {
+
+		@extend .Button--white;
+		@include color(color, font-color-dark, !important);
+
+		&:active,
+		&:focus,
+		&:hover {
+
+			@include color(background-color, font-color-dark, !important);
+			@include color(color, font-color-light, !important);
 		}
 	}
 
@@ -67,53 +79,29 @@
 		}
 	}
 
-	&__buttons {
-		display: flex;
-		flex-direction: column;
-		margin-top: 1.5em;
-
-		.Button {
-			padding: 0.5em 1.5em;
-		}
-
-		@media (max-width: $breakpoint-tablet-landscape) {
-
-			.Button {
-				padding: 0.5em 1.5em;
-				width: 100%;
-
-				+ .Button {
-					margin-left: 0;
-					margin-top: 1em;
-				}
-			}
-		}
-
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-
-		h4,
-		p,
-		&__buttons {
-			max-width: 48%;
-		}
-	}
-
-	@media (min-width: $breakpoint-desktop) {
+	@media (max-width: $breakpoint-desktop) {
+		background-image: none;
 
 		h4,
 		p {
-			max-width: 50%;
+			max-width: 100%;
 		}
+	}
 
-		&__buttons {
-			flex-direction: row;
-			max-width: 58%;
+	@media (max-width: $breakpoint-tablet) {
+		margin-left: 0;
+		margin-right: 0;
 
-			.Button.Button {
-				white-space: nowrap;
-				max-width: 50%;
+		.Newsletter__form {
+
+			form {
+				display: flex;
+				flex-flow: wrap column;
+
+				.Input {
+					margin-right: 0;
+					margin-bottom: 15px;
+				}
 			}
 		}
 	}

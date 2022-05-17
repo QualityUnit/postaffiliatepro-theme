@@ -3,10 +3,10 @@
 	<div class="wrapper Archive__header Archive__header--glossary">
 		<?php if ( is_tax( 'ms_glossary_categories' ) ) { ?>
 			<h1 class="Archive__header__title" itemprop="name"><?php single_cat_title(); ?></h1>
-			<div class="Archive__header__subtitle"><p itemprop="description"><?php the_archive_description(); ?></p></div>
+			<div class="Archive__header__subtitle"><p itemprop="description" ><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
-			<h1 itemprop="name" class="Archive__header__title"><?php _e( 'Help Desk Software Glossary', 'ms' ); ?></h1>
-			<p itemprop="description" class="Archive__header__subtitle"><?php _e( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' ); ?></p>
+			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Affiliate Software Glossary', 'ms' ); ?></h1>
+			<p class="Archive__header__subtitle" itemprop="description" ><?php _e( 'Understanding terminology can be difficult when getting started. We have put together this glossary list to help you with new words that might come while working with your affiliate software.', 'ms' ); ?></p>
 		<?php } ?>
 	</div>
 
@@ -35,8 +35,8 @@
 							$query_glossary_posts = new WP_Query(
 								array(
 									'ms_glossary_categories' => $category->slug,
-									// @codingStandardsIgnoreLine
-									'posts_per_page' => 500,
+										// @codingStandardsIgnoreLine
+											'posts_per_page' => 500,
 									'orderby'        => 'title',
 									'order'          => 'ASC',
 								)

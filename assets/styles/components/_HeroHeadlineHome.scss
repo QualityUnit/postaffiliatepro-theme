@@ -1,7 +1,3 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
-/* stylelint-disable value-keyword-case */
-
 .heroHeadline__home,
 .heroHeadline {
 	margin-top: 1em;
@@ -18,7 +14,6 @@
 		margin-left: calc(50vw - 1180px / 2);
 		margin-right: 0;
 		width: 100vw;
-		padding-left: 20px;
 	}
 
 	.elementor-row {
@@ -26,7 +21,7 @@
 	}
 
 	.industry_woman img {
-		mask-image: none !important;
+		mask-image: url(https://www.postaffiliate.com/app/uploads/2021/07/industry_woman_mask.png) !important;
 		mask-size: cover !important;
 		mask-position: center center !important;
 	}
@@ -35,11 +30,6 @@
 
 		.wrapper {
 			padding-right: 0 !important;
-
-			> .elementor-row {
-				display: flex;
-				align-items: center;
-			}
 		}
 	}
 
@@ -54,14 +44,13 @@
 	@media (min-width: $breakpoint-desktop) and (max-width: $breakpoint-desktop-box) {
 
 		.wrapper {
-			margin-left: 0;
-			padding-left: 20px;
+			margin-left: calc(50vw - 1180px / 2);
+			padding-left: 12px;
 		}
 	}
 
 	@media (max-width: $breakpoint-desktop-big) {
-		width: calc(100vw - 1rem) !important;
-		overflow: hidden;
+		width: 100vw;
 	}
 
 	@media (min-width: $breakpoint-desktop-big) {
@@ -72,7 +61,7 @@
 
 		.wrapper {
 			margin-right: auto;
-			padding-left: 20px !important;
+			padding-left: 10px !important;
 		}
 
 	}
@@ -129,7 +118,7 @@
 			}
 
 			.Button {
-				margin-left: 0;
+				margin-left: 0.5em;
 				margin-right: 0;
 			}
 
@@ -156,6 +145,7 @@
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: 42%;
 			margin-right: auto;
+			padding-right: 0% !important;
 
 			.heroHeadline & {
 				width: 39%;
@@ -185,6 +175,7 @@
 
 		@media (min-width: $breakpoint-desktop-box) {
 			width: 38%;
+			padding-right: 5% !important;
 
 			.heroHeadline & {
 				width: 35%;
@@ -194,10 +185,6 @@
 		@media (min-width: $breakpoint-desktop-box) and (max-height: 900px) {
 			padding: 3rem 0;
 
-			> .elementor-column-wrap {
-				margin-right: 5% !important;
-			}
-
 			.heroHeadline__title .elementor-heading-title {
 				font-size: $font-size-h2-xl;
 			}
@@ -205,21 +192,13 @@
 			.heroHeadline__home--subtitle,
 			.heroHeadline--subtitle {
 
-				h3,
-				.h3 {
+				* {
 					font-size: $font-size-h3;
 				}
 			}
 
 			.no-cc {
 				width: 100%;
-			}
-
-			.Clients {
-
-				&__item:nth-of-type(4) {
-					display: none;
-				}
 			}
 		}
 
@@ -235,8 +214,7 @@
 
 	&--subtitle {
 
-		h3,
-		.h3 {
+		*:not(h4) {
 			font-size: 1.25rem;
 			line-height: 1.5;
 			font-family: $font-secondary;
@@ -244,8 +222,15 @@
 			margin-bottom: 0;
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				font-size: 1.625rem;
+				font-size: 1.5rem;
 			}
+		}
+
+		h4 {
+			font-size: 1.125rem;
+			line-height: 1.5;
+			font-family: $font-secondary;
+			font-weight: 400;
 		}
 
 	}
@@ -253,8 +238,7 @@
 	&--usedby.elementor-widget {
 		margin-bottom: 1em;
 
-		h6,
-		.h6 {
+		h6 {
 
 			@include color(color, font-color-level3);
 			margin-bottom: 0;
@@ -307,12 +291,11 @@
 		}
 
 		.elementor-widget-image.animation,
-		.elementor-widget-html.animation,
-		.elementor-widget-shortcode.animation {
+		.elementor-widget-html.animation {
 			display: none;
 			position: absolute;
 			width: auto;
-			z-index: 2;
+			z-index: 1;
 			bottom: 0;
 
 			.elementor-widget-container,
@@ -397,19 +380,6 @@
 			background-size: cover;
 		}
 
-		&::after {
-			position: absolute;
-			content: "";
-			background: url(../images/heroHeadline_badges.png) center top no-repeat;
-			background-size: contain;
-			z-index: 1;
-			width: 20%;
-			height: 0;
-			padding-bottom: 49%;
-			top: 0;
-			right: -2%;
-		}
-
 		.elementor-column-wrap {
 			margin: auto auto 3em 2em;
 		}
@@ -417,6 +387,11 @@
 		&.align-center .elementor-widget-wrap {
 			align-items: center;
 			align-content: center;
+		}
+
+		&.flex-column .elementor-widget-wrap {
+			flex-direction: column;
+			justify-content: center;
 		}
 
 
@@ -531,25 +506,55 @@
 			position: relative;
 			left: -38%;
 			z-index: 2;
-			width: auto;
+			width: max-content;
 			max-width: 29.625em;
+			margin-bottom: 2em;
+
+			&--big {
+
+				@include color(color, font-color-dark);
+				font-family: $font-secondary;
+				font-weight: 400;
+				line-height: 1.5;
+				min-width: 20em;
+				max-width: 26em;
+
+				p,
+				a {
+					font-family: inherit;
+					color: currentColor;
+				}
+
+				.white--bubble-right.white--bubble-right {
+					margin: auto;
+					font-size: 1.125em !important;
+				}
+
+				.elementor-widget-container {
+					padding: 1.5em 1.5em 1.5em 2em;
+				}
+			}
+
+			&--img {
+
+				.elementor-widget-container {
+
+					img {
+
+						@include square(3.375em);
+					}
+
+					.white--bubble-right.white--bubble-right {
+						width: calc(100% - 3.375em - 1.5em);
+						margin-left: 1.5em;
+						padding: 0;
+					}
+				}
+			}
 
 			&--quote {
 				min-width: 32em;
 				left: -22%;
-
-				&__logo {
-					margin-top: 1em;
-					height: 2em;
-					width: 100%;
-
-					img {
-
-						@include square(100%);
-						object-fit: contain;
-						object-position: left center;
-					}
-				}
 
 				p,
 				a,
@@ -563,9 +568,9 @@
 
 				> *:first-child::before {
 
-					@include square(1.75em);
+					@include square(2em);
 					content: "";
-					background: url(../images/quote-small.svg) center center no-repeat;
+					background: url(../images/quote.svg) center center no-repeat;
 					background-size: contain;
 					display: block;
 					margin-bottom: 1em;
@@ -573,6 +578,7 @@
 
 				.elementor-widget-container.elementor-widget-container {
 					padding: 1.25em 2.5em 2.5em;
+					border-top-right-radius: 0.5em;
 				}
 
 				.small {
@@ -603,13 +609,21 @@
 			@media (min-width: $breakpoint-tablet-landscape) {
 				display: block;
 				font-size: 0.875em;
+
+				&--img {
+					font-size: 0.75rem;
+				}
 			}
 
 			@media (min-width: $breakpoint-desktop-box) {
 				font-size: 1em;
+
+				&--img {
+					font-size: 0.9rem;
+				}
 			}
 
-			&:not(:nth-of-type(2)) {
+			&:not(.white--bubble--big):not(:nth-of-type(2)) {
 				transform: scale(0.81);
 			}
 
@@ -623,8 +637,7 @@
 				box-shadow: inset 0 -1.5625em 1.5625em -1.1875em rgba(157, 157, 157, 0.19), 0 1.375em 1em -0.625em rgba(144, 144, 144, 0.28);
 				border-radius: 1.875em;
 
-				h3,
-				.h3 {
+				h3 {
 					// Shadows and border-radius 3x less in EM as font-size=3em
 					display: flex;
 					align-items: center;
@@ -681,10 +694,6 @@
 			.elementor-widget-image:not(.animation) .elementor-image img {
 				border-radius: 5em 0 0 5em;
 			}
-
-			.elementor-widget-image.animation {
-				left: -25% !important;
-			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
@@ -694,7 +703,6 @@
 
 		@media (min-width: $breakpoint-desktop-box) {
 			height: 48rem;
-			width: 50%;
 
 			.heroHeadline__home & {
 				padding-top: 15%;
@@ -703,6 +711,10 @@
 			.elementor-column-wrap {
 				margin: 0;
 			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			width: 50%;
 		}
 
 		@media (min-width: 1921px) {

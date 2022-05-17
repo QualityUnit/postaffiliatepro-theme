@@ -1,0 +1,39 @@
+.Block--trial {
+
+	.elementor-widget-heading + .elementor-widget-text-editor p {
+		font-size: $font-size-default;
+	}
+
+	.elementor-inner-section {
+
+		.elementor-col-50 {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&:first-of-type {
+					width: 42%;
+					margin-right: auto;
+				}
+
+				&:last-of-type {
+					width: calc(50% - 1em);
+				}
+			}
+		}
+	}
+
+	.Clients {
+		margin-top: 0;
+		justify-content: space-between;
+
+		img {
+			height: 1.875em;
+			width: auto;
+			max-width: 80%;
+		}
+
+		&__item:not(:nth-child(3n + 1)) {
+			justify-content: center;
+		}
+	}
+}

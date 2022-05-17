@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'features', 'pages/Category', 'css' );
-	set_source( 'features', 'pages/CategoryImages', 'css' );
-	set_source( 'features', 'filter', 'js' );
+set_source( 'features', 'pages/Category', 'css' );
+set_source( 'features', 'pages/CategoryImages', 'css' );
+set_source( 'features', 'filter', 'js' );
 ?>
 
 <div id="category" class="Category">
@@ -13,7 +13,7 @@
 					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
 				<?php } else { ?>
 					<h1 class="Category__header__title"><?php _e( 'Features', 'ms' ); ?></h1>
-					<p class="Category__header__subtitle"><?php _e( 'Get to know all LiveAgent features, that are part of the complex multi-channel help desk software. Described in one place and in depth.', 'ms' ); ?></p>
+					<p class="Category__header__subtitle"><?php _e( 'Explore and get to know all features of Post Affiliate Pro. Find out out how our advanced affiliate software works, and how you can use each functionality to streamline your success.', 'ms' ); ?></p>
 				<?php } ?>
 
 				<div class="Category__header__search searchField">
@@ -37,22 +37,22 @@
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Collections', 'ms' ); ?></div>
 
 					<?php
-						$collections = array(
-							''         => 'Any',
-							'featured' => 'Featured',
-							'popular'  => 'Popular',
-							'new'      => 'New',
-						);
+					$collections = array(
+						''         => 'Any',
+						'featured' => 'Featured',
+						'popular'  => 'Popular',
+						'new'      => 'New',
+					);
 
-						foreach ( $collections as $key => $value ) {
-							?>
+					foreach ( $collections as $key => $value ) {
+						?>
 						<label>
 							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="collections"
-							<?php
-							if ( current( $collections ) === $value ) {
-								echo 'checked';
-							}
-							?>
+									<?php
+									if ( current( $collections ) === $value ) {
+										echo 'checked';
+									}
+									?>
 							>
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Collections - <?php echo esc_html( $value ); ?>'])"><?php echo esc_html( $value ); ?></span>
 						</label>
@@ -63,24 +63,24 @@
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Available in', 'ms' ); ?></div>
 
 					<?php
-						$plan = array(
-							''              => 'Any',
-							'free'          => 'Free',
-							'ticket'        => 'Ticket',
-							'ticket-chat'   => 'Ticket+Chat',
-							'all-inclusive' => 'All-Inclusive',
-							'extensions'    => 'Extensions',
-						);
+					$plan = array(
+						''              => 'Any',
+						'free'          => 'Free',
+						'ticket'        => 'Ticket',
+						'ticket-chat'   => 'Ticket+Chat',
+						'all-inclusive' => 'All-Inclusive',
+						'extensions'    => 'Extensions',
+					);
 
-						foreach ( $plan as $key => $value ) {
-							?>
+					foreach ( $plan as $key => $value ) {
+						?>
 						<label>
 							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="plan"
-							<?php
-							if ( current( $plan ) === $value ) {
-								echo 'checked';
-							}
-							?>
+									<?php
+									if ( current( $plan ) === $value ) {
+										echo 'checked';
+									}
+									?>
 							>
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Plan - <?php echo esc_html( $value ); ?>'])"><?php echo esc_html( $value ); ?></span>
 						</label>
@@ -91,23 +91,23 @@
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Suitable for', 'ms' ); ?></div>
 
 					<?php
-						$size = array(
-							''            => 'Any',
-							'individuals' => 'Individuals',
-							'start-ups'   => 'Start-ups',
-							'smbs'        => 'SMBs',
-							'enterprise'  => 'Enterprise',
-						);
+					$size = array(
+						''            => 'Any',
+						'individuals' => 'Individuals',
+						'start-ups'   => 'Start-ups',
+						'smbs'        => 'SMBs',
+						'enterprise'  => 'Enterprise',
+					);
 
-						foreach ( $size as $key => $value ) {
-							?>
+					foreach ( $size as $key => $value ) {
+						?>
 						<label>
 							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="size"
-							<?php
-							if ( current( $size ) === $value ) {
-								echo 'checked';
-							}
-							?>
+									<?php
+									if ( current( $size ) === $value ) {
+										echo 'checked';
+									}
+									?>
 							>
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Size - <?php echo esc_html( $value ); ?>'])"><?php echo esc_html( $value ); ?></span>
 						</label>
@@ -126,11 +126,11 @@
 						?>
 						<label>
 							<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
-							<?php
-							if ( current( $category ) === $category->slug ) {
-								echo 'checked';
-							}
-							?>
+									<?php
+									if ( current( $category ) === $category->slug ) {
+										echo 'checked';
+									}
+									?>
 							>
 							<span onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
 						</label>
@@ -149,99 +149,99 @@
 					?>
 
 					<?php
-						$collections = '';
-						$plan        = '';
-						$size        = '';
-						$category    = '';
+					$collections = '';
+					$plan        = '';
+					$size        = '';
+					$category    = '';
 
 					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-								$plan .= $item . ' ';
+							$plan .= $item . ' ';
 						}
 
-							$plan = substr( $plan, 0, -1 );
+						$plan = substr( $plan, 0, -1 );
 					}
 
 					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) ) {
 						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_size', true ) as $item ) {
-								$size .= $item . ' ';
+							$size .= $item . ' ';
 						}
 
-							$size = substr( $size, 0, -1 );
+						$size = substr( $size, 0, -1 );
 					}
 
 					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) ) {
 						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_collections', true ) as $item ) {
-								$collections .= $item . ' ';
+							$collections .= $item . ' ';
 						}
 
-							$collections = substr( $collections, 0, -1 );
+						$collections = substr( $collections, 0, -1 );
 					}
 
-						$categories   = get_the_terms( 0, 'ms_features_categories' );
-						$current_lang = apply_filters( 'wpml_current_language', null );
-						do_action( 'wpml_switch_language', 'en' );
-						$categories_en = get_the_terms( 0, 'ms_features_categories' );
+					$categories   = get_the_terms( 0, 'ms_features_categories' );
+					$current_lang = apply_filters( 'wpml_current_language', null );
+					do_action( 'wpml_switch_language', 'en' );
+					$categories_en = get_the_terms( 0, 'ms_features_categories' );
 					if ( ! empty( $categories_en ) ) {
 						$category_en = array_shift( $categories_en )->slug;
 					}
-						do_action( 'wpml_switch_language', $current_lang );
+					do_action( 'wpml_switch_language', $current_lang );
 					if ( ! empty( $categories ) ) {
 						foreach ( $categories as $category_item ) {
-								$category_item = array_shift( $categories );
-								$category     .= $category_item->slug;
-								$category     .= ' ';
+							$category_item = array_shift( $categories );
+							$category     .= $category_item->slug;
+							$category     .= ' ';
 						}
 					}
-						$category = substr( $category, 0, -1 );
+					$category = substr( $category, 0, -1 );
 
 					?>
 
-					<li class="Category__item
+					<li class="Box--main Category__item
 					<?php
 					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
 						echo 'pillar'; }
 					?>
 					<?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-collections="<?= esc_attr( $collections ); ?>" data-plan="<?= esc_attr( $plan ); ?>" data-size="<?= esc_attr( $size ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Go to <?php the_title(); ?> feature'])">
-							<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
-								<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
-									<span class="Category__item__thumbnail__image"></span>
-								<?php } elseif ( has_post_thumbnail() ) { ?>
-									<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
-								<?php } else { ?>
-									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
-								<?php } ?>
-							</a>
-							<?php
-							if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
-								?>
-									<div class="Category__item__wrap">
-								<?php
-							}
+						<a href="<?php the_permalink(); ?>" class="Box--main__image Category__item__thumbnail">
+							<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
+								<span class="Category__item__thumbnail__image"></span>
+							<?php } elseif ( has_post_thumbnail() ) { ?>
+								<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
+							<?php } else { ?>
+								<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Features', 'ms' ); ?>">
+							<?php } ?>
+						</a>
+						<?php
+						if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
 							?>
-								<h3 class="Category__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-								<div class="Category__item__excerpt">
-									<a href="<?php the_permalink(); ?>">
-										<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
-										<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
-											<span><?php _e( 'Read More', 'ms' ); ?></span>
-										<?php } ?>
-									</a>
-								</div>
+						<div class="Category__item__wrap">
+							<?php
+						}
+						?>
+							<h3 class="Box--main__title Category__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<div class="Box--main__excerpt Category__item__excerpt">
+								<a href="<?php the_permalink(); ?>">
+									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
+									<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
+										<span><?php _e( 'Read More', 'ms' ); ?></span>
+									<?php } ?>
+								</a>
+							</div>
 							<?php
 							if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) {
 								?>
-									</div>
+						</div>
 								<?php
 							}
 							?>
 					</li>
 
 					<?php
-						$collections = '';
-						$plan        = '';
-						$size        = '';
-						$category    = '';
+					$collections = '';
+					$plan        = '';
+					$size        = '';
+					$category    = '';
 					?>
 
 				<?php endwhile; ?>

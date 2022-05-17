@@ -1,0 +1,120 @@
+.CategoryTags {
+	position: relative;
+	margin-right: auto;
+	margin-bottom: 1em;
+	flex-wrap: wrap;
+	z-index: 10;
+
+
+	&__break,
+	&__more {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&.long {
+			max-height: 2em;
+			align-items: center;
+			overflow: hidden;
+			transition: max-height 0.2s;
+
+			&.active {
+				max-height: 6.75em;
+				overflow: visible;
+			}
+		}
+
+		&__break {
+			display: none;
+			flex-basis: 100%;
+			height: 0;
+		}
+
+		&.active &__break {
+			display: block;
+		}
+
+		&__more[class] {
+
+			@include color(color, font-color-level3);
+			display: inline-flex;
+			align-items: center;
+			font-family: $font-secondary;
+			font-size: 0.75rem;
+			font-weight: 600;
+			padding: 0.5em 0;
+			margin-left: 1em;
+			margin-bottom: 0.5em;
+
+			&:hover {
+
+				@include color(color, primary-color);
+			}
+
+			&::after {
+				content: "^";
+				display: inline-block;
+				font-weight: 400;
+				transform: scale(2, -1) translateY(0);
+				transition: all 0.5s;
+				margin-left: 0.5em;
+			}
+
+			&.active {
+
+				&::after {
+					transform: scale(2, 1) translateY(0.125em);
+				}
+			}
+
+			.CategoryTags:not(.active):not(.is-hiding) & ~ * {
+				display: none;
+			}
+		}
+	}
+
+}
+
+.CategoryTag {
+
+	@include color(background-color, secondary-color);
+	@include color(color, font-color-dark);
+	position: relative;
+	display: inline-block;
+	font-size: 0.75rem;
+	font-family: $font-secondary;
+	font-weight: 600;
+	border-radius: 1.5em;
+	padding: 0.5em 1.16em;
+	margin-bottom: 0.5em;
+	flex: 0 0 auto;
+
+	a[href] {
+		color: currentColor;
+	}
+
+	+ span,
+	+ .CategoryTag {
+		margin-left: 0.15em;
+	}
+
+	.Tooltip {
+		width: 14em;
+	}
+
+	$colorVariants: (
+		"green": $desaturated-green-menu,
+		"red": $light-red,
+		"violet": #dbe1fe,
+		"yellow": #fff6d8,
+		"pink": #fae4fb,
+		"lime": #ebfae0
+	);
+
+	@each $color, $bgc in $colorVariants {
+		&.#{$color} {
+			background-color: $bgc;
+		}
+	}
+}

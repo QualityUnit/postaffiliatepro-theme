@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-
 .BlockBadges {
 	margin-top: 125px !important;
 	margin-bottom: 125px !important;
@@ -11,10 +9,8 @@
 	}
 
 	.wrapper.wrapper.wrapper {
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-		background: url(../images/blockbadges_bg.jpg) left center no-repeat;
-		background-size: auto 100%;
+		padding-top: 25px !important;
+		padding-bottom: 25px !important;
 	}
 
 	.elementor-image {
@@ -22,18 +18,9 @@
 		padding-right: 0;
 		overflow: visible;
 
-		&::before {
-			content: "";
-			display: block;
-			background: url(../images/badges.png) center center no-repeat;
-			background-size: 90% auto;
-			width: 100%;
-			height: 0;
-			padding-bottom: 76.25%;
-		}
-
 		img {
-			display: none !important;
+			margin-top: -50px;
+			margin-bottom: -50px;
 		}
 	}
 
@@ -41,11 +28,6 @@
 		max-width: 85%;
 		font-size: 32px;
 		line-height: 42px !important;
-
-		&::before {
-			content: url(../images/Awards.svg);
-			display: block;
-		}
 	}
 
 	p {
@@ -79,7 +61,8 @@
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 
-		.wrapper {
+		h2,
+		p {
 			text-align: center;
 		}
 

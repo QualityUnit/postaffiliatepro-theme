@@ -1,6 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
-
 .Page {
 	padding: 75px 0 100px;
 }
@@ -74,7 +71,7 @@ iframe[id*="b_xw2c9xiu"] {
 			line-height: $button-height-normal;
 			font-weight: 700 !important;
 			box-shadow: none !important;
-			border-radius: ($border-radius - 2);
+			border-radius: ($border-radius / 2);
 			overflow: hidden;
 		}
 	}

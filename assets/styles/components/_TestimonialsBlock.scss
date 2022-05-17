@@ -1,0 +1,205 @@
+.Testimonials {
+
+	&__item {
+
+		@include color(background-color, secondary-background);
+		position: relative;
+		border: 1px solid transparent;
+		padding: 2.5em;
+		padding-left: 2.2em;
+		border-radius: $border-radius-16;
+		border-top-right-radius: 10.75em;
+		margin-bottom: 2.625em;
+
+		&.active {
+
+			.Testimonials__item {
+
+				&__content {
+					max-height: 100em;
+				}
+
+				&__expander {
+
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&--alternative {
+
+			@include color(background-color, main-background);
+			border-color: $light-gray;
+
+			.Testimonials__item__expander {
+				background-color: $white;
+
+				&::before {
+					background: linear-gradient(to top, rgba($white, 1) 30%, rgba($white, 0));
+				}
+			}
+		}
+
+		&__top {
+			position: relative;
+			display: flex;
+			margin-bottom: 1.5em;
+		}
+
+		&__thumbnail {
+
+			@include circle(6.75em);
+			margin-left: auto;
+			margin-top: -2em;
+			margin-right: -2em;
+			overflow: hidden;
+
+			img {
+
+				@include square(100%);
+				object-fit: cover;
+			}
+
+			&::before {
+
+				@include square(2.65em);
+				position: absolute;
+				content: url(../images/quote-testimonials.svg);
+				bottom: 0;
+				right: calc(6.75em - 2em - 2.65em / 2);
+			}
+		}
+
+		&__person {
+			width: calc(100% - 6.75em);
+			font-family: $font-secondary;
+
+			.firstWord {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		&__name {
+			margin-bottom: 0.5em;
+
+			@media (max-width: $breakpoint-tablet-small) {
+				font-size: 1rem;
+			}
+		}
+
+		&__position {
+
+			@include color(color, font-color-medium);
+			font-size: $font-size-small;
+			line-height: 1.2;
+		}
+
+		&__content {
+			overflow: hidden;
+			transition: all 0.25s;
+
+			&.overflow {
+				max-height: 17em;
+			}
+
+			a {
+
+				@include color(color, primary-color);
+			}
+		}
+
+		.overflow + &__expander {
+			display: flex;
+		}
+
+		&__expander {
+			position: absolute;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 1.5em;
+			font-size: 1.75em;
+			line-height: 1;
+			color: $light-gray-icon;
+			cursor: pointer;
+			background-color: $lightest-gray;
+			border-radius: 0 0 1rem 1rem;
+			transition: color 0.2s;
+
+			&:hover {
+
+				@include color(color, primary-color);
+			}
+
+			&::before {
+				display: block;
+				position: absolute;
+				top: -2em;
+				left: 0;
+				height: 2em;
+				width: 100%;
+				content: "";
+				background: linear-gradient(to top, rgba($lightest-gray, 1), rgba($lightest-gray, 0));
+			}
+		}
+	}
+
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__list {
+
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 2.25em;
+			grid-auto-flow: column;
+
+			// After JS gets the size of each of our testimonials blocks,
+			// we set the grid layout with small row height
+
+			&.grid-list {
+				display: grid;
+				grid-auto-rows: 3em;
+			}
+		}
+
+		&__item {
+			// Set the width before JS minimizes the testimonial,
+			// to calculate it's real height
+			width: calc(50% - 2.25em);
+
+			&.minimized {
+				width: auto;
+				grid-row: span 10;
+			}
+
+			@for $column from 1 to 3 {
+				&:nth-child(2n + #{$column}) {
+					grid-column: $column;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&__list {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&__item {
+			width: calc(33.33% - 2.25em);
+
+			@for $column from 1 to 4 {
+				&:nth-child(3n + #{$column}) {
+					grid-column: $column;
+				}
+			}
+		}
+	}
+}

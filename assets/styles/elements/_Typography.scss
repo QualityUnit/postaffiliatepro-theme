@@ -1,80 +1,58 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable value-keyword-case */
-
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 .h1,
+h2,
 .h2,
+h3,
 .h3,
+h4,
 .h4,
+h5,
 .h5,
+h6,
 .h6 {
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
 	font-family: $font-secondary;
 	font-weight: $font-weight-bold;
+	position: relative;
+	z-index: 1;
 
 	strong {
 		font-weight: $font-weight-bold;
 	}
-
-	a {
-		color: currentColor;
-	}
 }
-
-$mobile-divider: 1.25;
 
 h1,
 .h1 {
-	font-size: $font-size-h1 / $mobile-divider;
-	line-height: $line-height-h1 / $mobile-divider;
+	font-size: $font-size-h1;
+	line-height: $line-height-h1;
 
-	@media (min-width: $breakpoint-tablet) {
-		font-size: $font-size-h1;
-		line-height: $line-height-h1;
+	@media (max-width: $breakpoint-tablet) {
+		font-size: $font-size-h2;
 	}
 }
 
 h2,
 .h2 {
-	font-size: $font-size-h2 / $mobile-divider;
-	line-height: $line-height-h2 / $mobile-divider;
+	font-size: $font-size-h2;
+	line-height: $line-height-h2;
 
-	@media (min-width: $breakpoint-tablet) {
-
-		font-size: $font-size-h2;
-		line-height: $line-height-h2;
+	@media (max-width: $breakpoint-tablet) {
+		font-size: $font-size-h2-s;
 	}
 }
 
 h3,
 .h3 {
-	font-size: $font-size-h3 / $mobile-divider;
-	line-height: $line-height-h3 / $mobile-divider;
-
-	@media (min-width: $breakpoint-tablet) {
-
-		font-size: $font-size-h3;
-		line-height: $line-height-h3;
-	}
+	font-size: $font-size-h3;
+	line-height: $line-height-h3;
 }
 
 h4,
 .h4 {
-	font-size: $font-size-h4 / $mobile-divider;
-	line-height: $line-height-h4 / $mobile-divider;
-
-	@media (min-width: $breakpoint-tablet) {
-
-		font-size: $font-size-h4;
-		line-height: $line-height-h4;
-	}
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
 }
 
 h5,
@@ -89,54 +67,120 @@ h6,
 	line-height: $line-height-h6;
 }
 
+.commaList {
+
+	* + * {
+
+		&::before {
+			content: ", ";
+			margin-left: -0.25em;
+		}
+	}
+}
+
 p {
 
-	*:not(.checklist) .elementor-text-editor > & {
+	*:not(.checklist) .elementor-text-editor & {
 		line-height: 1.625;
 	}
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
 	font-family: $font-primary;
-	font-size: $font-size-default;
+	font-size: 1rem;
 	font-weight: $font-weight-normal;
-	line-height: $line-height-default;
+	line-height: $line-height-smaller;
 
 	big,
+	&.big,
 	&.perex {
 		font-size: $font-size-bigger;
 		line-height: $line-height-bigger;
 	}
 
-	small,
-	.small & {
+	&.regular {
+		font-size: $font-size-default;
+		line-height: $line-height-default;
+	}
+
+	small {
 		font-size: $font-size-smaller;
 		line-height: $line-height-smaller;
 	}
 
-	.poppins & {
-		font-family: $font-secondary;
+	&:last-of-type:empty {
+		display: none;
 	}
+}
 
-	.subtitle & {
-		font-family: $font-secondary;
-		font-size: 1.5rem;
+.learn-more {
+	display: flex;
+	align-items: center;
+	font-family: $font-secondary;
+	margin-top: 0.75em;
+
+	svg {
+		margin-left: 0.5em;
 	}
 }
 
 ul,
 ol {
 
-	@include color(color, font-color-dark);
+	@include color(color, font-color-normal);
 	margin-bottom: $default-element-margin;
 	font-family: $font-primary;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
-	line-height: $line-height-default;
+}
+
+ol {
+
+	@include color(color, font-color-dark);
+	list-style: none;
+	padding-left: 0.5em;
+	text-align: left;
+	font-family: $font-secondary;
+	font-size: $font-size-smaller;
+	line-height: 1.8;
+	margin-top: 0.5em;
+	counter-reset: counter;
+
+	li {
+		counter-increment: counter;
+		position: relative;
+		padding-left: 1.5em;
+		margin-bottom: 1em;
+
+		&::before {
+
+			@include circle(1.7em);
+			@include color(color, primary-color);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			content: counter(counter);
+			position: absolute;
+			top: 0.25em;
+			left: -0.5em;
+			background-color: $primary-checklist;
+			font-size: 0.75em;
+			font-weight: 700;
+			margin: 0;
+		}
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-justify {
+	text-align: justify;
 }
 
 a {
-	transition: color 0.2s;
+	transition: color 0.5s;
 	word-break: break-word;
 }
 
@@ -200,41 +244,35 @@ video {
 
 .Content {
 
-	p,
-	ul {
-
-		@include color(color, font-color-dark);
-	}
-
 	h2,
-	h3,
-	h4,
-	h5,
-	h6,
 	.h2,
+	h3,
 	.h3,
+	h4,
 	.h4,
+	h5,
 	.h5,
+	h6,
 	.h6 {
 		clear: both;
 		margin-top: 30px;
 	}
 
-	> ul:not([class]),
-	[class*="wp-block"] ul:not([class]) {
+	h2,
+	.h2 {
+		font-family: $font-primary;
+
+		strong {
+			font: inherit;
+		}
+	}
+
+	> ul:not([class]) {
 
 		@extend %checklist;
 
 		li::before {
 			background-image: url(../../images/icon-post-check.svg);
-		}
-	}
-
-	ol {
-		padding-left: 20px;
-
-		li {
-			margin-bottom: 3px;
 		}
 	}
 
@@ -308,7 +346,7 @@ video {
 
 	pre {
 
-		@include color(color, font-color-medium);
+		@include color(color, error-color);
 		border: 1px solid #f0f0f0;
 		background-color: #fafafa;
 		max-width: 100%;
@@ -325,14 +363,12 @@ video {
 	}
 
 	.Copy {
-		position: relative;
 		display: flex;
 		flex-flow: wrap column;
 		justify-content: flex-start;
 		align-items: flex-start;
 
-
-		.textarea-pseudo {
+		textarea {
 
 			@include color(color, font-color-medium);
 			border: 1px solid #f0f0f0;
@@ -350,11 +386,6 @@ video {
 			height: 100%;
 			min-height: 278px;
 			resize: none;
-
-			* {
-				color: currentColor;
-				font: inherit !important;
-			}
 		}
 	}
 
@@ -456,36 +487,20 @@ video {
 		padding-left: 0 !important;
 	}
 
-	blockquote.wp-block-quote {
+	blockquote {
 
-		@include color(background-color, secondary-background);
-		position: relative;
-		border-radius: $border-radius-16;
-		margin: 2em 0 0 0.75rem;
-		padding: 1.125em 0.875em 1.125em 1.5em;
-		font-size: 1rem;
-
-		&::before {
-
-			@include square(1.5rem);
-			content: "";
-			position: absolute;
-			top: -0.65rem;
-			left: -0.75rem;
-			background: url(../images/quote.svg) center center no-repeat;
-			background-size: contain;
-		}
-
-		+ & {
-			margin-top: 1em;
-		}
+		@include color(border-left-color, primary-color, !important);
+		@include color(color, primary-color);
+		margin: $default-element-margin * 2 0;
+		padding: 0.5em 1.5em;
+		border-left: 1px solid transparent;
+		font-family: $font-primary;
+		font-size: $font-size-default;
+		font-weight: $font-weight-normal;
+		line-height: $line-height-default;
 
 		p {
-			font-family: $font-primary;
-			font-weight: 600;
-			font-style: italic;
-			font-size: 1rem;
-			line-height: 1.75;
+			color: currentColor;
 
 			&:last-of-type {
 				margin-bottom: 0;
@@ -494,9 +509,9 @@ video {
 
 		cite {
 			display: block;
-			text-align: right;
 			font-style: normal;
-			font-size: 0.875rem;
+			font-weight: 700;
+			margin-top: 1.25em;
 		}
 	}
 
@@ -650,6 +665,68 @@ video {
 	}
 }
 
+// Open a New Tab Icon
+.Block,
+.Content,
+.Post__sidebar {
+
+	a[target="_blank"]:not(.Button),
+	a[href*="http"]:not(.Button) {
+
+		&::after {
+			content: "\e832" !important;
+			font-family: fontello, sans-serif;
+			font-style: normal;
+			font-weight: 400;
+			display: inline-block;
+			width: 1em;
+			text-align: center;
+			font-variant: normal;
+			text-transform: none;
+			margin-left: 4px;
+			text-decoration: none !important;
+		}
+	}
+
+	a[href*="postaffiliatepro."] {
+
+		&::after {
+			display: none !important;
+		}
+	}
+
+	.Button[target="_blank"],
+	.Button[href*="http"] {
+
+		span {
+
+			&::after {
+				content: "\e832" !important;
+				font-family: fontello, sans-serif;
+				font-style: normal;
+				font-weight: 400;
+				display: inline-block;
+				width: 1em;
+				text-align: center;
+				font-variant: normal;
+				text-transform: none;
+				margin-left: 4px;
+				text-decoration: none !important;
+			}
+		}
+	}
+
+	.Button[href*="postaffiliatepro."] {
+
+		span {
+
+			&::after {
+				display: none !important;
+			}
+		}
+	}
+}
+
 // TEMP FIX
 .Content { /* stylelint-disable-line no-duplicate-selectors */
 
@@ -674,45 +751,14 @@ video {
 
 	@include color(color, font-color-level3);
 	font-size: 14px;
+	line-height: 40px;
 	display: flex;
 	flex-flow: row wrap;
 }
 
-.elementor-widget-text-editor.learn-more {
-
-	a {
-
-		@include color(color, font-color-dark, !important);
-		display: flex;
-		align-items: center;
-		font-family: $font-secondary;
-		font-weight: 600;
-
-		&::after {
-			position: relative;
-			content: url(../images/arrow_small_right.svg);
-			display: inline-block;
-			margin-left: 0.5em;
-			top: 0.25em;
-		}
-	}
-}
-
-.tag {
-
-	p {
-
-		@include color(color, primary-color);
-		font-size: 0.875rem;
-		font-weight: 600;
-		letter-spacing: 0.12em;
-	}
-}
-
 .highlight {
-
-	color: $orange-new;
-	background-color: transparent;
+	position: relative;
+	color: $primary;
 
 	&-gradient {
 
@@ -720,6 +766,61 @@ video {
 		background-clip: text;
 		color: transparent;
 		box-decoration-break: clone;
+	}
+
+	&-splash {
+
+		&::after {
+
+			@include posCustom(-0.65em);
+			left: -0.35em;
+			right: -1em;
+			content: "";
+			position: absolute;
+			z-index: -1;
+			background: url(../images/splash-blue.svg) center center no-repeat;
+			background-size: 100%;
+		}
+	}
+
+	&-splash2 {
+
+		@extend .highlight-splash;
+
+		&::after {
+			background-image: url(../images/splash2.svg);
+		}
+	}
+
+	&-splash3 {
+
+		@extend .highlight-splash2;
+
+		&::after {
+			transform: scaleX(-1);
+		}
+	}
+
+	&-splash-dark {
+
+		@extend .highlight-splash;
+		@include color(color, font-color-light);
+		position: relative;
+
+		&::after {
+			background-image: url(../images/splash_dark.svg);
+		}
+	}
+
+	&-splash-alt {
+
+		@include color(color, font-color-dark);
+		@extend .highlight-splash;
+
+		&::after {
+			background-image: url(../images/splash-yellow.svg);
+			transform: translateX(-5%);
+		}
 	}
 }
 
@@ -762,80 +863,93 @@ img.Screenshot,
 	}
 }
 
-// Open a New Tab Icon
-.Block,
-.Content,
-.Post__sidebar {
-
-	a[target="_blank"]:not(.Button),
-	a[href*="http"]:not(.Button) {
-
-		&::after {
-			content: "\e832" !important;
-			font-family: fontello, sans-serif;
-			font-style: normal;
-			font-weight: 400;
-			display: inline-block;
-			width: 1em;
-			text-align: center;
-			font-variant: normal;
-			text-transform: none;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			margin-left: 4px;
-			text-decoration: none !important;
-		}
-	}
-
-	a[href*="liveagent."],
-	a[href*="live-agent."] {
-
-		&::after {
-			display: none !important;
-		}
-	}
-
-	.Button[target="_blank"],
-	.Button[href*="http"] {
-
-		span {
-
-			&::after {
-				content: "\e832" !important;
-				font-family: fontello, sans-serif;
-				font-style: normal;
-				font-weight: 400;
-				display: inline-block;
-				width: 1em;
-				text-align: center;
-				font-variant: normal;
-				text-transform: none;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				margin-left: 4px;
-				text-decoration: none !important;
-			}
-		}
-	}
-
-	.Button[href*="liveagent."],
-	.Button[href*="live-agent."] {
-
-		span {
-
-			&::after {
-				display: none !important;
-			}
-		}
-	}
-}
-
 .Article__container__content__social__item {
 
 	a {
 
 		&::after {
 			display: none !important;
+		}
+	}
+}
+
+.large {
+	font-size: 1.125rem;
+}
+
+.small {
+	font-size: 0.875rem;
+	line-height: 1.33;
+}
+
+.tag,
+.tag.tag.elementor-widget {
+	margin-bottom: 1.25em !important;
+
+	svg {
+
+		@include square(1.25em);
+		margin-right: 0.5em;
+	}
+
+	.elementor-text-editor,
+	.elementor-image-box-wrapper,
+	.tag-inn {
+
+		@include color(color, font-color-dark);
+		display: flex;
+		align-items: center;
+		background-color: $tag;
+		border-radius: 1em;
+		font-family: $font-secondary;
+		font-size: 0.875rem;
+		font-weight: 700;
+		min-height: 30px;
+		padding: 0.25em 1.25em;
+		width: max-content;
+
+		p,
+		.elementor-image-box-title {
+			margin-bottom: 0;
+			font-size: inherit;
+			font-family: inherit;
+			font-weight: inherit;
+			color: inherit;
+		}
+
+		.elementor-image-box-description {
+			display: none;
+		}
+
+		> *:first-child:not(.elementor-image-box-img) {
+			display: flex;
+			align-items: center;
+
+			&::before {
+
+				@include square(1.25em);
+				content: "";
+				background: url(../images/tag_smile.svg) center center no-repeat;
+				background-size: contain;
+				margin-right: 0.5em;
+				margin-bottom: 0;
+				flex-shrink: 0;
+			}
+		}
+
+		.elementor-image-box-img.elementor-image-box-img {
+
+			@include square(1.25em);
+			display: block;
+			margin-right: 0.5em;
+			margin-bottom: 0;
+			flex-shrink: 0;
+
+			img {
+
+				@include square(1.25em);
+				display: block;
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@
 
 const customLazyLoad = () => {
 	const media = document.querySelectorAll(
-		'img[data-lasrc], img[data-lasrcset], video[data-lasrc], .lazybg'
+		'img[data-src], img[data-srcset], video[data-src], .lazybg'
 	);
 
 	const eventType = ( element ) => {
@@ -59,14 +59,16 @@ const customLazyLoad = () => {
 		const mediaObserver = new IntersectionObserver( ( entries ) => {
 			entries.forEach( ( entry ) => {
 				if ( entry.isIntersecting ) {
-					const datasrc = entry.target.getAttribute( 'data-lasrc' );
-					const datasrcset = entry.target.getAttribute( 'data-lasrcset' );
+					const datasrc = entry.target.getAttribute( 'data-src' );
+					const datasrcset = entry.target.getAttribute(
+						'data-srcset'
+					);
 					const lazyBg = entry.target.classList.contains( 'lazybg' );
 					const mediaObject = entry.target;
 
 					if ( datasrcset !== null ) {
 						mediaObject.setAttribute( 'srcset', datasrcset );
-						mediaObject.removeAttribute( 'data-lasrcset' );
+						mediaObject.removeAttribute( 'data-srcset' );
 						mediaObject.addEventListener(
 							eventType( mediaObject ),
 							() => {
@@ -78,7 +80,7 @@ const customLazyLoad = () => {
 
 					if ( datasrc !== null ) {
 						mediaObject.setAttribute( 'src', datasrc );
-						mediaObject.removeAttribute( 'data-lasrc' );
+						mediaObject.removeAttribute( 'data-src' );
 						mediaObject.addEventListener(
 							eventType( mediaObject ),
 							() => {
@@ -102,7 +104,6 @@ const customLazyLoad = () => {
 		} );
 	}
 };
-
 ( () => {
 	customLazyLoad();
 } )();

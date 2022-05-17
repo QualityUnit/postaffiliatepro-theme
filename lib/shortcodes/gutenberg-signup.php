@@ -11,7 +11,7 @@ function ms_gutenberg_signup() {
 					<div class="elementor-column elementor-col-50 elementor-inner-column">
 						<div class="elementor-widget-heading">
 							<div class="elementor-widget-container">
-								<h2><?php _e( 'Try LiveAgent Today', 'ms' ); ?>​</h2>
+								<h2><?php _e( 'Try Post Affiliate Pro Today', 'ms' ); ?>​</h2>
 							</div>
 						</div>
 						<div class="elementor-widget-text-editor">

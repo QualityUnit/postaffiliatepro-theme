@@ -2,45 +2,42 @@
 
 const $ = jQuery;
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+const productId = 'ffd43d92';
+const variationId = 'pap3627f';
 
 const languageCode = 'de';
 
-const textValidating = 'Validierung...';
-const textCreating = 'Erstellung...';
-const textInstalling = 'Installierung';
-const textLaunching = 'Ausführung';
-const textRedirecting = 'Umleitung';
+const textValidating = 'Wird geprüft...';
+const textCreating = 'Wird erstellt...';
+const textInstalling = 'Wird installiiert';
+const textLaunching = 'Wird gestartet';
+const textRedirecting = 'Weiterleitung';
 const textFinalizing = 'Fertigstellung';
-const textStart = 'Jetzt starten';
-const textError = 'Etwas ist falsch gelaufen.';
-const textEmpty = 'Feld darf nicht leer sein';
+const textStart = 'Jetzt beginnen';
+const textError = 'Es ist etwas schief gelaufen.';
+const textEmpty = 'Dieses Feld darf nicht leer sein';
 const textInvalid = 'Einige Felder sind ungültig';
 const textInvalidField = 'Feld ungültig';
-const textInvalidMail = 'E-Mail ungütlig';
+const textInvalidMail = 'E-Mail ungültig';
 const textValidDomain = 'Domain ist gültig';
-const textFailedDomain = 'Domain konnte nicht validiert werden';
-const textDomainNoHttp =
-	'Domain darf nicht http oder www und Großbuchstaben (A-Z) enthalten';
+const textFailedDomain = 'Domain konnte nicht geprüft werden';
+const textDomainNoHttp = 'Domain darf nicht http oder www enthalten';
 const textFailedRetrieve =
-	'Gültige Fortschrittdetails konnten nicht abgerufen werden.';
-const textGoApp = 'Navigieren Sie zu Ihrer App';
-const textReadyApp = 'Ihr LiveAgent ist bereit';
-const textDoneAppTitle = 'Ihr LiveAgent ist bereit';
+	'Gültige Informationen konnten nicht abgerufen werden.';
+const textGoApp = 'Öffnen Sie die App';
+const textReadyApp = 'Ihr Post Affiliate Pro-Konto ist fertig';
+const textDoneAppTitle = 'Ihr Post Affiliate Pro-Konto ist fertig';
 const textDoneAppText =
-	'Die Logindetails wurden an Ihren Posteingang gesendet. Bitte überprüfen Sie den Posteingang, um mit LiveAgent fortzufahren.';
+	'Die Anmeldedaten wurden an Ihren Posteingang gesendet. Bitte überprüfen Sie Ihren Posteingang, um auf Post Affiliate Pro fortzufahren.';
 
-const productDomain = 'ladesk.com';
-const authTokenName = 'AuthToken';
+const productDomain = 'postaffiliatepro.com';
+const authTokenName = 'authToken';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 const papAccount = 'default1';
-const papAction = 'LATrial';
-const papCampaign = 'cc052a4f';
+const papAction = 'PAPtrial';
+const papCampaign = '1';
 const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />";
-const capterraScript =
-	"<script src='https://ct.capterra.com/capterra_tracker.js?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b'></script>";
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
 
 const debug = false; // Set true for display console.log

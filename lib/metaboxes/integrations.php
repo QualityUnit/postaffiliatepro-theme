@@ -44,31 +44,17 @@ $metabox = array(
 			'type'        => 'editor',
 		),
 		array(
-			'id'          => 'mb_integrations_type',
-			'label'       => 'Type',
-			'description' => '',
-			'type'        => 'multiselect',
-			'args'        => array(
-				'Native'   => 'native',
-				'External' => 'external',
-				'Zapier'   => 'zapier',
-			),
-		),
-		array(
 			'id'          => 'mb_integrations_plan',
 			'label'       => 'Available in',
 			'description' => '',
 			'type'        => 'multiselect',
 			'args'        => array(
-				'Free'          => 'free',
-				'Ticket'        => 'ticket',
-				'Ticket+Chat'   => 'ticket-chat',
-				'All-Inclusive' => 'all-inclusive',
-				'Enterprise'    => 'enterprise',
-				'Self-Hosted'   => 'self-hosted',
+				''         => 'Any',
+				'pro'      => 'Post Affiliate Pro',
+				'ultimate' => 'Post Affiliate Pro Ultimate',
+				'network'  => 'Post Affiliate Network',
 			),
 		),
-
 
 		array(
 			'id'          => 'mb_integrations_collections',

@@ -1,8 +1,8 @@
-/* eslint-disable no-undef, no-unused-vars */
+/* eslint-disable no-unused-vars, no-undef */
 
 const $ = jQuery;
 
-const productId = 'b229622b';
+const productId = 'ffd43d92';
 
 const textValidating = 'Validating...';
 const textRedirecting = 'Redirecting...';
@@ -11,8 +11,8 @@ const textInvalidField = 'Field invalid';
 const textValidDomain = 'Domain is valid';
 const textFailedDomain = "This account doesn't exist";
 
-const productDomain = 'ladesk.com';
+const productDomain = 'postaffiliatepro.com';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 
-const loginName = localStorage.getItem( 'la_login' );
+const loginName = localStorage.getItem( 'pap_login' );

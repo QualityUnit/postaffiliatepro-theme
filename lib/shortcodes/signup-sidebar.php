@@ -3,7 +3,8 @@
 function ms_signup_sidebar( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( 'Try it for free', 'ms' ),
+			'title'    => __( 'Try it for', 'ms' ),
+			'free'     => __( 'free', 'ms' ),
 			'subtitle' => __( 'No strings attached', 'ms' ),
 			'name'     => __( 'Full name', 'ms' ),
 			'email'    => __( 'E-mail', 'ms' ),
@@ -18,7 +19,7 @@ function ms_signup_sidebar( $atts ) {
 	?>
 
 	<div class="Signup__sidebar">
-		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] ); ?></div>
+		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
 		<div id="signup">
@@ -37,10 +38,12 @@ function ms_signup_sidebar( $atts ) {
 
 			<div id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
 				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
-				<div class="Signup__sidebar__item__domain"><?php _e( '.ladesk.com', 'ms' ); ?>
+				<div class="Signup__sidebar__item__domain">
+				<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
 				<div class="Signup__sidebar__item__info ComparePlans__tooltip">
-					<div class="Signup__sidebar__item__info__icon ComparePlans__info-icon fontello-info"></div>
-					<div class="ComparePlans__tooltip__text ComparePlans__tooltip__text--right"><?php _e( 'Choose a name for your LiveAgent subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+					<div class="Signup__sidebar__item__info__icon fontello-info">
+						<div class="Tooltip Tooltip--left"><?php _e( 'Choose a name for your PostAffiliate Pro subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+					</div>
 				</div>
 			</div>
 				<div class="ErrorMessage"></div>
@@ -49,7 +52,7 @@ function ms_signup_sidebar( $atts ) {
 			<div id="signUpError" class="signUpError"></div>
 
 			<div class="Signup__sidebar__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'}); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 
@@ -72,11 +75,11 @@ function ms_signup_sidebar( $atts ) {
 							<span>4.8/5</span>
 						</a>
 						<div class="Reviews__items__item__stars stars">
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item half stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue half stars__item"></span>
 						</div>
 					</div>
 					<div class="Signup__sidebar__reviews--item">
@@ -85,11 +88,11 @@ function ms_signup_sidebar( $atts ) {
 							<span>5/5</span>
 						</a>
 						<div class="Reviews__items__item__stars stars">
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
-							<span class="Reviews__items__item__stars__item stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
+							<span class="Reviews__items__item__stars__item blue stars__item"></span>
 						</div>
 					</div>
 				</div>
@@ -101,73 +104,35 @@ function ms_signup_sidebar( $atts ) {
 	<?php
 		add_action( 'wp_footer', function() {
 	?>
-	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.cookie.js' ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.alphanum.js' ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
+	<script defer data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
+	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.cookie.js' ?>"></script>
+	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/jquery.alphanum.js' ?>"></script>
+	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_de.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_de.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_es.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_es.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fr.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_fr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_br.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_br.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_sk.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_sk.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_hu.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_hu.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_nl.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_nl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_pl.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_pl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_it.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'ru' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ru.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'zh-hans' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cn.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'ar' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ae.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'bg' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_bg.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'hr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cr.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'cs' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_cz.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'da' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_dk.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'et' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ee.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'fi' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_fi.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'el' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_gr.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'ja' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_jp.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'lt' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lt.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'lv' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_lv.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'no' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_no.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'tl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ph.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'ro' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_ro.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'sv' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_se.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'sl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_si.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'vi' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_vn.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_it.js' ?>"></script>
 	<?php } else { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm-free_en.js' ?>"></script>
+		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } ?>
 	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
+	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 

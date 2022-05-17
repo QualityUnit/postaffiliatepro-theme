@@ -207,7 +207,7 @@
 		border-radius: $border-radius-16;
 		padding: 1.5em 2.5em;
 		margin-top: 1.5em;
-		background-color: $medium-orange;
+		background-color: $primary-checklist;
 		overflow: hidden;
 
 		&::before {
@@ -216,7 +216,7 @@
 			position: absolute;
 			content: "";
 			left: 50%;
-			background: $medium-orange url(../../images/about_career_bg-orange.svg) right center no-repeat;
+			background: $primary-checklist url(../../images/about_career_bg-orange.svg) right center no-repeat;
 			background-size: cover;
 			z-index: 1;
 		}

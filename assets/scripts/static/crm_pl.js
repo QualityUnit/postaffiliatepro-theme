@@ -2,45 +2,42 @@
 
 const $ = jQuery;
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+const productId = 'ffd43d92';
+const variationId = 'pap3627f';
 
 const languageCode = 'pl';
 
-const textValidating = 'Weryfikowanie...';
+const textValidating = 'Walidacja...';
 const textCreating = 'Tworzenie...';
 const textInstalling = 'Instalowanie';
 const textLaunching = 'Uruchamianie';
 const textRedirecting = 'Przekierowanie';
 const textFinalizing = 'Finalizowanie';
-const textStart = 'Rozpocznij teraz';
+const textStart = 'Uruchom teraz';
 const textError = 'Coś poszło nie tak.';
-const textEmpty = 'Pola nie mogą być puste';
-const textInvalid = 'Niektóre pola są nieprawidłowo wypełnione';
-const textInvalidField = 'Nieprawidłowo wypełnione pola';
+const textEmpty = 'To pole nie może być puste';
+const textInvalid = 'Niektóre pola są nieprawidłowe';
+const textInvalidField = 'Pole jest nieprawidłowe';
 const textInvalidMail = 'Nieprawidłowy e-mail';
 const textValidDomain = 'Domena jest prawidłowa';
 const textFailedDomain = 'Nie udało się zweryfikować domeny';
-const textDomainNoHttp =
-	'Adres strony nie może zawierać http lub www i wielkich liter (A-Z)';
+const textDomainNoHttp = 'Domena nie zawiera http lub www';
 const textFailedRetrieve =
-	'Nie udało się pobrać prawidłowych danych o postępie.';
-const textGoApp = 'Przejdź do aplikacji';
-const textReadyApp = 'Twój LiveAgent jest gotowy';
-const textDoneAppTitle = 'Twój LiveAgent jest gotowy';
+	'Nie udało się pobrać prawidłowych informacji o postępie.';
+const textGoApp = 'Przejdź do swojej aplikacji';
+const textReadyApp = 'Twój Post Affiliate Pro jest gotowy';
+const textDoneAppTitle = 'Twój Post Affiliate Pro jest gotowy';
 const textDoneAppText =
-	'Dane logowania zostały wysłane na Twój adres e-mail. Sprawdź je i zacznij korzystać z LiveAgent.';
+	'Dane logowania zostały przesłane do Twojej skrzynki odbiorczej. Sprawdź skrzynkę, aby przejść do Post Affiliate Pro.';
 
-const productDomain = 'ladesk.com';
-const authTokenName = 'AuthToken';
+const productDomain = 'postaffiliatepro.com';
+const authTokenName = 'authToken';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 const papAccount = 'default1';
-const papAction = 'LATrial';
-const papCampaign = 'cc052a4f';
+const papAction = 'PAPtrial';
+const papCampaign = '1';
 const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />";
-const capterraScript =
-	"<script src='https://ct.capterra.com/capterra_tracker.js?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b'></script>";
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
 
 const debug = false; // Set true for display console.log

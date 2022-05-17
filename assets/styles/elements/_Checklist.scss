@@ -5,7 +5,7 @@
 
 	li {
 
-		@include color(color, font-color-dark);
+		@include color(color, font-color-dark, !important);
 		position: relative;
 		font-size: 1rem;
 		padding-left: 1.5em;
@@ -19,7 +19,7 @@
 			position: absolute;
 			top: 4px;
 			left: -0.5em;
-			background: $medium-orange url(../images/icon-post-check.svg) center center no-repeat;
+			background: $primary-checklist url(../images/icon-post-check.svg) center center no-repeat;
 			background-size: 50%;
 			padding: 0.25em;
 			font-size: 1.25em;
@@ -55,11 +55,46 @@
 		ul:not([class]) {
 
 			@extend %checklist;
-			@include color(color, font-color-normal);
-		}
-
-		li {
-			font-size: 1rem;
 		}
 	}
+
+	&-slim {
+
+		.elementor-text-editor.elementor-text-editor {
+
+			ul {
+
+				font-weight: 400 !important;
+			}
+		}
+	}
+}
+
+.elementor-text-editor.elementor-text-editor ul,
+ul.checklist {
+
+	li {
+		position: relative;
+
+		&::before {
+
+			@include circle(1em);
+			display: inline-block;
+			content: "";
+			position: absolute;
+			top: 4px;
+			left: 0;
+			background: $primary-checklist url(../images/icon-post-check.svg) center center no-repeat;
+			background-size: 50%;
+			padding: 0.25em;
+			font-size: 1.25em;
+			margin: 0;
+		}
+	}
+
+	@include color(color, font-color-normal);
+}
+
+.elementor-text-editor.elementor-text-editor ul li {
+	padding-left: 2em;
 }

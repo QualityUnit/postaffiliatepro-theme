@@ -12,5 +12,4 @@
 	require_once get_template_directory() . '/lib/post-types/templates.php';
 	require_once get_template_directory() . '/lib/post-types/directory.php';
 	require_once get_template_directory() . '/lib/post-types/about.php';
-	require_once get_template_directory() . '/lib/post-types/research.php';
-	require_once get_template_directory() . '/lib/post-types/checklists.php';
+	require_once get_template_directory() . '/lib/post-types/learning-center.php';

@@ -3,7 +3,6 @@ const setCookie = ( name, value, days ) => {
 	let expires = '';
 	if ( days ) {
 		const date = new Date();
-		// eslint-disable-next-line no-mixed-operators
 		date.setTime( date.getTime() + days * 24 * 60 * 60 * 1000 );
 		expires = `; expires=${ date.toUTCString() }`;
 	}

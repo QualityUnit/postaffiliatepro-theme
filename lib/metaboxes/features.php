@@ -13,11 +13,10 @@ $metabox = array(
 			'description' => '',
 			'type'        => 'multiselect',
 			'args'        => array(
-				'Free'          => 'free',
-				'Ticket'        => 'ticket',
-				'Ticket+Chat'   => 'ticket-chat',
-				'All-Inclusive' => 'all-inclusive',
-				'Extensions'    => 'extensions',
+				''         => 'Any',
+				'pro'      => 'Post Affiliate Pro',
+				'ultimate' => 'Post Affiliate Pro Ultimate',
+				'network'  => 'Post Affiliate Network',
 			),
 		),
 		array(

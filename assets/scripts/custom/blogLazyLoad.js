@@ -61,7 +61,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 					<a href="${ url }" title=${ title }" itemprop="url">
 						<div class="Blog__item__thumbnail">
 							<meta itemprop="image" content="${ image }">
-							<img data-lasrc="${ image }" alt="${ title }" />
+							<img data-src="${ image }" alt="${ title }" />
 						</div>
 						<div class="Blog__item__content">
 							<div class="Blog__item__meta">
@@ -69,10 +69,10 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 									<span class="hidden">Categories:</span>
 									<span class="postDynamicCats-${ id }">
 										${ categories
-		.map( ( cat ) => {
-			return `<span>${ cat.name }</span>`;
-		} )
-		.join( '' ) }
+											.map( ( cat ) => {
+												return `<span>${ cat.name }</span>`;
+											} )
+											.join( '' ) }
 									</span>
 								</div>
 
@@ -91,9 +91,9 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 								${ excerpt }
 								<span class="learn-more">
 									${ __(
-		'Learn More',
-		'ms'
-	) } <svg width="15" height="13" xmlns="http://www.w3.org/2000/svg">
+										'Learn More',
+										'ms'
+									) } <svg width="15" height="13" xmlns="http://www.w3.org/2000/svg">
 										<path d="M8.514 0 7.37 1.146l4.525 4.542H0v1.625h11.895L7.37 11.854 8.514 13 15 6.5 8.514 0Z"></path>
 										</svg>
 								</span>

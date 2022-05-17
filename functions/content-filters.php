@@ -266,18 +266,18 @@ add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
  * Change version of SVG images
  */
 
-function svg_version( $html ) {
-	$html = preg_replace_callback(
-		'/(\<img.+)(src=".+?svg)/',
-		function ( $m ) {
-				return $m[1] . $m[2] . '?v=2021-06-25';
-		},
-		$html
-	);
-
-	return $html;
-}
-add_filter( 'the_content', 'svg_version', 10 );
+//function svg_version( $html ) {
+//	$html = preg_replace_callback(
+//		'/(\<img.+)(src=".+?svg)/',
+//		function ( $m ) {
+//				return $m[1] . $m[2] . '?v=2021-06-25';
+//		},
+//		$html
+//	);
+//
+//	return $html;
+//}
+//add_filter( 'the_content', 'svg_version', 10 );
 
 	// Get WP_ENV
 function wpenv() {
@@ -358,58 +358,20 @@ add_action( 'save_post', 'flush_rules_on_save_posts', 20, 2 );
  */
 
 function replace_admin_subdomain( $content ) {
-	$pattern     = '/admin.liveagent.com/i';
-	$replacement = 'www.liveagent.com';
+	$pattern     = '/admin.postaffiliatepro.com/i';
+	$replacement = 'www.postaffiliatepro.com';
 	return preg_replace( $pattern, $replacement, $content );
 }
 add_filter( 'the_content', 'replace_admin_subdomain' );
 
 
-/* 
-* Change formatting in Block--learnMore <pre> blocks
-*/
+/**
+ * Clean up the_excerpt()
+ */
 
-function learnmore_pre_block( $content ) {
-	if ( ! $content ) {
-		return $content;
+add_filter(
+	'excerpt_more',
+	function () {
+		return ' &hellip; <a href="' . get_permalink() . '">' . __( 'Read More', 'ms' ) . '</a>';
 	}
-
-	$dom = new DOMDocument();
-	libxml_use_internal_errors( true );
-	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
-	libxml_clear_errors();
-	$xpath       = new DOMXPath( $dom );
-	$block_class = 'Block--learnMore';
-	$blocks      = get_nodes( $xpath, $block_class );
-
-	foreach ( $blocks as $block ) {
-		foreach ( $block->getElementsByTagName( 'pre' ) as $pre ) {
-			// @codingStandardsIgnoreStart
-			$header      = $pre->childNodes->item( 0 )->textContent;
-			$regex       = '/(.+)(–|—|-|-)(.+)(\n|\r)*(.*)/';
-			$strong_text = preg_replace( $regex, '$1', $header );
-			$value_text  = preg_replace( $regex, '$3', $header );
-			$main_text   = $pre->textContent;
-			$main_text   = preg_replace( $regex, '$5', $main_text );
-			if( isset( $pre->childNodes->item( 3 )->textContent ) ) {
-				$main_text = $pre->childNodes->item( 3 )->textContent;
-			}
-			$pre->textContent = '';
-			$strong           = $dom->createElement( 'strong' );
-			$flex             = $dom->createElement( 'div' );
-			$flex->setAttribute( 'class', 'flex' );
-			$strong->textContent = $strong_text;
-			$flex->appendChild( $strong );
-			$flex->appendChild( $dom->createTextNode( $value_text ) );
-			$pre->appendChild( $flex );
-			$pre->appendChild( $dom->createTextNode( $main_text ) );
-		}
-		// @codingStandardsIgnoreEnd
-	}
-	$dom->removeChild( $dom->doctype );
-	$content = $dom->saveHtml();
-	$content = str_replace( '<html><body>', '', $content );
-	$content = str_replace( '</body></html>', '', $content );
-	return $content;
-}
-add_filter( 'the_content', 'learnmore_pre_block', 9999 );
+);

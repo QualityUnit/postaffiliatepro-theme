@@ -1,7 +1,6 @@
-/* stylelint-disable selector-class-pattern */
-
 html {
 	scroll-behavior: smooth;
+	scroll-padding-top: 6em;
 }
 
 body {
@@ -12,14 +11,20 @@ body {
 	font-weight: $font-weight-normal;
 	line-height: $line-height-default;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-	@media (max-width: 1600px) {
-		overflow-x: hidden;
-	}
 }
 
 .home .AppContainer {
 	overflow: hidden;
+}
+
+picture {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.container {
+	max-width: 1280px;
 }
 
 .wrapper {
@@ -87,22 +92,55 @@ body {
 	&-wrap {
 		flex-wrap: wrap;
 	}
+}
 
-	&-align-center {
-		align-content: center;
+.flex-justify-center {
+	justify-content: center;
+}
+
+.flex-align-center {
+	align-items: center;
+}
+
+.flex-center {
+
+	@extend .flex-justify-center;
+	@extend .flex-align-center;
+}
+
+.hidden {
+
+	&-mobile {
+
+		@media (max-width: $breakpoint-tablet - 1px) {
+			display: none;
+		}
+	}
+
+	&-desktop {
+
+		@media (min-width: $breakpoint-tablet) {
+			display: none;
+		}
 	}
 }
 
-.mobile--only {
+.icon-bg-rounded {
+
+	@include square(4em);
+	background-color: $light-primary;
+	border-radius: $border-radius-14;
+	padding: 1em;
+	flex-shrink: 0;
+
+	img {
+
+		@include square(100%);
+	}
 
 	@media (min-width: $breakpoint-tablet) {
-		display: none;
-	}
-}
 
-.desktop--only {
-
-	@media (max-width: $breakpoint-tablet - 1px) {
-		display: none;
+		@include square(5.25em);
+		padding: 1.25em;
 	}
 }

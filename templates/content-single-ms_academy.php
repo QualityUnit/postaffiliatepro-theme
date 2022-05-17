@@ -1,37 +1,77 @@
 <?php // @codingStandardsIgnoreLine
-	set_source( 'single-post', 'common/splide', 'css' );
-	set_source( 'single-post', 'splide', 'js' );
-	set_source( 'single-post', 'sidebar_toc', 'js' );
-	set_source( 'single-post', 'custom_lightbox', 'js' );
+set_source( 'single-post', 'common/splide', 'css' );
+set_source( 'single-post', 'splide', 'js' );
+set_source( 'single-post', 'sidebar_toc', 'js' );
+set_source( 'single-post', 'custom_lightbox', 'js' );
 
-	$current_lang    = apply_filters( 'wpml_current_language', null );
-	$header_category = get_en_category( 'ms_academy', $post->ID );
-	do_action( 'wpml_switch_language', $current_lang );
+$posttitle          = get_the_title();
+$posttitle_filtered = str_replace( '^', '', $posttitle );
+
+$current_lang    = apply_filters( 'wpml_current_language', null );
+$header_category = get_en_category( 'ms_academy', $post->ID );
+do_action( 'wpml_switch_language', $current_lang );
 ?>
 
 <div class="Post" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
-		<div class="wrapper__wide"></div>
+	<div class="Post__header Post__header__narrow academy <?= esc_attr( $header_category ); ?>">
+		<div class="wrapper__wide">
+			<div class="Post__header Post__header__narrow__image">
+				<?php
+				if ( has_post_thumbnail() ) {
+					the_post_thumbnail();
+				}
+				if ( ! has_post_thumbnail() ) {
+					?>
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/category_item_image.jpg" alt="<?php the_title(); ?>" />
+				<?php } ?>
+			</div>
+			<div class="Post__header__narrow__text">
+				<div class="Post__content__breadcrumbs Post__header__narrow__breadcrumbs">
+					<ul>
+						<li><a href="<?php _e( '/academy/', 'ms' ); ?>"><?php _e( 'Academy', 'ms' ); ?></a></li>
+						<li><?= esc_html( $posttitle_filtered ); ?></li>
+					</ul>
+				</div>
+				<h1 class="Post__header__narrow__title">
+					<?php
+					$pagetitle = explode( '^', get_the_title() );
+					if ( isset( $pagetitle[1] ) ) {
+						?>
+						<?php echo esc_html( $pagetitle[0] ) . ' '; ?>
+						<span class="highlight"><?php echo esc_html( $pagetitle[1] ); ?></span>
+						<?php echo esc_html( ' ' . $pagetitle[2] ); ?>
+						<?php
+					} else {
+						echo esc_html( $posttitle_filtered );
+					}
+					?>
+				</h1>
+			</div>
+		</div>
 	</div>
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar">
+
 			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-				<ul class="Post__sidebar__categories__labels">
+				<h4 class="Post__sidebar__title"><?php _e( 'Categories', 'ms' ); ?></h4>
+				<ul class="CategoryTags">
 					<?php
 					$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_academy' );
 					$categories = get_the_terms( $current_id, 'ms_academy_categories' );
 
 					if ( $categories ) {
 						foreach ( $categories as $category ) {
+							$category_id    = $category->term_id;
+							$category_name  = $category->name;
+							$category_color = get_term_meta( $category_id, 'category_color', true );
 							?>
-					<li class="Post__sidebar__link">
-						<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-					</li>
+							<li class="CategoryTag <?= esc_attr( $category_color ); ?>">
+								<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category_name ); ?>"><?= esc_html( $category_name ); ?></a>
+							</li>
 							<?php
 						}
 					}
@@ -60,26 +100,10 @@
 		</div>
 
 		<div class="Post__content">
-			<div class="Post__logo">
-				<?php if ( has_post_thumbnail() ) { ?>
-					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-				<?php } else { ?>
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-book.svg" alt="<?php _e( 'Academy', 'ms' ); ?>">
-				<?php } ?>
-			</div>
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/academy/', 'ms' ); ?>"><?php _e( 'Academy', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<h1 itemprop="name"><?php the_title(); ?></h1>
-
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
-				<div class="Post__m__negative Post__buttons">
+				<div class=" Post__buttons">
 					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Back to Academy'])"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>
 
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">

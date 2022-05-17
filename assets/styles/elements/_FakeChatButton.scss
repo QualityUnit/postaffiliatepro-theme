@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-
 .fakeChatButton {
 
 	@include square(4em);
@@ -8,7 +6,7 @@
 	right: 20px;
 	z-index: 999997;
 	border-radius: 50%;
-	background: url(../images/fakeChatButton.svg) center center no-repeat;
+	background: url(../images/fakeChatButton.svg?v2) center center no-repeat;
 	background-size: 105%;
 	box-shadow: 0 4px 4px 0 rgba($black-real, 0.175);
 	cursor: pointer;

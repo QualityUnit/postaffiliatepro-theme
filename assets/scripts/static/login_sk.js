@@ -1,8 +1,8 @@
-/* eslint-disable no-undef, no-unused-vars */
+/* eslint-disable no-unused-vars, no-undef */
 
 const $ = jQuery;
 
-const productId = 'b229622b';
+const productId = 'ffd43d92';
 
 const textValidating = 'Overovanie...';
 const textRedirecting = 'Presmerovanie';
@@ -11,8 +11,8 @@ const textInvalidField = 'Neplatné pole';
 const textValidDomain = 'Doména je platná';
 const textFailedDomain = 'Tento účet neexistuje';
 
-const productDomain = 'ladesk.com';
+const productDomain = 'postaffiliatepro.com';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 
-const loginName = localStorage.getItem( 'la_login' );
+const loginName = localStorage.getItem( 'pap_login' );

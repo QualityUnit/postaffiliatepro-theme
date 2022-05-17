@@ -26,7 +26,7 @@ if ( demobar ) {
 	} );
 
 	if ( ! getCookie( 'demobar' ) && getCookie( 'cookieLaw' ) ) {
-		window.addEventListener( 'load', () => {
+		window.addEventListener( 'load', () => {// eslint-disable-line
 			setTimeout( () => {
 				demobar.classList.add( 'visible' );
 			}, 500 );

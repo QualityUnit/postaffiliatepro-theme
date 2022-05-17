@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="Article__container__sidebar__author__content">
-					<div class="h4"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></div>
+					<h4><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></h4>
 					<p><strong><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></strong></p>
 				</div>
 			</div>

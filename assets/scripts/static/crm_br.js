@@ -2,45 +2,42 @@
 
 const $ = jQuery;
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+const productId = 'ffd43d92';
+const variationId = 'pap3627f';
 
 const languageCode = 'pt-BR';
 
 const textValidating = 'Validando...';
 const textCreating = 'Criando...';
 const textInstalling = 'Instalando';
-const textLaunching = 'Iniciando';
+const textLaunching = 'Abrindo';
 const textRedirecting = 'Redirecionando';
 const textFinalizing = 'Finalizando';
-const textStart = 'Comece agora';
+const textStart = 'Começar agora';
 const textError = 'Algo deu errado.';
-const textEmpty = 'O campo não pode estar vazio';
+const textEmpty = 'Esse campo não pode estar vazio';
 const textInvalid = 'Alguns campos são inválidos';
-const textInvalidField = 'Campo inválido';
+const textInvalidField = 'Campo Inválido';
 const textInvalidMail = 'E-mail inválido';
-const textValidDomain = 'O domínio é válido';
+const textValidDomain = 'Domínio válido';
 const textFailedDomain = 'Falha ao validar domínio';
-const textDomainNoHttp =
-	'O domínio não pode conter http ou www e caracteres maiúsculos (A-Z)';
+const textDomainNoHttp = 'O domínio não pode conter http ou www';
 const textFailedRetrieve =
-	'Falha ao recuperar informações do progresso válidas.';
-const textGoApp = 'Vá para seu aplicativo';
-const textReadyApp = 'O seu LiveAgent está pronto';
-const textDoneAppTitle = 'O seu LiveAgent está pronto';
+	'Falha ao recuperar informação de progresso válidas.';
+const textGoApp = 'Vá para o seu App';
+const textReadyApp = 'Seu Post Affiliate Pro está pronto';
+const textDoneAppTitle = 'Seu Post Affiliate Pro está pronto';
 const textDoneAppText =
-	'As credenciais de login foram enviadas para sua caixa de entrada. Verifique ela para continuar com o LiveAgent.';
+	'As informações de login foram emviadas para sua caixa de entrada. Por favor verifque seu e-mail para continuar no Post Affiliate Pro.';
 
-const productDomain = 'ladesk.com';
-const authTokenName = 'AuthToken';
+const productDomain = 'postaffiliatepro.com';
+const authTokenName = 'authToken';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 const papAccount = 'default1';
-const papAction = 'LATrial';
-const papCampaign = 'cc052a4f';
+const papAction = 'PAPtrial';
+const papCampaign = '1';
 const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />";
-const capterraScript =
-	"<script src='https://ct.capterra.com/capterra_tracker.js?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b'></script>";
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
 
 const debug = false; // Set true for display console.log

@@ -24,7 +24,7 @@ function ms_gutenberg_awards() {
 						<div class="elementor-widget-image">
 							<div class="elementor-widget-container">
 								<div class="elementor-image">
-									<img src="https://dd992yotdmnlu.cloudfront.net/app/uploads/2020/03/badges.png" alt="<?php _e( 'Badges', 'ms' ); ?>" loading="lazy">
+									<img src="/app/uploads/2020/03/badges.png" alt="<?php _e( 'Badges', 'ms' ); ?>" loading="lazy">
 								</div>
 							</div>
 						</div>

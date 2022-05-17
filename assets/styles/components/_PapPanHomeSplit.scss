@@ -1,0 +1,142 @@
+.pap-panHomeSplit {
+	text-align: center;
+
+	&.elementor-section {
+
+		&-boxed > .elementor-container {
+			max-width: $breakpoint-desktop-box !important;
+		}
+	}
+
+	&__header {
+
+		@include color(background-color, secondary-background);
+		border-radius: $border-radius-16;
+		padding: 2em;
+
+		.elementor-text-editor p {
+
+			@include color(color, font-color-normal);
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 2em;
+			padding: 5em 25%;
+
+			&::before,
+			&::after {
+
+				@include posZero;
+				position: absolute;
+				content: "";
+			}
+
+			&::before {
+				background: url(../images/pappan_home_el_l.svg) left center no-repeat;
+				background-size: auto 100%;
+			}
+
+			&::after {
+				background: url(../images/pappan_home_el_r.svg) right bottom no-repeat;
+				background-size: auto 90%;
+			}
+
+			h2 {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	&__column {
+
+		@include color(background-color, main-background);
+		border-radius: $border-radius-16;
+		box-shadow: 0 15px 41px -9px rgba(145, 145, 145, 0.28), inset 0 -15px 20px -17px rgba(157, 157, 157, 0.1);
+		overflow: hidden;
+		padding: 0 !important;
+		transition: transform 0.2s;
+
+		&:hover {
+
+			transform: scale(1.02) translateY(-1em);
+		}
+
+		* {
+			position: static !important;
+		}
+
+		.elementor-widget-image {
+			background: linear-gradient(to bottom, $white, rgba($black, 0.06));
+			padding: 3em 1.5em;
+
+			&:first-child ~ * {
+				padding: 0 1.5em;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				min-height: 21em;
+
+				&:first-child ~ * {
+					padding: 0 25%;
+				}
+			}
+		}
+
+		.elementor-heading-title {
+			margin: 1em auto 0;
+		}
+
+		.learnMore {
+			margin-bottom: 2em;
+
+			a {
+
+				@include color(color, font-color-level3);
+				display: inline-flex;
+				align-content: center;
+				font-family: $font-secondary;
+				font-size: 0.875rem;
+				line-height: 1;
+
+				&::before {
+
+					@include posZero;
+					position: absolute;
+					content: "";
+					z-index: 2;
+				}
+
+				&::after {
+					content: url(../images/icon-arrow-grey.svg);
+					margin-left: 0.5em;
+					margin-top: 0.1em;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+		padding: 0 1.5em;
+
+		&__column {
+			margin-top: 1.5em;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__column {
+			width: calc(50% - 0.5em) !important;
+
+			&--wrap {
+				position: relative;
+				top: -2em;
+				z-index: 1;
+			}
+		}
+
+		&__column + &__column {
+			margin-left: 1em;
+		}
+	}
+}

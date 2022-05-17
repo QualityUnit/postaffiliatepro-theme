@@ -1,9 +1,14 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
-
 .Block {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
+	margin-top: 6.25em;
+	margin-bottom: 6.25em;
+
+	.elementor-row {
+		align-items: center;
+	}
+
+	&:last-child {
+		margin-bottom: 0 !important;
+	}
 
 	&.no-margin-top {
 		margin-top: 0 !important;
@@ -13,121 +18,90 @@
 		margin-bottom: 0 !important;
 	}
 
-	.elementor-widget:not(:last-child):not(.elementor-widget-spacer) {
-		margin-bottom: 0 !important;
+	&.margin-narrow {
+		margin: 4.375em auto;
+	}
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	.checklist {
+		font-weight: 700;
 	}
 
 	.wrapper {
 
-		.elementor-widget-wrap {
+		> .elementor-column-wrap > .elementor-widget-wrap {
 			display: flex;
 			flex-flow: wrap column;
 			justify-content: center;
 		}
-	}
 
-	.wrapper__wide {
-		padding: 2.5em;
+		.elementor-inner-section .elementor-column {
 
-		&.no-padding {
-			padding: 0;
-		}
+			.elementor-widget-wrap:empty {
 
-		@media (min-width: $breakpoint-desktop-box) {
-			padding: 3.25em 7.5em;
+				@include color(background-color, button-outline-color);
+				border-radius: $border-radius-16;
+			}
 		}
 	}
 
-	h1,
-	h2 {
-		font-size: $font-size-h1;
+	h1 {
+		font-size: $font-size-h2-xs;
 		line-height: $line-height-h1 !important;
-		margin-bottom: 15px !important;
+		margin-bottom: 1rem !important;
+	}
+
+	h2 {
+		font-size: 1.25rem;
+		line-height: $line-height-h2;
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		h1 {
+			font-size: $font-size-h1;
+			margin-bottom: 1rem !important;
+		}
+
+		h2 {
+			font-size: $font-size-h2-s;
+			line-height: $line-height-h2;
+			margin-bottom: 1rem;
+		}
 	}
 
 	.Button {
-		margin-top: 20px;
-		margin-right: 30px;
+		margin-top: 1rem;
 
 		+ .Button {
-			margin-top: 10px !important;
-			margin-left: 0 !important;
-		}
-
-		@media (max-width: $breakpoint-mobile) {
-			margin-left: auto !important;
-			margin-right: auto !important;
-		}
-	}
-
-	img[src*="Medal.svg"] {
-		max-width: 2.5rem;
-	}
-
-	.no-cc {
-		margin-top: 1.5em;
-	}
-
-	&--big,
-	&--new {
-
-		.elementor-text-editor {
-
-			p {
-				font-size: 24px;
-				line-height: 36px;
-			}
+			margin-left: 1rem;
 		}
 	}
 
 	&--redesign {
 
 		h2 {
-			font-size: 2.5rem;
-			line-height: 1.36 !important;
+			font-size: $font-size-h2-s;
+			line-height: 1.4;
 			text-align: center;
-
-			a {
-				color: inherit;
-				font-size: inherit;
-				line-height: inherit;
-			}
 		}
 
 		.elementor-text-editor {
 
 			@include color(color, font-color-medium);
-			font-size: 1rem;
-			line-height: 1.625;
+			font-size: $font-size-smaller;
+			line-height: 1.7;
 			text-align: center;
-		}
-
-		&__basic {
-			margin-bottom: 3em !important;
-
-			*:not(.elementor-inner-section) {
-
-				h2,
-				h3 {
-					text-align: center !important;
-				}
-
-				.elementor-text-editor.elementor-text-editor {
-					width: 100%;
-					text-align: center;
-				}
-			}
-
 		}
 
 		@media (min-width: $breakpoint-tablet + 1px) {
 
 			h2 {
 				text-align: left;
-			}
-
-			.checklist {
-				max-width: none;
 			}
 
 			.elementor-text-editor {
@@ -183,7 +157,7 @@
 					margin-left: auto;
 					margin-right: -2em;
 
-					@media (max-width: $breakpoint-desktop-box) {
+					@media (max-width: $breakpoint-desktop) {
 						margin-right: 0;
 					}
 				}
@@ -235,7 +209,7 @@
 			.Button {
 				font-size: 0.875rem;
 				width: 100%;
-				padding: 1.75em 1em;
+				padding: 1.75em 0;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -287,7 +261,7 @@
 
 					p {
 
-						@include color(color, font-color-normal);
+						@include color(color, font-color-medium);
 					}
 				}
 
@@ -316,14 +290,106 @@
 	&.image-left {
 
 		.elementor-section .elementor-container .elementor-column:first-of-type {
-			padding-right: 0 !important;
+			padding-right: 0;
+		}
+
+		.elementor-section .elementor-container .elementor-column:last-of-type {
+			padding-left: 7.5em;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+
+			.elementor-section .elementor-container .elementor-column:last-of-type {
+				padding: 0 1.5em !important;
+			}
 		}
 	}
 
 	&.image-right {
 
+		.elementor-section .elementor-container .elementor-column:first-of-type {
+			padding-right: 7.5em;
+		}
+
 		.elementor-section .elementor-container .elementor-column:last-of-type {
-			padding-left: 0 !important;
+			padding-left: 0;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+
+			.elementor-section .elementor-container .elementor-column:first-of-type {
+				padding: 0 1.5em !important;
+			}
+		}
+	}
+
+	&--big.Block--background {
+
+		.elementor-widget-text-editor h4 {
+
+			@include color(color, font-color-normal);
+			font-size: 0.8125rem;
+			font-weight: 400;
+			margin-bottom: 1.5em;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: 1.5rem;
+			}
+		}
+
+		&.image-left {
+
+			.elementor-section .elementor-container .elementor-column {
+
+
+				&:last-of-type {
+					padding-right: 0;
+					width: 60%;
+				}
+			}
+		}
+
+		&.image-right {
+
+			.elementor-section .elementor-container .elementor-column {
+
+				&:first-of-type {
+					padding-left: 0;
+					width: 60%;
+
+					@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+						width: 40%;
+					}
+				}
+
+				&:last-of-type {
+
+					@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	&--big:not(.Block--background) {
+
+		.wrapper {
+			max-width: 1380px;
+			padding: 20px;
+
+			.elementor-section.elementor-section-boxed > .elementor-container {
+				max-width: none;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				padding: 0;
+			}
+		}
+
+		.elementor-image {
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 
@@ -333,11 +399,17 @@
 
 			&:first-of-type {
 				width: 60%;
+				padding-right: 7.5em;
+
+				img {
+					width: auto;
+				}
 			}
 
 			&:last-of-type {
 				width: 40%;
-				padding-left: 0 !important;
+				padding-left: 0;
+				padding-right: 7.5em;
 			}
 		}
 	}
@@ -348,65 +420,56 @@
 
 			&:first-of-type {
 				width: 40%;
-				padding-right: 0 !important;
+				padding-right: 0;
+				padding-left: 7.5em;
 			}
 
 			&:last-of-type {
 				width: 60%;
+				padding-left: 7.5em;
+
+				img {
+					width: auto;
+				}
 			}
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop) {
+	.grid {
+		position: relative;
 
-		&--big,
-		&--new {
+		@media (min-width: $breakpoint-tablet-small) {
+			padding: 4em 0;
 
-			.elementor-section .elementor-container {
+			&::after {
 
-				.elementor-column {
-
-					&:first-of-type {
-						padding-right: 85px;
-					}
-
-					&:last-of-type {
-						padding-left: 85px;
-					}
-				}
-			}
-
-			.elementor-image {
-				padding-left: 0;
-				padding-right: 0;
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-
-		h1,
-		h2 {
-			font-size: $font-size-h2;
-			line-height: 42px !important;
-		}
-
-		&--big,
-		&--new {
-
-			.elementor-text-editor {
-
-				p {
-					font-size: 16px;
-					line-height: 24px;
-				}
+				@include posCustom(-4em);
+				position: absolute;
+				content: "";
+				background: url(../images/grid-illustration.svg) center center no-repeat;
+				background-size: contain;
+				z-index: -1;
 			}
 		}
 	}
 
 	@media (max-width: $breakpoint-tablet) {
 		margin-top: 0 !important;
-		margin-bottom: 75px !important;
+		margin-bottom: 4.325em !important;
+
+		&.image-left {
+
+			.elementor-container {
+
+				.elementor-col-50 {
+
+					&:last-of-type {
+						margin-top: 1.5em;
+						order: 2;
+					}
+				}
+			}
+		}
 
 		&.image-right {
 
@@ -415,7 +478,7 @@
 				.elementor-col-50 {
 
 					&:first-of-type {
-						margin-top: 50px;
+						margin-top: 1.5em;
 						order: 2;
 					}
 
@@ -427,38 +490,22 @@
 			}
 		}
 
-		.elementor-container {
-
-			.elementor-column {
-
-				&:last-of-type {
-					margin-top: 50px;
-				}
-			}
-		}
-
-		h1 {
-			font-size: 32px;
-			line-height: 42px !important;
-		}
-
-		h2 {
-			font-size: 28px;
-			line-height: 38px !important;
-		}
-
 		.elementor-image {
 			padding-left: 0;
 			padding-right: 0;
 		}
 	}
+}
 
-	@media (max-width: $breakpoint-mobile) {
+.Block--title-big {
+	text-align: center;
 
-		.Button {
-			margin-top: 15px;
-			margin-right: 15px;
-		}
+	.elementor-heading-title {
+		font-size: 2.5rem;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 5em;
 	}
 }
 
@@ -468,6 +515,298 @@
 		margin-top: 50px !important;
 	}
 }
+
+.Block--illustration-big {
+
+	@extend .Box;
+	@extend .Box--gray;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		.wrapper {
+
+			&::before {
+
+				@include posCustom(1em);
+				position: absolute;
+				z-index: 0;
+				content: "";
+				background: url(../images/block_big_bg.svg) center center no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+
+	.elementor-inner-section {
+
+		.elementor-column {
+			margin-bottom: 1.5em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-row {
+				flex-wrap: nowrap;
+			}
+
+			.elementor-column {
+				margin-bottom: 0;
+
+				+ .elementor-column {
+					margin-left: 1.5em;
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			.elementor-column {
+				min-height: 17.7em;
+			}
+		}
+	}
+}
+
+.Block--illustration {
+
+	@extend .Box;
+	@extend .Box--gray;
+	margin-bottom: 2em;
+
+	.wrapper {
+		margin-bottom: 3em;
+		padding: 4.25em 20% 3.75em !important;
+
+		@media (min-width: $breakpoint-desktop-big) {
+			padding: 4.25em 25em 3.75em !important;
+		}
+
+		&::before {
+
+			position: absolute;
+			z-index: 0;
+			content: "";
+			background: url(../images/illustration_bg.svg) left bottom no-repeat;
+			background-size: 200% auto;
+			width: 100%;
+			height: calc(100% + 6.5em);
+			right: 0;
+		}
+
+		@media (min-width: $breakpoint-tablet-small) {
+
+			&::before {
+				background-size: auto 100%;
+				bottom: -12em;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			&::before {
+				background-position: right bottom;
+				bottom: -8em;
+			}
+		}
+	}
+
+	.elementor-widget {
+		margin-bottom: 1em;
+		text-align: center;
+	}
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.elementor-size-xxl {
+		margin-bottom: 0 !important;
+	}
+
+	.elementor-inner-section {
+
+		.elementor-column + .elementor-column {
+			margin-left: 3%;
+		}
+
+		@media (min-width: $breakpoint-tablet-small) {
+
+			.elementor-row {
+				flex-wrap: nowrap;
+			}
+		}
+	}
+}
+
+.Block--illustration2 {
+
+	@extend .Block--illustration-big;
+	text-align: center;
+
+	p {
+		font-size: $font-size-default;
+		text-align: center;
+	}
+
+	&.narrow {
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.wrapper::before {
+				height: 120%;
+			}
+		}
+	}
+
+	.wrapper {
+		padding: 4.25em 1em 3.75em !important;
+
+		@media (min-width: $breakpoint-desktop-big) {
+			padding: 4.25em 20em 3.75em !important;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 4.25em 20% 3.75em !important;
+
+			&::before {
+
+				@include posCustom(auto);
+				background-image: url(../images/illustration2.svg);
+				background-position: center top;
+				left: calc(50% - 1em);
+				top: -1em;
+				transform: translateX(-50%);
+				width: calc(100% + 2em);
+				height: 105%;
+			}
+		}
+	}
+}
+
+[class*="Block--illustration"] {
+
+	.tag {
+		display: flex;
+		justify-content: center;
+		width: auto;
+
+		.elementor-image-box-title {
+			font-size: 1rem !important;
+		}
+	}
+}
+
+.Block--lines {
+
+	@extend .Box;
+	@extend .Box--gray;
+
+	.wrapper {
+		background: url(../images/lines_bg.svg) center center no-repeat;
+		background-size: cover;
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		.elementor-inner-section .elementor-row {
+			justify-content: center;
+
+			.tag {
+				width: auto;
+				margin: 0 auto;
+			}
+
+			.elementor-column {
+				text-align: center;
+
+				&-wrap {
+					margin: 0;
+				}
+			}
+
+			.elementor-col-25 {
+				width: calc(50% - 1.5em);
+				margin-top: 2em;
+			}
+		}
+	}
+}
+
+.Block--lines--header {
+
+	@extend .Box--gray;
+	position: relative;
+	overflow: hidden;
+
+	.wrapper {
+		background: url(../images/lines_bg.svg) center center no-repeat;
+		background-size: cover;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&::before {
+				content: "";
+				position: absolute;
+				width: 15.5em;
+				height: 19.5em;
+				left: 2%;
+				top: 25%;
+				background: url(../images/block-lines-big-illu1.svg) center center no-repeat;
+				background-size: contain;
+				z-index: 1;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: 20.5em;
+				height: 34em;
+				right: 2%;
+				top: 10%;
+				background: url(../images/block-lines-big-illu2.svg) center center no-repeat;
+				background-size: contain;
+				z-index: 1;
+			}
+		}
+	}
+
+}
+
+.Block--slider {
+
+	@extend .Box;
+	@extend .Box--gray;
+
+	margin-bottom: 14em !important;
+
+	.wrapper {
+		padding-bottom: 0 !important;
+
+		@media (min-width: $breakpoint-tablet) {
+
+			&::before {
+
+				@include square(100%);
+				position: absolute;
+				z-index: 1;
+				content: "";
+				background: url(../images/elements_bg.svg) center center no-repeat;
+				background-size: 100% auto;
+				left: -2em;
+			}
+		}
+	}
+
+	&__subtitle {
+
+		p {
+			font-size: $font-size-default;
+			line-height: $line-height-default;
+			text-align: center;
+		}
+	}
+}
+
 
 .Block--background {
 
@@ -500,27 +839,10 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 75px !important;
-		margin-bottom: 75px !important;
-		padding-top: 75px !important;
-		padding-bottom: 75px !important;
-	}
-}
-
-.Block--elements {
-	background-color: rgba($lightest-gray, 0.4);
-
-	.wrapper {
-		background-color: rgba($lightest-gray, 0.4);
-	}
-
-	@media (min-width: $breakpoint-desktop-box) {
-		background-color: transparent;
-
-		.wrapper {
-			background: transparent url(../images/background__elements.svg) center center no-repeat;
-			background-size: cover;
-		}
+		margin-top: 4.375em !important;
+		margin-bottom: 4.375em !important;
+		padding-top: 2.5em !important;
+		padding-bottom: 2.5em !important;
 	}
 }
 
@@ -529,100 +851,7 @@
 	@extend .Box--orange;
 }
 
-.Block-orange--glass {
-
-	.wrapper {
-
-		@include color(background-color, orange-background);
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		.wrapper {
-
-			background: url(../images/orange_glass_effect_bg.jpg) center center no-repeat;
-			background-size: cover;
-		}
-	}
-}
-
 .Block--background-violet {
 
 	@extend .Box--violet;
-}
-
-.Block--background-glass {
-	padding: 0 !important;
-
-	.wrapper {
-		background-color: $lightest-gray !important;
-		padding: 2.5em 1.5em 3em !important;
-
-		.badge {
-			width: auto !important;
-			margin: 0 auto;
-		}
-	}
-
-	&.orange {
-
-		.wrapper {
-			background-color: $medium-orange !important;
-		}
-	}
-
-	.elementor-inner-section .elementor-row {
-		align-items: center;
-	}
-
-	@media (max-width: $breakpoint-tablet) {
-
-		.startusing .Button + .Button {
-			margin-top: 1.5em !important;
-		}
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-
-		.wrapper {
-			padding: 2.5em 4.5em 3em !important;
-
-			&-narrow {
-				padding: 2.5em !important;
-			}
-		}
-
-		.startusing .Button + .Button {
-			margin-top: 0 !important;
-		}
-	}
-
-	@media (min-width: $breakpoint-desktop-box) {
-
-		&.orange {
-
-			.wrapper {
-				background-color: rgba($medium-orange, 0.8) !important;
-			}
-		}
-
-		.wrapper {
-			padding: 4.5em 12.25em 6em !important;
-			background-color: rgba($lightest-gray, 0.8) !important;
-
-			&-narrow {
-				padding: 3.5em 7.5em !important;
-			}
-
-			&::after {
-
-				@include posCustom(-2.375em, -3em, -5em, -3em);
-				content: "";
-				position: absolute;
-				background: url(../images/bg_glass_elements.svg) -1.5em 0 no-repeat;
-				background-size: calc(100% + 2em);
-				z-index: -1;
-			}
-		}
-	}
 }

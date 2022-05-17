@@ -1,18 +1,17 @@
 <?php // @codingStandardsIgnoreLine ?>
 <div class="Post" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
 
-	<div class="Post__header customer-support-glossary">
+	<div class="Post__header customer-support-glossary ">
 		<div class="wrapper__wide"></div>
 	</div>
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar">
-
 			<?php if ( boolval( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_related-articles', true ) ) ) { ?>
 				<div class="Post__sidebar__related">
-					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
+					<h4 class="Post__sidebar__title"><?php _e( 'Related Articles', 'ms' ); ?></h4>
 					<?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_related-articles', true ) ) ?>
 				</div>
 			<?php } ?>
@@ -45,10 +44,9 @@
 					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-book.svg" alt="<?php _e( 'Glossary', 'ms' ); ?>">
 				<?php } ?>
 			</div>
-
 			<div class="Post__content__breadcrumbs">
 				<ul>
-					<li><a href="<?php _e( '/customer-support-glossary/', 'ms' ); ?>"><?php _e( 'Customer Support Glossary', 'ms' ); ?></a></li>
+					<li><a href="<?php _e( '/affiliate-marketing-glossary/', 'ms' ); ?>"><?php _e( 'Affiliate Marketing Glossary', 'ms' ); ?></a></li>
 					<li><?php the_title(); ?></li>
 				</ul>
 			</div>
@@ -59,15 +57,15 @@
 				<?php the_content(); ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q1', true ) ) { ?>
-						<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
-							<h2 id="faq">
+					<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
+						<h2 id="faq">
 							<?php
-								$headline = __( 'Frequently asked questions', 'ms' );
-								$words    = explode( ' ', $headline );
-								$counter  = 0;
+							$headline = __( 'Frequently asked questions', 'ms' );
+							$words    = explode( ' ', $headline );
+							$counter  = 0;
 							foreach ( $words as $word ) {
 								if ( 0 === $counter ) {
-									echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
+									echo '<span class="highlight highlight-splash3">' . esc_html( $words[0] ) . '</span>';
 								} else {
 									echo ' ';
 									echo esc_html( $word );
@@ -81,7 +79,7 @@
 									<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-text', true ) ); ?></p>
 								</div>
 								<?php
-							} 
+							}
 							for ( $i = 1; $i <= 10; ++$i ) {
 								if ( get_post_meta( get_the_ID(), 'mb_glossary_mb_glossary_faq-q' . $i, true ) ) {
 									?>
@@ -97,11 +95,11 @@
 								}
 							}
 							?>
-						</div>
+					</div>
 				<?php } ?>
 
-				<div class="Post__m__negative Post__buttons">
-					<a href="<?php _e( '/customer-support-glossary/', 'ms' ); ?>" class="Button Button--outline Button--back" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Back to Glossary'])"><span><?php _e( 'Back to Glossary', 'ms' ); ?></span></a>
+				<div class="Post__buttons">
+					<a href="<?php _e( '/affiliate-marketing-glossary/', 'ms' ); ?>" class="Button Button--outline Button--back" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Back to Glossary'])"><span></span><?php _e( 'Back to Glossary', 'ms' ); ?></span></a>
 
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>

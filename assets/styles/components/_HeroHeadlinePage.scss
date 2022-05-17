@@ -1,0 +1,61 @@
+.heroHeadline-page {
+
+	@extend .heroHeadline;
+
+	&.heroHeadline {
+
+		.wrapper {
+			max-width: 1380px;
+			margin-left: auto;
+			width: auto;
+
+			@media (min-width: $breakpoint-desktop) {
+				padding-left: 120px !important;
+			}
+		}
+	}
+
+	.heroHeadline {
+
+		&--subtitle {
+
+			.elementor-text-editor,
+			h3,
+			h4 {
+				line-height: 2.06;
+			}
+		}
+
+		&--info {
+
+			&.elementor-column.elementor-column {
+
+				@media (min-width: $breakpoint-desktop-box) {
+					width: 48% !important;
+					margin-right: 0;
+
+				}
+			}
+
+		}
+
+		&--bg.elementor-column {
+			margin-left: auto;
+			margin-right: 2em;
+
+			.elementor-widget-image:not(.animation) .elementor-image {
+				overflow: visible;
+
+				img {
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				width: 52%;
+				height: 40rem;
+			}
+		}
+	}
+}

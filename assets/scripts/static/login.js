@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars, prefer-rest-params, consistent-return, new-cap */
-/* global $, jQuery, grecaptcha, localStorage */
-/* global textValidating, textInvalidField, textEmpty, textFailedDomain, textValidDomain, textRedirecting, loginName, productId, recaptchaId, productDomain */
+/* global $, grecaptcha, localStorage */
+/* global loginName, textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, recaptchaId, textRedirecting, productDomain */
 
 ( function main() {
 	const query = document.querySelector.bind( document );
@@ -407,7 +407,7 @@
 				field[ property ] = field.getField( property );
 			}
 		} );
-	}( sF ) );
+	} )( sF );
 
 	function parseError( response, def ) {
 		if ( response.status === 500 ) {
@@ -517,13 +517,13 @@
 
 					if ( ! error ) {
 						localStorage.setItem(
-							'la_login',
+							'pap_login',
 							sF.domainField.value()
 						);
 						$( '#createButtonmain' )
 							.find( 'span' )
 							.text( textRedirecting );
-						window.location.href = `https://${ sF.domainField.value() }.${ productDomain }/agent/`;
+						window.location.href = `https://${ sF.domainField.value() }.${ productDomain }/merchants/`;
 					} else {
 						$( '.Login__overlay' ).addClass( 'active' );
 						$( '.Login__popup' ).addClass( 'active' );
@@ -540,6 +540,8 @@
 		} );
 	}
 
-	initFormFields();
-	initFormButton();
-}() );
+	$( () => {
+		initFormFields();
+		initFormButton();
+	} );
+} )();

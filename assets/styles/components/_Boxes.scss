@@ -1,13 +1,8 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-
 .Boxes {
-	margin-top: 100px !important;
-	margin-bottom: 100px !important;
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
 
-	.elementor-widget:not(:last-child) {
-		margin-bottom: 0 !important;
+	@media (max-width: $breakpoint-tablet) {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
 	}
 
 	.wrapper {
@@ -20,343 +15,181 @@
 		}
 	}
 
-	.elementor-inner-section .elementor-column {
+	&.has-four {
 
-		h3,
-		.elementor-heading-title {
-			text-align: left !important;
+		@media (min-width: $breakpoint-tablet-small) and (max-width: $breakpoint-tablet-landscape) {
+
+			.elementor-row {
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+
+			.elementor-column {
+				margin: 1em 0;
+				width: calc(50% - 1em);
+
+				+ .elementor-column {
+					margin-left: 0;
+				}
+			}
 		}
 	}
 
-	&--shadow {
+	&--primary {
 
-		.wrapper .elementor-column {
+		&.elementor-inner-section .elementor-row {
+			align-items: stretch;
+		}
 
-			.elementor-widget-wrap {
+		.elementor-column {
 
-				@include color(box-shadow, box-shadow);
-				@include color(background-color, main-background);
+			@extend .Box--primary;
+
+			@media (min-width: $breakpoint-desktop) {
+				margin: 0;
+
+				+ .elementor-column {
+					margin-left: 1.5em;
+				}
 			}
+		}
+	}
 
-			.elementor-image {
+	&--dotted {
 
-				a {
-					border-radius: $border-radius;
-					overflow: hidden;
-					max-height: 15em;
+		.elementor-column:not(.pillar) {
+
+			box-shadow: none;
+			overflow: visible;
+
+			&:hover {
+				background-color: $white !important;
+				color: $black !important;
+				box-shadow: 0 20px 90px 10px rgba(55, 55, 55, 0.08);
+				z-index: 1;
+
+				.elementor-widget-heading {
+
+					&::before {
+						box-shadow: 0 0 0.5em 0.15em rgba($primary, 0.6);
+					}
+
+					&::after {
+						opacity: 0;
+					}
 				}
 			}
 
+			.elementor-widget-image:first-of-type {
+
+				@include square(5em, !important);
+				background-color: transparent;
+				border-radius: none !important;
+				padding: 0;
+			}
+
 			.elementor-widget-heading {
-				padding: 30px 40px 0 !important;
+				margin-bottom: 1em;
+				position: relative;
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					&::before,
+					&::after {
+						display: block;
+						content: "";
+						transition: all 0.2s;
+					}
+
+					&::before {
+
+						@include circle(0.875em);
+						@include color(background-color, primary-color);
+						position: relative;
+						margin: 0 auto 1em;
+						box-shadow: 0 0 0.5em 0 rgba($primary, 0.8);
+						z-index: 1;
+					}
+
+					&::after {
+						position: absolute;
+						height: 1px;
+						width: calc(100% + 12em);
+						top: calc(0.4375em - 1px);
+						left: 50%;
+						transform: translateX(-50%);
+						background: $light-gray;
+					}
+				}
 			}
 
-			.elementor-widget-text-editor {
-				padding: 0 40px 30px !important;
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				&:first-of-type .elementor-widget-heading {
+
+					&::after {
+						background: linear-gradient(to left, $light-gray 75%, rgba($light-gray, 0));
+					}
+				}
+
+				&:last-of-type .elementor-widget-heading {
+
+					&::after {
+						background: linear-gradient(to right, $light-gray 75%, rgba($light-gray, 0));
+					}
+				}
 			}
+
 		}
-	}
-
-	&--shadow.Block--redesign {
-
-		.elementor-inner-section {
-
-			.elementor-column .elementor-widget-wrap {
-				box-shadow: 0 4px 64px rgba(0, 0, 0, 0.08);
-			}
-
-			.elementor-heading-title {
-				font-size: 1.25rem;
-				margin-bottom: 0.5em;
-			}
-
-			.elementor-text-editor p {
-
-				@include color(color, font-color-normal);
-				font-size: 0.875rem;
-			}
-		}
-	}
-
-	&--border {
-		padding: 0 1rem;
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 0 2.5rem;
 
-			.elementor-row {
-				justify-content: center;
+			&.Boxes {
+				margin-top: 0;
+			}
+		}
+	}
+
+	&--jump {
+
+		.elementor-row {
+			justify-content: space-between;
+			align-items: flex-start;
+			margin: 1em;
+
+			@media (min-width: $breakpoint-desktop) {
+				margin: 0;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+
+			.elementor-column[class*="Box"] {
+				width: calc(50% - 1.5em) !important;
+			}
+
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.elementor-column[class*="Box"] {
+				min-height: 22.5em;
 			}
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			padding: 0;
-		}
 
-		.elementor-inner-section .elementor-column {
+			@for $margin from 1 to 6 {
 
-			+.elementor-column {
-				margin-top: 1.5em;
-
-			}
-
-
-			@media (min-width: $breakpoint-tablet) {
-
-				+.elementor-column {
-					margin-top: 0;
-				}
-
-				&.elementor-col-50 {
-					width: calc(45% - 0.75rem) !important;
-					padding: 0;
-				}
-
-				+ .elementor-column:nth-child(even) {
-					margin-left: 1.5rem;
-				}
-			}
-
-			@media (min-width: $breakpoint-desktop) {
-
-				&.elementor-col-50 {
-					width: calc(45% - 1.5rem) !important;
-				}
-
-				+ .elementor-column:nth-child(even) {
-					margin-left: 3rem;
-				}
-			}
-
-			.elementor-column-wrap {
-				position: relative;
-
-				@media (min-width: $breakpoint-tablet) {
-					height: 0;
-					padding-bottom: 150% !important;
-				}
-
-				@media (min-width: $breakpoint-tablet-landscape) {
-					padding-bottom: 118% !important;
-				}
-			}
-
-			.elementor-widget-wrap {
-				display: flex;
-				align-content: flex-end;
-				justify-content: center;
-				text-align: center;
-				border: 5px solid $lightest-gray;
-				border-radius: 1.875rem;
-				padding-top: 1em;
-				transition: border-color 0.2s;
-
-				&:hover {
-					border-color: $lighter-gray;
-				}
-
-				.elementor-widget-image {
-					position: static;
-
-					a {
-
-						&::before {
-
-							@include posZero;
-							position: absolute;
-							content: "";
-						}
-					}
-				}
-
-				.elementor-image {
-					padding: 0;
-				}
-
-				.elementor-widget-heading {
-					margin-bottom: 0;
-				}
-
-				h3 {
-					font-size: 1.5rem;
-					line-height: 1.5;
-					padding: 0 1em;
-				}
-
-				p {
-					padding: 0 1em;
-				}
-
-				.la-button {
-					margin-bottom: 1.5rem;
-				}
-
-				@media (min-width: $breakpoint-tablet) {
-
-					@include posZero();
-					position: absolute;
-					padding: 0;
-				}
-
-				@media (min-width: $breakpoint-desktop) {
-
-					p {
-						padding: 0 22.5%;
-					}
-
-					.la-button {
-						margin-bottom: 4rem;
-					}
+				.elementor-column:nth-of-type(#{$margin}) {
+					margin-top: 1.5em * $margin;
 				}
 			}
 		}
 	}
 
-	h2 {
-		font-size: $font-size-h1;
-		line-height: $line-height-h1 !important;
-		text-align: center;
-	}
-
-	.elementor-text-editor {
-		margin-bottom: 40px;
-		text-align: center;
-
-		p {
-			margin-bottom: 0;
-			text-align: center;
-		}
-	}
-
-	.elementor-widget-image {
-		max-height: 275px;
-
-		.elementor-widget-container {
-			height: 100%;
-		}
-	}
-
-	.elementor-col-50,
-	.elementor-col-33 {
-		position: relative;
-		padding: 20px;
-
-		.elementor-widget-wrap {
-			border-radius: $border-radius-16;
-			align-items: flex-start;
-		}
-
-		.elementor-widget-image.wide .elementor-image {
-			padding: 0;
-		}
-
-		.elementor-widget-image {
-			overflow: hidden;
-			border-top-left-radius: $border-radius;
-			border-top-right-radius: $border-radius;
-
-			.elementor-image {
-				display: block;
-				height: 100%;
-				padding: 30px 40px 0;
-
-				a {
-					display: block;
-					height: 100%;
-				}
-
-				img {
-					display: block;
-					margin: auto;
-					width: auto !important;
-					max-width: 100%;
-					// height: 100%;
-				}
-			}
-		}
-
-		.elementor-text-editor {
-			margin-bottom: 0;
-			text-align: left;
-
-			p {
-				max-width: none;
-				text-align: left;
-			}
-
-			a:not(.Button) {
-
-				@include color(color, primary-color);
-
-				&:active,
-				&:focus,
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-
-			a {
-
-				@include color(color, font-color-dark);
-				font-weight: $font-weight-bold;
-			}
-		}
-
-		.elementor-widget-heading,
-		.elementor-widget-text-editor {
-			position: static;
-			padding: 15px 0 0;
-
-			h3 {
-				font-size: 24px;
-				line-height: 28px;
-
-				a {
-
-					&::before {
-
-						@include posZero;
-						position: absolute;
-						content: "";
-						z-index: 1;
-					}
-				}
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-
-		h2 {
-			font-size: $font-size-h2;
-			line-height: 42px !important;
-		}
-
-		.elementor-container {
-			padding-left: 5px;
-			padding-right: 5px;
-		}
-
-		.elementor-col-50,
-		.elementor-col-33 {
-			padding: 15px;
-		}
-	}
-
-	@media (max-width: $breakpoint-tablet) {
-		margin-top: 75px !important;
-		margin-bottom: 75px !important;
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-
-		.elementor-widget-image {
-			max-height: none;
-		}
-
-		.elementor-col-33 {
-			width: 100%;
-			padding-left: 0 !important;
-			padding-right: 0 !important;
-		}
+	@media (min-width: $breakpoint-tablet) {
+		margin-top: 3.75em;
+		margin-bottom: 3.75em;
 	}
 }

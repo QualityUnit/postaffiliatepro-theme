@@ -10,18 +10,19 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="preconnect" href="https://support.qualityunit.com">
 	<link rel="preconnect" href="https://www.googleadservices.com">
+	<link rel="preconnect" href="https://bat.bing.com">
 	<link rel="preconnect" href="https://www.google-analytics.com">
 	<link rel="preconnect" href="https://www.googleoptimize.com">
 	<link rel="preconnect" href="https://googleads.g.doubleclick.net">
 	<link rel="preconnect" href="https://www.facebook.com">
 	<link rel="preconnect" href="https://connect.facebook.net">
+	<link rel="preconnect" href="https://facebook.com">
 	<link rel="preconnect" href="https://pap.qualityunit.com">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/favicon-16x16.png">
-
-	<link rel="mask-icon" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/safari-pinned-tab.svg" color="#f5912c">
+	<link rel="mask-icon" href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/favicon/safari-pinned-tab.svg" color="#118af7">
 	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?>">
 	<meta name="application-name" content="<?php bloginfo( 'name' ); ?>">
 	<meta name="msapplication-TileColor" content="#ffffff">

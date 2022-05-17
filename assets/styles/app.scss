@@ -16,25 +16,24 @@
 @import "elements/Checklist";
 @import "elements/Button";
 @import "elements/Form";
-@import "elements/PostTag";
 @import "elements/Pagination";
 @import "elements/YoutubeLoader";
 @import "elements/Tooltip";
+@import "elements/PricingPlan";
 @import "elements/FakeChatButton";
-@import "elements/TextCopiedMessage";
-@import "elements/menuArrow";
+@import "elements/CategoryTag";
 
 /* Components */
 
 @import "components/CookieBar";
 @import "components/DemoBar";
-@import "components/DemoElement";
-@import "components/BlogCTA";
+@import "components/ArticleSource";
 @import "components/BlogShare";
+@import "components/BlogShareSidebar";
+@import "components/CTA";
 @import "components/Box";
+@import "components/BoxFullWidth";
 @import "components/Boxes";
-@import "components/BoxesStars";
-@import "components/BoxesImage";
 @import "components/Newsletter";
 @import "components/HeroBanner";
 @import "components/Clients";
@@ -49,12 +48,11 @@
 @import "components/BlockPoints";
 @import "components/BlockBadges";
 @import "components/BlockDiscover";
-@import "components/BlockLearnMore";
 @import "components/BlockResources";
-@import "components/BlockResearch";
 @import "components/BlockQuote";
-@import "components/BlockSwitcher";
-@import "components/BlockVideo";
+@import "components/BlockTrial";
+@import "components/BlockSplitImage";
+@import "components/BlockOverflow";
 @import "components/HorizontalTabs";
 @import "components/Faq";
 @import "components/Loader";
@@ -76,18 +74,16 @@
 @import "components/SoftphoneTable";
 @import "components/WordCloud";
 @import "components/FeaturesTable";
-@import "components/FeaturesTable-New";
 @import "components/InternalLinks";
 @import "components/SidebarTOC";
 @import "components/HeroHeadlineHome";
+@import "components/HeroHeadlinePage";
 @import "components/HeaderLanguageSwitcher";
 @import "components/WhatIsHeadline";
-@import "components/TourPageCTA";
-@import "components/TourPageNumbers";
-@import "components/Nicereply";
-@import "components/TrialBanner";
+@import "components/ElementorSlider";
+@import "components/TestimonialsBlock";
 @import "components/SignupSidebar";
-@import "components/Invitation";
+@import "components/PapPanHomeSplit";
 
 /* Layouts */
 
@@ -95,6 +91,8 @@
 @import "layouts/Footer";
 @import "layouts/Page";
 @import "layouts/Custom";
+// @import "layouts/CategoryHeader";
+@import "layouts/LearningCenter";
 @import "layouts/FullScreen";
 @import "layouts/ErrorPage";
 @import "layouts/Gutenberg";

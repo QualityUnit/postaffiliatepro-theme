@@ -3,38 +3,41 @@ $font-primary: "Open Sans", sans-serif;
 $font-secondary: "Poppins", sans-serif;
 
 // Font Sizes
-$font-size-default: 16px;
-$line-height-default: 24px;
-$font-size-smaller: 14px;
-$line-height-smaller: 24px;
-$font-size-bigger: 18px;
-$line-height-bigger: 26px;
+$font-size-default: 1rem;
+$line-height-default: 1.5;
+$font-size-smaller: 0.875rem;
+$line-height-smaller: 1.714;
+$font-size-small: 0.75rem;
+$font-size-bigger: 1.125rem;
+$line-height-bigger: 1.44;
 
-$font-size-h1: 48px;
-$line-height-h1: 64px;
-$font-size-h2: 32px;
-$line-height-h2: 48px;
-$font-size-h2-xl: 44px;
-$font-size-h3: 18px;
-$line-height-h3: 24px;
-$font-size-h4: 18px;
-$line-height-h4: 24px;
-$font-size-h5: 16px;
-$line-height-h5: 24px;
-$font-size-h6: 16px;
-$line-height-h6: 24px;
+$font-size-h1: 3rem;
+$line-height-h1: 1.33;
+$font-size-h2: 1.75rem;
+$line-height-h2: 1.357;
+$font-size-h2-s: 1.875rem;
+$font-size-h2-xs: 1.5rem;
+$font-size-h2-l: 2.25rem;
+$font-size-h2-xl: 2.75rem;
+$font-size-h3: 1.125rem;
+$line-height-h3: 1.33;
+$font-size-h4: 1.125rem;
+$line-height-h4: 1.33;
+$font-size-h5: 1rem;
+$line-height-h5: 1.5;
+$font-size-h6: 1rem;
+$line-height-h6: 1.5;
 
 $font-weight-normal: 400;
 $font-weight-semi: 600;
 $font-weight-bold: 700;
 
-$main-nav-font-size: 16px;
-$main-nav-line-height: 60px;
-$main-nav-submenu-font-size: 14px;
-$main-nav-submenu-line-height: 30px;
+$main-nav-font-size: 1rem;
+$main-nav-line-height: 3.75;
+$main-nav-submenu-font-size: 0.875;
+$main-nav-submenu-line-height: 2.14;
 
 // Sizes
-$breakpoint-desktop-hd: 1920px;
 $breakpoint-desktop-big: 1600px;
 $breakpoint-desktop-box: 1380px;
 $breakpoint-desktop: 1180px;
@@ -48,19 +51,22 @@ $breakpoint-iphone-old: 376px;
 $wrapper-width: 1180px;
 $wrapper-padding: 20px;
 
-$default-element-margin: 15px;
+$default-element-margin: 1rem;
 
-$border-radius: 8px;
-$border-radius-16: 1rem;
 $border-radius-small: 4px;
+$border-radius-6: 6px;
+$border-radius: 8px;
+$border-radius-14: 14px;
+$border-radius-16: 16px;
+$border-radius-30: 30px;
 
-$button-font-size-normal: 14px;
-$button-height-normal: 48px;
-$button-padding-normal: 35px;
+$button-font-size-normal: 0.875rem;
+$button-height-normal: 3.43em;
+$button-padding-normal: 2.1em;
 
-$input-font-size-normal: 16px;
-$input-height-normal: 60px;
-$input-padding-normal: 20px;
+$input-font-size-normal: 1rem;
+$input-height-normal: 3.75rem;
+$input-padding-normal: 1.25rem;
 $input-border-width-normal: 1px;
 
 $header-height: 90px;
@@ -76,21 +82,25 @@ $medium-gray-quotes: #8c9097;
 $medium-gray-inputs: #ced0d4;
 $light-gray: #e4e5e9;
 $lighter-gray: #d8dadf;
+$light-grayBg: #edeff3;
 $light-gray-icon: #bec2c9;
 $lightest-gray: #f5f5f7;
 $ultralightest-gray: $lightest-gray;
-$pricing-gray: #edeff3;
-$dark-orange: #fa9531;
-$orange-new: #ffb928;
-$medium-orange: #feefe0;
-$light-orange: #ffbd39;
+$pricing-gray: #f1f1f1;
+$primary: #118af7;
+$primary-checklist: #cfe8fe;
+$dark-primary: #0664b9;
+$light-primary: #dbeefe;
 $light-green: #3cc33e;
 $light-blue: #1089f8;
-$green: #080;
-$red: #f00;
+$green: #07b65d;
+$red: #f72f49;
+$light-red: #fee3dc;
 $yellow: #ff0;
+$tag: #ffdc63;
 
 $saturated-violet: #ae54fd;
+$desaturated-violet: #f3e6ff;
 $desaturated-violet: #f3e6ff;
 $saturated-blue: #2570ed;
 $desaturated-blue: #dfeafd;
@@ -101,29 +111,38 @@ $desaturated-red: #fee0e4;
 $saturated-cyan: #48c6ce;
 $desaturated-cyan: #e4f7f8;
 
+$saturated-blueish-menu: #728afd;
+$desaturated-blueish-menu: #eaeeff;
+$saturated-green-menu: #03be9c;
+$desaturated-green-menu: #d9f5f0;
+$saturated-magenta-menu: #ee668c;
+$desaturated-magenta-menu: #fde8ee;
+
+
 $vars: (
-	primary-color: $dark-orange,
-	secondary-color: $light-orange,
-	third-color: $medium-orange,
+	primary-color: $primary,
+	secondary-color: $light-primary,
+	third-color: $light-red,
 	package-color-1: $light-green,
 	package-color-2: $light-blue,
-	package-color-3: $dark-orange,
+	package-color-3: $dark-primary,
 	package-color-4: $medium-gray,
 	new-item-color: $yellow,
 	extension-item-color: $black,
 	successful-color: $saturated-green,
-	error-color: $saturated-red,
+	error-color: $red,
 	font-color-normal: $dark-gray,
 	font-color-level3: $medium-gray-quotes,
 	font-color-medium: $medium-gray,
 	font-color-dark: $black,
 	font-color-light: $white,
+	font-color-inputs: $medium-gray-inputs,
 	content-color-normal: $dark-gray,
 	content-color-dark: $black,
 	content-color-light: $white,
 	button-full-font-color: $white,
-	button-full-background-color-1: $dark-orange,
-	button-full-background-color-2: $light-orange,
+	button-full-background-color-1: $dark-primary,
+	button-full-background-color-2: $light-primary,
 	button-outline-color: $light-gray,
 	border-color-normal: $dark-gray,
 	border-color-gray: $light-gray,
@@ -137,23 +156,22 @@ $vars: (
 	light-background: $ultralightest-gray,
 	header-background: $white,
 	main-nav-font-color: $black,
-	main-nav-font-color-highlight: $dark-orange,
-	main-nav-underline: $dark-orange,
+	main-nav-font-color-highlight: $primary,
+	main-nav-underline: $primary,
 	main-nav-submenu-background: $white,
 	main-nav-submenu-font-color: $black,
 	main-nav-submenu-font-color-hover: $black,
 	cookie-background: #fff3e0,
 	newsletter-background: $lightest-gray,
 	tabs-background: $lightest-gray,
-	orange-background: $medium-orange,
 	violet-background: $desaturated-violet,
 	footer-column-border-color: $light-gray,
-	footer-middle-background-color-1: $dark-orange,
-	footer-middle-background-color-2: $light-orange,
+	footer-middle-background-color-1: $dark-primary,
+	footer-middle-background-color-2: $light-primary,
 	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08),
 	box-shadow-big: 0 0.25em 4em 0 rgba($black-real, 0.07),
-	background: linear-gradient(90deg, $light-orange 0%, $dark-orange 100%),
-	background-invert: linear-gradient(90deg, $dark-orange 0%, $light-orange 100%),
+	background: linear-gradient(90deg, $primary 0%, $dark-primary 100%),
+	background-invert: linear-gradient(90deg, $dark-primary 0%, $primary 100%),
 );
 
 :root {

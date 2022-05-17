@@ -1,0 +1,34 @@
+.Article__source {
+	background-color: $light-primary;
+	border-radius: $border-radius-16;
+	align-items: center;
+	margin-left: -50px;
+	margin-right: -50px;
+	margin-bottom: 1em;
+	padding: 37px 50px;
+
+	@media (max-width: $breakpoint-desktop) {
+		margin: 0 -1.25em;
+		padding: 1.25em;
+	}
+
+	&__icon {
+
+		fill: $primary;
+		width: 4em;
+	}
+
+	&__content {
+		margin-left: 2em;
+
+		h4 {
+			margin: auto;
+			font-size: $font-size-h2;
+		}
+
+		&__description {
+			font-size: $font-size-h3;
+			margin-bottom: 0;
+		}
+	}
+}

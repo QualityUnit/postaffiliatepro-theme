@@ -10,7 +10,7 @@ add_action(
 			'name_admin_bar' => __( 'Glossary', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'customer-support-glossary',
+			'slug'       => 'affiliate-marketing-glossary',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,

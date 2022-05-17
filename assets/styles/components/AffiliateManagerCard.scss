@@ -1,0 +1,179 @@
+@import "../common/mixins";
+@import "../common/variables";
+
+.AffiliateManagers {
+	display: flex;
+	flex-direction: column;
+}
+
+.AffiliateManagerCard {
+
+	@include color(background-color, secondary-background);
+	display: flex;
+	align-items: stretch;
+	border-radius: $border-radius-16;
+	overflow: hidden;
+
+	&.primary.primary {
+		order: -1;
+		margin-top: 0;
+		margin-bottom: 1.5em;
+	}
+
+	& + & {
+		margin-top: 1.5em;
+	}
+
+	&__image {
+
+		@include square(100% !important);
+		position: absolute;
+		object-fit: cover;
+
+		&--wrapper {
+			position: relative;
+			width: 19.5%;
+			height: 0;
+			padding-bottom: 17.16%;
+			border-radius: $border-radius-16;
+			overflow: hidden;
+			transform: translateZ(1px);
+		}
+
+		&--showProfile {
+
+			@include color(color, font-color-light, !important);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: $font-secondary;
+			font-weight: 600;
+			font-size: 0.8125rem;
+			text-decoration: none !important;
+			position: absolute;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			z-index: 1;
+
+			span {
+
+				@include square(100%);
+				position: absolute;
+				z-index: 1;
+				transform: translateY(calc(100% - 2.5em));
+				text-align: center;
+				padding: 0.5em 1em;
+				transition: all 0.2s;
+			}
+
+			&::before {
+
+				@include square(100%);
+				@include color(background-color, primary-color);
+				content: "";
+				position: absolute;
+				left: 0;
+				transform: translateY(calc(100% - 2.5em));
+				transition: all 0.2s;
+			}
+
+			&:hover {
+
+				span {
+					transform: translateY(calc(50% - 1.5em));
+				}
+
+				&::before {
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 71.224%;
+		padding: 1em 1.5em;
+
+		h3.AffiliateManagerCard__name {
+			font-size: 1rem;
+			margin: 0;
+		}
+
+		.AffiliateManagerCard {
+
+			&__industries {
+				line-height: 1;
+			}
+
+			&__industry {
+
+				@include color(color, font-color-level3);
+				font-size: 0.75rem;
+
+				+ strong {
+
+					&::before {
+						content: "/ ";
+						display: inline;
+					}
+				}
+			}
+
+			&__desc {
+				font-size: 0.8125rem;
+				line-height: 1.538;
+			}
+		}
+	}
+
+	&__contacts {
+		margin-top: auto;
+		margin-bottom: 0;
+
+		li {
+
+			@include color(background-color, button-outline-color);
+			display: inline-block;
+			position: relative;
+			font-weight: 600;
+			font-size: 0.75rem;
+			border-radius: 1em;
+			padding: 0.25em 1em;
+			transition: background-color 0.2s;
+			cursor: pointer;
+
+			&::before {
+
+				@include color(color, primary-color);
+				margin-right: 0.5em;
+			}
+
+			&:hover {
+				background-color: $lighter-gray;
+			}
+
+			+ li {
+				margin-left: 0.5em;
+			}
+
+			a {
+
+				@include color(color, font-color-dark, !important);
+				text-decoration: none !important;
+				display: inline-block;
+
+				&::after {
+
+					@include posZero;
+					position: absolute;
+					content: "";
+					z-index: 1;
+				}
+			}
+		}
+	}
+
+}

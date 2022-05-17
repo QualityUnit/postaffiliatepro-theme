@@ -1,18 +1,18 @@
-/* eslint-disable no-undef, no-unused-vars */
+/* eslint-disable no-unused-vars, no-undef */
 
 const $ = jQuery;
 
-const productId = 'b229622b';
+const productId = 'ffd43d92';
 
 const textValidating = 'Validando...';
-const textRedirecting = 'Redireccionando...';
-const textEmpty = 'Campo no puede estar vacío';
-const textInvalidField = 'Campo inválido';
-const textValidDomain = 'Dominio es válido';
+const textRedirecting = 'Redirección';
+const textEmpty = 'El campo no puede estar vacío';
+const textInvalidField = 'Campo no válido';
+const textValidDomain = 'El dominio es válido';
 const textFailedDomain = 'Esta cuenta no existe';
 
-const productDomain = 'ladesk.com';
+const productDomain = 'postaffiliatepro.com';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 
-const loginName = localStorage.getItem( 'la_login' );
+const loginName = localStorage.getItem( 'pap_login' );

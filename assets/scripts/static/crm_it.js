@@ -2,12 +2,12 @@
 
 const $ = jQuery;
 
-const productId = 'b229622b';
-const variationId = '3513230f';
+const productId = 'ffd43d92';
+const variationId = 'pap3627f';
 
 const languageCode = 'it';
 
-const textValidating = 'Validazione...';
+const textValidating = 'Convalida in corso...';
 const textCreating = 'Creazione...';
 const textInstalling = 'Installazione';
 const textLaunching = 'Lancio';
@@ -19,28 +19,25 @@ const textEmpty = 'Il campo non può essere vuoto';
 const textInvalid = 'Alcuni campi non sono validi';
 const textInvalidField = 'Campo non valido';
 const textInvalidMail = 'Email non valida';
-const textValidDomain = 'Dominio non valido';
-const textFailedDomain = 'Errore nella validazione del dominio';
-const textDomainNoHttp =
-	'Il dominio non può contenere http o www e caratteri maiuscoli (A-Z)';
+const textValidDomain = 'Il dominio è valido';
+const textFailedDomain = 'Impossibile convalidare il dominio';
+const textDomainNoHttp = 'Il dominio non può contenere http o www';
 const textFailedRetrieve =
-	"Impossibile recuperare informazioni valide sull'avanzamento.";
-const textGoApp = 'Vai alla tua App';
-const textReadyApp = 'Il tuo LiveAgent è pronto';
-const textDoneAppTitle = 'Il tuo LiveAgent è pronto';
+	"Impossibile recuperare informazioni sull'avanzamento valide.";
+const textGoApp = 'Vai alla tua app';
+const textReadyApp = 'Il tuo Post Affiliate Pro è pronto';
+const textDoneAppTitle = 'Il tuo Post Affiliate Pro è pronto';
 const textDoneAppText =
-	'Le credenziali di accesso sono state inviate alla tua casella di posta. Selezionalo per continuare su LiveAgent.';
+	'Le credenziali di accesso sono state inviate alla tua posta in arrivo. Controllala per continuare su Post Affiliate Pro.';
 
-const productDomain = 'ladesk.com';
-const authTokenName = 'AuthToken';
+const productDomain = 'postaffiliatepro.com';
+const authTokenName = 'authToken';
 
 const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
 const papAccount = 'default1';
-const papAction = 'LATrial';
-const papCampaign = 'cc052a4f';
+const papAction = 'PAPtrial';
+const papCampaign = '1';
 const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/966671101/imp.gif?label=ER6zCKjv_1cQ_fX4zAM&amp;guid=ON&amp;script=0' />";
-const capterraScript =
-	"<script src='https://ct.capterra.com/capterra_tracker.js?vid=2044023&vkey=ccda2d732326c153444c50f6ca6e489b'></script>";
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
 
 const debug = false; // Set true for display console.log

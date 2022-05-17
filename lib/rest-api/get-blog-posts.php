@@ -1,6 +1,6 @@
 <?php
 
-/* Register Route  https://www.liveagent.com/wp-json/wp/v2/blog/id */
+/* Register Route  https://www.postaffiliatepro.com/wp-json/wp/v2/blog/cat_id=ID (or cat_slug=CATEGORY_SLUG) */
 add_action(
 	'rest_api_init',
 	function () {
@@ -24,6 +24,7 @@ function get_posts_from_category( $attr ) {
 		array(
 			'ignore_sticky_posts' => true,
 			'posts_per_page'      => 9,
+			'post_type'           => 'post',
 			'post_status'         => 'publish',
 			'orderby'             => 'date',
 			'cat'                 => $attr['id'],

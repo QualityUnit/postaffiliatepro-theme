@@ -3,8 +3,9 @@
 function ms_testimonials( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'posts' => 9,
-			'start' => 0,
+			'posts'       => '6',
+			'posts_from'  => '',
+			'alternative' => 'false',
 		),
 		$atts,
 		'testimonials'
@@ -12,47 +13,42 @@ function ms_testimonials( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Archive__container Archive__container--boxes Archive__container--testimonials">
-		<ul class="Archive__container__content list">
+		<ul class="Testimonials__list">
 		<?php
 		$query_testimonials_posts = new WP_Query(
 			array(
 				'post_type'      => 'ms_testimonials',
 				'posts_per_page' => $atts['posts'],
-				'offset'         => $atts['start'],
+				'offset'         => $atts['posts_from'],
 			)
 		);
 
 		while ( $query_testimonials_posts->have_posts() ) :
 			$query_testimonials_posts->the_post();
-			if ( ! get_post_meta( get_the_ID(), 'mb_testimonials_mb_realtestimonials' ) ) {
-				?>
-
-			<li <?php post_class( 'Archive__container__content__item' ); ?>>
-				<article>
-					<div class="Archive__container__content__item__thumbnail">
-						<?php the_post_thumbnail(); ?>
+			$person = get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true );
+			?>
+			<li <?php post_class( 'Testimonials__item' . ( 'false' !== $atts['alternative'] ? ' Testimonials__item--alternative' : '' ) ); ?>>
+				<div class="Testimonials__item__top">
+					<div class="Testimonials__item__person">
+						<h3 class="highlight Testimonials__item__name"><?= '<span class="firstWord">' . esc_html( strstr( $person, ' ', true ) ) . '</span>' . esc_html( strstr( $person, ' ' ) ) ?></h3>
+						<p class="Testimonials__item__position"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></p>
 					</div>
-					<div class="Archive__container__content__item__main">
-						<h3 class="Archive__container__content__item__title">
-							<?= esc_html( ucfirst( get_the_title() ) ); ?>
-						</h3>
-						<div class="Archive__container__content__item__text Archive__container__content__item__text--visible">
-							<?php the_content(); ?>
-						</div>
+					<div class="Testimonials__item__thumbnail">
+						<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'person_thumbnail' ) ?>
 					</div>
-				</article>
+				</div>
+				<div class="Testimonials__item__content">
+					<?php the_content(); ?>
+				</div>
+				<div class="Testimonials__item__expander" data-on="–" data-off="+">+</div>
 			</li>
 
-				<?php 
-			}
-		endwhile; 
-		?>
+			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</ul>
-	</div>
 
 	<?php
+	set_custom_source( 'testimonials_blocks', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'testimonials', 'ms_testimonials' );

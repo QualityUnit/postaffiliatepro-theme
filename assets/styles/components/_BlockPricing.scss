@@ -1,85 +1,26 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-
 .BlockPricing {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
 
-	.wrapper,
-	.wrapper__wide {
-		padding-top: 50px !important;
-		padding-bottom: 50px !important;
-
-		.elementor-row {
-			align-items: center;
-		}
-
-		.elementor-container {
-			width: 100%;
-
-			.wrapper,
-			.wrapper__wide {
-
-				.elementor-column {
-					max-width: 40%;
-
-					&:last-of-type {
-						max-width: 60%;
-					}
-				}
-			}
-		}
-	}
-
-	.wrapper__wide {
-		padding: 3.125em;
-		border-radius: $border-radius-16;
-
-		@media (min-width: $breakpoint-desktop-box) {
-			padding: 3.125em 7.5em;
-		}
-	}
-
-	.elementor-col-50 {
-
-		&:first-of-type {
-
-			.elementor-heading-title {
-
-				@media (min-width: $breakpoint-tablet) {
-					font-size: 2.5rem;
-				}
-			}
-		}
-	}
-
-
-	.elementor-text-editor {
-
-		p {
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-
 	&__container {
 		display: flex;
-		flex-flow: wrap row;
+		flex-flow: column;
 		justify-content: flex-end;
-		align-items: stretch;
+		align-items: flex-start;
+
+		@media (min-width: $breakpoint-tablet) {
+			flex-flow: wrap row;
+		}
 
 		&__item {
 			position: relative;
 			width: 100%;
-			max-width: 285px;
+			border-left: 30px solid transparent;
 			vertical-align: top;
 
-			@media (min-width: $breakpoint-desktop) {
-
-				+ .BlockPricing__container__item {
-					margin-left: 2.5em;
-				}
+			@media (min-width: $breakpoint-tablet) {
+				max-width: 285px;
+				width: 50%;
 			}
 
 			&::before {
@@ -97,15 +38,8 @@
 				z-index: 2;
 			}
 
-			.Block-orange--glass &::before {
-				box-shadow: 0 4px 38px rgba(249, 128, 6, 0.14);
-			}
-
 			.PricingTable__header {
-				display: flex;
-				flex-direction: column;
 				position: relative;
-				height: 100%;
 				padding: 3rem;
 				z-index: 3;
 
@@ -118,20 +52,15 @@
 				}
 
 				&__icon {
-					width: 45%;
-					max-width: 5.25rem;
+					width: 40%;
 					margin: 0 0 2rem;
-
-					img {
-						width: 100%;
-					}
 				}
 
 				&__price {
 					font-family: $font-secondary;
 					font-weight: 700;
 					align-items: center;
-					margin: auto 0 1rem;
+					margin: 0 0 1rem;
 					font-size: 20px;
 
 					&__before {
@@ -190,7 +119,7 @@
 		padding-bottom: 50px !important;
 	}
 
-	@media (max-width: $breakpoint-desktop) {
+	@media (max-width: $breakpoint-tablet-landscape) {
 		padding-top: 100px !important;
 		padding-bottom: 100px !important;
 
@@ -204,14 +133,19 @@
 			flex-flow: wrap column !important;
 		}
 
-		.wrapper,
-		.wrapper__wide {
+		.wrapper .elementor-column {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+			max-width: none !important;
 
-			.elementor-column {
-				width: 100%;
-				padding-left: 0;
-				padding-right: 0;
-				max-width: none !important;
+			&.elementor-col-50:first-of-type {
+				text-align: center;
+
+				.tag {
+					margin: 0 auto;
+					width: auto;
+				}
 			}
 		}
 
@@ -237,10 +171,7 @@
 			margin-top: 0;
 
 			&__item {
-				max-width: none;
-				margin-bottom: 50px;
-				border-left: 0;
-				border-right: 0;
+				margin-bottom: 1.5em;
 
 				.PricingTable__header {
 					width: 100%;

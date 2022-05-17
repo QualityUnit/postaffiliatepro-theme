@@ -1,15 +1,9 @@
-/* stylelint-disable selector-class-pattern */
-
 .Awards {
 
 	&__container {
 		position: relative;
-		display: none;
+		display: flex;
 		padding-top: 0 !important;
-
-		&.active {
-			display: flex;
-		}
 
 		@media (min-width: $breakpoint-desktop-box) {
 			width: $breakpoint-desktop;
@@ -36,7 +30,7 @@
 	}
 
 	&__content {
-		justify-content: space-between !important;
+		gap: 2.625em;
 	}
 
 	&__item {

@@ -1,10 +1,8 @@
-/* stylelint-disable selector-class-pattern */
-
 .Header__flags {
 	margin-left: 30px;
 	border-left: 1px solid #000;
 
-	@media (max-width: $breakpoint-desktop) {
+	@media (max-width: $breakpoint-tablet-landscape - 1px) {
 		margin-left: 0;
 		border-left: 0;
 		margin-right: 20px;
@@ -98,7 +96,7 @@
 				}
 			}
 
-			@media (min-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet-landscape) {
 				padding: 0 1.25em;
 			}
 		}
@@ -142,28 +140,10 @@
 			box-shadow: 0 0.18em 4em 0 rgba($black-real, 0.15);
 		}
 
-		@media (min-width: $breakpoint-desktop) {
+		@media (min-width: $breakpoint-tablet-landscape) {
 			right: 2.5em;
 		}
 	}
-
-	//Region switcher mobile - Prepared for more languages
-	// @for $input from 1 to 5 {
-	// 	.input--region:nth-of-type(#{$input}):checked {
-
-	// 		~ .Header__flags {
-
-	// 			&--region-switchers .Header__flags--region-switcher
-	// &:nth-of-type(#{$input}) {
-	// 				background-color: red;
-	// 			}
-
-	// 			&--regions .Header__flags--region:nth-of-type(#{$input}) {
-	// 				display: block;
-	// 			}
-	// 		}
-	// 	}
-	// }
 
 	&--region {
 		height: auto;
@@ -195,8 +175,7 @@
 			column-count: 2;
 			column-gap: 2em;
 
-			h4,
-			.h4 {
+			h4 {
 				column-span: all;
 			}
 
@@ -239,18 +218,5 @@
 				display: none;
 			}
 		}
-	}
-}
-
-// Temporary disable flags for not finished languages
-/* stylelint-disable-next-line no-duplicate-selectors */
-.Header__flags--item {
-	/* stylelint-disable-next-line no-duplicate-selectors */
-	&-sv,
-	&-ja,
-	&-cs,
-	&-fi,
-	&-no {
-		display: none !important;
 	}
 }

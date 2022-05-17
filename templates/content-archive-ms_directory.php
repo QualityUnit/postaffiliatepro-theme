@@ -5,9 +5,9 @@
 			<h1 class="Archive__header__title" itemprop="name"><?php single_cat_title(); ?></h1>
 			<div class="Archive__header__subtitle"><p itemprop="description"><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
-			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Customer Service Directory', 'ms' ); ?></h1>
-			<p class="Archive__header__subtitle" itemprop="description"><?php _e( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' ); ?></h2>
-		<?php } ?>
+		<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Affiliate Program Directory', 'ms' ); ?></h1>
+		<p class="Archive__header__subtitle" itemprop="description"><?php _e( "Looking for an affiliate program to join? That's why we made a dedicated page where you can find information about joinable affiliate programs. Take a look at our directory of affiliate programs and find a suitable program for you. Click any of the links below to find specific information and contacts.", 'ms' ); ?></p>
+			<?php } ?>
 	</div>
 
 	<div class="Box Box--gray Archive__filter">

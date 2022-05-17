@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-
 .Clients {
 	display: flex;
 	flex-flow: wrap row;
@@ -23,19 +21,6 @@
 		display: block;
 		max-width: 125px;
 		height: 25px;
-	}
-
-	@media (max-width: $breakpoint-mobile) {
-
-		&__item {
-			display: none !important;
-		}
-
-		@for $item from 1 to 4 {
-			&__item:nth-of-type(#{$item}) {
-				display: block !important;
-			}
-		}
 	}
 
 	@media (max-width: $breakpoint-desktop) {

@@ -1,9 +1,9 @@
 @font-face {
 	font-family: fontello;
 	src:
-		url(../webfonts/fontello.woff2?2022022201) format("woff2"),
-		url(../webfonts/fontello.woff?2022022201) format("woff"),
-		url(../webfonts/fontello.ttf?2022022201) format("truetype");
+		url(../webfonts/fontello.woff2?2022042601) format("woff2"),
+		url(../webfonts/fontello.woff?2022042601) format("woff"),
+		url(../webfonts/fontello.ttf?2022042601) format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -300,6 +300,34 @@
 	content: "\e84b" !important;
 }
 
+.fontello-menu-automation::before {
+	content: "\e834" !important;
+}
+
+.fontello-menu-management::before {
+	content: "\e835" !important;
+}
+
+.fontello-menu-marketing::before {
+	content: "\e836" !important;
+}
+
+.fontello-menu-network::before {
+	content: "\e837" !important;
+}
+
+.fontello-menu-program::before {
+	content: "\e838" !important;
+}
+
+.fontello-menu-reports::before {
+	content: "\e83a" !important;
+}
+
+.fontello-menu-tracking::before {
+	content: "\e83c" !important;
+}
+
 .fontello-menu-typing-test::before {
 	content: "\e84c" !important;
 }
@@ -327,12 +355,4 @@
 
 .fontello-menu-wordpress::before {
 	content: "\e829" !important;
-}
-
-.fontello-menu-research::before {
-	content: "\e834" !important;
-}
-
-.fontello-menu-checklists::before {
-	content: "\e835" !important;
 }

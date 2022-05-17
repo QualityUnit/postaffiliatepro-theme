@@ -1,12 +1,13 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-
 .Footer {
+	margin-bottom: 2.5em;
 
-	.wrapper {
+	&__top,
+	&__bottom {
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 
 		@media (max-width: $breakpoint-desktop) {
 			justify-content: space-around;
@@ -16,29 +17,17 @@
 
 /* ------------------------------- FOOTER TOP ------------------------------- */
 .Footer__top {
-	padding: 60px 0;
 
-	.wrapper {
-		align-items: flex-start;
-	}
+	align-items: flex-start;
+	padding-bottom: 0;
+	padding-top: 5em;
 
 	&__column {
-		width: 19%;
 		padding: 15px 0;
-
-		&:nth-child(1) {
-
-			@include color(border-right-color, footer-column-border-color);
-			margin-right: 5%;
-			border-right-width: 1px;
-			border-right-style: solid;
-		}
+		font-size: 0.9rem;
 
 		&__title {
-			display: flex;
-			flex-flow: wrap row;
-			align-items: center;
-			height: 30px;
+			font-size: 1.125em;
 
 			img {
 				display: block;
@@ -46,8 +35,8 @@
 				max-height: 100%;
 			}
 
-			&--image.h4 {
-				font-size: 0 !important;
+			&--image {
+				font-size: 0;
 			}
 		}
 
@@ -63,13 +52,20 @@
 		}
 
 		ul {
-			font-size: 14px;
+			font-size: 0.875em;
+			line-height: 1.71;
 			margin-bottom: 0;
 		}
 	}
 
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 1rem;
+		// padding-top: 8em;
+	}
+
 	@media (max-width: $breakpoint-desktop) {
 		padding: 0;
+		padding-top: 3em;
 
 		&__column {
 			display: flex;
@@ -91,6 +87,7 @@
 
 		&__column {
 			width: 50%;
+			padding: 1.5em 0;
 		}
 	}
 
@@ -102,167 +99,28 @@
 	}
 }
 
-/* ------------------------------ FOOTER MIDDLE ----------------------------- */
-.Footer__middle {
+/* ------------------------------ FOOTER BOTTOM ----------------------------- */
+.Footer__bottom {
 
-	.wrapper {
-
-		@include color(background, background);
-		max-width: 1380px;
-		padding: 40px 120px;
-	}
+	@include color(color, font-color-medium);
+	font-size: $font-size-small;
+	line-height: $line-height-smaller;
+	padding-top: 5em;
 
 	ul {
 		display: flex;
 		flex-flow: wrap row;
-		margin-bottom: 0;
 	}
 
 	p {
-
-		@include color(color, font-color-light);
-		margin-bottom: 0;
-		font-family: $font-secondary;
-		font-size: $font-size-bigger;
-		line-height: $line-height-bigger;
-		font-weight: $font-weight-bold;
-	}
-
-	a {
-
-		@include color(color, font-color-light);
-		transition: opacity 0.5s;
-
-		&:active,
-		&:focus,
-		&:hover {
-			opacity: 0.75;
-		}
-	}
-
-	&__number {
-
-		li {
-
-			@include color(color, font-color-light);
-			font-family: $font-secondary;
-			font-size: $font-size-bigger;
-			line-height: $line-height-bigger;
-			font-weight: $font-weight-bold;
-
-			a {
-
-				&::before {
-					content: "\e828";
-					font-family: fontello, sans-serif;
-					font-weight: 900;
-					display: inline-block;
-					transform: rotate(90deg);
-					margin-right: 10px;
-				}
-			}
-
-			+ li {
-				margin-left: 45px;
-			}
-		}
-	}
-
-	&__social {
-
-		li {
-			font-size: 24px;
-
-			+ li {
-				margin-left: 20px;
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop-box) {
-
-		@include color(background, background);
-		padding: 40px 0;
-
-		.wrapper {
-			max-width: 1180px;
-			padding: 0 20px;
-			background: transparent;
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-
-		.wrapper {
-			flex-flow: wrap column;
-			align-items: center;
-		}
-
-		&__title,
-		&__number,
-		&__social {
-			display: flex;
-			flex-flow: wrap row;
-			justify-content: center;
-			width: 100%;
-		}
-
-		&__number {
-			margin: 20px 0 40px;
-
-			li + li {
-				margin-left: 40px;
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-tablet) {
-
-		&__number {
-
-			li {
-				width: 100%;
-				text-align: center;
-				margin-left: 0 !important;
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-mobile) {
-
-		&__number {
-
-			ul {
-				flex-flow: wrap column;
-				align-items: center;
-
-				li {
-					margin: 5px 0 !important;
-				}
-			}
-		}
-	}
-}
-
-/* ------------------------------ FOOTER BOTTOM ----------------------------- */
-.Footer__bottom {
-	padding: 20px 0;
-
-	ul {
-		display: flex;
-		flex-flow: wrap row;
-	}
-
-	p,
-	ul {
-		font-size: $font-size-smaller;
+		font-size: $font-size-small;
 		line-height: $line-height-smaller;
 		margin-bottom: 0;
 	}
 
 	a {
 
-		@include color(color, font-color-normal);
+		@include color(color, font-color-medium);
 
 		&:active,
 		&:focus,
@@ -271,11 +129,41 @@
 		}
 	}
 
+
+	&__social {
+		font-size: 1.25rem;
+		margin-bottom: 0;
+
+		li {
+
+			a:hover {
+
+				@include color(color, primary-color);
+			}
+
+			+ li {
+				margin-left: 0.75em;
+			}
+		}
+	}
+
 	&__navigation {
+
+		ul {
+			font-size: $font-size-small;
+			line-height: $line-height-smaller;
+			margin-bottom: 0;
+		}
 
 		li + li {
 			margin-left: 30px;
 		}
+	}
+
+	.copyright {
+
+		@include color(color, font-color-medium);
+		margin-left: 2rem;
 	}
 
 	&__right {
@@ -288,7 +176,7 @@
 	@media (max-width: $breakpoint-desktop) {
 		padding: 15px 0;
 
-		&__copyright,
+		&__social,
 		&__navigation {
 			margin: 5px 0;
 			text-align: center;
@@ -309,84 +197,5 @@
 				margin: 0 15px !important;
 			}
 		}
-	}
-}
-
-.Footer__bottom__flags {
-	max-width: 140px;
-	margin-left: 20px;
-
-	.wpml-ls {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: flex-end;
-	}
-
-	.wpml-ls-item-toggle {
-		border: 0;
-		text-decoration: none !important;
-
-		&::after {
-			border: 0.35em solid transparent !important;
-			border-bottom: 0.5em solid !important;
-			top: calc(50% - 0.56em) !important;
-		}
-	}
-
-	.wpml-ls-sub-menu {
-		border: 0;
-		top: -311px;
-		min-width: 130px;
-
-		.wpml-ls-item {
-			position: relative;
-
-			a {
-				border: 0;
-				text-decoration: none !important;
-			}
-		}
-	}
-
-	.wpml-ls-legacy-dropdown-click {
-
-		a {
-			border-radius: 8px;
-			margin-bottom: 3px;
-		}
-	}
-}
-
-body.facebook,
-body.liveagent-huawei,
-body.single-ms_glossary,
-body.post-type-archive-ms_glossary,
-body.single-format-standard,
-body.category-blog,
-body.single-ms_academy,
-body.post-type-archive-ms_academy,
-body.single-ms_templates,
-body.post-type-archive-ms_templates,
-body.typing-test,
-body.tipptest,
-body.prueba-de-tipeo,
-body.test-de-saisie,
-body.test-di-digitazione,
-body.teste-de-digitacao,
-body.typetest,
-body.gepelesi-teszt,
-body.test-pisania,
-body.test-na-umenie-nabirat-tekst,
-body.dazi-ceshi,
-body.post-type-archive-ms_directory,
-body.single-ms_directory,
-body.shopify-chat-software {
-
-	.Footer__middle {
-		display: none !important;
-	}
-
-	.Footer__top {
-		padding: 60px 0 15px;
 	}
 }

@@ -1,0 +1,56 @@
+.CTA {
+
+	&__wrapper {
+
+		@include color(color, font-color-light);
+		display: flex;
+		align-items: center;
+		background: url(../images/cta_bg.svg) left top no-repeat;
+		background-size: cover;
+		overflow: hidden;
+		border-radius: $border-radius-16;
+		margin: 3em auto;
+	}
+
+	&__content {
+		margin: 3em 2.5em;
+	}
+
+	&__title {
+		font-size: 2rem;
+		line-height: 1.25;
+		font-family: $font-secondary;
+		font-weight: 600;
+		margin-bottom: 0.25em;
+	}
+
+	&__button {
+
+		@include color(color, primary-color);
+		margin-top: 1.5em;
+		padding: 0.5em 1em;
+	}
+
+	&__image[src*="images"] {
+		display: none;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&__content {
+			width: 60%;
+			padding-left: 3.75em;
+			padding-right: 2.5em;
+			margin: 4em 0;
+		}
+
+		&__image[src*="images"] {
+			position: relative;
+			display: block;
+			width: 38%;
+			top: 1px;
+			margin-left: auto;
+			margin-top: auto;
+		}
+	}
+}

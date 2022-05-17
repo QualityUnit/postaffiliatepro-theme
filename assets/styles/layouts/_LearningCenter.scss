@@ -1,0 +1,25 @@
+.LearningCenter {
+
+	&__header {
+
+		.wrapper.wrapper {
+			background-color: rgb(243, 230, 255);
+			border-radius: $border-radius-16;
+			overflow: hidden;
+			height: 10em;
+
+			@media (min-width: $breakpoint-tablet) {
+				background-image: url(../images/learningcenter_bg.svg);
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				height: 22em;
+				overflow: visible;
+			}
+		}
+	}
+
+	.Post__sidebar {
+		margin-top: 2.5em;
+	}
+}

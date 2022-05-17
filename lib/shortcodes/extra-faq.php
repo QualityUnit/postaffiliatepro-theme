@@ -4,7 +4,6 @@ function ms_extrafaq( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'schema'      => 'yes',
-			'is-wide'     => 'true',
 			'headline'    => '',
 			'subheadline' => '',
 			'question-1'  => '',
@@ -27,16 +26,6 @@ function ms_extrafaq( $atts ) {
 			'answer-9'    => '',
 			'question-10' => '',
 			'answer-10'   => '',
-			'question-11' => '',
-			'answer-11'   => '',
-			'question-12' => '',
-			'answer-12'   => '',
-			'question-13' => '',
-			'answer-13'   => '',
-			'question-14' => '',
-			'answer-14'   => '',
-			'question-15' => '',
-			'answer-15'   => '',
 		),
 		$atts,
 		'extrafaq'
@@ -44,15 +33,16 @@ function ms_extrafaq( $atts ) {
 
 	ob_start();
 	?>
-	<div class="Faq <?= esc_html( $atts['is-wide'] === 'true' ? 'Post__m__negative':'' ); //@codingStandardsIgnoreLine ?>" itemscope itemtype="https://schema.org/FAQPage">
-		<h2 id="faq">
-		<?php
+
+	<div class="Faq Post__m__negative" itemscope itemtype="https://schema.org/FAQPage">
+		<h2>
+		<?php 
 			$headline = esc_html( $atts['headline'] );
 			$words    = explode( ' ', $headline );
 			$counter  = 0;
 		foreach ( $words as $word ) {
 			if ( 0 === $counter ) {
-				echo '<span class="highlight">' . esc_html( $words[0] ) . '</span>';
+				echo '<span class="highlight highlight-splash3">' . esc_html( $words[0] ) . '</span>';
 			} else {
 				echo ' ';
 				echo esc_html( $word );
@@ -66,8 +56,8 @@ function ms_extrafaq( $atts ) {
 				<p class="subhead"><?= esc_html( $atts['subheadline'] ); ?></p>
 			</div>
 			<?php
-		} 
-		for ( $i = 1; $i <= 15; ++$i ) {
+		}
+		for ( $i = 1; $i <= 10; ++$i ) {
 			if ( $atts[ 'question-' . $i ] && $atts[ 'answer-' . $i ] ) {
 				?>
 				<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">

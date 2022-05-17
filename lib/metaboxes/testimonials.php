@@ -8,13 +8,6 @@ $metabox = array(
 	'priority'   => 'high',
 	'args'       => array(
 		array(
-			'id'          => 'mb_realtestimonials',
-			'label'       => 'Activate as Real Testimonials Slider',
-			'description' => '',
-			'type'        => 'checkbox',
-			'default'     => 'off',
-		),
-		array(
 			'id'          => 'mb_testimonials_name',
 			'label'       => 'Name',
 			'description' => '',

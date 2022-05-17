@@ -10,7 +10,7 @@ add_action(
 			'name_admin_bar' => __( 'Integration', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'integrations',
+			'slug'       => 'integration-methods',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,

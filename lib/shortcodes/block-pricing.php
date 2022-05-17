@@ -3,16 +3,16 @@
 function ms_block_pricing( $atts ) {
 	$atts = shortcode_atts(
 		array(
-			'image-link'        => '',
-			'title'             => '',
-			'text'              => '',
-			'price'             => '',
-			'buttonText'        => 'Try it',
-			'buttonLink'        => '/trial/',
-			'second_image-link' => '',
-			'second_title'      => '',
-			'second_text'       => '',
-			'second_price'      => '',
+			'imageLink'        => '',
+			'title'            => '',
+			'text'             => '',
+			'price'            => '',
+			'buttonText'       => 'Try it',
+			'buttonLink'       => '/trial/',
+			'second_imageLink' => '',
+			'second_title'     => '',
+			'second_text'      => '',
+			'second_price'     => '',
 		),
 		$atts,
 		'block_pricing'
@@ -26,7 +26,7 @@ function ms_block_pricing( $atts ) {
 		<div class="BlockPricing__container__item PricingTable">
 			<div class="PricingTable__header green">
 				<div class="PricingTable__header__icon">
-					<img src="<?= esc_url( $atts['image-link'] ); ?>" alt="<?= esc_attr( $atts['title'] ); ?>">
+					<img src="<?= esc_url( $atts['imageLink'] ); ?>" alt="<?= esc_attr( $atts['title'] ); ?>">
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['title'] ); ?></h3>
@@ -48,7 +48,7 @@ function ms_block_pricing( $atts ) {
 		<div class="BlockPricing__container__item PricingTable">
 			<div class="PricingTable__header green">
 				<div class="PricingTable__header__icon">
-					<img src="<?= esc_url( $atts['second_image-link'] ); ?>" alt="<?= esc_attr( $atts['title'] ); ?>">
+					<img src="<?= esc_url( $atts['second_imageLink'] ); ?>"  alt="<?= esc_attr( $atts['second_title'] ); ?>">
 				</div>
 				<div class="PricingTable__header__title">
 					<h3><?= esc_html( $atts['second_title'] ); ?></h3>

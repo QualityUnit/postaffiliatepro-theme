@@ -1,41 +1,72 @@
 ( () => {
+	const mobileTablet = window.matchMedia( '(max-width: 1380px)' );
 	const query = document.querySelector.bind( document );
 	const queryAll = document.querySelectorAll.bind( document );
 
-	/* Header Mobile Menu */
-	if ( query( '.Header__mobileNavigation' ) !== null ) {
-		query( '.Header__mobileNavigation' ).addEventListener( 'click', () => {
-			query( '.Header__mobileNavigation' ).classList.toggle( 'active' );
-			query( '.Header__navigation' ).classList.toggle( 'active' );
-		} );
-	}
+	const activateMenuClick = () => {
+		/* Header Mobile Menu */
+		if ( query( '.Header__mobileNavigation' ) !== null ) {
+			query( '.Header__mobileNavigation' ).addEventListener(
+				'click',
+				() => {
+					query( '.Header__mobileNavigation' ).classList.toggle(
+						'active'
+					);
+					query( '.Header__navigation' ).classList.toggle( 'active' );
+				}
+			);
+		}
 
-	if (
-		queryAll( '.Header__navigation ul > .menu-item-has-children' ).length >
-		0
-	) {
-		queryAll( '.Header__navigation ul > .menu-item-has-children' ).forEach(
-			( element ) => {
+		if (
+			queryAll( '.Header__navigation ul > .menu-item-has-children' )
+				.length > 0
+		) {
+			queryAll(
+				'.Header__navigation ul > .menu-item-has-children'
+			).forEach( ( element ) => {
 				const link = element.querySelector( "a[href='#']" );
 				const sub = element.querySelector( 'ul' );
 
 				if ( link !== null ) {
 					link.addEventListener( 'click', () => {
+						if (
+							! link.parentElement.classList.contains( 'active' )
+						) {
+							queryAll( '.Header__navigation .active' ).forEach(
+								( activated ) => {
+									activated.classList.remove( 'active' );
+								}
+							);
+						}
+						link.parentElement.classList.toggle( 'active' );
 						sub.classList.toggle( 'active' );
 					} );
 				}
-			}
-		);
+			} );
+		}
+
+		/* Main Navigation */
+		if ( query( '.Header__navigation' ) !== null ) {
+			queryAll( ".Header__navigation a[href='#']" ).forEach(
+				( element ) => {
+					element.addEventListener( 'click', ( event ) => {
+						event.preventDefault();
+					} );
+				}
+			);
+		}
+	};
+
+	if ( mobileTablet.matches ) {
+		activateMenuClick();
 	}
 
-	/* Main Navigation */
-	if ( query( '.Header__navigation' ) !== null ) {
-		queryAll( ".Header__navigation a[href='#']" ).forEach( ( element ) => {
-			element.addEventListener( 'click', ( event ) => {
-				event.preventDefault();
-			} );
-		} );
-	}
+	// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
+	mobileTablet.addEventListener( 'change', ( event ) => {
+		if ( event.matches ) {
+			activateMenuClick();
+		}
+	} );
 
 	/* Language switcher */
 	function hideLanguageSwitcher( target ) {
@@ -96,6 +127,87 @@
 
 				if ( link !== null ) {
 					window.location.href = link;
+				}
+			} );
+		} );
+	}
+
+	/* Used for custom looking Select menu */
+	if ( queryAll( '[data-select]' ).length > 0 ) {
+		const selectors = queryAll( '[data-select]' );
+
+		selectors.forEach( ( element ) => {
+			const thisSelect = element;
+			const thisSelectParent = thisSelect.closest(
+				'.Signup__form__item'
+			);
+			const thisSelectID = element.dataset.select;
+			const thisOptions = document.getElementById( thisSelectID ).options;
+
+			const pseudoSelect = document.createElement( 'div' );
+			pseudoSelect.classList.add( 'pseudoSelect', thisSelectID );
+			thisSelectParent.appendChild( pseudoSelect );
+
+			Object.entries( thisOptions ).forEach( ( [ key ] ) => {
+				const pseudoSelectOption = document.createElement( 'div' );
+				pseudoSelectOption.classList.add( 'pseudoSelect__option' );
+				pseudoSelectOption.innerText = thisOptions[ key ].textContent;
+				pseudoSelectOption.dataset.value = thisOptions[ key ].value;
+				pseudoSelect.appendChild( pseudoSelectOption );
+
+				if (
+					thisOptions[ key ].value ===
+					document.getElementById( thisSelectID ).value
+				) {
+					thisSelect.dataset.text = thisSelect.innerText;
+					thisSelect.innerText = thisOptions[ key ].textContent;
+				}
+			} );
+
+			thisSelect.addEventListener( 'click', ( event ) => {
+				event.stopPropagation();
+
+				if ( document.querySelector( '.pseudoSelect.active' ) ) {
+					document
+						.querySelector( '.pseudoSelect.active' )
+						.classList.remove( 'active' );
+					document
+						.querySelector( '.Signup__form__item.active' )
+						.classList.remove( 'active' );
+				}
+
+				pseudoSelect.classList.toggle( 'active' );
+				thisSelectParent.classList.toggle( 'active' );
+			} );
+
+			const pseudoSelectOptions = thisSelectParent.querySelectorAll(
+				'.pseudoSelect__option'
+			);
+
+			pseudoSelectOptions.forEach( ( option ) => {
+				option.addEventListener( 'click', ( event ) => {
+					const optionVal = event.target.dataset.value;
+					const optionText = event.target.innerText;
+					document.getElementById( thisSelectID ).value = optionVal;
+					pseudoSelect.classList.toggle( 'active' );
+					thisSelectParent.classList.toggle( 'active' );
+					thisSelect.dataset.text = thisSelect.innerText;
+					thisSelect.innerText = optionText;
+				} );
+			} );
+
+			document.addEventListener( 'click', ( event ) => {
+				const pseudoSelectActive = document.querySelector(
+					'.pseudoSelect.active'
+				);
+				if (
+					! event.target.classList.contains( 'pseudoSelect' ) &&
+					pseudoSelectActive !== null
+				) {
+					pseudoSelectActive.classList.remove( 'active' );
+					pseudoSelectActive
+						.closest( '.Signup__form__item' )
+						.classList.remove( 'active' );
 				}
 			} );
 		} );
@@ -193,7 +305,7 @@
 				}
 
 				nonActive.forEach( ( elementorItem ) => {
-					elementorItem.classList.add( 'elementor-active' );
+					elementorItem.classList.add( 'a' );
 				} );
 
 				if (
@@ -212,6 +324,57 @@
 			// eslint-disable-next-line no-param-reassign
 			item.style.height = 'auto';
 		} );
+	}
+
+	// Elementor Slides replacing dots navigation with tabs
+	window.addEventListener( 'load', () => {
+		const slidesHeadings = document.querySelectorAll(
+			'.elementor-swiper .swiper-slide:not(.swiper-slide-duplicate) .elementor-slide-heading'
+		);
+		if ( slidesHeadings.length > 0 ) {
+			const headingsFilled = [];
+			const sliderParent = slidesHeadings[ 0 ].closest(
+				'.elementor-swiper'
+			);
+			const sliderDots = sliderParent.querySelectorAll(
+				'.swiper-pagination-bullet'
+			);
+
+			if ( sliderDots.length > 0 ) {
+				sliderParent.classList.add( 'has-pagination' );
+
+				for ( let i = 0; i < slidesHeadings.length; i += 1 ) {
+					headingsFilled.push( slidesHeadings[ i ].innerText );
+				}
+				const tabTitles = headingsFilled.filter(
+					( v, i, a ) => a.indexOf( v ) === i
+				);
+
+				for ( let dot = 0; dot < sliderDots.length; dot += 1 ) {
+					sliderDots[ dot ].innerText = tabTitles[ dot ];
+				}
+			}
+		}
+	} );
+
+	// Remove empty p from numbers block
+	const lastP = queryAll( '.elementor-text-editor p:last-of-type' );
+	if ( lastP.length > 0 ) {
+		lastP.forEach( ( element ) => {
+			const empty = element;
+
+			if ( empty !== undefined && empty.innerHTML === '&nbsp;' ) {
+				empty.remove();
+			}
+		} );
+	}
+
+	// Adds classes to main block if Signup form is in there
+	if ( query( '.Block:first-of-type .Signup__form' ) !== null ) {
+		const headerForm = query( '.Block:first-of-type .Signup__form' );
+
+		headerForm.closest( '.Block' ).classList.add( 'Block--background' );
+		headerForm.closest( '.Block' ).classList.add( 'Block--trial' );
 	}
 
 	const form = query( '.Signup__form' );
@@ -280,20 +443,14 @@
 				'click',
 				() => {
 					const thisCopy = item;
-					const copyText = thisCopy.querySelector(
-						'.textarea-pseudo'
-					).innerText;
+					const copyText = thisCopy.querySelector( 'textarea' );
 					const defaultText = thisCopy.querySelector(
 						'.Button--copy span'
 					).textContent;
 
-					const textArea = document.createElement( 'textarea' );
-					textArea.value = copyText;
-					document.body.appendChild( textArea );
-					textArea.select();
+					copyText.select();
 
 					document.execCommand( 'copy' );
-					document.body.removeChild( textArea );
 
 					thisCopy.querySelector( '.Button--copy span' ).textContent =
 						'Copied!';
@@ -322,7 +479,7 @@
 	}
 
 	/* Open an External Links in a New Tab */
-	const excludes = [ 'liveagent', 'live-agent' ];
+	const excludes = [ 'postaffiliatepro' ];
 
 	queryAll( 'a[href^=http]' ).forEach( ( element ) => {
 		if (
@@ -333,31 +490,17 @@
 		}
 	} );
 
-	/* Awards switching */
-	const awardsYears = document.querySelectorAll( '.Awards__switcher--year' );
+	/* Adding class to Boxes in illustration Block if more or same than 4 */
+	const boxes = document.querySelectorAll( '.Boxes' );
 
-	if ( awardsYears.length > 0 ) {
-		awardsYears.forEach( ( year ) => {
-			year.addEventListener( 'click', () => {
-				const yearActive = document.querySelector(
-					'.Awards__switcher--year.active'
-				);
-				const yearContainerActive = document.querySelector(
-					'.Awards__container.active'
-				);
-
-				const thisYear = year;
-				const thisYearRef = year.dataset.year;
-
-				yearActive.classList.remove( 'active' );
-				thisYear.classList.add( 'active' );
-				yearContainerActive.classList.remove( 'active' );
-				document
-					.querySelector(
-						`.Awards__container[data-year='${ thisYearRef }']`
-					)
-					.classList.add( 'active' );
-			} );
+	if ( boxes.length > 0 ) {
+		boxes.forEach( ( block ) => {
+			const boxesColumns = block.querySelectorAll( '.elementor-column' );
+			if ( boxesColumns.length >= 4 ) {
+				boxesColumns[ 0 ]
+					.closest( '.Boxes' )
+					.classList.add( 'has-four' );
+			}
 		} );
 	}
 } )();

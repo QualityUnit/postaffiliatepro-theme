@@ -51,10 +51,6 @@ function set_posts_per_page( $query ) {
 		$query->set( 'posts_per_page', 999 );
 	}
 
-	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_voip-partners' ) ) ) {
-		$query->set( 'posts_per_page', 999 );
-	}
-
 	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_templates' ) ) ) {
 		$query->set( 'posts_per_page', 999 );
 	}
@@ -63,11 +59,7 @@ function set_posts_per_page( $query ) {
 		$query->set( 'posts_per_page', 999 );
 	}
 
-	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_research' ) ) ) {
-		$query->set( 'posts_per_page', 999 );
-	}
-
-	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_checklists' ) ) ) {
+	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_learning-center' ) ) ) {
 		$query->set( 'posts_per_page', 999 );
 	}
 

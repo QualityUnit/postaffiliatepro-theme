@@ -4,9 +4,7 @@
     <strong>See it in Action</strong>
   </a>
 */
-const modalVideo = document.querySelectorAll(
-	'[data-lightbox="youtube"], [class*="Block--video"] [data-ytid]'
-);
+const modalVideo = document.querySelectorAll( '[data-lightbox="youtube"]' );
 const body = document.querySelector( 'body' );
 
 function loadYouTubeModal( yt, target ) {

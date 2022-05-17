@@ -1,6 +1,3 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable value-keyword-case */
-
 input[type="submit"],
 input[type="button"],
 button,
@@ -14,16 +11,11 @@ button,
 	height: $button-height-normal;
 	padding: 0 $button-padding-normal;
 	border: 0;
-	border-radius: $border-radius - 2;
-	font-size: $button-font-size-normal;
+	border-radius: $border-radius-6;
 	font-family: $font-secondary;
+	font-size: $button-font-size-normal;
 	font-weight: $font-weight-semi;
-	background-color: transparent;
 	cursor: pointer;
-
-	&:lang(ru) {
-		padding: 0 1em;
-	}
 }
 
 .Button + .Button {
@@ -36,80 +28,46 @@ button,
 
 .Button--full {
 
-	@include color(background, background);
+	@include color(background, primary-color);
 	@include color(color, button-full-font-color);
 	overflow: hidden;
+	border: 1px solid $primary;
+	transition: all 0.2s;
 
 	span,
 	strong {
 		position: relative;
 		z-index: 2;
 		font-weight: $font-weight-semi;
-		line-height: 1.33;
+		line-height: $button-height-normal;
 	}
 
-	&::before {
-
-		@include color(background, background);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 1;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
-
-	&::after {
-
-		@include color(background, background-invert);
-		@include fullSize;
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		border-radius: ($border-radius - 2);
-		opacity: 0;
-		transition: opacity 0.75s;
-		z-index: 1;
-	}
 
 	&:active,
 	&:focus,
 	&:hover {
 
-		&::before {
-			opacity: 0;
-		}
-
-		&::after {
-			opacity: 1;
-		}
+		@include color(background, button-full-background-color-1);
+		border-color: $dark-primary;
 	}
-}
-
-.Button--login {
-	display: block;
 }
 
 .Button--normal {
 	color: #fff;
-	background-color: #fa9531;
+	background-color: $primary;
 	transition: all 0.3s;
 	overflow: hidden;
 
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
+		line-height: $button-height-normal;
 	}
 
 	&:active,
 	&:focus,
 	&:hover {
-		background-color: #f98006;
+		background-color: $dark-primary;
 	}
 }
 
@@ -122,7 +80,7 @@ button,
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
+		line-height: $button-height-normal;
 	}
 
 	&::before {
@@ -134,7 +92,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius - 2);
+		border-radius: ($border-radius / 2);
 		opacity: 1;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -149,7 +107,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius - 2);
+		border-radius: ($border-radius / 2);
 		opacity: 0;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -171,44 +129,30 @@ button,
 	}
 }
 
-.Button--knockout {
-
-	@include color(background-color, main-background);
-	mix-blend-mode: screen;
-	transition: all 0.2s;
-
-	span {
-		color: $black-real;
-		white-space: nowrap;
-	}
-
-	&:active,
-	&:focus,
-	&:hover {
-
-		@include color(background-color, content-color-dark);
-		mix-blend-mode: normal;
-
-		span {
-
-			@include color(color, font-color-light);
-		}
-	}
-}
-
 .Button--outline {
 
 	@include color(color, font-color-dark);
+	@include color(border-color, border-color-dark);
 	border-width: 1px;
 	border-style: solid;
-	border-color: currentColor;
 	overflow: hidden;
 	transition: all 0.3s;
+
+	&-light {
+
+		@include color(color, font-color-level3);
+		@include color(border-color, border-color-inputs);
+	}
 
 	span {
 		position: relative;
 		z-index: 2;
-		line-height: 1.33;
+		// font-weight: 400;
+		line-height: $button-height-normal;
+	}
+
+	strong {
+		font-weight: 600;
 	}
 
 	&:active,
@@ -218,21 +162,24 @@ button,
 		@include color(color, primary-color);
 		@include color(border-color, primary-color);
 	}
+}
 
-	&__white {
+.Button--icon {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.875rem;
 
-		@include color(color, font-color-light);
-		border-width: 2px;
-		padding: 0.5em 1.5em;
+	img,
+	svg {
 
-		&:active,
-		&:focus,
-		&:hover {
+		@include square(1.75em);
 
-			@include color(background-color, main-background);
-			@include color(border-color, font-color-light);
-			color: $black-real;
-			mix-blend-mode: screen;
+		&:first-child {
+			margin-right: 0.75em;
+		}
+
+		&:last-child {
+			margin-left: 0.75em;
 		}
 	}
 }
@@ -256,7 +203,7 @@ button,
 			width: 20px;
 			height: 20px;
 			margin-right: 10px;
-			background-image: url(../../assets/images/icon-copy.svg);
+			background-image: url(../images/icon-copy.svg);
 			transition: opacity 0.3s;
 		}
 	}
@@ -268,7 +215,7 @@ button,
 		span {
 
 			&::before {
-				background-image: url(../../assets/images/icon-copy-hover.svg);
+				background-image: url(../images/icon-copy-hover.svg);
 			}
 		}
 	}
@@ -278,19 +225,28 @@ button,
 	margin-top: 20px;
 }
 
-.Button--small {
-	height: 2.25rem;
-	padding: 0.25em 1em;
-	font-size: 0.8125rem;
+.Button--app {
+	display: inline-block;
+	width: auto;
+	height: 3.4375em;
+	min-width: 10em;
+
+	&::after {
+		display: none !important;
+	}
+
+	+ .Button--app {
+		margin-left: 1.5em;
+	}
 }
 
-.Button--medium {
-	height: 60px;
-	padding: 0 40px;
-	font-size: 18px;
+.Button--narrow {
+	height: 2.625rem;
 
-	span {
-		line-height: 1.33;
+	span,
+	strong {
+		line-height: 3;
+		font-weight: 400;
 	}
 }
 
@@ -299,8 +255,9 @@ button,
 	padding: 0 30px;
 	font-size: 18px;
 
-	span {
-		line-height: 1.33;
+	span,
+	strong {
+		line-height: 72px;
 	}
 
 	@media (max-width: $breakpoint-mobile) {
@@ -308,8 +265,9 @@ button,
 		padding: 0 25px;
 		font-size: 16px;
 
-		span {
-			line-height: 1.33;
+		span,
+		strong {
+			line-height: 60px;
 		}
 	}
 }
@@ -320,12 +278,7 @@ button,
 	display: inline-flex;
 	align-items: center;
 	font-family: $font-secondary;
-	font-weight: $font-weight-semi;
 	font-size: 0.875rem;
-
-	strong {
-		font-weight: $font-weight-semi;
-	}
 
 	&::before {
 		content: url(../images/play_seeinaction.svg);
@@ -337,47 +290,4 @@ button,
 
 		@include color(color, primary-color);
 	}
-}
-
-.Button--learn-more {
-
-	@include color(color, dark-orange);
-	padding: 0.5rem 0 0 !important;
-	margin: 0 !important;
-
-	span {
-
-		img {
-			width: 24px;
-			padding: 0 0 0 0.2rem;
-		}
-	}
-
-	.highlight-gradient {
-
-		img {
-			transform: translate(0, 0);
-			transition: transform 530ms ease-in-out !important;
-		}
-	}
-
-	&:hover,
-	&:active,
-	&:focus {
-
-		.highlight-gradient {
-
-			@include color(background, background-invert);
-			background-clip: text;
-			color: transparent;
-			box-decoration-break: clone;
-
-			img {
-				transform: translate(10px, 0);
-				transition: transform 530ms ease-in-out !important;
-			}
-		}
-
-	}
-
 }

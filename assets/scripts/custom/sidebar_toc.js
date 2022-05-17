@@ -10,7 +10,7 @@ const sidebarTOC = query( '.SidebarTOC' );
 if (
 	headerFaq !== null &&
 	tocFaq === null &&
-	window.innerWidth > 1380 &&
+	window.innerWidth > 1280 &&
 	sidebarTOC !== null
 ) {
 	const faqItem =
@@ -37,7 +37,7 @@ const footer = query( '.Footer' );
 const tocSlider = query( '.SidebarTOC__slider' );
 let slider = null;
 
-const mql = window.matchMedia( '(min-width: 1380px)' );
+const mql = window.matchMedia( '(min-width: 1280px)' );
 
 function tocRemoveActive() {
 	tocItems.forEach( ( element ) => {
@@ -50,11 +50,11 @@ function activateSidebars() {
 
 	if ( sidebarTOC !== null ) {
 		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-lasrc]' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-lasrc]' );
+			if ( queryAll( '[data-src]' ) !== null ) {
+				const unloaded = document.querySelectorAll( '[data-src]' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					const datasrc = el.getAttribute( 'data-lasrc' );
+					const datasrc = el.getAttribute( 'data-src' );
 					el.setAttribute( 'src', datasrc );
 					el.style.opacity = '1';
 				} );
@@ -68,18 +68,15 @@ function activateSidebars() {
 			el.addEventListener( 'click', ( e ) => {
 				e.preventDefault();
 				const elemHref = el.getAttribute( 'href' );
-				const toPosition = document
-					.querySelector( elemHref )
-					.getBoundingClientRect().top;
+				const toPosition = document.querySelector( elemHref ).offsetTop;
+				const titleHeight = document.querySelector( elemHref )
+					.clientHeight;
 
 				tocRemoveActive();
 				el.classList.add( 'active' );
 
 				window.scroll( {
-					top:
-						toPosition +
-						document.documentElement.scrollTop -
-						treshold,
+					top: toPosition - titleHeight + headerHeight + treshold,
 					behavior: 'smooth',
 				} );
 
@@ -111,7 +108,6 @@ function activateSidebars() {
 					height: tocItemsEightHeight + 16,
 					autoWidth: true,
 					arrowPath: 'M40,30H0l20-20L40,30z',
-					// perPage: 8,
 					perMove: 8,
 					speed: 400,
 					pagination: false,
@@ -124,16 +120,6 @@ function activateSidebars() {
 					setTimeout( () => {
 						track.style.height = `${ track.clientHeight + 8 }px`;
 					}, 100 );
-				} );
-
-				mql.addEventListener( 'change', ( event ) => {
-					if ( event.matches ) {
-						setTimeout( () => {
-							track.style.height = `${
-								track.clientHeight + 8
-							}px`;
-						}, 100 );
-					}
 				} );
 
 				slider.on( 'active', () => {

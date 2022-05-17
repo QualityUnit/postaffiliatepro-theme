@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-
 .Kolaciky {
 
 	@include color(background-color, content-color-dark);
@@ -64,21 +62,12 @@
 			@include color(background, main-background);
 			@include color(color, font-color-dark);
 			transition: all 0.75s;
-
-			&::before,
-			&::after {
-				opacity: 0;
-			}
+			border: none;
 
 			&:hover {
 
 				@include color(color, font-color-light, !important);
-				background: transparent;
-
-				&::before,
-				&::after {
-					opacity: 1;
-				}
+				@include color(background-color, primary-color);
 			}
 		}
 	}

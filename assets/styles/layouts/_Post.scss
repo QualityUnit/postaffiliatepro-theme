@@ -1,5 +1,3 @@
-/* stylelint-disable selector-class-pattern */
-
 @import "../elements/Checklist";
 @import "../elements/PostTypography";
 
@@ -9,6 +7,10 @@ $signupSidebarWidth: 16.875em;
 .Post {
 
 	&__header {
+
+		.Category__header__title {
+			margin-bottom: auto;
+		}
 
 		.wrapper__wide {
 			border-radius: $border-radius-16;
@@ -36,9 +38,9 @@ $signupSidebarWidth: 16.875em;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			display: block;
+			display: flex;
 			position: absolute;
-			top: -8em;
+			top: -8.5em;
 		}
 	}
 
@@ -61,10 +63,16 @@ $signupSidebarWidth: 16.875em;
 			}
 		}
 
-		@media (min-width: $breakpoint-desktop-box) {
+		@media (min-width: ($breakpoint-desktop-box - 80px)) {
 			display: block;
 			width: $sidebarWidth;
-			padding-left: 2em;
+		}
+	}
+
+	&__container {
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 1em;
 		}
 	}
 
@@ -73,7 +81,9 @@ $signupSidebarWidth: 16.875em;
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: calc(100% - #{$signupSidebarWidth} + 3em);
-			padding: 0 5em;
+			max-width: 40.625em;
+			padding: 0;
+			margin: 0 auto;
 
 			.Content {
 
@@ -81,7 +91,6 @@ $signupSidebarWidth: 16.875em;
 
 					.Post__m__negative,
 					.BlockDiscover,
-					.BlockQuote--discover,
 					.Faq,
 					.wide,
 					.wp-block-embed,
@@ -114,9 +123,9 @@ $signupSidebarWidth: 16.875em;
 			}
 		}
 
-		@media (min-width: $breakpoint-desktop-box) {
+		@media (min-width: ($breakpoint-desktop-box - 80px)) {
 			width: calc(100% - #{$sidebarWidth} - #{$signupSidebarWidth});
-			padding: 0 7.5em;
+			margin-left: calc(16.25em - #{$sidebarWidth} + 3.25em);
 
 			.Content {
 
@@ -124,13 +133,12 @@ $signupSidebarWidth: 16.875em;
 
 					.Post__m__negative,
 					.BlockDiscover,
-					.BlockQuote--discover,
 					.Faq,
 					.wide,
 					.wp-block-embed,
 					.youtube__loader {
-						margin-left: -6em;
-						margin-right: -6em;
+						margin-left: -3em;
+						margin-right: -3em;
 					}
 				}
 			}

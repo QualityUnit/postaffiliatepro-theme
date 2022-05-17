@@ -1,202 +1,157 @@
-/* stylelint-disable selector-class-pattern */
-
 .Reference {
 	overflow: hidden;
 
-	&.margin-top {
-		margin-top: 100px;
-	}
-
-	&.margin-bottom {
-		margin-bottom: 100px;
-	}
-
-	.elementor-widget:not(:last-child) {
-		margin-bottom: 0 !important;
-	}
-
-	.wrapper {
-		background-image:
-			url(../images/bg_reference_points.svg),
-			linear-gradient(90deg, rgba(189, 249, 251, 1) 0%, rgba(91, 241, 246, 1) 100%);
-		background-size: auto 100%;
-		background-position: center right;
-		background-repeat: no-repeat;
-	}
-
-	.elementor-row,
-	.elementor-container {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: space-between;
-	}
-
-	&__image,
-	&__text {
-		position: relative;
-		display: flex;
-		flex-flow: wrap column;
-		justify-content: center;
-		align-items: flex-end;
-		width: 50%;
-	}
-
-	&__image {
-
-		img {
-			position: absolute;
-			bottom: -275px;
-			right: 0;
-			display: block !important;
-			max-height: 545px;
-		}
-	}
-
-	&__text {
-		max-width: 475px;
-
-		.elementor-image {
-			text-align: left;
-			padding: 0;
-		}
-
-		blockquote {
-			margin: 0 !important;
-			padding: 0 !important;
-			border: 0 !important;
-
-			&.elementor-blockquote {
-				margin-bottom: 15px !important;
-			}
-
-			p {
-
-				@include color(color, font-color-dark);
-				font-size: $font-size-h2;
-				line-height: $line-height-h2;
-				font-weight: $font-weight-normal;
-				margin-bottom: 75px;
-
-				strong {
-					font-weight: $font-weight-bold;
-				}
-			}
-
-			footer {
-				margin-top: 0;
-			}
-
-			cite {
-
-				@include color(color, font-color-normal);
-				font-family: $font-primary;
-				font-size: $font-size-default;
-				font-weight: $font-weight-bold;
-				line-height: $line-height-default;
-			}
-		}
-
-		img {
-			display: block !important;
-			width: auto;
-			max-width: 100%;
-			height: 30px;
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop-box) {
-		padding-top: 0;
-		padding-bottom: 0;
-		background-image:
-			url(../images/bg_reference_points.svg),
-			linear-gradient(90deg, rgba(189, 249, 251, 1) 0%, rgba(91, 241, 246, 1) 100%);
-		background-size: auto 100%;
-		background-position: center right;
-		background-repeat: no-repeat;
+	&.Block--background {
+		padding: 0 !important;
+		background-color: transparent;
 
 		.wrapper {
-			background-image: none;
+			padding: 0 !important;
+
+			@media (min-width: $breakpoint-tablet) {
+				background: $lightest-gray url(../images/map_reference.svg) 2em center no-repeat;
+				background-size: contain;
+				padding: 4em !important;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				padding-top: 9.375em !important;
+				padding-bottom: 5.25em !important;
+			}
 		}
 	}
 
-	@media (max-width: $breakpoint-desktop) {
 
-		&__image {
-			display: none !important;
+	.SliderTestimonials__slider--reference {
+		position: relative;
+
+		.splide {
+			padding: 0;
+			overflow: hidden;
+
+			.splide__list {
+				display: flex;
+				align-items: stretch;
+				width: 100%;
+			}
 		}
 
-		&__text {
-			width: 100% !important;
-			max-width: 100%;
-			padding-left: 0 !important;
-			text-align: center;
+		.splide__slide {
+			margin: 0;
 
-			blockquote {
+		}
 
-				&.elementor-blockquote {
-					margin-bottom: 15px !important;
+		@media (max-width: $breakpoint-tablet) {
+
+			.splide__list {
+				position: relative;
+				left: -1em;
+			}
+
+			.splide__slide {
+				background-color: $lightest-gray;
+				border-radius: $border-radius-16;
+				padding: 3.25em 2.25em;
+				height: auto;
+			}
+		}
+
+		.slide__inn {
+			display: flex;
+			align-items: center;
+			padding: 0;
+
+			@media (max-width: $breakpoint-tablet-small) {
+				flex-direction: column;
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				margin-bottom: 4.5em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				padding-left: calc(18.75em - 4em);
+				padding-right: 6.625em;
+			}
+		}
+
+		.SliderTestimonials__slider {
+
+			&__header__photo {
+				width: 25%;
+
+				img {
+					width: 100%;
+					border-radius: 50%;
 				}
 
-				p {
-					margin-bottom: 45px;
+				@media (max-width: $breakpoint-tablet-small - 1px) {
+					width: 50%;
+					margin: 0 auto;
 				}
 
-				footer {
-					justify-content: center;
+				@media (min-width: $breakpoint-desktop) {
+					width: 30%;
 				}
 			}
 
-			.elementor-image {
+			&__content {
+
+				@include color(color, font-color-dark);
+				width: 81%;
+				font-size: 0.8125rem;
+				font-family: $font-secondary;
 				text-align: center;
+
+				&__bottom {
+
+					@include color(color, font-color-dark);
+					margin-top: 1em;
+
+					span {
+						font-weight: 400;
+					}
+				}
+
+				&::before {
+
+					@include square(1.75rem);
+					display: block;
+					background: url(../images/quote.svg) center center no-repeat;
+					background-size: contain;
+					margin: 1.5em auto;
+					content: "";
+				}
+
+				@media (min-width: $breakpoint-tablet-small) {
+					width: 58.9%;
+					margin-left: 11%;
+					font-size: 1.25rem;
+					font-weight: 700;
+					text-align: left;
+
+					&::before {
+
+						@include square(2.2rem);
+						margin: 0 0 0.5em;
+					}
+
+
+					&__bottom {
+						font-size: 1rem;
+					}
+				}
 			}
-		}
 
-		img {
-			margin: auto;
-		}
-	}
+			&__logo {
+				margin-left: auto;
 
-	@media (max-width: $breakpoint-tablet) {
-
-		&__text {
-
-			blockquote {
-
-				p {
-					font-size: 28px;
-					line-height: 38px;
+				img {
+					height: 1.15em;
+					width: auto;
 				}
 			}
 		}
 	}
-
-	@media (max-width: $breakpoint-mobile) {
-
-		&__text {
-
-			blockquote {
-
-				p {
-					font-size: 24px;
-					line-height: 36px;
-				}
-			}
-		}
-	}
 }
 
-html[lang="de-DE"] {
-
-	.Reference__text blockquote p {
-		font-size: 30px;
-		line-height: 44px;
-	}
-}
-
-html[lang="sk-SK"] {
-
-	.Reference__text blockquote p {
-		font-size: 30px;
-		line-height: 48px;
-	}
-}

@@ -1,32 +1,36 @@
 <?php // @codingStandardsIgnoreLine
-	$current_lang    = apply_filters( 'wpml_current_language', null );
-	$header_category = get_en_category( 'ms_features', $post->ID );
-	do_action( 'wpml_switch_language', $current_lang );
+$current_lang    = apply_filters( 'wpml_current_language', null );
+$header_category = get_en_category( 'ms_features', $post->ID );
+do_action( 'wpml_switch_language', $current_lang );
 ?>
+
 
 <div class="Post" itemscope itemtype="http://schema.org/TechArticle">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
 
-	<div class="Post__header <?= esc_attr( $header_category ); ?>">
+	<div class="Post__header features <?= esc_attr( $header_category ); ?>">
 		<div class="wrapper__wide"></div>
 	</div>
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar">
 			<div class="Post__sidebar__categories">
-				<div class="Post__sidebar__title h4"><?php _e( 'Categories', 'ms' ); ?></div>
-				<ul class="Post__sidebar__categories__labels">
+				<h4 class="Post__sidebar__title"><?php _e( 'Categories', 'ms' ); ?></h4>
+				<ul class="CategoryTags">
 					<?php
 					$current_id = apply_filters( 'wpml_object_id', $post->ID, 'ms_features' );
 					$categories = get_the_terms( $current_id, 'ms_features_categories' );
 
 					if ( $categories ) {
 						foreach ( $categories as $category ) {
+							$category_id    = $category->term_id;
+							$category_name  = $category->name;
+							$category_color = get_term_meta( $category_id, 'category_color', true );
 							?>
-					<li class="Post__sidebar__link">
-						<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a>
-					</li>
+							<li class="CategoryTag <?= esc_attr( $category_color ); ?>">
+								<a href="../#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category_name ); ?>"><?= esc_html( $category_name ); ?></a>
+							</li>
 							<?php
 						}
 					}
@@ -35,22 +39,19 @@
 			</div>
 
 			<div class="Post__sidebar__available">
-				<div class="Post__sidebar__title h4"><?php _e( 'Available in', 'ms' ); ?></div>
+				<h4 class="Post__sidebar__title"><?php _e( 'Available in', 'ms' ); ?></h4>
 				<ul>
 					<?php
 					if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
 						foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-							if ( 'ticket' === $item ) {
-								echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_ticket' ) ) . '</li>';
+							if ( 'pro' === $item ) {
+								echo "<li class='" . esc_attr( $item ) . "'>Post Affiliate Pro</li>";
 							}
-							if ( 'ticket-chat' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_ticket_chat' ) ) . '</li>';
+							if ( 'ultimate' === $item ) {
+								echo "<li class='" . esc_attr( $item ) . "'>Post Affiliate Pro Ultimate</li>";
 							}
-							if ( 'all-inclusive' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_all_inclusive' ) ) . '</li>';
-							}
-							if ( 'extensions' === $item ) {
-									echo "<li class='" . esc_attr( $item ) . "'>" . esc_html( get_option( 'ms_theme_ms_general_extensions' ) ) . '</li>';
+							if ( 'network' === $item ) {
+								echo "<li class='" . esc_attr( $item ) . "'>Post Affiliate Network</li>";
 							}
 						}
 					}
@@ -77,6 +78,7 @@
 		<div class="Signup__sidebar-wrapper">
 			<?= do_shortcode( '[signup-sidebar]' ); ?>
 		</div>
+
 
 		<div class="Post__content">
 			<div class="Post__logo Post__logo--features">

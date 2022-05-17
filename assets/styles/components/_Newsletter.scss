@@ -1,9 +1,43 @@
-/* stylelint-disable selector-class-pattern */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
-
 .Newsletter {
-	padding-top: 0;
-	padding-bottom: 0;
+	position: relative;
+	z-index: 1;
+	margin-top: 3em;
+	transform: translateY(1em);
+
+	&__inn {
+
+		@include color(background-color, main-background);
+		display: flex;
+		flex-direction: column;
+		padding: 1.5em;
+		border-radius: $border-radius-30;
+		box-shadow: 0 0 5em -0.625em rgba(0, 0, 0, 0.06);
+
+		@media (min-width: $breakpoint-tablet) {
+
+			flex-direction: row;
+			text-align: left;
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+			margin: 0 -2.5em;
+			padding: 3em 2.5em;
+		}
+	}
+
+	&__top {
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		margin-bottom: 1.5em;
+	}
+
+	&__title-mobile {
+		margin-left: 1rem;
+		font-size: 1rem;
+	}
 
 	.elementor-widget:not(:last-child) {
 		margin-bottom: 0 !important;
@@ -13,73 +47,86 @@
 		align-content: center;
 	}
 
-	&__text {
-		width: 45%;
-
-		p {
-			margin-bottom: 0;
-		}
-	}
-
 	&__form {
-		display: flex;
-		flex-flow: wrap row;
-		justify-content: flex-end;
-		width: 55%;
+		width: 100%;
+		margin: 0;
 
 		.Input {
-			min-width: 320px;
-			margin-right: 40px;
 			text-align: center;
+			margin-bottom: 1.5em;
+
+			@media (min-width: $breakpoint-tablet) {
+				height: 3rem;
+			}
 		}
 
 		.Button {
 			min-width: 185px;
 		}
-	}
 
-	.elementor-shortcode {
+		@media (max-width: $breakpoint-tablet) {
 
-		.Newsletter__form {
-			width: 100%;
+			.Input,
+			.Button {
+				width: 100%;
+			}
 		}
 	}
 
-	@media (max-width: $breakpoint-desktop-box) {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
+	@media (min-width: $breakpoint-tablet) {
+		transform: translateY(25%);
 
-	@media (max-width: $breakpoint-desktop) {
-
-		&__text,
-		&__form {
-			justify-content: center;
-			width: 100%;
-			text-align: center;
-		}
-
-		form {
-			margin-top: 40px;
-		}
-	}
-
-	@media (max-width: $breakpoint-tablet) {
-
-		.elementor-col-50 {
-			width: 100% !important;
-		}
-
-		form {
-			display: flex;
-			flex-flow: wrap column;
+		&__inn {
+			flex-direction: row;
 			align-items: center;
+		}
+
+		&__icon {
+			margin-bottom: 0;
+		}
+
+		&__text {
+			margin-left: 1.5em;
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		&__form {
+			width: auto;
+			margin-left: 1.5rem;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		transform: translateY(50%);
+
+		&__form {
+			display: flex;
+			justify-content: flex-end;
+			width: 55%;
+
+			form {
+				display: flex;
+			}
 
 			.Input {
-				min-width: 240px !important;
-				margin-right: 0 !important;
-				margin-bottom: 20px !important;
+				margin-right: 1.5em;
+				margin-bottom: 0;
+				height: auto;
 			}
+		}
+
+		&__text {
+			width: 45%;
+		}
+	}
+
+	@media (min-width: $breakpoint-desktop) {
+
+		.Input {
+			min-width: 20em;
 		}
 	}
 }
@@ -111,7 +158,7 @@ form.MailChimp {
 			padding: 0 $input-padding-normal;
 			border-width: $input-border-width-normal;
 			border-style: solid;
-			border-radius: ($border-radius - 2);
+			border-radius: ($border-radius / 2);
 			background-color: transparent;
 			font-size: $input-font-size-normal;
 			font-weight: $font-weight-normal;

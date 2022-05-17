@@ -1,19 +1,5 @@
-/* stylelint-disable selector-class-pattern */
-
-@media (max-width: $breakpoint-tablet) {
-
-	.BlockPricing,
-	.Block .startusing {
-
-		.Button--full {
-			margin-bottom: 1.5em !important;
-		}
-	}
-}
-
-//hotfix removal of custom-frontend-legacy padding suddenly appearing
 .elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated > .elementor-widget-wrap {
-	padding: 0 !important;
+	padding: 0;
 }
 
 .elementor:not(:lang(en)) {
@@ -24,10 +10,14 @@
 	padding: 0 !important;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-	width: 100%;
-	max-width: $breakpoint-desktop-box;
+.elementor-section {
+
+	&-boxed > .elementor-container {
+		width: 100%;
+		max-width: $breakpoint-desktop-box;
+	}
 }
+
 
 .elementor-widget-heading {
 
@@ -39,13 +29,18 @@
 			line-height: 1.5;
 
 			@media (max-width: $breakpoint-tablet - 1px) {
-				font-size: 1.75rem;
+				font-size: 1.25rem;
 			}
 		}
 	}
 
 	h3.elementor-heading-title {
 		line-height: $line-height-h3;
+
+		&.elementor-size-xxl {
+			font-size: 3.125rem;
+			margin-bottom: 1rem;
+		}
 	}
 
 	h4.elementor-heading-title {
@@ -88,9 +83,9 @@ body:not(.elementor-editor-active) {
 
 		.elementor-column.elementor-col-50,
 		.elementor-column[data-col="50"] {
-			width: 100%;
-			padding-left: 0;
-			padding-right: 0;
+			width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
 		}
 	}
 
@@ -134,8 +129,6 @@ body:not(.elementor-editor-active) {
 	width: auto !important;
 	max-width: 100% !important;
 	max-height: 100%;
-	padding-left: 50px;
-	padding-right: 50px;
 }
 
 .elementor-widget-video {
@@ -151,5 +144,57 @@ body:not(.elementor-editor-active) {
 	@media (max-width: $breakpoint-desktop) {
 		padding-left: 0;
 		padding-right: 0;
+	}
+}
+
+.elementor-widget-icon-list {
+
+	svg {
+
+		@include square(auto, !important);
+		overflow: visible;
+		// width: auto !important	;
+	}
+
+	.grid & .elementor-icon-list {
+
+		&-items {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		&-item {
+
+			@include color(background-color, main-background);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 2px 4px 1.5em 0 rgba($black-real, 0.05);
+			padding: 1.5em 1em;
+			border-radius: $border-radius-16;
+			width: calc(50% - 1.5em);
+			margin-bottom: 1.5em;
+
+			@media (min-width: $breakpoint-tablet-small) {
+				width: calc(33.33% - 1em);
+			}
+		}
+
+		&-icon {
+			background-color: $light-primary;
+			border-radius: 0.625em;
+			margin-bottom: 1em;
+		}
+
+		&-text {
+
+			@include color(color, font-color-dark);
+			font-family: $font-secondary;
+			font-size: $font-size-smaller;
+			font-weight: 600;
+			text-align: center;
+		}
 	}
 }
