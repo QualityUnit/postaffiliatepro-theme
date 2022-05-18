@@ -638,7 +638,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 										<h3 class="AffiliateManagerCard__name">
 											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" title="<?= esc_html( $url_title ); ?>">
 								<?= esc_html( $name ); ?>
-+									</a>
+									</a>
 										</h3>
 
 										<div class="AffiliateManagerCard__industries">
@@ -690,6 +690,17 @@ set_custom_source( 'sidebar_toc', 'js' );
 						<?php
 					}
 					?>
+
+					<div class="CTA__wrapper">
+						<div class="CTA__content">
+							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
+							<div class="CTA__text"><?php _e( 'Start our free 14-day trial and build an affiliate program similar to', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>
+							<a href="<?php _e( '/trial', 'ms' ); ?>" class="CTA__button Button">
+								<span><?php _e( 'Start 14-day trial for FREE', 'ms' ); ?></span>
+							</a>
+						</div>
+						<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?php _e( 'Build your own affiliate program', 'ms' ); ?>" />
+					</div>
 				</div>
 			</div>
 		</div>
