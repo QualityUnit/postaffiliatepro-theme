@@ -23,7 +23,7 @@
 		"concurrently": "^7.2",
 		"del": "^6",
 		"eslint": "^8.15",
-		"eslint-config-airbnb-base": "^14.2",
+		"eslint-config-airbnb-base": "^15.0",
 		"gulp": "^4",
 		"gulp-autoprefixer": "^8",
 		"gulp-concat": "^2.6",
