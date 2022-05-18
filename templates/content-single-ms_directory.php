@@ -24,10 +24,6 @@ set_custom_source( 'sidebar_toc', 'js' );
 						<span><?php _e( 'Company Website', 'ms' ); ?></span>
 					</a>
 				<?php } ?>
-
-				<a href="<?php _e( '/affiliate-program-directory/', 'ms' ); ?>" class="Button Button--outline" onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Button - Back to Directory'])">
-					<span><?php _e( 'Back to Directory', 'ms' ); ?></span>
-				</a>
 			</div>
 
 			<?php
@@ -215,6 +211,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 				<div class="Directory__blocks">
 
 					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Overview', 'ms' ); ?></span></h2>
+					<p><?php _e( 'Find out more about the general industry, product type, and affiliate program type.', 'ms' ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
@@ -269,6 +266,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 					</div>
 
 					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></span></h2>
+					<p><?php _e( "Get to know the affiliate program campaign's key specifics, restrictions, and rules.", 'ms' ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
@@ -396,11 +394,12 @@ set_custom_source( 'sidebar_toc', 'js' );
 					</div>
 
 					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & Payouts', 'ms' ); ?></span></h2>
+					<p><?php _e( 'Explore the earning potential with commission structure and payout information.', 'ms' ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/tiers.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Tiers', 'ms' ); ?></h3>
+							<h3><?php _e( 'Multi level marketing', 'ms' ); ?></h3>
 
 							<?php
 							$tiers = get_post_meta( get_the_ID(), 'tiers', true );
@@ -414,9 +413,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 									<?php } if ( 'other' === $tier ) { ?>
 										<p><?php _e( 'Other', 'ms' ); ?></p>
 									<?php } if ( 'multitier' === $tier ) { ?>
-										<p><?php _e( 'Multi-tier', 'ms' ); ?></p>
+										<p><a href="<?php _e( '/features/multi-tier-commissions-multi-level-marketing/', 'ms' ); ?>" title="<?php _e( 'What is Multi-tier affiliate marketing?', 'ms' ); ?>"><?php _e( 'Multi-tier', 'ms' ); ?></a></p>
 									<?php } if ( 'singletier' === $tier ) { ?>
-										<p><?php _e( 'Single-tier', 'ms' ); ?></p>
+										<p><a href="<?php _e( '/features/multi-tier-commissions-multi-level-marketing/', 'ms' ); ?>" title="<?php _e( 'What is Singletier affiliate marketing?', 'ms' ); ?>"><?php _e( 'Single-tier', 'ms' ); ?></a></p>
 									<?php } ?>
 
 									<?php
@@ -492,7 +491,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/payment_methods.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Payout methods', 'ms' ); ?></h3>
+							<h3><a href="<?php _e( '/features/mass-payments/', 'ms' ); ?>"  title="<?php _e( 'What are payout methods?', 'ms' ); ?>"><?php _e( 'Payout methods', 'ms' ); ?></a></h3>
 
 							<?php
 							$payout_methods = get_post_meta( get_the_ID(), 'payout_methods', true );
@@ -569,7 +568,10 @@ set_custom_source( 'sidebar_toc', 'js' );
 								$taxonomy_id = $manager->term_id;
 								$url         = get_term_link( $taxonomy_id );
 								$name        = get_term_meta( $taxonomy_id, 'name', true );
-								$picture     = wp_get_attachment_image( get_term_meta( $taxonomy_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
+								if ( ! strlen( $name ) >= 2 ) {
+									$name = get_term( $taxonomy_id )->name;
+								}
+								$picture = wp_get_attachment_image( get_term_meta( $taxonomy_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
 								if ( ! isset( $picture ) || '' === $picture ) {
 									$picture = '<img class="AffiliateManager__image" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/affiliate_manager_avatar.svg" alt="' . $name . '" />';
 								}
@@ -618,24 +620,25 @@ set_custom_source( 'sidebar_toc', 'js' );
 										return $manager_industry;
 									}
 								}
+								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
 								?>
 								<div class="AffiliateManagerCard <?= ( strval( $primary_manager ) === strval( $taxonomy_id ) ? 'primary' : null ); ?>">
 									<div class="AffiliateManagerCard__image--wrapper">
-										<?= $picture; // @codingStandardsIgnoreLine ?>
+										<?php ! isset( $url ) ? $picture : null; // @codingStandardsIgnoreLine ?>
 										<?php
 										if ( isset( $url ) ) {
 											?>
-											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image--showProfile"><span><?php _e( 'Show profile', 'ms' ); ?></span></a>
+											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image--showProfile" title="<?= esc_html( $url_title ); ?>">
+									<?= $picture; // @codingStandardsIgnoreLine ?>
+									<span><?php _e( 'Show profile', 'ms' ); ?></span>
+								</a>
 										<?php } ?>
 									</div>
 									<div class="AffiliateManagerCard__content">
 										<h3 class="AffiliateManagerCard__name">
-											<?php
-											if ( ! strlen( $name ) >= 2 ) {
-												$name = get_term( $taxonomy_id )->name;
-											}
-											?>
-											<?= esc_html( $name ); ?>
+											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" title="<?= esc_html( $url_title ); ?>">
+								<?= esc_html( $name ); ?>
++									</a>
 										</h3>
 
 										<div class="AffiliateManagerCard__industries">
@@ -654,7 +657,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $email ) && 'N/A' !== $email && strlen( $email ) > 5 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--email fontello-mail">
-													<a href="mailto:<?= esc_html( $email ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
+													<a href="mailto:<?= esc_html( $email ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by email', 'ms' ) ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
 												</li>
 												<?php
 											}
@@ -663,7 +666,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $phone ) && 'N/A' !== $phone && strlen( $phone ) > 9 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--phone fontello-icon-e806">
-													<a href="tel:<?= esc_html( $phone ); ?>"><?= esc_html( $phone ); ?></a>
+													<a href="tel:<?= esc_html( $phone ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by phone', 'ms' ) ); ?>"><?= esc_html( $phone ); ?></a>
 												</li>
 												<?php
 											}
@@ -672,7 +675,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $linkedin ) && 'N/A' !== $linkedin && strlen( $linkedin ) > 5 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--linkedin fontello-linkedin-brands">
-													<a href="<?= esc_url( $linkedin ); ?>"><?php _e( 'LinkedIn', 'ms' ); ?></a>
+													<a href="<?= esc_url( $linkedin ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by LinkedIn', 'ms' ) ); ?>"><?php _e( 'LinkedIn', 'ms' ); ?></a>
 												</li>
 												<?php
 											}
@@ -687,13 +690,6 @@ set_custom_source( 'sidebar_toc', 'js' );
 						<?php
 					}
 					?>
-				</div>
-
-				<div class="Post__buttons">
-					<a href="<?php _e( '/affiliate-program-directory/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Directory', 'Back to Directory'])"><span><?php _e( 'Back to Affiliate Program Directory', 'ms' ); ?></span></a>
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
-						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
-					</a>
 				</div>
 			</div>
 		</div>

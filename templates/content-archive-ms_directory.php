@@ -51,7 +51,7 @@
 									$post_title = get_the_title();
 								}
 								?>
-								<li itemscope itemtype="https://schema.org/DefinedTerm"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post_title ); ?> <?php _e( 'customer support contacts', 'ms' ); ?>" itemprop="url"><span itemprop="name"><?php echo esc_html( $post_title ); ?></span></a></li>
+								<li itemscope itemtype="https://schema.org/DefinedTerm"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post_title ); ?>" itemprop="url"><span itemprop="name"><?php echo esc_html( $post_title ); ?></span></a></li>
 							<?php endwhile; ?>
 							<?php wp_reset_postdata(); ?>
 						</ul>
