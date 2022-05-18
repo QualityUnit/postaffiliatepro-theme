@@ -657,7 +657,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $email ) && 'N/A' !== $email && strlen( $email ) > 5 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--email fontello-mail">
-													<a href="mailto:<?= esc_html( $email ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by email', 'ms' ) ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
+													<a href="mailto:<?= esc_html( $email ); ?>" title="<?= esc_attr( $url_title . ' ' . __( 'by email', 'ms' ) ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
 												</li>
 												<?php
 											}
@@ -666,7 +666,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $phone ) && 'N/A' !== $phone && strlen( $phone ) > 9 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--phone fontello-icon-e806">
-													<a href="tel:<?= esc_html( $phone ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by phone', 'ms' ) ); ?>"><?= esc_html( $phone ); ?></a>
+													<a href="tel:<?= esc_html( $phone ); ?>" title="<?= esc_attr( $url_title . ' ' . __( 'by phone', 'ms' ) ); ?>"><?= esc_html( $phone ); ?></a>
 												</li>
 												<?php
 											}
@@ -675,7 +675,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 											if ( isset( $linkedin ) && 'N/A' !== $linkedin && strlen( $linkedin ) > 5 ) {
 												?>
 												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--linkedin fontello-linkedin-brands">
-													<a href="<?= esc_url( $linkedin ); ?>" title="<?= esc_html( $url_title . ' ' . __( 'by LinkedIn', 'ms' ) ); ?>"><?php _e( 'LinkedIn', 'ms' ); ?></a>
+													<a href="<?= esc_url( $linkedin ); ?>" title="<?= esc_attr( $url_title . ' ' . __( 'by LinkedIn', 'ms' ) ); ?>"><?php _e( 'LinkedIn', 'ms' ); ?></a>
 												</li>
 												<?php
 											}
