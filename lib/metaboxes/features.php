@@ -13,10 +13,10 @@ $metabox = array(
 			'description' => '',
 			'type'        => 'multiselect',
 			'args'        => array(
-				''         => 'Any',
-				'pro'      => 'Post Affiliate Pro',
-				'ultimate' => 'Post Affiliate Pro Ultimate',
-				'network'  => 'Post Affiliate Network',
+				'Any'                         => '',
+				'Post Affiliate Pro'          => 'pro',
+				'Post Affiliate Pro Ultimate' => 'ultimate',
+				'Post Affiliate Network'      => 'network',
 			),
 		),
 		array(
