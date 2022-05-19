@@ -7,11 +7,16 @@
 		@include color(color, font-color-light);
 		display: flex;
 		align-items: center;
-		background: url(../images/cta_bg.svg) left top no-repeat;
+		background: url(../images/cta_bg_mobile.jpg?v2) left top no-repeat;
 		background-size: cover;
 		overflow: hidden;
 		border-radius: $border-radius-16;
 		margin: 3em auto;
+
+		@media (min-width: $breakpoint-tablet) {
+			background: url(../images/cta_bg.jpg?v2) left top no-repeat;
+			background-size: cover;
+		}
 	}
 
 	&__content {
@@ -66,7 +71,7 @@
 			width: 60%;
 			padding-left: 3.75em;
 			padding-right: 2.5em;
-			margin: 4em 0;
+			margin: 3em 0;
 		}
 
 		&__image[src*="images"] {

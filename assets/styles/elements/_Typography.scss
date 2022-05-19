@@ -890,7 +890,7 @@ img.Screenshot,
 
 	a {
 
-		@include color(color, font-color-normal, !important);
+		@include color(color, font-color-level3, !important);
 		display: flex;
 		align-items: center;
 		font-family: $font-secondary;
@@ -900,7 +900,7 @@ img.Screenshot,
 			position: relative;
 			content: url(../images/arrow_small_right.svg);
 			display: inline-block;
-			filter: brightness(25);
+			filter: brightness(30);
 			margin-left: 0.5em;
 			top: 0.25em;
 		}

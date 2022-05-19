@@ -141,7 +141,7 @@ set_source( 'features', 'filter', 'js' );
 		</div>
 
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of features', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</div></div>
+			<div class="Category__content__description"><?php _e( 'Affiliate software features', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</div></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :
@@ -203,7 +203,7 @@ set_source( 'features', 'filter', 'js' );
 						echo 'pillar'; }
 					?>
 					<?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-collections="<?= esc_attr( $collections ); ?>" data-plan="<?= esc_attr( $plan ); ?>" data-size="<?= esc_attr( $size ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Features', 'Go to <?php the_title(); ?> feature'])">
-						<a href="<?php the_permalink(); ?>" class="Box--main__image Category__item__thumbnail">
+						<a href="<?php the_permalink(); ?>" class="Box--main__image Category__item__thumbnail" title="<?php the_title(); ?>">
 							<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
 								<span class="Category__item__thumbnail__image"></span>
 							<?php } elseif ( has_post_thumbnail() ) { ?>
@@ -219,9 +219,9 @@ set_source( 'features', 'filter', 'js' );
 							<?php
 						}
 						?>
-							<h3 class="Box--main__title Category__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="Box--main__title Category__item__title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 							<div class="Box--main__excerpt Category__item__excerpt">
-								<a href="<?php the_permalink(); ?>">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 									<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
 										<span><?php _e( 'Read More', 'ms' ); ?></span>

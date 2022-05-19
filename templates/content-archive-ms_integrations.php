@@ -6,14 +6,17 @@ set_source( 'integrations', 'filter', 'js' );
 <div id="category" class="Category">
 	<div class="Box Category__header">
 		<div class="wrapper">
-			<?php if ( is_tax( 'ms_integrations_categories' ) ) { ?>
-				<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
-			<?php } else { ?>
-				<h1 class="Category__header__title"><?php _e( 'Integrations', 'ms' ); ?></h1>
-			<?php } ?>
-			<div class="Category__sidebar__item--search searchField">
-				<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path d="M13.594 11.962h-.856l-.304-.285A7.067 7.067 0 0 0 6.945 0 7.075 7.075 0 0 0 .001 6.927a7.067 7.067 0 0 0 1.88 4.94 7.078 7.078 0 0 0 9.794.567l.285.304v.856L17.383 19 19 17.387l-5.406-5.425zm-6.504 0a4.892 4.892 0 0 1-2.712-.82 4.885 4.885 0 0 1-1.797-2.189 4.869 4.869 0 0 1 1.057-5.314 4.882 4.882 0 0 1 7.508.739c.536.802.822 1.745.821 2.71a4.86 4.86 0 0 1-1.427 3.448 4.864 4.864 0 0 1-3.45 1.427z"/></svg>
-				<input type="search" class="search search--integrations" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="20">
+			<div class="Category__header--center">
+				<?php if ( is_tax( 'ms_integrations_categories' ) ) { ?>
+					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
+				<?php } else { ?>
+					<h1 class="Category__header__title"><?php _e( 'Integrations', 'ms' ); ?></h1>
+					<p class="Category__header__subtitle"><?php _e( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' ); ?></p>
+				<?php } ?>
+				<div class="Category__sidebar__item--search searchField">
+					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+					<input type="search" class="search search--integrations" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="20">
+				</div>
 			</div>
 		</div>
 	</div>

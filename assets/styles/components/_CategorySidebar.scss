@@ -71,10 +71,7 @@
 		}
 
 		label {
-			display: flex;
-			flex-flow: wrap row;
-			justify-content: flex-start;
-			align-items: center;
+			display: block;
 
 			input {
 				display: none;
@@ -83,17 +80,21 @@
 			span {
 
 				@include color(color, font-color-dark);
+				display: block;
+				margin: 0.15em -1em;
+				padding: 0.15em 1em;
+				border-radius: 0.5em;
 				cursor: pointer;
 
 				&:hover {
 
-					@include color(color, primary-color);
+					background-color: $light-grayBg;
 				}
 			}
 
 			input:checked + span {
-
-				@include color(color, primary-color);
+				font-weight: 600;
+				background-color: $light-grayBg;
 			}
 		}
 
