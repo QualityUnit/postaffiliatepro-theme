@@ -64,12 +64,10 @@ set_source( 'features', 'filter', 'js' );
 
 					<?php
 					$plan = array(
-						''              => 'Any',
-						'free'          => 'Free',
-						'ticket'        => 'Ticket',
-						'ticket-chat'   => 'Ticket+Chat',
-						'all-inclusive' => 'All-Inclusive',
-						'extensions'    => 'Extensions',
+						''         => 'Any',
+						'pro'      => 'Post Affiliate Pro',
+						'ultimate' => 'Post Affiliate Pro Ultimate',
+						'network'  => 'Post Affiliate Network',
 					);
 
 					foreach ( $plan as $key => $value ) {

@@ -5,7 +5,7 @@ set_source( 'academy', 'filter', 'js' );
 <div id="category" class="Category Academy">
 	<div class="Box Category__header Category__header--academy">
 		<div class="wrapper">
-			<h1 class="Category__header__title"><?php _e( 'Academy courses', 'Academy' ); ?></h1>
+			<h1 class="Category__header__title"><?php _e( 'Affiliate Marketing Academy', 'Academy' ); ?></h1>
 			<p class="Category__header__subtitle"><?php _e( 'Become an affiliate marketing expert', 'ms' ); ?></p>
 			<div class="Category__header__search searchField">
 				<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />

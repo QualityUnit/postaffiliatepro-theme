@@ -7,7 +7,7 @@ set_source( 'templates', 'filter', 'js' );
 	<div class="Box Category__header Category__header--templates">
 		<div class="wrapper">
 			<div class="Category__header--center">
-				<h1 class="Category__header__title"><?php _e( 'E-mail Templates', 'ms' ); ?></h1>
+				<h1 class="Category__header__title"><?php _e( 'Affiliate Marketing Email Templates', 'ms' ); ?></h1>
 				<p class="Category__header__subtitle"><?php _e( 'Find the right email template for any occasion', 'ms' ); ?></p>
 				<div class="Category__header__search searchField">
 					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />

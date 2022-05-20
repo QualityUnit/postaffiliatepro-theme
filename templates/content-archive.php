@@ -84,7 +84,7 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 								</div>
 							</div>
 							<svg width="100%" height="100%" preserveAspectRatio="xMidYMax meet" class="SliderCutted__inn--mask" viewBox="0 0 1120 336"
-									 xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+									xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
 							<path
 									d="M64 76.998c0-8.836 7.163-16 16-16h1088c8.84 0 16 7.17 16 16.006v104.994c0 8.837-7.63 15.744-15.23 20.26-9.38 5.58-15.77 15.932-15.77 26.74 0 10.808 6.39 21.16 15.77 26.74 7.6 4.516 15.23 11.423 15.23 20.26v104.994c0 8.836-7.16 16.006-16 16.006H80c-8.837 0-16-7.163-16-16v-105c0-8.837 7.629-15.744 15.225-20.26C88.611 250.158 95 239.806 95 228.998c0-10.808-6.389-21.16-15.775-26.74C71.629 197.742 64 190.835 64 181.998v-105Z"
 									style="fill:#fff" transform="translate(-64 -60.998)" />
