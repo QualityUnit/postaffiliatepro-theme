@@ -21,6 +21,7 @@ define( 'THEME_VERSION', '1.0.0' );
 		'lib/cleaner/wordpress.php',  // Clean WordPress things
 		'lib/cleaner/wpml.php',       // Clean WPML things
 		'lib/cleaner/yoast.php',      // Clean Yoast things
+		'lib/widgets.php',      // Import Widgets/Plugins
 		'functions/main.php', // Other includes
 		'functions/rest-api.php', // Rest API mods
 		'functions/post-query-mods.php', // Post Query mods
@@ -29,6 +30,7 @@ define( 'THEME_VERSION', '1.0.0' );
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/lazy-load.php', // Lazy loading of images, videos etc.
+		'functions/lazy-load-youtube-microdata.php', // Lazy loading and Microdata for YouTube videos.
 		'functions/post-types.php', // Import Custom Post Types
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes
