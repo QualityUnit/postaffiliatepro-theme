@@ -1,6 +1,5 @@
 <?php
 
-
 //Retrieves back old Widgets editor in WP 5.8 and newer
 
 function enable_old_widget_editor() {
@@ -261,23 +260,6 @@ function end_wp_head_buffer() {
 	echo preg_replace( '/(\<title.+)\^(.+)\^(.+)/', '$1$2$3', $head );
 }
 add_action( 'wp_head', 'end_wp_head_buffer', PHP_INT_MAX );
-
-/*
- * Change version of SVG images
- */
-
-//function svg_version( $html ) {
-//	$html = preg_replace_callback(
-//		'/(\<img.+)(src=".+?svg)/',
-//		function ( $m ) {
-//				return $m[1] . $m[2] . '?v=2021-06-25';
-//		},
-//		$html
-//	);
-//
-//	return $html;
-//}
-//add_filter( 'the_content', 'svg_version', 10 );
 
 	// Get WP_ENV
 function wpenv() {
