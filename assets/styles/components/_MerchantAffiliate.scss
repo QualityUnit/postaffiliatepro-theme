@@ -25,7 +25,12 @@
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			padding: 0;
-			padding-right: 4.5em;
+			padding-right: 4.5em !important;
+
+			.elementor-heading-title {
+				font-size: 1.875rem;
+				line-height: 1.4;
+			}
 		}
 	}
 

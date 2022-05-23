@@ -101,6 +101,25 @@
 				width: 100%;
 			}
 
+			.elementor-widget-heading {
+				margin-bottom: 0.75em;
+
+				.elementor-heading-title {
+					margin-bottom: 0;
+					font-size: 1.5rem;
+				}
+			}
+
+			.elementor-widget-text-editor:not(.BlockPricingNew__pricing--price) {
+
+				p {
+
+					@include color(color, font-color-normal);
+					font-size: 0.875rem;
+					line-height: 1.714;
+				}
+			}
+
 			@media (min-width: $breakpoint-tablet-landscape) {
 
 				&:first-of-type {
@@ -113,15 +132,6 @@
 			align-content: stretch;
 		}
 
-		.BlockPricingNew .elementor-widget-text-editor:not(&--price) {
-
-			p {
-
-				@include color(color, font-color-normal);
-				font-size: 0.875rem;
-				line-height: 1.714;
-			}
-		}
 
 		&--price {
 			margin-top: auto;

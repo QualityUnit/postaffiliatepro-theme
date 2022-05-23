@@ -13,9 +13,39 @@
 		transition: box-shadow 0.2s;
 		cursor: pointer;
 
+		.learn-more {
+			margin-bottom: 0;
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		a {
+
+			&::before {
+
+				@include posCustom(-2em);
+				position: absolute;
+				content: "";
+				cursor: pointer;
+			}
+		}
+
 		&:hover {
 			box-shadow: none;
+
+			.learn-more {
+
+				a {
+
+					&::after {
+						transform: translateX(0.5em);
+					}
+				}
+			}
 		}
+
 
 		.background[class] {
 
@@ -120,7 +150,7 @@
 		/* stylelint-enable */
 
 		&.elementor-column.elementor-column.elementor-col-50 {
-			padding: 2em !important;
+			padding: 2em 2em 1.5em !important;
 		}
 
 		.elementor-widget-wrap,
@@ -135,17 +165,6 @@
 			.elementor-heading-title {
 				font-size: 1.5rem;
 				margin-bottom: 0;
-			}
-		}
-
-		a {
-
-			&::before {
-
-				@include posCustom(-2em);
-				position: absolute;
-				content: "";
-				cursor: pointer;
 			}
 		}
 
@@ -174,19 +193,12 @@
 		border-top-left-radius: 4px;
 		width: auto;
 		margin-top: -2.5em;
+		margin-bottom: 2.5em;
 		padding: 1em 0.5em;
 
 		img {
 			filter: invert(1);
 			width: 1.5rem;
-		}
-	}
-
-	.learn-more {
-		margin-bottom: 0;
-
-		p {
-			margin-bottom: 0;
 		}
 	}
 
