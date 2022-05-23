@@ -898,11 +898,20 @@ img.Screenshot,
 
 		&::after {
 			position: relative;
-			content: url(../images/arrow_small_right.svg);
+			content: url(../images/icon-arrow-grey.svg);
 			display: inline-block;
-			filter: brightness(30);
 			margin-left: 0.5em;
-			top: 0.25em;
+			top: 0.1em;
+			transform: translateX(0);
+			transition: transform 0.2s;
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			&::after {
+				transform: translateX(0.5em);
+			}
 		}
 	}
 }
