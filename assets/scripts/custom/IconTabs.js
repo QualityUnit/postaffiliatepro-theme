@@ -9,7 +9,7 @@ if ( iconTabs.length > 0 ) {
 		const tabs = thisSection.querySelectorAll( '.IconTabs__tabs li' );
 		const blocks = thisSection.querySelectorAll( '.IconTabs__block' );
 		const svgAnims = thisSection.querySelectorAll(
-			'.IconTabs__block img[data-lasrc*=".svg"]'
+			'.IconTabs__block img[data-src*=".svg"]'
 		);
 		svgAnims.forEach( ( animation, index ) => {
 			const anim = animation;
