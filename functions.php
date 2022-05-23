@@ -21,7 +21,7 @@ define( 'THEME_VERSION', '1.0.1' );
 		'lib/cleaner/wordpress.php',  // Clean WordPress things
 		'lib/cleaner/wpml.php',       // Clean WPML things
 		'lib/cleaner/yoast.php',      // Clean Yoast things
-		'lib/widgets.php',      // Import Widgets/Plugins
+		'functions/widgets.php',      // Import Widgets/Plugins
 		'functions/main.php', // Other includes
 		'functions/rest-api.php', // Rest API mods
 		'functions/post-query-mods.php', // Post Query mods
