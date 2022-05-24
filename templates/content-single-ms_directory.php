@@ -208,6 +208,10 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
 
+				<div class="Directory__screenshot">
+					<?= do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" ); ?>
+				</div>
+
 				<div class="Directory__blocks">
 
 					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Overview', 'ms' ); ?></span></h2>
