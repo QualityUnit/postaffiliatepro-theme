@@ -1,3 +1,8 @@
+### 1.0.3: May 24th, 2022
+
+- Bug Fixes
+- Implement URLsLab Screenshots
+
 ### 1.0.2: May 23th, 2022
 
 - Bug Fixes
