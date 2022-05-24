@@ -12,7 +12,7 @@ set_source( 'features', 'filter', 'js' );
 					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
 					<div class="Category__header__subtitle"><p><?php the_archive_description(); ?></p></div>
 				<?php } else { ?>
-					<h1 class="Category__header__title"><?php _e( 'Features', 'ms' ); ?></h1>
+					<h1 class="Category__header__title"><?php _e( 'Post Affiliate Pro Features', 'ms' ); ?></h1>
 					<p class="Category__header__subtitle"><?php _e( 'Explore and get to know all features of Post Affiliate Pro. Find out out how our advanced affiliate software works, and how you can use each functionality to streamline your success.', 'ms' ); ?></p>
 				<?php } ?>
 
