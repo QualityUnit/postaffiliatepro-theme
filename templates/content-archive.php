@@ -10,6 +10,18 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 	<div class="Blog__header Block--lines--header">
 		<div class="wrapper wrapper__extended">
 			<h1 class="Blog__header__title"><?php single_cat_title(); ?></h1>
+			<div class="Blog__header__navigation">
+				<?php
+				if ( has_nav_menu( 'blog_filter_navigation' ) ) :
+					wp_nav_menu(
+						array(
+							'theme_location' => 'blog_filter_navigation',
+							'menu_class'     => 'nav',
+						)
+					);
+				endif;
+				?>
+			</div>
 		</div>
 	</div>
 
