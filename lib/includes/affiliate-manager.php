@@ -8,7 +8,7 @@ $aff_id    = get_queried_object_id();
 $aff_name  = get_term_meta( $aff_id, 'name', true );
 $aff_image = wp_get_attachment_image( get_term_meta( $aff_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
 if ( ! isset( $aff_image ) || '' === $aff_image ) {
-	$aff_image = get_avatar( get_term_meta( $aff_id, 'email', true ), $size = '145', $default = "' . esc_url( get_template_directory_uri() ) . '/assets/images/affiliate_manager_avatar.svg'" );
+	$aff_image = get_avatar( get_term_meta( $aff_id, 'email', true ), $size = '145', $default = "' . esc_url( get_template_directory_uri() ) . '/assets/images/affiliate_manager_avatar.svg'", '', array( 'class' => 'AffiliateManager__image' ) );
 }
 $aff_desc  = get_term( $aff_id )->description;
 $email     = get_term_meta( $aff_id, 'email', true );
