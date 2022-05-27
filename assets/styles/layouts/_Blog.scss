@@ -53,7 +53,7 @@
 		}
 
 		&__navigation {
-			margin: 1.5em auto 0;
+			margin: 1.5em auto -1em;
 
 			.nav {
 				display: inline-block;
@@ -105,7 +105,7 @@
 			}
 
 			@media (min-width: $breakpoint-tablet) {
-				margin: 4.5em auto 7em;
+				margin: 4.5em auto 1em;
 
 				.Blog__searchResults & {
 					margin: 4.5em auto 2em;
@@ -122,8 +122,22 @@
 				}
 			}
 
+			@media (min-width: $breakpoint-tablet-landscape) {
+				margin: 4.5em auto 8em;
+
+				.menu-item {
+					position: relative;
+					z-index: 20;
+				}
+
+			}
+
 			@media (min-width: $breakpoint-desktop) {
-				margin: 4.5em auto 4em;
+				margin-bottom: 2em;
+			}
+
+			@media (min-width: $breakpoint-desktop-box) {
+				margin-bottom: 11em;
 
 				.menu-item {
 
@@ -181,7 +195,7 @@
 		@media (min-width: $breakpoint-tablet) {
 
 			.wrapper {
-				padding: 4em 3em 14em;
+				padding: 4em 3em 12em;
 			}
 		}
 
