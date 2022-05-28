@@ -327,6 +327,13 @@
 				justify-content: flex-start;
 				align-items: flex-start;
 
+				.button-more-integrations {
+
+					a {
+						color: #ababab !important;
+					}
+				}
+
 				li {
 					position: relative;
 					display: flex;
