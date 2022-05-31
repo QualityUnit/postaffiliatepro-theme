@@ -561,7 +561,6 @@ set_custom_source( 'sidebar_toc', 'js' );
 					?>
 
 					<?php
-
 					$managers        = get_the_terms( $post->ID, 'ms_directory_affiliate_manager' );
 					$primary_manager = get_post_meta( $post->ID, '_yoast_wpseo_primary_ms_directory_affiliate_manager', true );
 					if ( $managers ) {
@@ -577,7 +576,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 								}
 								$picture = wp_get_attachment_image( get_term_meta( $taxonomy_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
 								if ( ! isset( $picture ) || '' === $picture ) {
-									$picture = '<img class="AffiliateManager__image" src="' . esc_url( get_template_directory_uri() ) . '/assets/images/affiliate_manager_avatar.svg" alt="' . $name . '" />';
+									$picture = get_avatar( get_term_meta( $taxonomy_id, 'email', true ), $size = '188', $default = 'mp', $name, array( 'class' => 'AffiliateManager__image' ) );
 								}
 								$email              = get_term_meta( $taxonomy_id, 'email', true );
 								$phone              = get_term_meta( $taxonomy_id, 'phone', true );
