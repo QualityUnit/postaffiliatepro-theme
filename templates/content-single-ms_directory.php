@@ -576,7 +576,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 								}
 								$picture = wp_get_attachment_image( get_term_meta( $taxonomy_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
 								if ( ! isset( $picture ) || '' === $picture ) {
-									$picture = get_avatar( get_term_meta( $taxonomy_id, 'email', true ), $size = '188', $default = "' . esc_url( get_template_directory_uri() ) . '/assets/images/affiliate_manager_avatar.svg'", '', array( 'class' => 'AffiliateManager__image' ) );
+									$picture = get_avatar( get_term_meta( $taxonomy_id, 'email', true ), $size = '188', $default = 'mp', $name, array( 'class' => 'AffiliateManager__image' ) );
 								}
 								$email              = get_term_meta( $taxonomy_id, 'email', true );
 								$phone              = get_term_meta( $taxonomy_id, 'phone', true );
