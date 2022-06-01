@@ -1,38 +1,82 @@
 <?php
+
+if ( ! file_exists( wp_get_upload_dir()['basedir'] . "/cache/youtube/" ) ) {//@codingStandardsIgnoreLine
+		mkdir( wp_get_upload_dir()['basedir'] . "/cache/youtube/", 0777, true );//@codingStandardsIgnoreLine
+}
+
 function yt_videodetails( $video_id ) {
-	$api_key    = $_ENV['YOUTUBE_API_KEY'];
-	$ytid       = $video_id;
-	$video_info = json_decode(
-		wp_remote_get(//@codingStandardsIgnoreLine
-			'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key,
+	// settings
+	$api_key = $_ENV['YOUTUBE_API_KEY'];
+	$ytid    = $video_id;
+	$url     = 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet%2CcontentDetails&contentDetails.duration&id=' . $ytid . '&key=' . $api_key; // json source
+	
+	$cache         = wp_get_upload_dir()['basedir'] . "/cache/youtube/" . $ytid . ".cache";//@codingStandardsIgnoreLine
+	$cache_exists  = file_exists( wp_get_upload_dir()['basedir'] . "/cache/youtube/" . $ytid . ".cache" );//@codingStandardsIgnoreLine
+	$force_refresh = false; // dev
+	$refresh       = 60 * 60 * 24; // once a day
+
+	// read json source
+	if ( ! $cache_exists ) {
+		$json_cache = wp_remote_get( //@codingStandardsIgnoreLine
+			$url,
 			array(
 				'sslverify' => false,
-			)
-		)['body'],
-		false 
-	)->items[0];
-	return $video_info;
+			) 
+		)['body'];
+	
+		$video_info = json_decode(
+			$json_cache,
+			false 
+		);
+		if ( isset( $video_info->items[0] ) ) {
+			$handle     = fopen( $cache, 'wb' ) or die( 'no fopen' );
+				fwrite( $handle, $json_cache ); 
+				fclose( $handle );
+				return $video_info->items[0];
+		}
+	}
+	if ( $cache_exists ) {
+		// cache json results so to not over-query (api restrictions)
+		if ( $force_refresh || ( ( time() - filectime( $cache ) ) > ( $refresh ) || 0 == filesize( $cache ) ) ) {
+			$handle     = fopen( $cache, 'wb' ) or die( 'no fopen' );
+			fwrite( $handle, $json_cache ); 
+			fclose( $handle );
+		} else {
+			$json_cache = file_get_contents( $cache ); // @codingStandardsIgnoreLine
+		}
+		$video_info = json_decode(
+			$json_cache,
+			false 
+		);
+		return $video_info->items[0];
+	}
+	return null;
 }
-function yt_microdata( $video_id ) {
-	$channel = yt_videodetails( $video_id )->snippet->channelTitle;
 
-	if ( 'Post Affiliate Pro' === $channel ) {
-		$name        = yt_videodetails( $video_id )->snippet->title;
-		$description = yt_videodetails( $video_id )->snippet->description;
-		$uploaded    = yt_videodetails( $video_id )->snippet->publishedAt;
-		$duration    = yt_videodetails( $video_id )->contentDetails->duration;
-		$thumbnail   = yt_videodetails( $video_id )->snippet->thumbnails->maxres->url;
-		return '
-			<div itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
-				<meta itemprop="name" content="' . $name . '" />
-				<meta itemprop="description" content="' . $description . '" />
-				<link itemprop="thumbnailUrl" content="' . $thumbnail . '" />
-				<link itemprop="contentUrl" content="https://www.youtube.com/watch?v=' . $video_id . '" />
-				<link itemprop="embedUrl" content="https://www.youtube.com/embed/' . $video_id . '" />
-				<meta itemprop="duration" content="' . $duration . '" />
-				<meta itemprop="uploadDate" content="' . $uploaded . '" />
-			</div>
-		';
+function yt_microdata( $video_id ) {
+	$data = yt_videodetails( $video_id );
+
+	if ( isset( $data ) ) {
+		$channel = yt_videodetails( $video_id )->snippet->channelTitle;
+	
+		if ( 'Post Affiliate Pro' === $channel ) {
+			$name        = yt_videodetails( $video_id )->snippet->title;
+			$description = yt_videodetails( $video_id )->snippet->description;
+			$uploaded    = yt_videodetails( $video_id )->snippet->publishedAt;
+			$duration    = yt_videodetails( $video_id )->contentDetails->duration;
+			$thumbnail   = yt_videodetails( $video_id )->snippet->thumbnails->maxres->url;
+			return '
+				<div itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
+					<meta itemprop="name" content="' . $name . '" />
+					<meta itemprop="description" content="' . $description . '" />
+					<link itemprop="thumbnailUrl" content="' . $thumbnail . '" />
+					<link itemprop="contentUrl" content="https://www.youtube.com/watch?v=' . $video_id . '" />
+					<link itemprop="embedUrl" content="https://www.youtube.com/embed/' . $video_id . '" />
+					<meta itemprop="duration" content="' . $duration . '" />
+					<meta itemprop="uploadDate" content="' . $uploaded . '" />
+				</div>
+			';
+		}
 	}
 	return false;
 }
