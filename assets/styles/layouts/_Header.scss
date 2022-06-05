@@ -333,6 +333,10 @@
 						color: #ababab !important;
 						font-size: 12px;
 					}
+
+					&::after {
+						height: 1.6em !important;
+					}
 				}
 
 				li {
