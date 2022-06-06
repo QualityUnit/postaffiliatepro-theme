@@ -8,6 +8,10 @@ updates:
       timezone: Europe/Bratislava
     open-pull-requests-limit: 10
     versioning-strategy: increase
+    rebase-strategy: "disabled"
+    labels:
+      - "type:dependencies"
+      - "composer"
     assignees:
       - "mvstepanek"
     reviewers:
@@ -17,10 +21,31 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-      time: "05:00"
+      time: "04:00"
       timezone: Europe/Bratislava
     open-pull-requests-limit: 10
     versioning-strategy: increase
+    rebase-strategy: "disabled"
+    labels:
+      - "type:dependencies"
+      - "npm"
+    assignees:
+      - "mvstepanek"
+    reviewers:
+      - "mvstepanek"
+
+  - package-ecosystem: npm
+    directory: "/lib/widgets/qu-howtos"
+    schedule:
+      interval: daily
+      time: "04:15"
+      timezone: Europe/Bratislava
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    rebase-strategy: "disabled"
+    labels:
+      - "type:dependencies"
+      - "npm"
     assignees:
       - "mvstepanek"
     reviewers:
