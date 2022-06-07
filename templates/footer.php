@@ -144,15 +144,15 @@
 			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg"
 					 alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
 
-			<h2 id="BuildingHeader" class="BuildingApp__title BuildingApp--desktop">
+			<h2 class="BuildingHeader BuildingApp__title BuildingApp--desktop">
 				<?php _e( 'Building Your Post Affiliate Pro...', 'ms' ); ?></h2>
-			<p id="BuildingText" class="BuildingApp__text BuildingApp--desktop">
+			<p class="BuildingText BuildingApp__text BuildingApp--desktop">
 				<?php _e( 'We appreciate your recent sign up for a Post Affiliate Pro. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' ); ?>
 			</p>
 
-			<h2 id="BuildingHeader" class="BuildingApp__title BuildingApp--mobile">
+			<h2 class="BuildingHeader BuildingApp__title BuildingApp--mobile">
 				<?php _e( 'We are currently building your Post Affiliate Pro dashboard...', 'ms' ); ?></h2>
-			<p id="BuildingText" class="BuildingApp__text BuildingApp--mobile">
+			<p class="BuildingTextBuildingApp__text BuildingApp--mobile">
 				<?php _e( 'After the process is over, we will send the login details to your mailbox.', 'ms' ); ?></p>
 
 			<h4 id="BuildingSubheader" class="BuildingApp__subtitle"><?php _e( 'Installation status', 'ms' ); ?></h4>
