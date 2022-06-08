@@ -252,25 +252,35 @@ if (
 	</script>
 <?php } ?>
 
-<!-- Post Affiliate Pro -->
-<script type="text/javascript">
-	function postAffiliate() {
-		(function(d,t) {
-			var script = d.createElement(t); script.id= 'pap_x2s6df8d'; script.async = true;
-			script.src = '//pap.qualityunit.com/scripts/m3j58hy8fd';
-			script.onload = script.onreadystatechange = function() {
-				var rs = this.readyState; if (rs && (rs != 'complete') && (rs != 'loaded')) return;
-				PostAffTracker.setAccountId('default1');
-				try { PostAffTracker.track(); } catch (e) {}
+		<!-- Post Affiliate Pro -->
+		<script type="text/javascript">
+			function postAffiliate() {
+				(function(d,t) {
+					var script = d.createElement(t); script.id= 'pap_x2s6df8d'; script.async = true;
+					script.src = '//pap.qualityunit.com/scripts/m3j58hy8fd';
+					script.onload = script.onreadystatechange = function() {
+						var rs = this.readyState; if (rs && (rs != 'complete') && (rs != 'loaded')) return;
+						PostAffTracker.setAccountId('default1');
+						if ( !getCookieFrontend( "cookieLaw" ) ) {
+							try {
+								PostAffTracker.disableTrackingMethod('C');
+								PostAffTracker.track();
+							} catch (e) {}
+						}
+						if ( getCookieFrontend( "cookieLaw" ) ) {
+							try {
+								PostAffTracker.enableTrackingMethods();
+								PostAffTracker.track();
+							} catch (e) {}
+						}
+					}
+					var placeholder = document.getElementById('papPlaceholder');
+					placeholder.parentNode.insertBefore(script, placeholder);
+					placeholder.parentNode.removeChild(placeholder);
+				})(document, 'script');
 			}
-			var placeholder = document.getElementById('papPlaceholder');
-			placeholder.parentNode.insertBefore(script, placeholder);
-			placeholder.parentNode.removeChild(placeholder);
-		})(document, 'script');
-	}
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		postAffiliate()
-	}
-</script>
+
+			postAffiliate()
+		</script>
 </body>
 </html>
