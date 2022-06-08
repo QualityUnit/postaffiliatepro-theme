@@ -332,6 +332,10 @@
 					a {
 						color: #ababab !important;
 						font-size: 12px;
+
+						&:hover {
+							color: $black !important;
+						}
 					}
 
 					&::after {
