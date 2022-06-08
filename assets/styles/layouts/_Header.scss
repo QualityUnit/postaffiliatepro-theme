@@ -332,6 +332,15 @@
 					a {
 						color: #ababab !important;
 						font-size: 12px;
+
+						&:hover {
+							color: $black !important;
+						}
+					}
+
+					&::after {
+						height: 1.875em !important;
+						bottom: -2px !important;
 					}
 				}
 
