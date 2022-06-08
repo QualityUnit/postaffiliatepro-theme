@@ -61,7 +61,7 @@
 .Header__navigation {
 	display: none;
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		&.active {
 
@@ -116,7 +116,7 @@
 			padding: 0 20px;
 			user-select: none;
 
-			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop - 1px) {
+			@media (min-width: $breakpoint-tablet-landscape) and (max-width: ($breakpoint-desktop - 1px)) {
 				font-size: 0.875rem;
 				padding: 0 0.5em;
 			}
@@ -276,7 +276,7 @@
 			li {
 				padding: 0 30px;
 				overflow: hidden;
-				width: 25%;
+				width: 100%;
 
 				&:first-of-type {
 					padding-right: 30px;
@@ -341,7 +341,7 @@
 					flex-flow: wrap row;
 					justify-content: flex-start;
 					align-items: center;
-					max-width: 184px;
+					width: 100%;
 					margin-bottom: 20px;
 					padding: 0;
 					overflow: visible;
@@ -587,7 +587,7 @@
 			z-index: 0 !important;
 			color: transparent !important;
 
-			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+			@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 				display: none;
 			}
 		}
