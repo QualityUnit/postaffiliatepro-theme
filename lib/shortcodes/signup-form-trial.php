@@ -49,7 +49,7 @@ function ms_signup_form_trial() {
 			<div id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']; ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');)">
+				<div id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 
