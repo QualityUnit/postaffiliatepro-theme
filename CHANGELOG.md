@@ -1,3 +1,7 @@
+### 1.0.5: June 8th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.4: May 31th, 2022
 
 - Bug Fixes and Improvements
