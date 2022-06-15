@@ -198,12 +198,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 				}
 
 
-				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" rel="nofollow">${company_name} affiliate program</a>. ${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
+				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" rel="nofollow">${company_name} affiliate program</a>.', 'ms' );
 				$declaration = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $declaration );
-				$declaration = str_replace( '${company_description}', get_post_meta( get_the_ID(), 'company_description', true ), $declaration );
 				$declaration = str_replace( '${program_url}', get_post_meta( get_the_ID(), 'program_url', true ), $declaration );
-				$declaration = str_replace( '${type_program}', preg_replace( '/(\w{3}) (-|–|—|-).+/', '$1', $type_program ), $declaration );
-				$declaration = str_replace( '${industry}', strtolower( $industry ), $declaration );
 				?>
 
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
@@ -215,7 +212,15 @@ set_custom_source( 'sidebar_toc', 'js' );
 				<div class="Directory__blocks">
 
 					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Overview', 'ms' ); ?></span></h2>
-					<p><?php _e( 'Find out more about the general industry, product type, and affiliate program type.', 'ms' ); ?></p>
+
+					<?php
+					$overview = __( '${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
+
+					$overview = str_replace( '${company_description}', get_post_meta( get_the_ID(), 'company_description', true ), $overview );
+					$overview = str_replace( '${type_program}', preg_replace( '/(\w{3}) (-|–|—|-).+/', '$1', $type_program ), $overview );
+					$overview = str_replace( '${industry}', strtolower( $industry ), $overview );
+					?>
+					<p><?= esc_html( $overview ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
@@ -270,7 +275,12 @@ set_custom_source( 'sidebar_toc', 'js' );
 					</div>
 
 					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></span></h2>
-					<p><?php _e( "Get to know the affiliate program campaign's key specifics, restrictions, and rules.", 'ms' ); ?></p>
+					<?php
+					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The third step is to check what type of promotional materials the affiliate program allows. For instance, some affiliate programs only support image banners and discount coupons. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
+					$campaign_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $campaign_text );
+					?>
+
+					<p><?= esc_html( $campaign_text ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
@@ -398,7 +408,37 @@ set_custom_source( 'sidebar_toc', 'js' );
 					</div>
 
 					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & Payouts', 'ms' ); ?></span></h2>
-					<p><?php _e( 'Explore the earning potential with commission structure and payout information.', 'ms' ); ?></p>
+
+					<p>Payouts are one of the most important factors to consider when choosing an affiliate program.</p>
+					<?php
+					$tiers = get_post_meta( get_the_ID(), 'tiers', true );
+
+					if ( $tiers ) {
+						foreach ( $tiers as $tier ) {
+							if ( 'multitier' === $tier ) {
+								$multitier_text = __( 'The ${company_name} affiliate program offers multi-tier commissions, which means affiliates can earn commissions on both sales they generate as well as sales generated by referrals. ', 'ms' );
+								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
+								?>
+							<p><?= esc_html( $multitier_text ); ?></p>
+								<?php 
+							} if ( 'singletier' === $tier ) { 
+								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
+								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
+								?>
+							<p><?= esc_html( $singletier_text ); ?></p>
+								<?php 
+							}
+						}
+					}
+					?>
+
+					<p>Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of 200 euros.</p>
+
+					<?php 
+					$payouts_text = __( 'If you want to know more details about ${company_name} payouts, such as what payout methods they accept, please check out the specific information below or follow up with ${company_name} Affiliates contact.', 'ms' );
+					$payouts_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $payouts_text );
+					?>
+					<p><?= esc_html( $payouts_text ); ?></p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
@@ -406,7 +446,6 @@ set_custom_source( 'sidebar_toc', 'js' );
 							<h3><?php _e( 'Multi level marketing', 'ms' ); ?></h3>
 
 							<?php
-							$tiers = get_post_meta( get_the_ID(), 'tiers', true );
 
 							if ( $tiers ) {
 								foreach ( $tiers as $tier ) {

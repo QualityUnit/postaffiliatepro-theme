@@ -115,7 +115,7 @@ picture {
 
 	&-mobile {
 
-		@media (max-width: $breakpoint-tablet - 1px) {
+		@media (max-width: ($breakpoint-tablet - 1px)) {
 			display: none;
 		}
 	}

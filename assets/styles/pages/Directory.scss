@@ -44,7 +44,17 @@
 				margin: 25px 0;
 				padding-left: 55px;
 
-				h3 {
+				a {
+					display: block;
+					font-size: 14px;
+					line-height: 21px;
+					font-weight: 400;
+					margin: 0;
+					max-width: 240px;
+				}
+
+				h3,
+				h3 a {
 					margin-top: 0;
 					margin-bottom: 0;
 					font-size: 16px;
@@ -68,15 +78,6 @@
 					display: flex;
 					width: 40px;
 					height: 40px;
-				}
-
-				a {
-					display: block;
-					font-size: 14px;
-					line-height: 21px;
-					font-weight: 400;
-					margin: 0;
-					max-width: 240px;
 				}
 			}
 
