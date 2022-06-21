@@ -9,7 +9,7 @@
 		<div class="BlogPost__intro">
 			<div class="BlogPost__category">
 				<?php /* translators: %s: don't modify */ ?>
-				<?= wp_kses_post( preg_replace( '/(Blog|, and|,|([^\w])\s+and\s+)/', '', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] );
+				<?= wp_kses_post( preg_replace( '/<a href=".+?<\/a>.+?(<a)/', '$1', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] );
 				?>
 			</div>
 			<h1 class="BlogPost__title" itemprop="name"><?php the_title(); ?></h1>
@@ -64,20 +64,17 @@
 
 					<div class="BlogPost__share__items">
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
-								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
 								<i class="fontello-facebook-f-brands"></i>
 							</a>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://twitter.com/share?url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
-								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
+							<a href="https://twitter.com/share?url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
 								<i class="fontello-twitter-brands"></i>
 							</a>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
-								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
+							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
 								<i class="fontello-linkedin-in-brands"></i>
 							</a>
 						</div>
@@ -137,8 +134,7 @@
 										<?php the_post_thumbnail( 'person_thumbnail', array( 'alt' => get_the_title() ) ); ?>
 									</a>
 								</div>
-								<p class="BlogPost__articles__article__title"><a href="<?php the_permalink(); ?>"
-																																 title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
+								<p class="BlogPost__articles__article__title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 							</div>
 						<?php endwhile; ?>
 					<?php endif; ?>
