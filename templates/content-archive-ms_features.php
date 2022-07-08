@@ -32,7 +32,7 @@ set_source( 'features', 'filter', 'js' );
 				<span><?php _e( 'Filters', 'ms' ); ?></span>
 			</label>
 
-			<div class="Category__sidebar__items">
+			<div class="Category__sidebar__items" id="filter">
 				<div class="Category__sidebar__item">
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Collections', 'ms' ); ?></div>
 
@@ -139,7 +139,7 @@ set_source( 'features', 'filter', 'js' );
 		</div>
 
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'Affiliate software features', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</div></div>
+			<div class="Category__content__description"><?php _e( 'Affiliate software features', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_features' )->publish ); ?></span>)</span></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

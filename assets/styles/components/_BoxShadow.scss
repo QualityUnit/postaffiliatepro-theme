@@ -1,0 +1,47 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+.Box--shadow {
+	border-radius: $border-radius-16;
+	overflow: hidden;
+	transition: all 0.2s;
+	background-color: $white;
+	box-shadow: $box-shadow-big;
+
+	&__small {
+		box-shadow: 0 1px 3px rgba($black-real, 0.16);
+
+		&--title {
+			font-size: 0.75rem;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			margin: 1em auto;
+
+			a[target="_blank"] & {
+				position: relative;
+				padding-right: 1.5em;
+
+				&::after {
+					position: absolute;
+					top: -0.15em;
+					right: 0;
+					content: "\e832" !important;
+					font-family: fontello, sans-serif;
+					font-size: 1.25em;
+					width: 1em;
+				}
+			}
+		}
+	}
+
+	@media (hover: hover) {
+
+		&:hover {
+			box-shadow: 0 0.25em 4em 0 rgba($black-real, 0.16);
+		}
+
+		&__small:hover {
+			box-shadow: $box-shadow-big;
+		}
+	}
+}

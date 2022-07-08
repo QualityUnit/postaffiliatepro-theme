@@ -12,3 +12,4 @@
 	require_once get_template_directory() . '/lib/taxonomies/about-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/learning-center-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/awards-years.php';
+	require_once get_template_directory() . '/lib/taxonomies/research-categories.php';

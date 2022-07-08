@@ -25,7 +25,7 @@ set_source( 'templates', 'filter', 'js' );
 				<span><?php _e( 'Filters', 'ms' ); ?></span>
 			</label>
 
-			<div class="Category__sidebar__items">
+			<div class="Category__sidebar__items" id="filter">
 				<div class="Category__sidebar__item">
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
 					<label>
@@ -58,7 +58,7 @@ set_source( 'templates', 'filter', 'js' );
 		</div>
 
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of templates', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_templates' )->publish ); ?></span>)</div></div>
+			<div class="Category__content__description"><?php _e( 'List of templates', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_templates' )->publish ); ?></span>)</span></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :
@@ -112,6 +112,7 @@ set_source( 'templates', 'filter', 'js' );
 								<?php
 								$categories = get_the_terms( 0, 'ms_templates_categories' );
 								if ( ! empty( $categories ) ) {
+									$counter = 0;
 									foreach ( $categories as $c ) {
 										++$counter;
 										$category_id    = $c->term_id;

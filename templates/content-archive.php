@@ -67,8 +67,7 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 								</div>
 								<div class="SliderCutted__content Blog__item__content">
 									<div class="Blog__item__meta">
-										<div class="Blog__item__tag-top">
-											<span class="icon-star"></span>
+										<div class="Blog__item__tag-top CategoryTag CategoryTag__star">
 											<?php _e( 'TOP POST', 'ms' ); ?>
 										</div>
 

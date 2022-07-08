@@ -858,6 +858,10 @@
 	.wrapper {
 		padding-top: 100px !important;
 		padding-bottom: 100px !important;
+
+		&.padding-small {
+			padding: 1.5em !important;
+		}
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {

@@ -106,3 +106,15 @@ function awards_years_redirect() {
 	}
 }
 add_action( 'template_redirect', 'awards_years_redirect' );
+
+
+/**
+  * Redirect Research Categories
+  */
+function research_category_redirect() {
+	if ( is_tax( 'ms_research_categories' ) ) {
+		wp_safe_redirect( '/research/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'research_category_redirect' );

@@ -26,6 +26,12 @@ picture {
 	height: auto;
 }
 
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
 .container {
 	max-width: 1280px;
 }
@@ -89,6 +95,14 @@ picture {
 	display: none !important;
 }
 
+.block {
+	display: block;
+}
+
+.width-100 {
+	width: 100%;
+}
+
 .flex {
 	display: flex;
 
@@ -145,5 +159,62 @@ picture {
 
 		@include square(5.25em);
 		padding: 1.25em;
+	}
+}
+
+.text-align {
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+
+	&-justify {
+		text-align: justify;
+	}
+}
+
+.no-margin[class] {
+	margin: 0;
+}
+
+$marginSide: (
+	left, right, top, bottom
+);
+
+@each $side in $marginSide {
+
+	[class].ma-#{$side} {
+		margin-#{$side}: auto;
+	}
+}
+
+$sizes: (
+	"s": 0.5em,
+	"m": 1em,
+	"l": 1.5em,
+	"xl": 2em,
+	"xxl": 2.5em,
+	"xxxl": 3.25em
+);
+
+@each $size, $val in $sizes {
+	.mt-#{$size} {
+		margin-top: $val;
+	}
+
+	.mr-#{$size} {
+		margin-right: $val;
+	}
+
+	.mb-#{$size} {
+		margin-bottom: $val;
+	}
+
+	.ml-#{$size} {
+		margin-left: $val;
 	}
 }
