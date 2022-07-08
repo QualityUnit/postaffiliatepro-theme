@@ -1,5 +1,5 @@
 <?php // @codingStandardsIgnoreLine
-	require_once( get_template_directory() . '/lib/includes/tag-colors.php' );
+	require_once get_template_directory() . '/lib/includes/tag-colors.php';
 	set_source( 'research', 'filter', 'js' );
 	set_source( 'research', 'common/splide', 'css' );
 	set_source( 'research', 'custom_lightbox', 'js' );
@@ -67,7 +67,7 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 							<div class="Research__filter--item__icon">
 								<?php 
 								if ( isset( $category_icon_uploaded ) ) {
-									include_once( $category_icon_uploaded );
+									include_once $category_icon_uploaded;
 								}
 								if ( ! isset( $has_icon[0] ) ) {
 									echo $category_icon; // @codingStandardsIgnoreLine
@@ -102,12 +102,12 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 					do_action( 'wpml_switch_language', $current_lang );
 					if ( ! empty( $categories ) ) {
 						foreach ( $categories as $category_item ) {
-							$category_item = array_shift( $categories );
-							$category     .= $category_item->slug;
-							$category_id   = $category_item->term_id;
+							$category_item  = array_shift( $categories );
+							$category      .= $category_item->slug;
+							$category_id    = $category_item->term_id;
 							$category_tags .= '
 							<span class="CategoryTag CategoryTag__star ' . $category_colors[ $category_id ] . '">' . $category_item->name . '</span>';
-							$category     .= ' ';
+							$category      .= ' ';
 						}
 					}
 					$category = substr( $category, 0, -1 );
