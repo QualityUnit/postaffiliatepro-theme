@@ -457,12 +457,13 @@
 
 						@media (min-width: $breakpoint-tablet-landscape) {
 
-							@include color(color, font-color-medium);
+							@include color(color, font-color-level3);
 							display: block;
 							font-size: 12px;
 							line-height: 1.5;
 							font-weight: $font-weight-normal;
 							margin-top: -3px;
+							width: calc(100% - 33px);
 							white-space: break-spaces;
 						}
 					}
