@@ -17,7 +17,7 @@ function ms_copy( $atts, $content = null ) {
 	?>
 
 	<div class="Copy">
-		<textarea readonly><?= esc_textarea( $cleared_text ); ?></textarea>
+		<textarea readonly><?= $cleared_text; // @codingStandardsIgnoreLine ?></textarea>
 
 		<?php if ( 'yes' === $atts['button'] ) { ?>
 			<button class="Button Button--outline Button--copy"><span><?php _e( 'Copy to clipboard', 'ms' ); ?></span></button>
