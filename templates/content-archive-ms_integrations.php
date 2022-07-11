@@ -30,7 +30,7 @@ set_source( 'integrations', 'filter', 'js' );
 				<span><?php _e( 'Filters', 'ms' ); ?></span>
 			</label>
 
-			<div class="Category__sidebar__items">
+			<div class="Category__sidebar__items" id="filter">
 				<div class="Category__sidebar__item">
 					<h4 class="Category__sidebar__item__title"><?php _e( 'Type', 'ms' ); ?></h4>
 
@@ -92,7 +92,7 @@ set_source( 'integrations', 'filter', 'js' );
 
 		</div>
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of integrations', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_integrations' )->publish ); ?></span>)</div></div>
+			<div class="Category__content__description"><?php _e( 'List of integrations', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_integrations' )->publish ); ?></span>)</span></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

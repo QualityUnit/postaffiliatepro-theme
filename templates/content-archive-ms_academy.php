@@ -22,7 +22,7 @@ set_source( 'academy', 'filter', 'js' );
 				<span><?php _e( 'Filters', 'ms' ); ?></span>
 			</label>
 
-			<div class="Category__sidebar__items">
+			<div class="Category__sidebar__items" id="filter">
 				<div class="Category__sidebar__item Category__sidebar__item--uniq">
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
 
@@ -52,7 +52,7 @@ set_source( 'academy', 'filter', 'js' );
 		</div>
 
 		<div class="Category__content">
-			<div class="Category__content__description"><?php _e( 'List of articles', 'ms' ); ?> <div>(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_academy' )->publish ); ?></span>)</div></div>
+			<div class="Category__content__description"><?php _e( 'List of articles', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_academy' )->publish ); ?></span>)</span></div>
 			<ul class="Category__content__items list">
 				<?php
 				while ( have_posts() ) :

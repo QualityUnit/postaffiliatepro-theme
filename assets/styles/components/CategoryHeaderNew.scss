@@ -1,0 +1,64 @@
+/* stylelint-disable selector-class-pattern */
+
+@import "../common/variables";
+@import "../common/mixins";
+
+.CategoryHeader__new {
+	margin-bottom: 3em;
+
+	.wrapper,
+	.wrapper__wide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: $border-radius-16;
+		padding: 1.5em;
+
+		&.has-background {
+			background-color: $lightest-gray;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		margin-bottom: 6em;
+
+		.wrapper,
+		.wrapper__wide {
+			flex-direction: row;
+		}
+	}
+
+	.col {
+
+		&-image {
+			order: -1;
+			margin-bottom: 1.5em;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&-image {
+				order: 0;
+				margin-bottom: 0;
+			}
+
+			&:not(.col-image) {
+				padding-left: 4.5em;
+				padding-right: 6em;
+			}
+		}
+	}
+
+	&--title {
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 3.45rem;
+		}
+	}
+
+	&--subtitle {
+		font-size: 1.5rem;
+		font-family: $font-secondary;
+		font-weight: 400 !important;
+	}
+}

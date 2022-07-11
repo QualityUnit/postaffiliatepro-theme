@@ -87,10 +87,27 @@
 	border-radius: $border-radius-16;
 	box-shadow: 0 4px 64px 0 rgba(0, 0, 0, 0.06);
 
+	&__padded {
+		padding: 2.15em;
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			padding: 3.25em;
+		}
+	}
+
 	&__inn {
 		position: relative;
 		display: block;
 		padding: 1.125em;
+	}
+
+	&__title[class] {
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 1.875rem;
+			line-height: 1.4;
+			margin: 1em 0;
+		}
 	}
 
 	&__text {
@@ -99,6 +116,13 @@
 		@media (max-width: $breakpoint-tablet-small) {
 			padding: 0;
 			padding-top: 1.125em;
+		}
+	}
+
+	&__image--center {
+
+		img {
+			margin: 0 auto 2em;
 		}
 	}
 

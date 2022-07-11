@@ -18,7 +18,7 @@
 		const pillars = list.querySelectorAll( 'li.pillar' );
 		const countItems = listItems.length;
 		const filterItems = queryAll(
-			".Category__sidebar__item input[type='radio']"
+			"#filter input[type='radio']"
 		);
 		const search = query( ".searchField input[type='search']" );
 		const { hash } = window.location;
@@ -35,8 +35,10 @@
 		const count =
 			queryAll( '.list li' ).length -
 			queryAll( ".list li[style*='none']" ).length;
-		query( '.Category__content__description span' ).textContent = count;
-		query( '.Category__content__description div' ).classList.add( 'show' );
+		if ( query( '.Category__content__description' ) ) {
+			query( '.Category__content__description span:not(#filter-show)' ).textContent = count;
+			query( '.Category__content__description #filter-show' ).classList.add( 'show' );
+		}
 
 		// Adds numbered classes to each featured article so we can assign image to it
 		if ( pillars !== null ) {
@@ -161,38 +163,6 @@
 			} );
 		}
 
-		// Search
-		search.addEventListener( 'keyup', () => {
-			const val = search.value.toLowerCase();
-
-			listItems.forEach( ( element ) => {
-				const listItem = element;
-				const title = listItem
-					.querySelector( 'h3' )
-					.textContent.toLowerCase();
-
-				if (
-					listItem.style.display === 'none' &&
-					! listItem.classList.contains( 'pillar' )
-				) {
-					listItem.style.display = 'block';
-				}
-
-				if (
-					listItem.style.display === 'none' &&
-					listItem.classList.contains( 'pillar' )
-				) {
-					listItem.style.display = 'flex';
-				}
-
-				if ( ! title.includes( val ) ) {
-					listItem.style.display = 'none';
-				}
-
-				recountVisible();
-			} );
-		} );
-
 		// Empty
 		filterItems.forEach( ( element ) => {
 			const filterItem = element;
@@ -209,26 +179,60 @@
 			} );
 		} );
 
-		search.addEventListener( 'keyup', () => {
-			if (
-				list.querySelectorAll( "li[style*='display: none']" ).length ===
-				countItems
-			) {
-				list.classList.add( 'empty' );
-			} else {
-				list.classList.remove( 'empty' );
-			}
-		} );
-		search.addEventListener( 'input', () => {
-			if ( search.value === '' ) {
-				list.classList.remove( 'empty' );
-				list.querySelectorAll( 'li' ).forEach( ( element ) => {
-					const el = element;
-					el.style = null;
-				} );
-			}
+		// Search
+		if ( search ) {
+			search.addEventListener( 'keyup', () => {
+				const val = search.value.toLowerCase();
 
-			recountVisible();
-		} );
+				listItems.forEach( ( element ) => {
+					const listItem = element;
+					const title = listItem
+						.querySelector( 'h3' )
+						.textContent.toLowerCase();
+
+					if (
+						listItem.style.display === 'none' &&
+					! listItem.classList.contains( 'pillar' )
+					) {
+						listItem.style.display = 'block';
+					}
+
+					if (
+						listItem.style.display === 'none' &&
+					listItem.classList.contains( 'pillar' )
+					) {
+						listItem.style.display = 'flex';
+					}
+
+					if ( ! title.includes( val ) ) {
+						listItem.style.display = 'none';
+					}
+
+					recountVisible();
+				} );
+			} );
+
+			search.addEventListener( 'keyup', () => {
+				if (
+					list.querySelectorAll( "li[style*='display: none']" ).length ===
+				countItems
+				) {
+					list.classList.add( 'empty' );
+				} else {
+					list.classList.remove( 'empty' );
+				}
+			} );
+			search.addEventListener( 'input', () => {
+				if ( search.value === '' ) {
+					list.classList.remove( 'empty' );
+					list.querySelectorAll( 'li' ).forEach( ( element ) => {
+						const el = element;
+						el.style = null;
+					} );
+				}
+
+				recountVisible();
+			} );
+		}
 	}
 } )();
