@@ -5,6 +5,13 @@
 
 .Directory {
 
+	&__screenshot {
+
+		a::after {
+			display: none !important;
+		}
+	}
+
 	&__blocks {
 
 		&__title {
