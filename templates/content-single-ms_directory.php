@@ -354,7 +354,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 						}
 					}
 
-					$payout_value_text = __( 'Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of ${payout_value}.', 'ms');
+					$payout_value_text = __( 'Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of ${payout_value}.', 'ms' );
 					$payout_value = get_post_meta( get_the_ID(), 'minimum_payout', true );
 					$payout_value_text = str_replace( '${payout_value}', $payout_value, $payout_value_text );
 					?>
