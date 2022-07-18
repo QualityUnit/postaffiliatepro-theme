@@ -5,9 +5,9 @@
 	function recountVisible() {
 		// ReCount
 		setTimeout( () => {
-			const listItem = queryAll( '.list li' );
+			const listItem = queryAll( '.list > li' );
 			const recount =
-				listItem.length - queryAll( ".list li[style*='none']" ).length;
+				listItem.length - queryAll( ".list > li[style*='none']" ).length;
 			query( '#countPosts' ).textContent = recount;
 		}, 25 );
 	}
@@ -33,8 +33,8 @@
 
 		// Count
 		const count =
-			queryAll( '.list li' ).length -
-			queryAll( ".list li[style*='none']" ).length;
+			queryAll( '.list > li' ).length -
+			queryAll( ".list > li[style*='none']" ).length;
 		if ( query( '.Category__content__description' ) ) {
 			query( '.Category__content__description span:not(#filter-show)' ).textContent = count;
 			query( '.Category__content__description #filter-show' ).classList.add( 'show' );
