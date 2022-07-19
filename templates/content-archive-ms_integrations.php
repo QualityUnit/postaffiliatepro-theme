@@ -11,7 +11,7 @@ set_source( 'integrations', 'filter', 'js' );
 					<h1 class="Category__header__title"><?php single_cat_title(); ?></h1>
 				<?php } else { ?>
 					<h1 class="Category__header__title"><?php _e( 'Integrations', 'ms' ); ?></h1>
-					<p class="Category__header__subtitle"><?php _e( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' ); ?></p>
+					<p class="Category__header__subtitle"><?php _e( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' ); ?></p>
 				<?php } ?>
 				<div class="Category__sidebar__item--search searchField">
 					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
