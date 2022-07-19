@@ -206,7 +206,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
 
 				<div class="Directory__screenshot">
-					<?= do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" ); ?>
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>" title="<?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> Homepage">
+						<?= do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" ); ?>
+					</a>
 				</div>
 
 				<div class="Directory__blocks">
@@ -420,13 +422,13 @@ set_custom_source( 'sidebar_toc', 'js' );
 								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
 								?>
 							<p><?= esc_html( $multitier_text ); ?></p>
-								<?php 
-							} if ( 'singletier' === $tier ) { 
+								<?php
+							} if ( 'singletier' === $tier ) {
 								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
 								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
 								?>
 							<p><?= esc_html( $singletier_text ); ?></p>
-								<?php 
+								<?php
 							}
 						}
 					}
@@ -434,7 +436,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 					<p>Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of 200 euros.</p>
 
-					<?php 
+					<?php
 					$payouts_text = __( 'If you want to know more details about ${company_name} payouts, such as what payout methods they accept, please check out the specific information below or follow up with ${company_name} Affiliates contact.', 'ms' );
 					$payouts_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $payouts_text );
 					?>
@@ -742,6 +744,14 @@ set_custom_source( 'sidebar_toc', 'js' );
 							</a>
 						</div>
 						<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?php _e( 'Build your own affiliate program', 'ms' ); ?>" />
+					</div>
+
+					<div class="Post__content__resources Post__m__negative">
+						<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
+
+						<div class="SimilarSources">
+							<?php echo do_shortcode( '[urlslab-related-resources]' ); ?>
+						</div>
 					</div>
 				</div>
 			</div>
