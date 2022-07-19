@@ -26,84 +26,6 @@ set_custom_source( 'sidebar_toc', 'js' );
 				<?php } ?>
 			</div>
 
-			<?php
-			/*
-			$affiliate_software     = get_post_meta( get_the_ID(), 'affiliate_software', true );
-			$affiliate_software_url = get_post_meta( get_the_ID(), 'affiliate_software_url', true );
-			if ( 'na' !== $affiliate_software ) {
-				?>
-			<div class="Post__sidebar__categories">
-				<h4 class="Post__sidebar__title"><?php _e( 'Affiliate Software', 'ms' ); ?></h4>
-				<div class="CategoryTags">
-
-					<?php if ( 'other' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/', 'ms' ) ); ?>"><?php _e( 'Other', 'ms' ); ?></a></li>
-					<?php } if ( 'pap' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/affiliate-program-software/', 'ms' ) ); ?>"><?php _e( 'Post Affiliate Pro', 'ms' ); ?></a></li>
-					<?php } if ( 'affice' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/affice-alternative', 'ms' ) ); ?>"><?php _e( 'Affice', 'ms' ); ?></a></li>
-					<?php } if ( 'affiliatewp' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/affiliatewp-alternative', 'ms' ) ); ?>"><?php _e( 'AffiliateWP', 'ms' ); ?></a></li>
-					<?php } if ( 'afftrack' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/afftrack-alternative', 'ms' ) ); ?>"><?php _e( 'Afftrack', 'ms' ); ?></a></li>
-					<?php } if ( 'avangate' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/avangate-alternative', 'ms' ) ); ?>"><?php _e( 'Avangate', 'ms' ); ?></a></li>
-					<?php } if ( 'awin' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/awin-alternative', 'ms' ) ); ?>"><?php _e( 'Awin', 'ms' ); ?></a></li>
-					<?php } if ( 'cake' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/cake-alternative', 'ms' ) ); ?>"><?php _e( 'CAKE', 'ms' ); ?></a></li>
-					<?php } if ( 'cjaffiliate' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/cjaffiliate-alternative', 'ms' ) ); ?>"><?php _e( 'CJ Affiliate', 'ms' ); ?></a></li>
-					<?php } if ( 'clickbank' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/clickbank-alternative', 'ms' ) ); ?>"><?php _e( 'Clickbank', 'ms' ); ?></a></li>
-					<?php } if ( 'clickinc' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/clickinc-alternative', 'ms' ) ); ?>"><?php _e( 'Clickinc', 'ms' ); ?></a></li>
-					<?php } if ( 'clickmeter' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/clickmeter-alternative', 'ms' ) ); ?>"><?php _e( 'Clickmeter', 'ms' ); ?></a></li>
-					<?php } if ( 'everflow' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/everflow-alternative', 'ms' ) ); ?>"><?php _e( 'Everflow', 'ms' ); ?></a></li>
-					<?php } if ( 'firstpromoter' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/firstpromoter-alternative', 'ms' ) ); ?>"><?php _e( 'Firstpromoter', 'ms' ); ?></a></li>
-					<?php } if ( 'growthhero' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/growthhero-alternative', 'ms' ) ); ?>"><?php _e( 'Growthhero', 'ms' ); ?></a></li>
-					<?php } if ( 'hitpath' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/hitpath-alternative', 'ms' ) ); ?>"><?php _e( 'HitPath', 'ms' ); ?></a></li>
-					<?php } if ( 'idevaffiliate' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/idevaffiliate-alternative', 'ms' ) ); ?>"><?php _e( 'iDevAffiliate', 'ms' ); ?></a></li>
-					<?php } if ( 'jrox' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/jrox-alternative', 'ms' ) ); ?>"><?php _e( 'JROX', 'ms' ); ?></a></li>
-					<?php } if ( 'leaddyno' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/leaddyno-alternative', 'ms' ) ); ?>"><?php _e( 'LeadDyno', 'ms' ); ?></a></li>
-					<?php } if ( 'linktrust' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/linktrust-alternative', 'ms' ) ); ?>"><?php _e( 'Linktrust', 'ms' ); ?></a></li>
-					<?php } if ( 'offer18' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/offer18-alternative', 'ms' ) ); ?>"><?php _e( 'Offer18', 'ms' ); ?></a></li>
-					<?php } if ( 'osiaffiliate' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/osiaffiliate-alternative', 'ms' ) ); ?>"><?php _e( 'OSI affiliate', 'ms' ); ?></a></li>
-					<?php } if ( 'rekuten' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/rekuten-alternative', 'ms' ) ); ?>"><?php _e( 'Rakuten Advertising', 'ms' ); ?></a></li>
-					<?php } if ( 'redtrack' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/redtrack-alternative', 'ms' ) ); ?>"><?php _e( 'RedTrack', 'ms' ); ?></a></li>
-					<?php } if ( 'refersion' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/refersion-alternative', 'ms' ) ); ?>"><?php _e( 'Refersion', 'ms' ); ?></a></li>
-					<?php } if ( 'scaleo' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/scaleo-alternative', 'ms' ) ); ?>"><?php _e( 'Scaleo', 'ms' ); ?></a></li>
-					<?php } if ( 'shareasale' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/shareasale-alternative', 'ms' ) ); ?>"><?php _e( 'ShareASale', 'ms' ); ?></a></li>
-					<?php } if ( 'tapaffiliate' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/tapaffiliate-alternative', 'ms' ) ); ?>"><?php _e( 'Tapaffiliate', 'ms' ); ?></a></li>
-					<?php } if ( 'tune' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/tune-alternative', 'ms' ) ); ?>"><?php _e( 'Tune', 'ms' ); ?></a></li>
-					<?php } if ( 'trackiers' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/trackiers-alternative', 'ms' ) ); ?>"><?php _e( 'Trackiers', 'ms' ); ?></a></li>
-					<?php } if ( 'voluum' === $affiliate_software ) { ?>
-						<li class="CategoryTag"><a href="<?php echo esc_url( strlen( $affiliate_software_url ) > 3 ? $affiliate_software_url : __( '/voluum-alternative', 'ms' ) ); ?>"><?php _e( 'Voluum', 'ms' ); ?></a></li>
-					<?php } ?>
-				</div>
-			</div>
-			<?php } ?> */
-			?>
-
 			<div class="SidebarTOC-wrapper">
 				<div class="SidebarTOC Post__SidebarTOC">
 					<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
@@ -278,7 +200,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></span></h2>
 					<?php
-					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The third step is to check what type of promotional materials the affiliate program allows. For instance, some affiliate programs only support image banners and discount coupons. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
+					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
 					$campaign_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $campaign_text );
 					?>
 
@@ -411,7 +333,8 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & Payouts', 'ms' ); ?></span></h2>
 
-					<p>Payouts are one of the most important factors to consider when choosing an affiliate program.</p>
+					<p>
+						<?php _e( 'Payouts are one of the most important factors to consider when choosing an affiliate program.', 'ms' ); ?>
 					<?php
 					$tiers = get_post_meta( get_the_ID(), 'tiers', true );
 
@@ -421,26 +344,30 @@ set_custom_source( 'sidebar_toc', 'js' );
 								$multitier_text = __( 'The ${company_name} affiliate program offers multi-tier commissions, which means affiliates can earn commissions on both sales they generate as well as sales generated by referrals. ', 'ms' );
 								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
 								?>
-							<p><?= esc_html( $multitier_text ); ?></p>
-								<?php
-							} if ( 'singletier' === $tier ) {
+							<br /><?= esc_html( $multitier_text ); ?>
+								<?php 
+							} if ( 'singletier' === $tier ) { 
 								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
 								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
 								?>
-							<p><?= esc_html( $singletier_text ); ?></p>
-								<?php
+							<br /><?= esc_html( $singletier_text ); ?></p>
+								<?php 
 							}
 						}
 					}
-					?>
 
-					<p>Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of 200 euros.</p>
+					$payout_value_text = __( 'Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of ${payout_value}.', 'ms' );
+					$payout_value = get_post_meta( get_the_ID(), 'minimum_payout', true );
+					$payout_value_text = str_replace( '${payout_value}', $payout_value, $payout_value_text );
+					?>
+					<br /><?= esc_html( $payout_value_text ); ?>
 
 					<?php
 					$payouts_text = __( 'If you want to know more details about ${company_name} payouts, such as what payout methods they accept, please check out the specific information below or follow up with ${company_name} Affiliates contact.', 'ms' );
 					$payouts_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $payouts_text );
 					?>
-					<p><?= esc_html( $payouts_text ); ?></p>
+					<br /><?= esc_html( $payouts_text ); ?>
+				</p>
 
 					<div class="Directory__blocks__items">
 						<div class="Directory__blocks__items__item">
