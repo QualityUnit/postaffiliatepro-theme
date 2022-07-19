@@ -4,6 +4,8 @@ set_custom_source( 'common/splide', 'css' );
 set_custom_source( 'components/AffiliateManagerCard', 'css' );
 set_custom_source( 'splide', 'js' );
 set_custom_source( 'sidebar_toc', 'js' );
+
+$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
 ?>
 <div class="Post">
 	<div class="Post__header directory">
@@ -127,13 +129,19 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
 
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>">
+				<?php
+					if ( preg_match( '/\<img/', $screenshot ) ) {
+				?>
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) . ' ' . __( 'Homepage', 'ms' ) ); ?>">
 					<div class="Directory__screenshot--url">
 						<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
 					</div>
 					<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/browser_window.svg' ); ?>" />
-					<?= do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" ); ?>
+					<?= $screenshot; // @codingStandardsIgnoreLine ?>
 				</a>
+				<?php
+					}
+				?>
 
 				<div class="Directory__blocks">
 
