@@ -16,3 +16,11 @@ function body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', __NAMESPACE__ . '\\body_class' );
+
+/**
+ * get inline svg image
+ */
+
+function get_svg_image( $name ) {
+	return file_get_contents( esc_url( get_template_directory_uri() . '/assets/images/' . $name . '.svg' ) );
+}
