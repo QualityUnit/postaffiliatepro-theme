@@ -129,6 +129,7 @@
 			&:hover {
 
 				.Directory__screenshot--url {
+					border-radius: $border-radius-16;
 					transform: translateY(0);
 				}
 			}

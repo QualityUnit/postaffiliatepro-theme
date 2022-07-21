@@ -132,7 +132,7 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) . ' ' . __( 'Homepage', 'ms' ) ); ?>">
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>">
 					<div class="Directory__screenshot--url">
 					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
 					</div>
@@ -355,13 +355,13 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
 								?>
 							<br /><?= esc_html( $multitier_text ); ?>
-								<?php 
-							} if ( 'singletier' === $tier ) { 
+								<?php
+							} if ( 'singletier' === $tier ) {
 								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
 								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
 								?>
 							<br /><?= esc_html( $singletier_text ); ?></p>
-								<?php 
+								<?php
 							}
 						}
 					}
