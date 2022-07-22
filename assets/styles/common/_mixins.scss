@@ -220,4 +220,14 @@
 	scrollbar-color: $light-gray transparent;
 }
 
+// hover mixin
+
+@mixin hover {
+	&:active,
+	&:focus,
+	&:hover {
+		@content;
+	}
+}
+
 /* stylelint-enable */

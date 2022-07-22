@@ -12,9 +12,14 @@
 
 	@include color(background-color, secondary-background);
 	display: flex;
-	align-items: stretch;
+	flex-direction: column;
+	padding: 1em 1em;
 	border-radius: $border-radius-16;
 	overflow: hidden;
+
+	> *:not(:last-child) {
+		padding-bottom: 1em;
+	}
 
 	&.primary.primary {
 		order: -1;
@@ -26,11 +31,39 @@
 		margin-top: 1.5em;
 	}
 
+	@media (min-width: $breakpoint-tablet-small) {
+		flex-direction: row;
+		align-items: stretch;
+
+		> *:not(:last-child) {
+			padding-bottom: initial;
+			padding-right: 1.5em;
+		}
+
+	}
+
 	&__image {
 
-		@include square(100% !important);
-		position: absolute;
+		position: relative;
+		display: block;
 		object-fit: cover;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		width: 100%;
+		padding-bottom: 100%;
+		border-radius: 50%;
+
+		img {
+			all: unset;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 
 		&--wrapper {
 			position: relative;
@@ -39,63 +72,12 @@
 			transform: translateZ(1px);
 			height: 100%;
 			width: auto;
-			max-width: 30%;
-			padding-bottom: 2em;
+			max-width: 40%;
 
 			@media (min-width: $breakpoint-tablet-small) {
-				height: 0;
-				width: 19.5%;
-				padding-bottom: 17.16%;
-			}
-		}
-
-		&--showProfile {
-
-			@include color(color, font-color-light, !important);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-family: $font-secondary;
-			font-weight: 600;
-			font-size: 0.8125rem;
-			text-decoration: none !important;
-			position: absolute;
-			width: 100%;
-			top: 0;
-			bottom: 0;
-			z-index: 1;
-
-			span {
-
-				@include square(100%);
-				position: absolute;
-				z-index: 1;
-				transform: translateY(calc(100% - 2.5em));
-				text-align: center;
-				padding: 0.5em 1em;
-				transition: all 0.2s;
-			}
-
-			&::before {
-
-				@include square(100%);
-				@include color(background-color, primary-color);
-				content: "";
-				position: absolute;
-				left: 0;
-				transform: translateY(calc(100% - 2.5em));
-				transition: all 0.2s;
-			}
-
-			&:hover {
-
-				span {
-					transform: translateY(calc(50% - 1.5em));
-				}
-
-				&::before {
-					transform: translateY(0);
-				}
+				align-self: center;
+				width: 19%;
+				max-width: 30%;
 			}
 		}
 	}
@@ -103,8 +85,11 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		width: 71.224%;
-		padding: 1em 1.5em;
+		width: 100%;
+
+		@media (min-width: $breakpoint-tablet-small) {
+			width: 71.224%;
+		}
 
 		h3.AffiliateManagerCard__name {
 			font-size: 1rem;
@@ -123,7 +108,7 @@
 
 			&__industry {
 
-				@include color(color, font-color-level3);
+				@include color(color, font-color-normal);
 				font-size: 0.75rem;
 
 				+ strong {
@@ -196,6 +181,42 @@
 					display: none !important;
 				}
 			}
+		}
+	}
+
+	&__showProfile {
+
+		.learn-more {
+
+			margin: 0;
+			font-family: $font-secondary;
+			font-size: $font-size-small;
+			font-weight: $font-weight-semi;
+
+			svg {
+				width: 1.2em;
+				position: relative;
+				margin-left: 0.5em;
+				transform: translateX(0);
+				transition: transform 0.2s;
+
+				path {
+					fill: $primary;
+				}
+			}
+
+			@include hover() {
+				text-decoration: none !important;
+
+				svg {
+					transform: translateX(0.5em);
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-small) {
+			align-self: center;
+			width: 19%;
 		}
 	}
 

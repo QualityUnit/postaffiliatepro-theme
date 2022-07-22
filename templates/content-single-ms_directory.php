@@ -609,10 +609,9 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 										<?php
 										if ( isset( $url ) ) {
 											?>
-											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image--showProfile" title="<?= esc_html( $url_title ); ?>">
-									<?= $picture; // @codingStandardsIgnoreLine ?>
-									<span><?php _e( 'Show profile', 'ms' ); ?></span>
-								</a>
+                                            <a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
+                                                <?= $picture; // @codingStandardsIgnoreLine ?>
+											</a>
 										<?php } ?>
 									</div>
 									<div class="AffiliateManagerCard__content">
@@ -663,6 +662,16 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 											?>
 										</ul>
 									</div>
+
+									<?php
+									if ( isset( $url ) ) {
+										?>
+										<div class="AffiliateManagerCard__showProfile">
+                                            <a href="<?= esc_url( add_query_arg( array('directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); ?>" class="learn-more" title="<?= esc_html( $url_title ); ?>"><?php _e( 'Show profile', 'ms'); ?><?php echo QualityUnit\Extras\get_svg_image( 'arrow_small_right' ); // @codingStandardsIgnoreLine?></a>
+										</div>
+									<?php } ?>
+
+
 								</div>
 								<?php
 							}
