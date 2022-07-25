@@ -728,7 +728,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 									if ( isset( $url ) ) {
 										?>
 										<div class="AffiliateManagerCard__showProfile">
-                                            <a href="<?= esc_url( add_query_arg( array('directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); ?>" class="learn-more" title="<?= esc_html( $url_title ); ?>"><?php _e( 'Show profile', 'ms'); ?><?php echo QualityUnit\Extras\get_svg_image( 'arrow_small_right' ); // @codingStandardsIgnoreLine?></a>
+                                            <a href="<?= esc_url( add_query_arg( array('directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); ?>" class="learn-more" title="<?= esc_html( $url_title ); ?>"><?php _e( 'Show profile', 'ms'); ?><?php echo QualityUnit\Extras\load_inline_svg( 'arrow_small_right' ); // @codingStandardsIgnoreLine?></a>
 										</div>
 									<?php } ?>
 
