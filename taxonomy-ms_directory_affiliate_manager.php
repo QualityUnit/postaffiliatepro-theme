@@ -81,7 +81,7 @@ require_once 'lib/includes/affiliate-manager.php';
 					<?php
 					if ( isset( $_REQUEST['directory_url'] ) ) { // @codingStandardsIgnoreLine
 						?>
-						<li><a href="<?= $_REQUEST['directory_url']; ?>"><?= esc_html( $_REQUEST['directory_name'] ); // @codingStandardsIgnoreLine ?></a></li>
+						<li><a href="<?= esc_url( $_REQUEST['directory_url'] ); ?>"><?= esc_html( $_REQUEST['directory_name'] ); // @codingStandardsIgnoreLine ?></a></li>
 					<?php } ?>
 					<li><?php single_cat_title(); ?></li>
 				</ul>
