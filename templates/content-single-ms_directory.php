@@ -728,7 +728,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 									if ( isset( $url ) ) {
 										?>
 										<div class="AffiliateManagerCard__showProfile">
-											<a href="<?= esc_url( 
+											<a href="
+											<?=
+											esc_url(
 												add_query_arg( 
 													array(
 														'directory_name' => get_the_title(),
@@ -736,7 +738,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 													),
 													$url 
 												)
-											) ?>"
+											) 
+											?>
+													 "
 											class="learn-more"
 											title="<?= esc_attr( $url_title ); ?>"
 											>
@@ -744,7 +748,9 @@ set_custom_source( 'sidebar_toc', 'js' );
 												<?= QualityUnit\Extras\load_inline_svg( 'arrow_small_right' ); // @codingStandardsIgnoreLine ?>
 											</a>
 										</div>
-									<?php } ?>
+										<?php 
+									} 
+									?>
 
 
 								</div>
