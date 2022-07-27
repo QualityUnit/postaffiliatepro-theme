@@ -24,6 +24,12 @@ function add_company_overview_metaboxes( $metaboxes ) {
 				'label' => 'URL of the company',
 				'type'  => 'text',
 			),
+			array(
+				'id'                => 'nofollow',
+				'label'             => 'Follow URLs',
+				'type'              => 'checkbox',
+				'short_description' => "By checking this, all of the URLs (company's as well as it's affiliate program) will be of DO FOLLOW type",
+			),
 		),
 	);
 
@@ -49,11 +55,6 @@ function add_affiliate_program_overview_metaboxes( $metaboxes ) {
 				'id'    => 'program_url',
 				'label' => 'URL to affiliate program',
 				'type'  => 'text',
-			),
-			array(
-				'id'    => 'program_url_nofollow',
-				'label' => 'Follow URL',
-				'type'  => 'checkbox',
 			),
 			array(
 				'id'      => 'industry',
