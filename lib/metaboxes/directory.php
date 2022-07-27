@@ -51,6 +51,11 @@ function add_affiliate_program_overview_metaboxes( $metaboxes ) {
 				'type'  => 'text',
 			),
 			array(
+				'id'    => 'program_url_nofollow',
+				'label' => 'Follow URL',
+				'type'  => 'checkbox',
+			),
+			array(
 				'id'      => 'industry',
 				'label'   => 'Industry',
 				'type'    => 'radio',
