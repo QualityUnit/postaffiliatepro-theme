@@ -1,5 +1,4 @@
 <?php
-	require_once get_template_directory() . '/lib/shortcodes/similar-sources.php';
 	require_once get_template_directory() . '/lib/shortcodes/signup-form.php';
 	require_once get_template_directory() . '/lib/shortcodes/signup-form-trial.php';
 	require_once get_template_directory() . '/lib/shortcodes/signup-form-network.php';
