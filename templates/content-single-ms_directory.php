@@ -601,7 +601,7 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 										return $manager_industry;
 									}
 								}
-								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
+								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
 								?>
 								<div class="AffiliateManagerCard <?= ( strval( $primary_manager ) === strval( $taxonomy_id ) ? 'primary' : null ); ?>">
 									<div class="AffiliateManagerCard__image--wrapper">
