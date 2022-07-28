@@ -420,13 +420,13 @@ set_custom_source( 'sidebar_toc', 'js' );
 								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
 								?>
 							<p><?= esc_html( $multitier_text ); ?></p>
-								<?php 
-							} if ( 'singletier' === $tier ) { 
+								<?php
+							} if ( 'singletier' === $tier ) {
 								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
 								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
 								?>
 							<p><?= esc_html( $singletier_text ); ?></p>
-								<?php 
+								<?php
 							}
 						}
 					}
@@ -434,7 +434,7 @@ set_custom_source( 'sidebar_toc', 'js' );
 
 					<p>Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of 200 euros.</p>
 
-					<?php 
+					<?php
 					$payouts_text = __( 'If you want to know more details about ${company_name} payouts, such as what payout methods they accept, please check out the specific information below or follow up with ${company_name} Affiliates contact.', 'ms' );
 					$payouts_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $payouts_text );
 					?>
@@ -670,8 +670,8 @@ set_custom_source( 'sidebar_toc', 'js' );
 										<?php
 										if ( isset( $url ) ) {
 											?>
-                                            <a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
-                                                <?= $picture; // @codingStandardsIgnoreLine ?>
+												<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
+												<?= $picture; // @codingStandardsIgnoreLine ?>
 											</a>
 										<?php } ?>
 									</div>
@@ -731,14 +731,14 @@ set_custom_source( 'sidebar_toc', 'js' );
 											<a href="
 											<?=
 											esc_url(
-												add_query_arg( 
+												add_query_arg(
 													array(
 														'directory_name' => get_the_title(),
 														'directory_url'  => get_the_permalink(),
 													),
-													$url 
+													$url
 												)
-											) 
+											)
 											?>
 													 "
 											class="learn-more"
@@ -748,8 +748,8 @@ set_custom_source( 'sidebar_toc', 'js' );
 												<?= QualityUnit\Extras\load_inline_svg( 'arrow_small_right' ); // @codingStandardsIgnoreLine ?>
 											</a>
 										</div>
-										<?php 
-									} 
+										<?php
+									}
 									?>
 
 
