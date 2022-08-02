@@ -647,13 +647,13 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 										<?php if ( 'pap' !== $software_id ) { ?>
 										<a href="<?= esc_url( __( '/alternatives', 'ms' ) . '/' . $software_id ); ?>">
 											<?php 
-									}
-									if ( 'pap' === $software_id ) {
-										?>
+										}
+										if ( 'pap' === $software_id ) {
+											?>
 											<a href="<?php _e( '/tour', 'ms' ); ?>">
-										<?php 
-									}
-									?>
+											<?php 
+										}
+										?>
 										<?php _e( 'Affiliate software', 'ms' ); ?>
 								</a>
 									</h3>
