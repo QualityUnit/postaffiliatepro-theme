@@ -16,13 +16,21 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 		<div class="Post__sidebar">
 			<div class="Post__sidebar__buttons">
 				<?php if ( get_post_meta( get_the_ID(), 'program_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank" rel="nofollow">
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) { ?>
+						rel="nofollow"
+					<?php } ?>
+					>
 						<span><?php _e( 'Affiliate Program', 'ms' ); ?></span>
 					</a>
 				<?php } ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'company_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank" rel="nofollow">
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
+						rel="nofollow"
+					<?php } ?>
+					>
 						<span><?php _e( 'Company Website', 'ms' ); ?></span>
 					</a>
 				<?php } ?>
@@ -121,10 +129,13 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					}
 				}
 
-
-				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" rel="nofollow">${company_name} affiliate program</a>.', 'ms' );
+				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" ${nofollow}>${company_name} affiliate program</a>.', 'ms' );
 				$declaration = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $declaration );
 				$declaration = str_replace( '${program_url}', get_post_meta( get_the_ID(), 'program_url', true ), $declaration );
+				if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) {
+					$declaration = str_replace( '${nofollow}', 'rel="nofollow"', $declaration );
+				}
+				$declaration = str_replace( '${nofollow}', '', $declaration );
 				?>
 
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
@@ -132,7 +143,11 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>">
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
+						rel="nofollow"
+					<?php } ?>
+				>
 					<div class="Directory__screenshot--url">
 					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
 					</div>
@@ -367,7 +382,7 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					}
 
 					$payout_value_text = __( 'Moreover, the affiliate program offers a fixed commission structure, with a minimum payout of ${payout_value}.', 'ms' );
-					$payout_value = get_post_meta( get_the_ID(), 'minimum_payout', true );
+					$payout_value      = get_post_meta( get_the_ID(), 'minimum_payout', true );
 					$payout_value_text = str_replace( '${payout_value}', $payout_value, $payout_value_text );
 					?>
 					<br /><?= esc_html( $payout_value_text ); ?>
