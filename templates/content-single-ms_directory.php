@@ -534,12 +534,12 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					</div>
 
 					<?php 
-					$aff_software = __( 'The ${program_name} uses the affiliate software ${affiliate_software} to manage its portfolio in the ${countries}.', 'ms' );
+						$software_id  = get_post_meta( get_the_ID(), 'affiliate_software', true );
+						$aff_software = __( 'The ${program_name} uses the affiliate software ${affiliate_software} to manage its portfolio in the ${countries}.', 'ms' );
 					if ( get_post_meta( get_the_ID(), 'countries', true ) === 'Worldwide' ) {
 						$aff_software = __( 'The ${program_name} uses the affiliate software ${affiliate_software} to manage its portfolio ${countries}.', 'ms' );
 					}
 						$aff_software = str_replace( '${program_name}', get_post_meta( get_the_ID(), 'program_name', true ), $aff_software );
-						$software_id  = get_post_meta( get_the_ID(), 'affiliate_software', true );
 					if ( 'pap' === $software_id ) {
 						$software = 'Post Affiliate Pro';
 					}
@@ -630,10 +630,17 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					if ( 'voluum' === $software_id ) {
 						$software = 'Voluum';
 					}
+					if ( 'na' === $software_id ) {
+						$software = null;
+					}
+					if ( 'other' === $software_id ) {
+						$software = null;
+					}
+
 						$aff_software = str_replace( '${affiliate_software}', $software, $aff_software );
 						$aff_software = str_replace( '${countries}', get_post_meta( get_the_ID(), 'countries', true ), $aff_software );
 						
-					if ( 'na' !== $software_id || ! 'other' !== $software_id ) {
+					if ( isset( $software ) ) {
 						
 						?>
 							<h2 id="ap-software" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
