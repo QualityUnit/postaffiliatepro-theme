@@ -16,13 +16,21 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 		<div class="Post__sidebar">
 			<div class="Post__sidebar__buttons">
 				<?php if ( get_post_meta( get_the_ID(), 'program_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank" rel="nofollow">
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) { ?>
+						rel="nofollow"
+					<?php } ?>
+					>
 						<span><?php _e( 'Affiliate Program', 'ms' ); ?></span>
 					</a>
 				<?php } ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'company_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank" rel="nofollow">
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
+						rel="nofollow"
+					<?php } ?>
+					>
 						<span><?php _e( 'Company Website', 'ms' ); ?></span>
 					</a>
 				<?php } ?>
@@ -122,10 +130,13 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					}
 				}
 
-
-				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" rel="nofollow">${company_name} affiliate program</a>.', 'ms' );
+				$declaration = __( 'Welcome to the ${company_name} affiliate program overview. We have compiled all of the information you need to know before joining the <a href="${program_url}" title="Login to ${company_name} affiliate program" target="_blank" ${nofollow}>${company_name} affiliate program</a>.', 'ms' );
 				$declaration = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $declaration );
 				$declaration = str_replace( '${program_url}', get_post_meta( get_the_ID(), 'program_url', true ), $declaration );
+				if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) {
+					$declaration = str_replace( '${nofollow}', 'rel="nofollow"', $declaration );
+				}
+				$declaration = str_replace( '${nofollow}', '', $declaration );
 				?>
 
 				<p><?= $declaration; // @codingStandardsIgnoreLine ?></p>
@@ -133,7 +144,11 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>">
+				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>"
+					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
+						rel="nofollow"
+					<?php } ?>
+				>
 					<div class="Directory__screenshot--url">
 					<?= esc_html( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>
 					</div>
@@ -348,22 +363,20 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 						<?php _e( 'Payouts are one of the most important factors to consider when choosing an affiliate program.', 'ms' ); ?>
 						<?php
 						$tiers = get_post_meta( get_the_ID(), 'tiers', true );
-
-						if ( $tiers ) {
-							foreach ( $tiers as $tier ) {
-								if ( 'multitier' === $tier ) {
-									$multitier_text = __( 'The ${company_name} affiliate program offers multi-tier commissions, which means affiliates can earn commissions on both sales they generate as well as sales generated by referrals. ', 'ms' );
-									$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
-									?>
-								<br /><?= esc_html( $multitier_text ); ?>
-									<?php
-								} if ( 'singletier' === $tier ) {
-									$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
-									$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
-									?>
-								<br /><?= esc_html( $singletier_text ); ?></p>
-									<?php
-								}
+					if ( $tiers ) {
+						foreach ( $tiers as $tier ) {
+							if ( 'multitier' === $tier ) {
+								$multitier_text = __( 'The ${company_name} affiliate program offers multi-tier commissions, which means affiliates can earn commissions on both sales they generate as well as sales generated by referrals. ', 'ms' );
+								$multitier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $multitier_text );
+								?>
+							<p><?= esc_html( $multitier_text ); ?></p>
+								<?php
+							} if ( 'singletier' === $tier ) {
+								$singletier_text = __( 'The ${company_name} affiliate program offers single-tier commissions, which means the affiliates earn commissions only on sales they generate.', 'ms' );
+								$singletier_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $singletier_text );
+								?>
+							<p><?= esc_html( $singletier_text ); ?></p>
+								<?php
 							}
 						}
 
@@ -754,7 +767,7 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 										return $manager_industry;
 									}
 								}
-								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
+								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
 								?>
 								<div class="AffiliateManagerCard <?= ( strval( $primary_manager ) === strval( $taxonomy_id ) ? 'primary' : null ); ?>">
 									<div class="AffiliateManagerCard__image--wrapper">
@@ -762,10 +775,9 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 										<?php
 										if ( isset( $url ) ) {
 											?>
-											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image--showProfile" title="<?= esc_html( $url_title ); ?>">
-									<?= $picture; // @codingStandardsIgnoreLine ?>
-									<span><?php _e( 'Show profile', 'ms' ); ?></span>
-								</a>
+												<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
+												<?= $picture; // @codingStandardsIgnoreLine ?>
+											</a>
 										<?php } ?>
 									</div>
 									<div class="AffiliateManagerCard__content">
@@ -816,6 +828,36 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 											?>
 										</ul>
 									</div>
+
+									<?php
+									if ( isset( $url ) ) {
+										?>
+										<div class="AffiliateManagerCard__showProfile">
+											<a href="
+											<?=
+											esc_url(
+												add_query_arg(
+													array(
+														'directory_name' => get_the_title(),
+														'directory_url'  => get_the_permalink(),
+													),
+													$url
+												)
+											)
+											?>
+													 "
+											class="learn-more"
+											title="<?= esc_attr( $url_title ); ?>"
+											>
+												<?php _e( 'Show profile', 'ms' ); ?>
+												<?= QualityUnit\Extras\load_inline_svg( 'arrow_small_right' ); // @codingStandardsIgnoreLine ?>
+											</a>
+										</div>
+										<?php
+									}
+									?>
+
+
 								</div>
 								<?php
 							}
