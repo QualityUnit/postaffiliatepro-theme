@@ -6,6 +6,100 @@ set_custom_source( 'splide', 'js' );
 set_custom_source( 'sidebar_toc', 'js' );
 
 $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
+
+$software_id = get_post_meta( get_the_ID(), 'affiliate_software', true );
+$software    = null;
+
+if ( 'pap' === $software_id ) {
+	$software = 'Post Affiliate Pro';
+}
+if ( 'affice' === $software_id ) {
+	$software = 'Affice';
+}
+if ( 'affiliatewp' === $software_id ) {
+	$software = 'AffiliateWP';
+}
+if ( 'afftrack' === $software_id ) {
+	$software = 'Afftrack';
+}
+if ( 'avangate' === $software_id ) {
+	$software = 'Avangate';
+}
+if ( 'awin' === $software_id ) {
+	$software = 'Awin';
+}
+if ( 'cake' === $software_id ) {
+	$software = 'CAKE';
+}
+if ( 'cjaffiliate' === $software_id ) {
+	$software = 'CJ Affiliate';
+}
+if ( 'clickbank' === $software_id ) {
+	$software = 'Clickbank';
+}
+if ( 'clickinc' === $software_id ) {
+	$software = 'Clickinc';
+}
+if ( 'clickmeter' === $software_id ) {
+	$software = 'Clickmeter';
+}
+if ( 'everflow' === $software_id ) {
+	$software = 'Everflow';
+}
+if ( 'firstpromoter' === $software_id ) {
+	$software = 'Firstpromoter';
+}
+if ( 'growthhero' === $software_id ) {
+	$software = 'Growthhero';
+}
+if ( 'hitpath' === $software_id ) {
+	$software = 'HitPath';
+}
+if ( 'idevaffiliate' === $software_id ) {
+	$software = 'iDevAffiliate';
+}
+if ( 'jrox' === $software_id ) {
+	$software = 'JROX';
+}
+if ( 'leaddyno' === $software_id ) {
+	$software = 'LeadDyno';
+}
+if ( 'linktrust' === $software_id ) {
+	$software = 'Linktrust';
+}
+if ( 'offer18' === $software_id ) {
+	$software = 'Offer18';
+}
+if ( 'osiaffiliate' === $software_id ) {
+	$software = 'OSI affiliate';
+}
+if ( 'rekuten' === $software_id ) {
+	$software = 'Rakuten Advertising';
+}
+if ( 'redtrack' === $software_id ) {
+	$software = 'RedTrack';
+}
+if ( 'refersion' === $software_id ) {
+	$software = 'Refersion';
+}
+if ( 'scaleo' === $software_id ) {
+	$software = 'Scaleo';
+}
+if ( 'shareasale' === $software_id ) {
+	$software = 'ShareASale';
+}
+if ( 'tapaffiliate' === $software_id ) {
+	$software = 'Tapaffiliate';
+}
+if ( 'tune' === $software_id ) {
+	$software = 'Tune';
+}
+if ( 'trackiers' === $software_id ) {
+	$software = 'Trackiers';
+}
+if ( 'voluum' === $software_id ) {
+	$software = 'Voluum';
+}
 ?>
 <div class="Post">
 	<div class="Post__header directory">
@@ -43,7 +137,11 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 						<li class="SidebarTOC__item"><a href="#ap-overview"><?php _e( 'Affiliate Program Overview', 'ms' ); ?></a></li>
 						<li class="SidebarTOC__item"><a href="#ap-campaigns"><?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></a></li>
 						<li class="SidebarTOC__item"><a href="#ap-payouts"><?php _e( 'Affiliate Program Commissions & Payouts', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#ap-software"><?php _e( 'Affiliate Software', 'ms' ); ?></a></li>
+
+						<?php if ( $software ) {
+							?>
+							<li class="SidebarTOC__item"><a href="#ap-software"><?php _e( 'Affiliate Software', 'ms' ); ?></a></li>
+						<?php } ?>
 						<li class="SidebarTOC__item"><a href="#affiliate-manager"><?php _e( 'Affiliate Manager', 'ms' ); ?></a></li>
 					</ul>
 				</div>
@@ -548,108 +646,11 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 					</div>
 
 					<?php 
-						$software_id  = get_post_meta( get_the_ID(), 'affiliate_software', true );
 						$aff_software = __( 'The ${program_name} uses the affiliate software ${affiliate_software} to manage its portfolio in the ${countries}.', 'ms' );
 					if ( get_post_meta( get_the_ID(), 'countries', true ) === 'Worldwide' ) {
 						$aff_software = __( 'The ${program_name} uses the affiliate software ${affiliate_software} to manage its portfolio ${countries}.', 'ms' );
 					}
 						$aff_software = str_replace( '${program_name}', get_post_meta( get_the_ID(), 'program_name', true ), $aff_software );
-					if ( 'pap' === $software_id ) {
-						$software = 'Post Affiliate Pro';
-					}
-					if ( 'affice' === $software_id ) {
-						$software = 'Affice';
-					}
-					if ( 'affiliatewp' === $software_id ) {
-						$software = 'AffiliateWP';
-					}
-					if ( 'afftrack' === $software_id ) {
-						$software = 'Afftrack';
-					}
-					if ( 'avangate' === $software_id ) {
-						$software = 'Avangate';
-					}
-					if ( 'awin' === $software_id ) {
-						$software = 'Awin';
-					}
-					if ( 'cake' === $software_id ) {
-						$software = 'CAKE';
-					}
-					if ( 'cjaffiliate' === $software_id ) {
-						$software = 'CJ Affiliate';
-					}
-					if ( 'clickbank' === $software_id ) {
-						$software = 'Clickbank';
-					}
-					if ( 'clickinc' === $software_id ) {
-						$software = 'Clickinc';
-					}
-					if ( 'clickmeter' === $software_id ) {
-						$software = 'Clickmeter';
-					}
-					if ( 'everflow' === $software_id ) {
-						$software = 'Everflow';
-					}
-					if ( 'firstpromoter' === $software_id ) {
-						$software = 'Firstpromoter';
-					}
-					if ( 'growthhero' === $software_id ) {
-						$software = 'Growthhero';
-					}
-					if ( 'hitpath' === $software_id ) {
-						$software = 'HitPath';
-					}
-					if ( 'idevaffiliate' === $software_id ) {
-						$software = 'iDevAffiliate';
-					}
-					if ( 'jrox' === $software_id ) {
-						$software = 'JROX';
-					}
-					if ( 'leaddyno' === $software_id ) {
-						$software = 'LeadDyno';
-					}
-					if ( 'linktrust' === $software_id ) {
-						$software = 'Linktrust';
-					}
-					if ( 'offer18' === $software_id ) {
-						$software = 'Offer18';
-					}
-					if ( 'osiaffiliate' === $software_id ) {
-						$software = 'OSI affiliate';
-					}
-					if ( 'rekuten' === $software_id ) {
-						$software = 'Rakuten Advertising';
-					}
-					if ( 'redtrack' === $software_id ) {
-						$software = 'RedTrack';
-					}
-					if ( 'refersion' === $software_id ) {
-						$software = 'Refersion';
-					}
-					if ( 'scaleo' === $software_id ) {
-						$software = 'Scaleo';
-					}
-					if ( 'shareasale' === $software_id ) {
-						$software = 'ShareASale';
-					}
-					if ( 'tapaffiliate' === $software_id ) {
-						$software = 'Tapaffiliate';
-					}
-					if ( 'tune' === $software_id ) {
-						$software = 'Tune';
-					}
-					if ( 'trackiers' === $software_id ) {
-						$software = 'Trackiers';
-					}
-					if ( 'voluum' === $software_id ) {
-						$software = 'Voluum';
-					}
-					if ( 'na' === $software_id ) {
-						$software = null;
-					}
-					if ( 'other' === $software_id ) {
-						$software = null;
-					}
 
 						$aff_software = str_replace( '${affiliate_software}', $software, $aff_software );
 						$aff_software = str_replace( '${countries}', get_post_meta( get_the_ID(), 'countries', true ), $aff_software );
