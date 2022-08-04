@@ -138,7 +138,8 @@ if ( 'voluum' === $software_id ) {
 						<li class="SidebarTOC__item"><a href="#ap-campaigns"><?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></a></li>
 						<li class="SidebarTOC__item"><a href="#ap-payouts"><?php _e( 'Affiliate Program Commissions & Payouts', 'ms' ); ?></a></li>
 
-						<?php if ( $software ) {
+						<?php 
+						if ( $software ) {
 							?>
 							<li class="SidebarTOC__item"><a href="#ap-software"><?php _e( 'Affiliate Software', 'ms' ); ?></a></li>
 						<?php } ?>
