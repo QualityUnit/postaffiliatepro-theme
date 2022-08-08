@@ -692,7 +692,8 @@ video {
 		}
 	}
 
-	a[href*="postaffiliatepro."] {
+	a[href*="postaffiliatepro."],
+	a[href*="cdn.qualityunit.com"] {
 
 		&::after {
 			display: none !important;
@@ -720,7 +721,8 @@ video {
 		}
 	}
 
-	.Button[href*="postaffiliatepro."] {
+	.Button[href*="postaffiliatepro."],
+	.Button[href*="cdn.qualityunit.com"] {
 
 		span {
 
