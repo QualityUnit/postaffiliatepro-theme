@@ -1,3 +1,7 @@
+### 1.0.14: August 9th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.13: August 3th, 2022
 
 - Bug Fixes and Improvements
