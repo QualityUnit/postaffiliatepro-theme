@@ -259,10 +259,10 @@ function show_software( $software ) {
 
 function show_communication( $communication ) {
 	if ( is_array( $communication ) ) {
-		$comm_items = '';
+		$comm_items       = '';
 		$comm_items_count = count( $communication ) - 1;
 		foreach ( $communication as $id => $comm_item ) {
-			$comm_items .= ( ( 0 !== $id && $comm_items_count !== $id ) ? ', ' : ( $comm_items_count === $id ? ( ' ' . __( 'and', 'ms' )  . ' ' ) : '' ) ) . comm( $comm_item );
+			$comm_items .= ( ( 0 !== $id && $comm_items_count !== $id ) ? ', ' : ( $comm_items_count === $id ? ( ' ' . __( 'and', 'ms' ) . ' ' ) : '' ) ) . comm( $comm_item );
 		}
 		return strtolower( $comm_items );
 	}
