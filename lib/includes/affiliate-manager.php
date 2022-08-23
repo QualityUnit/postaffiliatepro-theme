@@ -10,7 +10,6 @@ $aff_image = wp_get_attachment_image( get_term_meta( $aff_id, 'picture', true ),
 if ( ! isset( $aff_image ) || '' === $aff_image ) {
 	$aff_image = get_avatar( get_term_meta( $aff_id, 'email', true ), $size = '145', $default = 'mp', $aff_name, array( 'class' => 'AffiliateManager__image' ) );
 }
-$aff_desc  = get_term( $aff_id )->description;
 $email     = get_term_meta( $aff_id, 'email', true );
 $phone     = get_term_meta( $aff_id, 'phone', true );
 $linkedin  = get_term_meta( $aff_id, 'linkedin', true );
@@ -85,103 +84,117 @@ function manager_industry( $manager_industry ) {
 
 $software = get_term_meta( $aff_id, 'affiliate_software', true );
 
-function software( $softwareitem ) {
-	if ( isset( $softwareitem ) ) {
-		if ( 'pap' === $softwareitem ) {
-			$softwareitem = __( 'Post Affiliate Pro', 'ms' );
+function software( $softwareitem_id ) {
+	$softwareitem_name = null;
+
+	if ( isset( $softwareitem_id ) ) {
+		if ( 'pap' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Post Affiliate Pro', 'ms' );
 		}
-		if ( 'affice' === $softwareitem ) {
-			$softwareitem = __( 'Affice', 'ms' );
+		if ( 'affice' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Affice', 'ms' );
 		}
-		if ( 'affiliatewp' === $softwareitem ) {
-			$softwareitem = __( 'AffiliateWP', 'ms' );
+		if ( 'affiliatewp' === $softwareitem_id ) {
+			$softwareitem_name = __( 'AffiliateWP', 'ms' );
 		}
-		if ( 'afftrack' === $softwareitem ) {
-			$softwareitem = __( 'Afftrack', 'ms' );
+		if ( 'afftrack' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Afftrack', 'ms' );
 		}
-		if ( 'avangate' === $softwareitem ) {
-			$softwareitem = __( 'Avangate', 'ms' );
+		if ( 'avangate' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Avangate', 'ms' );
 		}
-		if ( 'awin' === $softwareitem ) {
-			$softwareitem = __( 'Awin', 'ms' );
+		if ( 'awin' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Awin', 'ms' );
 		}
-		if ( 'cake' === $softwareitem ) {
-			$softwareitem = __( 'CAKE', 'ms' );
+		if ( 'cake' === $softwareitem_id ) {
+			$softwareitem_name = __( 'CAKE', 'ms' );
 		}
-		if ( 'cjaffiliate' === $softwareitem ) {
-			$softwareitem = __( 'CJ Affiliate', 'ms' );
+		if ( 'cjaffiliate' === $softwareitem_id ) {
+			$softwareitem_name = __( 'CJ Affiliate', 'ms' );
 		}
-		if ( 'clickbank' === $softwareitem ) {
-			$softwareitem = __( 'Clickbank', 'ms' );
+		if ( 'clickbank' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Clickbank', 'ms' );
 		}
-		if ( 'clickinc' === $softwareitem ) {
-			$softwareitem = __( 'Clickinc', 'ms' );
+		if ( 'clickinc' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Clickinc', 'ms' );
 		}
-		if ( 'clickmeter' === $softwareitem ) {
-			$softwareitem = __( 'Clickmeter', 'ms' );
+		if ( 'clickmeter' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Clickmeter', 'ms' );
 		}
-		if ( 'everflow' === $softwareitem ) {
-			$softwareitem = __( 'Everflow', 'ms' );
+		if ( 'everflow' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Everflow', 'ms' );
 		}
-		if ( 'firstpromoter' === $softwareitem ) {
-			$softwareitem = __( 'Firstpromoter', 'ms' );
+		if ( 'firstpromoter' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Firstpromoter', 'ms' );
 		}
-		if ( 'growthhero' === $softwareitem ) {
-			$softwareitem = __( 'Growthhero', 'ms' );
+		if ( 'growthhero' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Growthhero', 'ms' );
 		}
-		if ( 'hitpath' === $softwareitem ) {
-			$softwareitem = __( 'HitPath', 'ms' );
+		if ( 'hitpath' === $softwareitem_id ) {
+			$softwareitem_name = __( 'HitPath', 'ms' );
 		}
-		if ( 'idevaffiliate' === $softwareitem ) {
-			$softwareitem = __( 'iDevAffiliate', 'ms' );
+		if ( 'idevaffiliate' === $softwareitem_id ) {
+			$softwareitem_name = __( 'iDevAffiliate', 'ms' );
 		}
-		if ( 'jrox' === $softwareitem ) {
-			$softwareitem = __( 'JROX', 'ms' );
+		if ( 'jrox' === $softwareitem_id ) {
+			$softwareitem_name = __( 'JROX', 'ms' );
 		}
-		if ( 'leaddyno' === $softwareitem ) {
-			$softwareitem = __( 'LeadDyno', 'ms' );
+		if ( 'leaddyno' === $softwareitem_id ) {
+			$softwareitem_name = __( 'LeadDyno', 'ms' );
 		}
-		if ( 'linktrust' === $softwareitem ) {
-			$softwareitem = __( 'Linktrust', 'ms' );
+		if ( 'linktrust' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Linktrust', 'ms' );
 		}
-		if ( 'offer18' === $softwareitem ) {
-			$softwareitem = __( 'Offer18', 'ms' );
+		if ( 'offer18' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Offer18', 'ms' );
 		}
-		if ( 'osiaffiliate' === $softwareitem ) {
-			$softwareitem = __( 'OSI affiliate', 'ms' );
+		if ( 'osiaffiliate' === $softwareitem_id ) {
+			$softwareitem_name = __( 'OSI affiliate', 'ms' );
 		}
-		if ( 'rekuten' === $softwareitem ) {
-			$softwareitem = __( 'Rakuten Advertising', 'ms' );
+		if ( 'rekuten' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Rakuten Advertising', 'ms' );
 		}
-		if ( 'redtrack' === $softwareitem ) {
-			$softwareitem = __( 'RedTrack', 'ms' );
+		if ( 'redtrack' === $softwareitem_id ) {
+			$softwareitem_name = __( 'RedTrack', 'ms' );
 		}
-		if ( 'refersion' === $softwareitem ) {
-			$softwareitem = __( 'Refersion', 'ms' );
+		if ( 'refersion' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Refersion', 'ms' );
 		}
-		if ( 'scaleo' === $softwareitem ) {
-			$softwareitem = __( 'Scaleo', 'ms' );
+		if ( 'scaleo' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Scaleo', 'ms' );
 		}
-		if ( 'shareasale' === $softwareitem ) {
-			$softwareitem = __( 'ShareASale', 'ms' );
+		if ( 'shareasale' === $softwareitem_id ) {
+			$softwareitem_name = __( 'ShareASale', 'ms' );
 		}
-		if ( 'tapaffiliate' === $softwareitem ) {
-			$softwareitem = __( 'Tapaffiliate', 'ms' );
+		if ( 'tapaffiliate' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Tapaffiliate', 'ms' );
 		}
-		if ( 'tune' === $softwareitem ) {
-			$softwareitem = __( 'Tune', 'ms' );
+		if ( 'tune' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Tune', 'ms' );
 		}
-		if ( 'trackiers' === $softwareitem ) {
-			$softwareitem = __( 'Trackiers', 'ms' );
+		if ( 'trackiers' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Trackiers', 'ms' );
 		}
-		if ( 'voluum' === $softwareitem ) {
-			$softwareitem = __( 'Voluum', 'ms' );
-		}
-		if ( 'other' === $softwareitem ) {
-			$softwareitem = __( 'Other', 'ms' );
+		if ( 'voluum' === $softwareitem_id ) {
+			$softwareitem_name = __( 'Voluum', 'ms' );
 		}
 
-		return $softwareitem;
+		return (object) array(
+			'name' => $softwareitem_name,
+			'id'   => $softwareitem_id,
+		);
+	}
+}
+
+function software_url( $software_id, $software ) {
+
+	$path = $software_id . '-alternative';
+	if ( 'pap' !== $software_id && get_page_by_path( $path ) ) { // @codingStandardsIgnoreLine
+			return '<a href="' . __( '/alternatives', 'ms' ) . '/' . $software_id . '">' .
+			$software . '</a>';
+	}
+	if ( 'pap' === $software_id || ! get_page_by_path( $path ) ) { // @codingStandardsIgnoreLine
+			return '<a href="/">' . $software . '</a>';
 	}
 }
 
@@ -212,3 +225,64 @@ function comm( $comm ) {
 		return $comm;
 	}
 }
+
+function show_industries( $manager_industries ) {
+	if ( is_array( $manager_industries ) ) {
+		foreach ( $manager_industries as $id => $manager_industry ) {
+			$industries = manager_industry( $manager_industry );
+
+			if ( $id > 0 ) {
+				$industries .= ', ' . manager_industry( $manager_industry );
+			}
+			return $industries;
+		}
+	}
+	return __( 'various industries', 'ms' );
+}
+
+function show_software( $software ) {
+	if ( is_array( $software ) ) {
+		$sw_items = '';
+		foreach ( $software as $sw_id => $software_item ) {
+			if ( software( $software_item )->name ) {
+				
+				$sw_items .= ( $sw_id > 0 ? ', ' : '' ) . software_url( ( software( $software_item )->id ), software( $software_item )->name );
+			} 
+		}
+		return $sw_items;
+	}
+
+	if ( ! is_array( $software ) ) {
+		return __( 'various affiliate software', 'ms' );
+	}
+}
+
+function show_communication( $communication ) {
+	if ( is_array( $communication ) ) {
+		$comm_items       = '';
+		$comm_items_count = count( $communication ) - 1;
+		foreach ( $communication as $id => $comm_item ) {
+			$comm_items .= ( ( 0 !== $id && $comm_items_count !== $id ) ? ', ' : ( $comm_items_count === $id ? ( ' ' . __( 'and', 'ms' ) . ' ' ) : '' ) ) . comm( $comm_item );
+		}
+		return strtolower( $comm_items );
+	}
+
+	if ( ! is_array( $software ) ) {
+		return __( 'various affiliate software', 'ms' );
+	}
+}
+
+$aff_desc = __( '${aff_name} is an affiliate manager with expertise in the ${manager_industry}. ${aff_program} manager ${aff_name} primarily focuses his affiliate efforts in the ${aff_countries}. ${aff_name} uses ${aff_software} for tracking, reporting, and automating affiliate operations on a daily basis. To contact ${aff_name}, feel free to reach out via email, phone, or contact form for a prompt answer.', 'ms' );
+
+if ( 'Worldwide' === $countries ) {
+	$aff_desc = __( '${aff_name} is an affiliate manager with expertise in the ${manager_industry}. ${aff_program} manager ${aff_name} primarily focuses his affiliate efforts ${aff_countries}. ${aff_name} uses ${aff_software} for tracking, reporting, and automating affiliate operations on a daily basis. To contact ${aff_name}, feel free to reach out via ${aff_communication} for a prompt answer.', 'ms' );
+}
+
+$aff_desc = str_replace( '${aff_name}', $aff_name, $aff_desc );
+
+$aff_desc = str_replace( '${manager_industry}', show_industries( $manager_industries ), $aff_desc );
+$aff_desc = str_replace( '${aff_program}', get_the_title(), $aff_desc );
+$aff_desc = str_replace( '${aff_software}', show_software( $software ), $aff_desc );
+$aff_desc = str_replace( '${aff_countries}', $countries, $aff_desc );
+$aff_desc = str_replace( '${aff_communication}', show_communication( $communication ), $aff_desc );
+

@@ -87,37 +87,47 @@ require_once 'lib/includes/affiliate-manager.php';
 				</ul>
 			</div>
 			<div class="Directory__blocks">
-				<?php
-				if ( strlen( $aff_desc ) > 5 ) {
-					?>
-					<h2 class="Directory__blocks__title"><span><?php _e( 'Affiliate manager\'s bio', 'ms' ); ?></span></h2>
-					<p><?= esc_html( $aff_desc ); ?></p>
-				<?php } ?>
+				<h2 class="Directory__blocks__title"><span><?php _e( 'Affiliate manager\'s bio', 'ms' ); ?></span></h2>
+					<p><?= $aff_desc; // @codingStandardsIgnoreLine ?></p>
 
-				<h2 class="Directory__blocks__title"><span><?php _e( 'Countries focus', 'ms' ); ?></span></h2>
+				<h2 class="Directory__blocks__title"><span><?php _e( 'Geographical focus', 'ms' ); ?></span></h2>
 				<p><?= esc_html( $countries ); ?></p>
 
 				<?php
 				if ( is_array( $software ) ) {
-					?>
-					<h2 class="Directory__blocks__title"><span><?php _e( 'Affiliate softwares experiences', 'ms' ); ?></span></h2>
+					$software_exists = false;
+					foreach ( $software as $softwareitem_id ) {
+						if ( isset( software( $softwareitem_id )->name ) ) {
+							$software_exists = true;
+						}
+					}
+					if ( $software_exists ) {
+						?>
+					<h2 class="Directory__blocks__title"><span><?php _e( 'Experience with the following affiliate software', 'ms' ); ?></span></h2>
 					<p class="commaList">
 						<?php
-						foreach ( $software as $softwareitem ) {
-							?>
-							<span><?= esc_html( software( $softwareitem ) ); ?></span>
-						<?php } ?>
+						foreach ( $software as $softwareitem_id ) {
+							if ( software( $softwareitem_id )->name ) {
+								?>
+							<span><?= software_url( ( software( $softwareitem_id )->id ), software( $softwareitem_id )->name ); // @codingStandardsIgnoreLine ?></span>
+								<?php 
+							} 
+						} 
+						?>
 					</p>
-				<?php } ?>
+						<?php
+					} 
+				}
+				?>
 
-				<?php if ( 'na' !== $revenue ) { ?>
-					<h2 class="Directory__blocks__title"><span><?php _e( 'Affiliate programs revenue', 'ms' ); ?></span></h2>
+				<?php if ( 'na' !== $revenue && $revenue ) { ?>
+					<h2 class="Directory__blocks__title"><span><?php _e( 'Income from affiliate programs', 'ms' ); ?></span></h2>
 					<p><?= esc_html( $revenue ); ?></p>
 				<?php } ?>
 				<?php
 				if ( is_array( $communication ) ) {
 					?>
-					<h2 class="Directory__blocks__title"><span><?php _e( 'Main communication channels', 'ms' ); ?></span></h2>
+					<h2 class="Directory__blocks__title"><span><?php _e( 'Channels of communication', 'ms' ); ?></span></h2>
 					<p class="commaList">
 						<?php
 						foreach ( $communication as $comm ) {
@@ -127,7 +137,7 @@ require_once 'lib/includes/affiliate-manager.php';
 					</p>
 				<?php } ?>
 
-				<h2 class="Directory__blocks__title"><span><?= esc_html( __( 'Programs managed by', 'ms' ) . ' ' . $aff_name ); ?></span></h2>
+				<h2 class="Directory__blocks__title"><span><?= esc_html( __( 'Affiliate programs managed by', 'ms' ) . ' ' . $aff_name ); ?></span></h2>
 				<ul class="Boxes__fullWidth">
 					<?php
 					while ( have_posts() ) :
