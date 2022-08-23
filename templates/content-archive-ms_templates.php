@@ -116,7 +116,7 @@ set_source( 'templates', 'filter', 'js' );
 									foreach ( $categories as $c ) {
 										++$counter;
 										$category_id    = $c->term_id;
-										$category_name  = $c->cat_name;
+										$category_name  = $c->name;
 										$category_color = get_term_meta( $category_id, 'category_color', true );
 										?>
 										<span class="CategoryTag <?= esc_attr( $category_color ); ?>"><?= esc_html( $category_name ); ?></span>
