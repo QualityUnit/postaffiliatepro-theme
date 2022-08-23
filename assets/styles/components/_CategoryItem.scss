@@ -226,7 +226,7 @@
 			@include posZero;
 			content: "";
 			position: absolute;
-			background: linear-gradient(to right, transparent 25%, rgba(#222, 0.75));
+			background: linear-gradient(270deg, rgba(#222, 0.2) 0%, rgba(#333, 0) 54%);
 			border-radius: $border-radius-16 $border-radius-16 0 0;
 		}
 
