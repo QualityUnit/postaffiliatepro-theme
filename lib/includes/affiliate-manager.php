@@ -5,7 +5,11 @@ set_source( 'directory', 'components/AffiliateManagerCard', 'css' );
 set_source( 'directory', 'pages/AffiliateManager', 'css' );
 set_source( 'directory', 'pages/post', 'css' );
 $aff_id    = get_queried_object_id();
-$aff_name  = get_term_meta( $aff_id, 'name', true );
+if ( get_term_meta( $aff_id, 'aff_name', true ) ) {
+	$aff_name = get_term_meta( $aff_id, 'aff_name', true );
+} else {
+	$aff_name = get_term_meta( $aff_id, 'name', true ); // fallback for previous field
+}
 $aff_image = wp_get_attachment_image( get_term_meta( $aff_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
 if ( ! isset( $aff_image ) || '' === $aff_image ) {
 	$aff_image = get_avatar( get_term_meta( $aff_id, 'email', true ), $size = '145', $default = 'mp', $aff_name, array( 'class' => 'AffiliateManager__image' ) );
@@ -245,9 +249,8 @@ function show_software( $software ) {
 		$sw_items = '';
 		foreach ( $software as $sw_id => $software_item ) {
 			if ( software( $software_item )->name ) {
-				
 				$sw_items .= ( $sw_id > 0 ? ', ' : '' ) . software_url( ( software( $software_item )->id ), software( $software_item )->name );
-			} 
+			}
 		}
 		return $sw_items;
 	}
@@ -285,4 +288,3 @@ $aff_desc = str_replace( '${aff_program}', get_the_title(), $aff_desc );
 $aff_desc = str_replace( '${aff_software}', show_software( $software ), $aff_desc );
 $aff_desc = str_replace( '${aff_countries}', $countries, $aff_desc );
 $aff_desc = str_replace( '${aff_communication}', show_communication( $communication ), $aff_desc );
-
