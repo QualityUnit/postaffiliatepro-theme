@@ -39,6 +39,11 @@
 				}
 				?>
 
+				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/call/', 'ms' ); ?>" class="Button
+				Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Book a consult'])">
+					<span><?php _e( 'Book a consult', 'ms' ); ?></span>
+				</a>
+
 				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
 					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 				</a>
