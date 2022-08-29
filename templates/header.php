@@ -39,9 +39,15 @@
 				}
 				?>
 
-				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
-					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
-				</a>
+				<div class="Header__navigation__buttons">
+					<a href="<?= esc_url( $post_slug ); ?><?php _e( '/call/', 'ms' ); ?>"
+					   class="Button Button--outline" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Book a consult'])">
+						<span><?php _e( 'Book a consult', 'ms' ); ?></span>
+					</a>
+					<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
+						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
+					</a>
+				</div>
 
 				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Login'])">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
