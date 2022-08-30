@@ -23,7 +23,7 @@
 
 		@media (min-width: $breakpoint-tablet) {
 			margin-top: 2em;
-			padding: 5em 25%;
+			padding: 5em 25% 6.8em 25%;
 
 			&::before,
 			&::after {
@@ -128,17 +128,16 @@
 	@media (min-width: $breakpoint-tablet) {
 
 		&__column {
-			width: calc(50% - 0.5em) !important;
+			width: calc(50% - 1em) !important;
+			margin: 0 0.5em;
 
 			&--wrap {
 				position: relative;
-				top: -2em;
 				z-index: 1;
+				max-width: $wrapper-width;
+				margin: -3.8em auto 0 auto;
+				padding: 0 0.5em;
 			}
-		}
-
-		&__column + &__column {
-			margin-left: 1em;
 		}
 	}
 }
