@@ -661,11 +661,11 @@ if ( 'voluum' === $software_id ) {
 					</div>
 
 					<?php 
-						$aff_software = __( 'The ${program_name} uses the ${affiliate_software} affiliate software to manage its portfolio in the ${countries}.', 'ms' );
+						$aff_software = __( 'The ${company_name} affiliate program uses the ${affiliate_software} affiliate software to manage its portfolio in the ${countries}.', 'ms' );
 					if ( get_post_meta( get_the_ID(), 'countries', true ) === 'Worldwide' ) {
-						$aff_software = __( 'The ${program_name} uses the ${affiliate_software} affiliate software to manage its portfolio ${countries}.', 'ms' );
+						$aff_software = __( 'The ${company_name} affiliate program uses the ${affiliate_software} affiliate software to manage its portfolio ${countries}.', 'ms' );
 					}
-						$aff_software = str_replace( '${program_name}', get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' ), $aff_software );
+						$aff_software = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $aff_software );
 
 					function software_url( $software_id, $software ) {
 
