@@ -214,8 +214,6 @@ if ( 'voluum' === $software_id ) {
 
 				if ( $type_programs ) {
 					foreach ( $type_programs as $type_program ) {
-						if ( 'other' === $type_program ) {
-							$type_program = __( 'Other', 'ms' ); }
 						if ( 'cps' === $type_program ) {
 							$type_program = __( 'CPS - Cost Per Sales', 'ms' ); }
 						if ( 'cpa' === $type_program ) {
@@ -260,13 +258,19 @@ if ( 'voluum' === $software_id ) {
 
 				<div class="Directory__blocks">
 
-					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Overview', 'ms' ); ?></span></h2>
+					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
 
 					<?php
 					$overview = __( '${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
 
 					$overview = str_replace( '${company_description}', get_post_meta( get_the_ID(), 'company_description', true ), $overview );
-					$overview = str_replace( '${type_program}', preg_replace( '/(\w{3}) (-|–|—|-).+/', '$1', $type_program ), $overview );
+
+					if ( 'other' !== $type_program ) {
+						$overview = str_replace( '${type_program}', preg_replace( '/(\w{3}) (-|–|—|-).+/', '$1', $type_program ), $overview );
+					}
+
+					$overview = str_replace( '${type_program}', '', $overview );
+
 					$overview = str_replace( '${industry}', strtolower( $industry ), $overview );
 					?>
 					<p><?= esc_html( $overview ); ?></p>
@@ -281,7 +285,7 @@ if ( 'voluum' === $software_id ) {
 
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/product_type.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Product Type', 'ms' ); ?></h3>
+							<h3><?php _e( 'Product type', 'ms' ); ?></h3>
 
 							<?php
 							$product_types = get_post_meta( get_the_ID(), 'product_type', true );
@@ -308,6 +312,9 @@ if ( 'voluum' === $software_id ) {
 							?>
 						</div>
 
+						<?php
+						if ( 'other' !== $type_program ) {
+						?>
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/affiliate_program.svg" alt="<?php the_title(); ?>">
 							<h3><?php _e( 'Type of affiliate program', 'ms' ); ?></h3>
@@ -320,10 +327,11 @@ if ( 'voluum' === $software_id ) {
 							}
 							?>
 						</div>
+						<?php } ?>
 
 					</div>
 
-					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></span></h2>
+					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program campaigns', 'ms' ); ?></span></h2>
 					<?php
 					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
 					$campaign_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $campaign_text );
@@ -385,13 +393,13 @@ if ( 'voluum' === $software_id ) {
 
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/cookie_duration.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Affiliate Cookie duration', 'ms' ); ?></h3>
+							<h3><?php _e( 'Affiliate cookie duration', 'ms' ); ?></h3>
 
 							<p><?= esc_html( get_post_meta( get_the_ID(), 'cookie_duration', true ) ); ?></p>
 						</div>
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/traffic_sources.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Accepted Traffic source', 'ms' ); ?></h3>
+							<h3><?php _e( 'Accepted traffic source', 'ms' ); ?></h3>
 
 							<?php
 							$traffic_sources = get_post_meta( get_the_ID(), 'traffic_source', true );
@@ -442,7 +450,7 @@ if ( 'voluum' === $software_id ) {
 
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/religious_or_political_content.svg" alt="<?php the_title(); ?>">
-							<h3><?php _e( 'Religious or Political content', 'ms' ); ?></h3>
+							<h3><?php _e( 'Religious or political content', 'ms' ); ?></h3>
 
 							<?php $political = get_post_meta( get_the_ID(), 'political', true ); ?>
 
@@ -456,7 +464,7 @@ if ( 'voluum' === $software_id ) {
 						</div>
 					</div>
 
-					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & Payouts', 'ms' ); ?></span></h2>
+					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & payouts', 'ms' ); ?></span></h2>
 
 					<p>
 						<?php _e( 'Payouts are one of the most important factors to consider when choosing an affiliate program.', 'ms' ); ?>
@@ -587,12 +595,12 @@ if ( 'voluum' === $software_id ) {
 
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/payment_methods.svg" alt="<?php the_title(); ?>">
-							<h3><a href="<?php _e( '/features/mass-payments/', 'ms' ); ?>"  title="<?php _e( 'What are payout methods?', 'ms' ); ?>"><?php _e( 'Payout methods', 'ms' ); ?></a></h3>
+							<h3><?php _e( 'Payout methods', 'ms' ); ?></h3>
 
 							<?php
 							$payout_methods = get_post_meta( get_the_ID(), 'payout_methods', true );
 
-							if ( $payout_methods ) {
+							if ( $payout_methods && count( $payout_methods ) > 1 ) {
 								foreach ( $payout_methods as $payout_method ) {
 									?>
 
@@ -635,6 +643,12 @@ if ( 'voluum' === $software_id ) {
 									<?php
 								}
 							}
+
+							if ( 1 === count( $payout_methods ) && 'other' === $payout_methods[0] ) {
+							?>
+								<p><?php _e( 'N/A', 'ms' ); ?></p>
+							<?php
+							}
 							?>
 						</div>
 
@@ -651,7 +665,7 @@ if ( 'voluum' === $software_id ) {
 					if ( get_post_meta( get_the_ID(), 'countries', true ) === 'Worldwide' ) {
 						$aff_software = __( 'The ${program_name} uses the ${affiliate_software} affiliate software to manage its portfolio ${countries}.', 'ms' );
 					}
-						$aff_software = str_replace( '${program_name}', get_post_meta( get_the_ID(), 'program_name', true ), $aff_software );
+						$aff_software = str_replace( '${program_name}', get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' ), $aff_software );
 
 					function software_url( $software_id, $software ) {
 
@@ -690,7 +704,7 @@ if ( 'voluum' === $software_id ) {
 					}
 					?>
 
-					<h2 id="affiliate-manager" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Manager', 'ms' ); ?></span></h2>
+					<h2 id="affiliate-manager" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate manager', 'ms' ); ?></span></h2>
 
 					<?php
 					// Saves to post data directory name and url for Affiliate manager breadcrumb
