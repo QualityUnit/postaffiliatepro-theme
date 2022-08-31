@@ -314,7 +314,7 @@ if ( 'voluum' === $software_id ) {
 
 						<?php
 						if ( 'other' !== $type_program ) {
-						?>
+							?>
 						<div class="Directory__blocks__items__item">
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/affiliate_program.svg" alt="<?php the_title(); ?>">
 							<h3><?php _e( 'Type of affiliate program', 'ms' ); ?></h3>
@@ -645,9 +645,9 @@ if ( 'voluum' === $software_id ) {
 							}
 
 							if ( 1 === count( $payout_methods ) && 'other' === $payout_methods[0] ) {
-							?>
+								?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
-							<?php
+								<?php
 							}
 							?>
 						</div>
