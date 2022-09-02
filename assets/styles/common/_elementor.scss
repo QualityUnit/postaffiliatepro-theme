@@ -12,9 +12,12 @@
 	padding: 0 !important;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-	width: 100%;
-	max-width: $breakpoint-desktop-box;
+.elementor-section {
+
+	&-boxed > .elementor-container {
+		width: 100%;
+		max-width: $breakpoint-desktop-box;
+	}
 }
 
 .elementor-widget-heading {

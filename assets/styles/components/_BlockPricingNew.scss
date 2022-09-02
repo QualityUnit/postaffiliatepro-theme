@@ -92,6 +92,10 @@
 		.box.elementor-column[class*="box"] {
 			padding: 2em !important;
 
+			p:last-child {
+				margin-bottom: 0;
+			}
+
 			.elementor-widget-wrap {
 				display: flex;
 				flex-direction: column;
