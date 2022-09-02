@@ -38,6 +38,10 @@ body {
 	margin-bottom: 0 !important;
 	padding: 0 !important;
 
+	.elementor-inner-section > .elementor-container > .elementor-row {
+		align-items: flex-start;
+	}
+
 	.elementor-widget-heading h2.elementor-heading-title {
 		margin-bottom: 10px !important;
 	}
