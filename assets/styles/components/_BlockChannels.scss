@@ -146,7 +146,8 @@
 	}
 }
 
-.BlockChannels--background-orange {
+.BlockChannels--background-orange,
+.BlockChannels--background-primary {
 
 	&.BlockChannels--background {
 
@@ -161,14 +162,13 @@
 	.wrapper {
 		padding-left: 1.25em !important;
 		padding-right: 1.25em !important;
-		background: $primary url(../images/value-boxes_bg.svg) left bottom no-repeat !important;
-		// background-size: 100% !important;
+		background: $light-primary url(../images/block-channels-bg--primary.svg) center center no-repeat;
+		background-size: cover;
 	}
 
 	@media (min-width: $breakpoint-desktop) {
 
 		.wrapper {
-			background-size: auto 115% !important;
 			padding: 6em 7.25em 3em !important;
 		}
 	}

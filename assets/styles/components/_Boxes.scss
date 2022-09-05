@@ -18,7 +18,36 @@
 		}
 	}
 
-	&.has-four {
+	&--shadow {
+
+		.wrapper .elementor-column {
+
+			.elementor-widget-wrap {
+
+				@include color(box-shadow, box-shadow);
+				@include color(background-color, main-background);
+			}
+
+			.elementor-image {
+
+				a {
+					border-radius: $border-radius;
+					overflow: hidden;
+					max-height: 15em;
+				}
+			}
+
+			.elementor-widget-heading {
+				padding: 30px 40px 0 !important;
+			}
+
+			.elementor-widget-text-editor {
+				padding: 0 40px 30px !important;
+			}
+		}
+	}
+
+	&.has-four:not(.Boxes--stars):not(.Boxes--image) {
 
 		@media (min-width: $breakpoint-tablet-small) and (max-width: $breakpoint-tablet-landscape) {
 
@@ -192,6 +221,128 @@
 					margin-top: 1.5em * $margin;
 				}
 			}
+		}
+	}
+
+	.elementor-col-50,
+	.elementor-col-33 {
+		position: relative;
+		padding: 20px;
+
+		.elementor-widget-wrap {
+			border-radius: $border-radius-16;
+			align-items: flex-start;
+		}
+
+		.elementor-widget-image.wide .elementor-image {
+			padding: 0;
+		}
+
+		.elementor-widget-image {
+			overflow: hidden;
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+
+			.elementor-image {
+				display: block;
+				height: 100%;
+				padding: 30px 40px 0;
+
+				a {
+					display: block;
+					height: 100%;
+				}
+
+				img {
+					display: block;
+					margin: auto;
+					width: auto !important;
+					max-width: 100%;
+					// height: 100%;
+				}
+			}
+		}
+
+		.elementor-widget-text-editor {
+			margin-bottom: 0;
+			text-align: left;
+
+			p {
+				max-width: none;
+				text-align: left;
+			}
+
+			a:not(.Button) {
+
+				@include color(color, primary-color);
+
+				&:active,
+				&:focus,
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			a {
+
+				@include color(color, font-color-dark);
+				font-weight: $font-weight-bold;
+			}
+		}
+
+		.elementor-widget-heading,
+		.elementor-widget-text-editor {
+			position: static;
+			padding: 15px 0 0;
+
+			h3 {
+				font-size: 24px;
+				line-height: 28px;
+
+				a {
+
+					&::before {
+
+						@include posZero;
+						position: absolute;
+						content: "";
+						z-index: 1;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		h2 {
+			font-size: $font-size-h2;
+			line-height: 1.3125 !important;
+		}
+
+		.elementor-container {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		.elementor-col-50,
+		.elementor-col-33 {
+			padding: 1em;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+
+		.elementor-widget-image {
+			max-height: none;
+		}
+
+		.elementor-col-33 {
+			width: 100%;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
 		}
 	}
 
