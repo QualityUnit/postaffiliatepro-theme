@@ -8,7 +8,7 @@ function add_affiliate_management_metaboxes( $settings ) {
 		'taxonomy' => array( 'ms_directory_affiliate_manager' ),
 		'fields'   => array(
 			array(
-				'id'    => 'name',
+				'id'    => 'aff_name',
 				'label' => 'Name of the Affiliate manager',
 				'type'  => 'text',
 			),
