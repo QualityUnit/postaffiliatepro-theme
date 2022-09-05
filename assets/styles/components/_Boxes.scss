@@ -259,7 +259,7 @@
 			}
 		}
 
-		.elementor-text-editor {
+		.elementor-widget-text-editor {
 			margin-bottom: 0;
 			text-align: left;
 
@@ -313,7 +313,7 @@
 
 		h2 {
 			font-size: $font-size-h2;
-			line-height: 42px !important;
+			line-height: 1.3125 !important;
 		}
 
 		.elementor-container {
@@ -323,7 +323,7 @@
 
 		.elementor-col-50,
 		.elementor-col-33 {
-			padding: 15px;
+			padding: 1em;
 		}
 	}
 
