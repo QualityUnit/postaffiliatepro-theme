@@ -60,6 +60,10 @@
 
 	&--dotted {
 
+		> .elementor-container {
+			max-width: $wrapper-width !important;
+		}
+
 		.elementor-column:not(.pillar) {
 
 			box-shadow: none;
