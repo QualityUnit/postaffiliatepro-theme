@@ -252,6 +252,21 @@ button,
 	}
 }
 
+.Button--medium {
+	height: 4em;
+	padding: 0 4.375em;
+	font-size: 1rem;
+
+	span,
+	strong {
+		line-height: 1.16;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		padding: 0 2em;
+	}
+}
+
 .Button--big {
 	height: 72px;
 	padding: 0 30px;

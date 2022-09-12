@@ -23,15 +23,15 @@ function ms_slidertestimonials_reference() {
 
 					<li class="splide__slide">
 						<div class="slide__inn">
-							<div class="SliderTestimonials__slider__header__photo">
-								<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'person_thumbnail' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?>" />
+							<div class="SliderTestimonials__slider__top">
+								<div class="SliderTestimonials__slider__header__photo">
+									<img data-splide-lazy="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'person_thumbnail' ) ) ?>" alt="<?= esc_attr( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?>" />
+								</div>
+								<strong class="SliderTestimonials__slider__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></strong>
+								<p class="SliderTestimonials__slider__company"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></p>
 							</div>
 							<div class="SliderTestimonials__slider__content">
-								<?= esc_html( get_the_excerpt() ); ?>
-								<div class="SliderTestimonials__slider__content__bottom">
-									<strong class="SliderTestimonials__slider__name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_name', true ) ) ?></strong>
-									<span><span class="comma">,&nbsp;</span><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></span>
-								</div>
+								<span><?= esc_html( get_the_excerpt() ); ?></span>
 							</div>
 						</div>
 					</li>

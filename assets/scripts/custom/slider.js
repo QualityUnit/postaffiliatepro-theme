@@ -1,4 +1,5 @@
-/* global Splide */
+/* global Splide, IntersectionObserver */
+
 const direction = () => {
 	return document.documentElement.dir;
 };
@@ -52,22 +53,21 @@ if ( testimonialsReference.length > 0 ) {
 		const testimonials = new Splide( slider, {
 			type: 'loop',
 			autoplay: true,
-			lazyLoad: 'nearby',
-			speed: 700,
-			interval: 5000,
-			perPage: 1,
+			lazyLoad: 'sequential',
+			speed: 800,
+			interval: 7000,
+			perPage: 3,
 			perMove: 1,
 			focus: 'center',
 			pagination: true,
-			arrows: false,
+			arrows: true,
 			trimspace: true,
-			gap: '2em',
+			gap: '0px',
 			breakpoints: {
-				767: {
+				768: {
 					interval: 8000,
-					gap: '1.5em',
 					pagination: false,
-					fixedWidth: '80%',
+					perPage: 1,
 				},
 			},
 		} ).mount();
@@ -100,6 +100,25 @@ if ( testimonialsReference.length > 0 ) {
 				visibles.item( 2 ).classList.add( 'is-active' );
 			}
 		} );
+
+		if ( 'IntersectionObserver' in window && homeVertical.length > 0 ) {
+			const testimonialsObserver = new IntersectionObserver(
+				( entries ) => {
+					entries.forEach( ( entry ) => {
+						if ( entry.isIntersecting ) {
+							testimonials.mount( );
+
+							const sliderObject = entry.target;
+							testimonialsObserver.unobserve( sliderObject );
+						}
+					} );
+				}
+			);
+
+			testimonialsReference.forEach( ( sliderObject ) => {
+				testimonialsObserver.observe( sliderObject );
+			} );
+		}
 	} );
 }
 
