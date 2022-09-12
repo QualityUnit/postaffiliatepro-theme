@@ -70,7 +70,7 @@ if ( testimonialsReference.length > 0 ) {
 					perPage: 1,
 				},
 			},
-		} ).mount();
+		} );
 
 		// Bugfix for not showing images on first slide
 		testimonials.on( 'lazyload:loaded', () => {
@@ -101,7 +101,7 @@ if ( testimonialsReference.length > 0 ) {
 			}
 		} );
 
-		if ( 'IntersectionObserver' in window && homeVertical.length > 0 ) {
+		if ( 'IntersectionObserver' in window ) {
 			const testimonialsObserver = new IntersectionObserver(
 				( entries ) => {
 					entries.forEach( ( entry ) => {
