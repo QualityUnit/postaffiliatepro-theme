@@ -25,7 +25,7 @@
 	}
 
 	.elementor-container.elementor-column-gap-default {
-		max-width: none;
+		max-width: 1380px;
 	}
 
 	&__tabs {
@@ -181,6 +181,10 @@
 		}
 
 		.elementor-widget-text-editor.learn-more {
+
+			.elementor-text-editor {
+				all: unset;
+			}
 
 			a {
 
