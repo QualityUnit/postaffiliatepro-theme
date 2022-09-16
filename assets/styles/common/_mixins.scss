@@ -230,4 +230,35 @@
 	}
 }
 
+//background for boxes
+@mixin box_background($img-path:'../images/',$color:'gray'){
+	@include color(background-color, secondary-background);
+	@media (min-width: $breakpoint-tablet) {
+		position: relative;
+
+		*{
+			z-index: 2;
+		}
+
+		&::before,
+		&::after {
+
+			@include posZero;
+			position: absolute;
+			content: "";
+			z-index: 1;
+		}
+
+		&::before {
+			background: url(#{$img-path}pappan_home_el_l.svg) left center no-repeat;
+			background-size: auto 100%;
+		}
+
+		&::after {
+			background: url(#{$img-path}pappan_home_el_r.svg) right bottom no-repeat;
+			background-size: auto 90%;
+		}
+	}
+}
+
 /* stylelint-enable */
