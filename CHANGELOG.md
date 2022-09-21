@@ -1,3 +1,7 @@
+### 1.0.18: September 21st, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.0.17: September 13th, 2022
 
 - Bug Fixes and Improvements
