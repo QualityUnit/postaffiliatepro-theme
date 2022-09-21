@@ -2,8 +2,9 @@
 
 .BlockPricingNew {
 
-	@include color(background-color, secondary-background);
+	@include boxBackground();
 	border-radius: $border-radius-16;
+	overflow: hidden;
 
 	&.wrapper__wide {
 		padding: 4em 1.5em;
@@ -15,28 +16,6 @@
 
 	> .elementor-container > .elementor-row {
 		align-items: center;
-	}
-
-	@media (min-width: $breakpoint-tablet-landscape) {
-
-		&::before,
-		&::after {
-
-			@include posZero;
-			content: "";
-			position: absolute;
-
-		}
-
-		&::before {
-			background: url(../images/blockpricing_new_bg_left.svg) left center no-repeat;
-			background-size: auto 100%;
-		}
-
-		&::after {
-			background: url(../images/blockpricing_new_bg_right.svg) right center no-repeat;
-			background-size: auto 100%;
-		}
 	}
 
 	@media (max-width: $breakpoint-tablet-landscape - 1px) {

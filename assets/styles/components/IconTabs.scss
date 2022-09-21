@@ -119,6 +119,10 @@
 
 	&__content {
 
+		@include boxBackground($img-path:"../../images/",$color:"primary");
+		border-radius: $border-radius-16;
+		overflow: hidden;
+
 		&:not(.elementor-element-edit-mode) {
 			overflow: hidden;
 		}
@@ -149,10 +153,8 @@
 	}
 
 	&__block {
-		position: relative;
-		background: url(../../images/icontabs_bg.svg) center center no-repeat;
-		background-size: cover;
-		border-radius: $border-radius-16;
+
+		padding: 2.5em;
 
 		&.active {
 			transform: translateX(0);
@@ -208,7 +210,7 @@
 
 
 		@media (min-width: $breakpoint-desktop-box) {
-			padding: 6em 7.5em 4em;
+			padding: 3.25em 7.5em;
 
 			&--chart {
 				right: -3em;
