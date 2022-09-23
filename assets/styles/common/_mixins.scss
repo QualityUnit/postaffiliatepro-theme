@@ -230,4 +230,43 @@
 	}
 }
 
+//Background for Boxes
+//colors: gray, primary
+@mixin boxBackground($img-path:'../images/',$color:'default'){
+	$border-radius: 1rem;
+	position: relative;
+	border-radius: $border-radius;
+	@include color(background-color, secondary-background);
+	@if $color == 'primary' {
+		background-color: rgba($light-primary,0.4);
+	}
+	@media (min-width: $breakpoint-tablet) {
+		*{
+			z-index: 2;
+		}
+
+		&::before,
+		&::after {
+
+			@include posZero;
+			position: absolute;
+			content: "";
+			z-index: 1;
+			border-radius: $border-radius;
+			background-repeat: no-repeat;
+			background-size: 38% auto;
+		}
+
+		&::before {
+			background-image: url(#{$img-path}box-bg-left--#{$color}.svg);
+			background-position: left center;
+		}
+
+		&::after {
+			background-image: url(#{$img-path}box-bg-right--#{$color}.svg);
+			background-position: right center;
+		}
+	}
+}
+
 /* stylelint-enable */

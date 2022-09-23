@@ -741,9 +741,21 @@
 	@extend .Box;
 	@extend .Box--gray;
 
-	.wrapper {
-		background: url(../images/lines_bg.svg) center center no-repeat;
-		background-size: cover;
+	@media (min-width: $breakpoint-desktop-box - 1) {
+
+		.wrapper {
+
+			@include boxBackground();
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include boxBackground();
+
+		.wrapper {
+			background-color: transparent;
+		}
 	}
 
 	@media (max-width: $breakpoint-tablet-landscape) {

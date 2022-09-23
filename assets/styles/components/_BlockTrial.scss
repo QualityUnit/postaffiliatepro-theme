@@ -2,6 +2,23 @@
 
 .Block--trial {
 
+	@media (min-width: $breakpoint-desktop-box - 1) {
+
+		.wrapper {
+
+			@include boxBackground();
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include boxBackground();
+
+		.wrapper {
+			background-color: transparent;
+		}
+	}
+
 	.elementor-widget-heading + .elementor-widget-text-editor p {
 		font-size: $font-size-default;
 	}
