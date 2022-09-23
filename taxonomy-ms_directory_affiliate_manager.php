@@ -87,9 +87,12 @@ require_once 'lib/includes/affiliate-manager.php';
 				</ul>
 			</div>
 			<div class="Directory__blocks">
-				<h2 class="Directory__blocks__title"><span><?php _e( 'Affiliate manager\'s bio', 'ms' ); ?></span></h2>
-					<p><?= $aff_desc; // @codingStandardsIgnoreLine ?></p>
-
+				<?php
+				if ( $bio_hide == false ) {
+					?>
+					<h2 class="Directory__blocks__title"><span><?= $bio_hide ?><?php _e( 'Affiliate manager\'s bio', 'ms' ); ?></span></h2>
+                    <p><?= $aff_desc; // @codingStandardsIgnoreLine ?></p>
+				<?php } ?>
 				<h2 class="Directory__blocks__title"><span><?php _e( 'Geographical focus', 'ms' ); ?></span></h2>
 				<p><?= esc_html( $countries ); ?></p>
 
