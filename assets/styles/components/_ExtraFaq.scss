@@ -11,9 +11,9 @@
 		line-height: 1.5;
 		flex: 0 0 100%;
 		text-align: center;
+		font-family: $font-secondary;
 
 		span:first-child {
-			font-family: $font-secondary;
 			color: $primary;
 
 			&::after {
