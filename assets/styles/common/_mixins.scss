@@ -241,7 +241,7 @@
 		background-color: rgba($light-primary,0.4);
 	}
 	@media (min-width: $breakpoint-tablet) {
-		*{
+		> *{
 			z-index: 2;
 		}
 

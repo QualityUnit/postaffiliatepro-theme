@@ -27,6 +27,7 @@ define( 'THEME_VERSION', '1.0.18' );
 		'functions/post-query-mods.php', // Post Query mods
 		'functions/redirects.php', // Taxonomies Redirects
 		'functions/content-filters.php', // Content filters
+		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.
 		'functions/lazy-load.php', // Lazy loading of images, videos etc.

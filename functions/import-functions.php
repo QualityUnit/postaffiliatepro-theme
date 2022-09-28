@@ -53,3 +53,7 @@ function set_custom_source( $source_file, $filetype = 'css', $depends = false ) 
 		wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', $depends, THEME_VERSION, true );
 	}
 }
+
+function get_nodes( $xpath, $classname ) {
+	return $xpath->query( "//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]" );
+}
