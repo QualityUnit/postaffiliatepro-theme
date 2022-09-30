@@ -3,7 +3,23 @@
 .Text {
 
 	&--faq {
-		margin-top: 50px;
-		margin-bottom: 0;
+		margin-top: $block-space !important;
+		margin-bottom: $block-space !important;
+
+		.Faq {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
+
+		@media (max-width: $breakpoint-tablet) {
+			margin-top: $block-space-sm !important;
+			margin-bottom: $block-space-sm !important;
+
+			.Faq {
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+			}
+		}
+
 	}
 }
