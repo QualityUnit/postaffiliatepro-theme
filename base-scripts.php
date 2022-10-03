@@ -57,10 +57,14 @@
 	function loadGoogle() {
 		const body  = document.body;
 		const gtag1 = document.createElement('script');
+		const gtag2 = document.createElement('script');
 		gtag1.async = true;
+		gtag2.async = true;
 		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=AW-942942148";
+		gtag2.src = "https://www.googletagmanager.com/gtag/js?id=UA-132224268-1";
 
 		body.insertAdjacentElement('beforeend', gtag1);
+		body.insertAdjacentElement('beforeend', gtag2);
 	}
 
 	if ( ! mobile.matches ) {
@@ -89,6 +93,12 @@
 	})
 
 	gtag("config", "AW-942942148", {
+		'linker': {
+			'domains': ['postaffiliatepro.com', 'postaffiliatepro.nl', 'postaffiliatepro.fr', 'postaffiliatepro.de', 'postaffiliatepro.hu', 'postaffiliatepro.it', 'postaffiliatepro.pl', 'postaffiliatepro.com.br', 'postaffiliatepro.sk', 'postaffiliatepro.es', 'postaffiliatepro.local', 'support.qualityunit.com', '*.postaffiliatepro.com']
+		}
+	})
+
+	gtag("config", "UA-132224268-1", {
 		'linker': {
 			'domains': ['postaffiliatepro.com', 'postaffiliatepro.nl', 'postaffiliatepro.fr', 'postaffiliatepro.de', 'postaffiliatepro.hu', 'postaffiliatepro.it', 'postaffiliatepro.pl', 'postaffiliatepro.com.br', 'postaffiliatepro.sk', 'postaffiliatepro.es', 'postaffiliatepro.local', 'support.qualityunit.com', '*.postaffiliatepro.com']
 		}
