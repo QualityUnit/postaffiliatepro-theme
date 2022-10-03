@@ -989,3 +989,39 @@ img.Screenshot,
 		}
 	}
 }
+
+.tag-title {
+
+	@include color(color, font-color-dark);
+	display: flex;
+	align-items: center;
+	background-color: $tag;
+	border-radius: 1em;
+	min-height: 30px;
+	padding: 0.25em 1.25em;
+	width: max-content;
+	font-size: $font-size-smaller;
+	line-height: 1.2;
+
+	&__icon {
+		$icon-size: 1.05em;
+
+		@include square($icon-size);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 0.5em;
+
+		&::before {
+
+			@include square(1em);
+			display: block;
+			font-size: $icon-size;
+		}
+	}
+
+	&__text {
+		font-family: $font-secondary;
+		font-weight: 600;
+	}
+}
