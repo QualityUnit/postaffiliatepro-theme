@@ -18,7 +18,7 @@
 		align-items: center;
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		&__content,
 		&__pricing {
@@ -169,10 +169,16 @@
 			&--header[class] {
 				position: absolute;
 				z-index: 3;
+				width: calc(66.6666% - 1em);
 
 				&.wide.program {
 					width: 85%;
 					margin-left: 15%;
+				}
+
+				&:not(.wide) {
+					width: calc(33.3333% - 0.5em);
+					right: 0;
 				}
 			}
 
@@ -188,15 +194,6 @@
 			&--network[class] {
 				width: 33%;
 				margin-left: 2em;
-			}
-
-			&--header[class] {
-				width: calc(66.6666% - 1em);
-
-				&:not(.wide) {
-					width: calc(33.3333% - 0.5em);
-					right: 0;
-				}
 			}
 		}
 	}
