@@ -787,6 +787,16 @@ video {
 			background: url(../images/splash-blue.svg) center center no-repeat;
 			background-size: 100%;
 		}
+
+		&.splash-small {
+
+			&::after {
+
+				top: 0;
+				bottom: 0;
+				right: -0.15em;
+			}
+		}
 	}
 
 	&-splash2 {
