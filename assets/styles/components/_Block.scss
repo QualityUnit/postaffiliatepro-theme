@@ -762,6 +762,7 @@
 
 		.elementor-inner-section .elementor-row {
 			justify-content: center;
+			align-items: flex-start;
 
 			.tag {
 				width: auto;
@@ -779,6 +780,35 @@
 			.elementor-col-25 {
 				width: calc(50% - 1.5em);
 				margin-top: 2em;
+			}
+
+			.elementor-col-50:first-child {
+				width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.elementor-col-25.Box--primary {
+				width: 17.8125em;
+				margin: 2em 0.9375em 0 0.9375em;
+
+				.elementor-widget {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		.elementor-inner-section .elementor-row {
+
+			.elementor-col-25.Box--primary {
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 	}
