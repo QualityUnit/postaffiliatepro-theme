@@ -1,8 +1,13 @@
 /* stylelint-disable selector-class-pattern */
 
 .Reviews {
-	margin-top: 4.5em;
-	margin-bottom: 2em;
+	margin-top: $block-space;
+	margin-bottom: $block-space;
+
+	.elementor-section & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 
 	.elementor-widget:not(:last-child) {
 		margin-bottom: 0 !important;
@@ -103,8 +108,8 @@
 	}
 
 	&--short {
-		margin-top: 100px;
-		margin-bottom: 100px;
+		margin-top: $block-space;
+		margin-bottom: $block-space;
 
 		h2 {
 			font-size: $font-size-h2;
@@ -125,8 +130,6 @@
 	}
 
 	@media (max-width: $breakpoint-desktop) {
-		margin-top: 100px;
-		margin-bottom: 100px;
 
 		h2 {
 			font-size: $font-size-h2;
@@ -143,6 +146,8 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
+		margin-top: $block-space-sm;
+		margin-bottom: $block-space-sm;
 
 		h2 {
 			margin-bottom: 5px !important;
@@ -154,6 +159,8 @@
 		}
 
 		&--short {
+			margin-top: $block-space-sm;
+			margin-bottom: $block-space-sm;
 
 			.Reviews__items {
 				margin-top: 0;
@@ -162,8 +169,6 @@
 	}
 
 	@media (max-width: $breakpoint-mobile) {
-		margin-top: 75px;
-		margin-bottom: 75px;
 
 		h2 {
 			font-size: 28px;

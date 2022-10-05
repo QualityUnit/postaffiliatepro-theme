@@ -2,8 +2,8 @@
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 
 .Block {
-	margin-top: 6.25em;
-	margin-bottom: 6.25em;
+	margin-top: $block-space;
+	margin-bottom: $block-space;
 
 	.elementor-row {
 		align-items: center;
@@ -898,8 +898,8 @@
 	padding-bottom: 0 !important;
 
 	.wrapper {
-		padding-top: 100px !important;
-		padding-bottom: 100px !important;
+		padding-top: $block-bg-space !important;
+		padding-bottom: $block-bg-space !important;
 
 		&.padding-small {
 			padding: 1.5em !important;
@@ -907,8 +907,8 @@
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
-		padding-top: 100px !important;
-		padding-bottom: 100px !important;
+		padding-top: $block-bg-space !important;
+		padding-bottom: $block-bg-space !important;
 
 		.wrapper {
 			padding-top: 0 !important;
@@ -925,10 +925,10 @@
 	}
 
 	@media (max-width: $breakpoint-tablet) {
-		margin-top: 4.375em !important;
-		margin-bottom: 4.375em !important;
-		padding-top: 2.5em !important;
-		padding-bottom: 2.5em !important;
+		margin-top: $block-space-sm !important;
+		margin-bottom: $block-space-sm !important;
+		padding-top: $block-bg-space-sm !important;
+		padding-bottom: $block-bg-space-sm !important;
 	}
 }
 
