@@ -19,6 +19,7 @@ body.lb-disable-scrolling {
 	overflow: hidden;
 
 	&.splide,
+	&__wrapper,
 	&-youtube {
 		position: fixed;
 		left: 0;
@@ -44,8 +45,16 @@ body.lb-disable-scrolling {
 			opacity: 0.8;
 		}
 
-		&.active {
+		&.active,
+		&.visible {
 			opacity: 1;
+		}
+
+		&--light {
+
+			&::after {
+				opacity: 0.25;
+			}
 		}
 
 		> * {

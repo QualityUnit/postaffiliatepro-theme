@@ -1,0 +1,47 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@import "../common/mixins";
+@import "../common/variables";
+
+.FormPopup {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.Form {
+		position: relative;
+		max-width: 32.5em;
+		padding: 1.5em;
+		text-align: left;
+
+		&__close {
+
+			@include appearance();
+			all: unset;
+			position: absolute;
+			top: 1.5em;
+			right: 1.5em;
+			cursor: pointer;
+		}
+
+		&__title {
+
+			&[class*="splash"] {
+
+				@include posCustom(-0.15em);
+			}
+		}
+
+		p {
+			font-size: 0.875rem;
+		}
+
+		iframe {
+			width: 100% !important;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 3em 3.75em;
+		}
+	}
+}

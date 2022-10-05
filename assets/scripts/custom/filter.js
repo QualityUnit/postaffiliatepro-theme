@@ -5,22 +5,38 @@
 	function recountVisible() {
 		// ReCount
 		setTimeout( () => {
-			const listItem = queryAll( '.list > li' );
+			const listItem = queryAll( '[data-listitem]' );
+			const sublist = queryAll( '[data-sublist]' );
 			const recount =
-				listItem.length - queryAll( ".list > li[style*='none']" ).length;
-			query( '#countPosts' ).textContent = recount;
+				listItem.length - queryAll( "[data-list] [data-listitem][style*='none']" ).length;
+			const counter = query( '#countPosts' );
+			if ( counter ) {
+				counter.textContent = recount;
+			}
+			if ( sublist.length ) {
+				sublist.forEach( ( list ) => {
+					const sublistItems = list.querySelectorAll( '[data-listitem]' );
+					const sublistItemsHidden = list.querySelectorAll( "[data-listitem][style*='none']" );
+					if ( sublistItems.length === sublistItemsHidden.length ) {
+						list.classList.add( 'hidden' );
+					}
+					if ( sublistItems.length !== sublistItemsHidden.length ) {
+						list.classList.remove( 'hidden' );
+					}
+				} );
+			}
 		}, 25 );
 	}
 
-	if ( query( '.Category__container' ) !== null ) {
-		const list = query( '.list' );
-		const listItems = list.querySelectorAll( 'li' );
-		const pillars = list.querySelectorAll( 'li.pillar' );
+	if ( query( '[data-list]' ) !== null ) {
+		const list = query( '[data-list]' );
+		const listItems = list.querySelectorAll( '[data-listitem]' );
+		const pillars = list.querySelectorAll( '[data-listitem].pillar' );
 		const countItems = listItems.length;
 		const filterItems = queryAll(
-			"#filter input[type='radio']"
+			'[data-filteritem]'
 		);
-		const search = query( ".searchField input[type='search']" );
+		const search = query( "[data-searchfield] input[type='search']" );
 		const { hash } = window.location;
 		const activeFilter = {
 			collections: '',
@@ -33,8 +49,8 @@
 
 		// Count
 		const count =
-			queryAll( '.list > li' ).length -
-			queryAll( ".list > li[style*='none']" ).length;
+			queryAll( '[data-list] [data-listitem]' ).length -
+			queryAll( "[data-list] [data-listitem][style*='none']" ).length;
 		if ( query( '.Category__content__description' ) ) {
 			query( '.Category__content__description span:not(#filter-show)' ).textContent = count;
 			query( '.Category__content__description #filter-show' ).classList.add( 'show' );
@@ -169,7 +185,7 @@
 
 			filterItem.addEventListener( 'change', () => {
 				if (
-					list.querySelectorAll( "li[style*='display: none']" )
+					list.querySelectorAll( "[data-listitem][style*='display: none']" )
 						.length === countItems
 				) {
 					list.classList.add( 'empty' );
@@ -186,9 +202,16 @@
 
 				listItems.forEach( ( element ) => {
 					const listItem = element;
-					const title = listItem
-						.querySelector( 'h3' )
-						.textContent.toLowerCase();
+					let title = listItem.querySelector( '[data-listitem-title]' );
+					let excerpt = listItem.querySelector( '[data-listitem-excerpt]' );
+
+					if ( title ) {
+						title = title.textContent.toLowerCase();
+					}
+
+					if ( excerpt ) {
+						excerpt = excerpt.textContent.toLowerCase();
+					}
 
 					if (
 						listItem.style.display === 'none' &&
@@ -204,8 +227,16 @@
 						listItem.style.display = 'flex';
 					}
 
-					if ( ! title.includes( val ) ) {
-						listItem.style.display = 'none';
+					if ( title && excerpt ) {
+						if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
+							listItem.style.display = 'none';
+						}
+					}
+
+					if ( ! excerpt ) {
+						if ( ! title.includes( val ) ) {
+							listItem.style.display = 'none';
+						}
 					}
 
 					recountVisible();
@@ -214,7 +245,7 @@
 
 			search.addEventListener( 'keyup', () => {
 				if (
-					list.querySelectorAll( "li[style*='display: none']" ).length ===
+					list.querySelectorAll( "[data-listitem][style*='display: none']" ).length ===
 				countItems
 				) {
 					list.classList.add( 'empty' );
@@ -225,7 +256,7 @@
 			search.addEventListener( 'input', () => {
 				if ( search.value === '' ) {
 					list.classList.remove( 'empty' );
-					list.querySelectorAll( 'li' ).forEach( ( element ) => {
+					list.querySelectorAll( '[data-listitem]' ).forEach( ( element ) => {
 						const el = element;
 						el.style = null;
 					} );

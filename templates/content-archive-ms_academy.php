@@ -7,7 +7,7 @@ set_source( 'academy', 'filter', 'js' );
 		<div class="wrapper">
 			<h1 class="Category__header__title"><?php _e( 'Affiliate Marketing Academy', 'ms' ); ?></h1>
 			<p class="Category__header__subtitle"><?php _e( 'Become an affiliate marketing expert', 'ms' ); ?></p>
-			<div class="Category__header__search searchField">
+			<div class="Category__header__search searchField" data-searchfield>
 				<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 				<input type="search" class="search search--academy" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="20">
 			</div>
@@ -27,7 +27,7 @@ set_source( 'academy', 'filter', 'js' );
 					<div class="Category__sidebar__item__title h4"><?php _e( 'Category', 'ms' ); ?></div>
 
 					<label>
-						<input class="filter-item" type="radio" value="" name="category" checked />
+						<input class="filter-item" data-filteritem type="radio" value="" name="category" checked />
 						<span onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
 					</label>
 					<?php
@@ -35,7 +35,7 @@ set_source( 'academy', 'filter', 'js' );
 					foreach ( $categories as $category ) {
 						?>
 						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
+							<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
 									<?php
 									if ( current( $category ) === $category->slug ) {
 										echo 'checked';
@@ -53,7 +53,7 @@ set_source( 'academy', 'filter', 'js' );
 
 		<div class="Category__content">
 			<div class="Category__content__description"><?php _e( 'List of articles', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_academy' )->publish ); ?></span>)</span></div>
-			<ul class="Category__content__items list">
+			<ul class="Category__content__items list" data-list>
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -107,7 +107,7 @@ set_source( 'academy', 'filter', 'js' );
 						$longcategories = 'long';
 					}
 					?>
-					<li class="Category__item Category__item--blogLike <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Go to <?= esc_html( $postname ); ?> article'])">
+					<li class="Category__item Category__item--blogLike <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ); ?>" data-listitem data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Go to <?= esc_html( $postname ); ?> article'])">
 						<a href="<?php the_permalink(); ?>" class="Category__item--blogLike__thumbnail">
 						<span class="postLabel postLabel__time">
 							<svg viewBox="0 0 16 26"><path d="M7.779 3.052C9.978 1.018 12.897 0 15.892 0v26c-2.995 0-5.914-1.018-8.113-3.052C4.547 19.96.233 15.502.233 13c0-2.502 4.314-6.96 7.546-9.948Z"/></svg>
@@ -154,8 +154,8 @@ set_source( 'academy', 'filter', 'js' );
 								}
 								?>
 							</div>
-							<h3 class="Category__item__title"><a href="<?php the_permalink(); ?>"><?= esc_html( $postname ); ?></a></h3>
-							<a href="<?php the_permalink(); ?>" class="Category__item__excerpt">
+							<h3 class="Category__item__title" data-listitem-title><a href="<?php the_permalink(); ?>"><?= esc_html( $postname ); ?></a></h3>
+							<a href="<?php the_permalink(); ?>" class="Category__item__excerpt" data-listitem-excerpt>
 								<p>
 									<?php if ( count( $header_matches ) > 1 ) { ?>
 									<strong>In this course you will learn:</strong>
