@@ -8,6 +8,13 @@ function add_affiliate_management_metaboxes( $settings ) {
 		'taxonomy' => array( 'ms_directory_affiliate_manager' ),
 		'fields'   => array(
 			array(
+				'id'        => 'bio_hide',
+				'label'     => 'Hide bio',
+				'description' => '',
+				'type'        => 'checkbox',
+				'default'     => 'off',
+			),
+			array(
 				'id'    => 'aff_name',
 				'label' => 'Name of the Affiliate manager',
 				'type'  => 'text',
