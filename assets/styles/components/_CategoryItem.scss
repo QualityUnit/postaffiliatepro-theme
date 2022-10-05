@@ -73,6 +73,22 @@
 		@media (min-width: $breakpoint-tablet) {
 			padding: 2.5em;
 		}
+
+		@media (max-width: $breakpoint-tablet - 1) {
+			display: flex;
+			flex-direction: column;
+
+			> * {
+				float: none;
+			}
+
+			.Category__item__title,
+			.Category__item__excerpt {
+
+				width: 100%;
+				max-height: none;
+			}
+		}
 	}
 
 	&:not(.pillar):not(.Category__item--blogLike) {
