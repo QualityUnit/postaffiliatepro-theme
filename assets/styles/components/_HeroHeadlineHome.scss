@@ -5,6 +5,7 @@
 .heroHeadline__home,
 .heroHeadline {
 	margin-top: 1em;
+	margin-bottom: $block-space-sm;
 	overflow-x: hidden;
 
 	.wrapper,
@@ -31,6 +32,7 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
+		margin-bottom: $block-space;
 
 		.wrapper {
 			padding-right: 0 !important;
