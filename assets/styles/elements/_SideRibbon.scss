@@ -1,0 +1,163 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity,
+ scss/no-global-function-names */
+
+.SideRibbon {
+	$height: 3.875rem;
+	$arrowRatio: 0.36507936508;
+	$arrowWidth: ($height * $arrowRatio);
+	$triangleSize: 1.2em;
+
+	$ribbonSizes: (
+		"sm": (2.938rem, 0.75rem, 0.8em),
+	);
+
+	$ribbonColors: (
+		"blue": ($primary, 0.2, #0664b9, $white),
+		"green": ($saturated-green, 0.2, #048543, $white),
+		"yellow": ($tag, 0.7, #e4bb2b, $black),
+	);
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 0.75em 0.25em 0.75em 1em;
+	margin: 0 $arrowWidth ($triangleSize / 2) 0;
+	height: $height;
+	border-top-left-radius: $border-radius-16;
+
+	&.SideRibbon {
+		width: auto !important;
+	}
+
+	+ .SideRibbon {
+		margin-top: 1em;
+	}
+
+	* {
+		position: relative;
+		z-index: 2;
+		color: inherit;
+	}
+
+	&::before {
+
+		position: absolute;
+		content: "";
+		width: 150%;
+		height: 100%;
+		transform: rotate(-5deg);
+		bottom: -0.5em;
+		right: calc(-50% - #{$arrowWidth});
+		z-index: 1;
+	}
+
+	&::after {
+
+		@include triangle($triangleSize, transparent, right);
+		position: absolute;
+		content: "";
+		transform-origin: top left;
+		top: 100%;
+		left: 0;
+		border-width: 0 $triangleSize ($triangleSize / 2) 0;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 0;
+		right: -$arrowWidth;
+		z-index: 0;
+		width: $arrowWidth;
+		height: $height;
+	}
+
+	&__wrapper {
+		display: flex;
+		overflow: hidden;
+
+		.elementor-widget-wrap {
+			flex-direction: column !important;
+			align-items: flex-start;
+		}
+
+		&.absolute {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				position: absolute;
+			}
+		}
+	}
+
+	p {
+		line-height: 1.2;
+		font-family: $font-secondary;
+		font-weight: $font-weight-semi;
+		margin-bottom: 0;
+
+		strong {
+			font-size: 1.375em;
+		}
+
+		@media (max-width: $breakpoint-tablet + 1) {
+			font-size: 0.75em;
+		}
+	}
+
+	@each $name, $sizes in $ribbonSizes {
+		$height: nth($sizes, 1);
+		$fontSize: nth($sizes, 2);
+		$triangle: nth($sizes, 3);
+		$arrowWidth: ($height * $arrowRatio);
+		&--#{$name} {
+			height: $height;
+			margin-right: $arrowWidth;
+
+			&::before {
+				right: calc(-50% - #{$arrowWidth});
+			}
+
+			&::after {
+
+				@include triangle($triangle, transparent, right);
+				border-width: 0 $triangleSize ($triangleSize / 2) 0;
+			}
+
+			.SideRibbon__arrow {
+				right: (-$arrowWidth);
+				width: $arrowWidth;
+				height: $height;
+			}
+
+			p {
+				font-size: $fontSize;
+			}
+		}
+	}
+
+	@each $name, $colors in $ribbonColors {
+		$bgColor: nth($colors, 1);
+		$bgGradient: nth($colors, 2);
+		$triangle: nth($colors, 3);
+		$color: nth($colors, 4);
+
+		&--#{$name} {
+			background-color: $bgColor;
+
+			&::before {
+				background: linear-gradient(to left, rgba($white, $bgGradient), rgba($white, 0));
+			}
+
+			&::after {
+				border-right-color: $triangle;
+			}
+
+			.SideRibbon__arrow {
+				fill: $bgColor;
+			}
+
+			p {
+				color: $color;
+			}
+		}
+	}
+}
