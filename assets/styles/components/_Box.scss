@@ -12,17 +12,17 @@
 		justify-content: space-between;
 		align-items: center;
 		max-width: 1380px;
-		padding: 65px 120px;
+		padding: $block-bg-space 120px;
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
 
 		@include color(background-color, main-background);
-		padding: 65px 0;
+		padding: 0;
 
 		.wrapper {
 			max-width: 1180px;
-			padding: 65px 20px;
+			padding: $block-bg-space 20px;
 			background-color: transparent;
 		}
 	}
@@ -39,7 +39,7 @@
 		padding: 0;
 
 		.wrapper {
-			padding: 1.5em 0;
+			padding: $block-bg-space-sm 0;
 		}
 	}
 }
