@@ -18,7 +18,7 @@
 		align-items: center;
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 
 		&__content,
 		&__pricing {
@@ -54,7 +54,7 @@
 							position: absolute;
 							background-color: $light-gray;
 							width: 1px;
-							height: 100%;
+							height: calc(100% - 2.5em);
 							left: 50%;
 							transform: translateX(-50%);
 						}
@@ -117,7 +117,7 @@
 
 
 		&--price {
-			margin-top: auto;
+			margin-top: 1em;
 		}
 
 		&--program[class],
@@ -129,9 +129,11 @@
 			overflow: hidden;
 		}
 
-		&--header {
+		&--header[class] {
 			border-bottom: 1px solid $light-gray;
 			padding: 0.5em;
+			// background-color: $white;
+			border-radius: $border-radius-16 $border-radius-16 0 0;
 
 			.elementor-image-box-wrapper[class] {
 				align-items: center;
@@ -164,27 +166,34 @@
 				flex-wrap: nowrap;
 			}
 
-			&--header {
-				position: absolute;
-				z-index: 1;
-			}
-
-			&--program[class] {
-				width: 66%;
-			}
-
-			&--network[class] {
-				width: 33%;
-				margin-left: 2em;
-			}
-
 			&--header[class] {
+				position: absolute;
+				z-index: 3;
 				width: calc(66.6666% - 1em);
+
+				&.wide.program {
+					width: 85%;
+					margin-left: 15%;
+				}
 
 				&:not(.wide) {
 					width: calc(33.3333% - 0.5em);
 					right: 0;
 				}
+			}
+
+			&--program[class] {
+				width: 66%;
+
+				&.wide {
+					width: 100%;
+					margin-left: 15%;
+				}
+			}
+
+			&--network[class] {
+				width: 33%;
+				margin-left: 2em;
 			}
 		}
 	}

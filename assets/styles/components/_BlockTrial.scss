@@ -29,13 +29,14 @@
 
 			@media (min-width: $breakpoint-tablet-landscape) {
 
-				&:first-of-type {
-					width: 42%;
-					margin-right: auto;
+				.elementor-heading-title {
+					font-size: 3.4375rem;
 				}
 
-				&:last-of-type {
-					width: calc(50% - 1em);
+				width: calc(50% - 0.5em);
+
+				&:first-of-type {
+					margin-right: auto;
 				}
 			}
 		}

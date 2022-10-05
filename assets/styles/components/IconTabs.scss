@@ -7,6 +7,10 @@
 
 .IconTabs {
 
+	&.Block {
+		margin-top: 3em;
+	}
+
 	&__tag p {
 
 		@include color(color, primary-color);
