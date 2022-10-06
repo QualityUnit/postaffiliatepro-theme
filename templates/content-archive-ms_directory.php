@@ -11,8 +11,8 @@ set_custom_source( 'dropdown', 'js' );
 			<h1 class="Archive__header__title--directory" itemprop="name"><?php single_cat_title(); ?></h1>
 			<div class="Archive__header__subtitle--directory"><p itemprop="description"><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
-		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' );?></span></h1>
-		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( "A directory of companies and affiliate programs", 'ms' ); ?></p>
+		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' ); ?></span></h1>
+		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( 'A directory of companies and affiliate programs', 'ms' ); ?></p>
 			<?php } ?>
 		<a class="Archive__header__button Button Button--full">
 			<?php _e( 'I want to be in list', 'ms' ); ?>
@@ -45,8 +45,8 @@ set_custom_source( 'dropdown', 'js' );
 					'ms_directory_categories' => 'u',
 					// @codingStandardsIgnoreLine
 					'posts_per_page' => 500,
-					'orderby'        => 'title',
-					'order'          => 'ASC',
+					'orderby'                 => 'title',
+					'order'                   => 'ASC',
 				)
 			);
 			while ( $query_glossary_posts->have_posts() ) :
@@ -70,12 +70,12 @@ set_custom_source( 'dropdown', 'js' );
 		</ul>
 		<div class="Archive__directory__sidebar">
 			<div class="Archive__directory__sidebar__container">
-				<h3 class="Archive__directory__sidebar__container--title"><?php _e( "Would you like to be ", 'ms' ); ?><span class="highlight highlight-splash"><?php _e( "included?", 'ms' ); ?></span></h3>
-				<p class="Archive__directory__sidebar__container--text"><?php _e( "Contact us and we’ll add your company and affiliate program to our comprehensive directory.", 'ms' ); ?></p>
-				<button class="Button Button--full"><?php _e( "Join to the list", 'ms' ); ?></button>
+				<h3 class="Archive__directory__sidebar__container--title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
+				<p class="Archive__directory__sidebar__container--text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
+				<button class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
 			<div class="Archive__directory__sidebar__categories">
-				<h5><?php _e( "Affiliate program categories", 'ms' ); ?></h5>
+				<h5><?php _e( 'Affiliate program categories', 'ms' ); ?></h5>
 				<?php foreach ( $categories as $category ) { ?>
 					<span><?= esc_html( $category->name ); ?></span>
 			<?php } ?>
