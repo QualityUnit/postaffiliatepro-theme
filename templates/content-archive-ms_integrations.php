@@ -13,7 +13,7 @@ set_source( 'integrations', 'filter', 'js' );
 					<h1 class="Category__header__title"><?php _e( 'Integrations', 'ms' ); ?></h1>
 					<p class="Category__header__subtitle"><?php _e( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' ); ?></p>
 				<?php } ?>
-				<div class="Category__sidebar__item--search searchField">
+				<div class="Category__sidebar__item--search searchField" data-searchfield>
 					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 					<input type="search" class="search search--integrations" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="20">
 				</div>
@@ -48,7 +48,7 @@ set_source( 'integrations', 'filter', 'js' );
 					foreach ( $data_type as $key => $value ) {
 						?>
 						<label>
-							<input class="filter-item" type="radio" value="<?php echo esc_attr( $key ); ?>" name="type"
+							<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $key ); ?>" name="type"
 									<?php
 									if ( current( $data_type ) === $value ) {
 										echo 'checked';
@@ -66,7 +66,7 @@ set_source( 'integrations', 'filter', 'js' );
 					$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
 					?>
 					<label>
-						<input class="filter-item" type="radio" value="" name="category" checked />
+						<input class="filter-item" data-filteritem type="radio" value="" name="category" checked />
 						<span onclick="_paq.push(['trackEvent', 'Activity', 'Integration Methods', 'Filter - Category - Any'])"><?php _e( 'Any', 'ms' ); ?></span>
 					</label>
 					<?php
@@ -74,7 +74,7 @@ set_source( 'integrations', 'filter', 'js' );
 						if ( $category->slug !== 'all' ) { // @codingStandardsIgnoreLine
 							?>
 							<label>
-								<input class="filter-item" type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
+								<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category"
 										<?php
 										if ( current( $category ) === $category->slug ) {
 											echo 'checked';
@@ -93,7 +93,7 @@ set_source( 'integrations', 'filter', 'js' );
 		</div>
 		<div class="Category__content">
 			<div class="Category__content__description"><?php _e( 'List of integrations', 'ms' ); ?> <span id="filter-show">(<span id="countPosts"><?php echo esc_html( wp_count_posts( 'ms_integrations' )->publish ); ?></span>)</span></div>
-			<ul class="Category__content__items list">
+			<ul class="Category__content__items list" data-list>
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -145,7 +145,7 @@ set_source( 'integrations', 'filter', 'js' );
 					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_pillar', true ) === 'on' ) {
 						echo 'pillar'; }
 					?>
-					" data-collections="<?= esc_attr( $collections ); ?>" data-type="<?= esc_attr( $data_type ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Go to <?php the_title(); ?> integration'])">
+					" data-listitem data-collections="<?= esc_attr( $collections ); ?>" data-type="<?= esc_attr( $data_type ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Go to <?php the_title(); ?> integration'])">
 						<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_pillar', true ) === 'on' ) { ?>
 						<a href="<?php the_permalink(); ?>" class="Box--main__image Category__content__items__item__thumbnail">
 							<span class="Category__content__items__item__thumbnail__image"></span>
@@ -164,8 +164,8 @@ set_source( 'integrations', 'filter', 'js' );
 									<?php
 								}
 								?>
-									<h3 class="Box--main__title Category__content__items__item__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-									<div class="Box--main__excerpt Category__content__items__item__excerpt">
+									<h3 class="Box--main__title Category__content__items__item__title item-title" data-listitem-title><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+									<div class="Box--main__excerpt Category__content__items__item__excerpt item-excerpt" data-listitem-excerpt>
 										<a href="<?php the_permalink(); ?>">
 											<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 											<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_pillar', true ) === 'on' ) { ?>

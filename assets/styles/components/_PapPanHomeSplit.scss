@@ -1,7 +1,14 @@
 /* stylelint-disable selector-class-pattern */
 
 .pap-panHomeSplit {
+	margin-top: $block-space-sm;
+	margin-bottom: $block-space-sm;
 	text-align: center;
+
+	.wrapper__wide {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
 
 	&.elementor-section {
 
@@ -15,6 +22,7 @@
 		@include boxBackground();
 		border-radius: $border-radius-16;
 		padding: 2em;
+		margin-top: 0;
 
 		.elementor-text-editor p {
 
@@ -22,7 +30,6 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			margin-top: 2em;
 			padding: 5em 25% 6.8em 25%;
 
 			h2 {
@@ -108,6 +115,8 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
+		margin-top: $block-space;
+		margin-bottom: $block-space;
 
 		&__column {
 			width: calc(50% - 1em) !important;

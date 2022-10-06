@@ -1,0 +1,110 @@
+/* stylelint-disable selector-class-pattern */
+
+.AffiliateManagerDirectory {
+
+	&__header {
+		position: relative;
+		background: url(../../images/aff_managers_directory_header_bg.jpg) center center no-repeat;
+		background-size: cover;
+		text-align: center;
+		max-width: $breakpoint-desktop-hd;
+		margin: 0 auto;
+		padding: 2.5em 0;
+
+		.wrapper {
+			position: relative;
+			z-index: 1;
+		}
+
+		&--title {
+			font-size: 3.5rem;
+		}
+
+		&--subtitle {
+			font-weight: 400;
+			margin: 1.5em auto 2em;
+		}
+
+		.Button {
+			margin-bottom: 2em;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 6.5em 0 4em;
+
+			&--subtitle {
+				font-size: 1.625rem;
+			}
+
+			.Button {
+				margin-bottom: 4em;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 100%;
+				width: 25%;
+				background: url(../../images/aff_managers_directory_header_managers.png) center top no-repeat;
+				background-size: contain;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop-hd) {
+			border-radius: $border-radius-16;
+
+			&::after {
+				width: 28.5em;
+			}
+		}
+	}
+
+	&__manager {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: 0.5em 1em;
+		background-color: $lightest-gray;
+		border-radius: $border-radius-16;
+		font-family: $font-secondary;
+		font-weight: 700;
+		height: 100%;
+		color: $black;
+
+		&--image {
+
+			@include square(1.5em);
+			position: relative;
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right: 0.75em;
+		}
+
+		&::after {
+
+			@include square(1.5em);
+			position: absolute;
+			right: 0.75em;
+			content: "";
+			background: url(../../images/arrow-right.svg) center center no-repeat;
+			background-size: contain;
+			opacity: 0;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+				background-color: $lighter-gray;
+
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

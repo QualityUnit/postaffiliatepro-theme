@@ -4,7 +4,7 @@ set_source( 'directory', 'pages/Directory', 'css' );
 set_source( 'directory', 'components/AffiliateManagerCard', 'css' );
 set_source( 'directory', 'pages/AffiliateManager', 'css' );
 set_source( 'directory', 'pages/post', 'css' );
-$aff_id    = get_queried_object_id();
+$aff_id = get_queried_object_id();
 if ( get_term_meta( $aff_id, 'aff_name', true ) ) {
 	$aff_name = get_term_meta( $aff_id, 'aff_name', true );
 } else {
