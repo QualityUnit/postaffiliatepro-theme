@@ -1,15 +1,9 @@
 @font-face {
 	font-family: fontello;
 	src:
-<<<<<<< HEAD
-		url(../webfonts/fontello.woff2?2022100502) format("woff2"),
-		url(../webfonts/fontello.woff?2022100502) format("woff"),
-		url(../webfonts/fontello.ttf?2022100502) format("truetype");
-=======
 		url(../webfonts/fontello.woff2?2022100301) format("woff2"),
 		url(../webfonts/fontello.woff?2022100301) format("woff"),
 		url(../webfonts/fontello.ttf?2022100301) format("truetype");
->>>>>>> c0380f6 ([665] Affiliate network software (#206))
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -363,12 +357,6 @@
 	content: "\e829" !important;
 }
 
-.fontello-menu-building::before {
-	content: "\E859" !important;
-}
-
-.fontello-menu-directory-manager::before {
-	content: "\e860" !important;
 .fontello-award::before {
 	content: "\e83b";
 }
@@ -399,4 +387,12 @@
 
 .fontello-star::before {
 	content: "\e859";
+}
+
+.fontello-menu-building::before {
+	content: "\E860" !important;
+}
+
+.fontello-menu-directory-manager::before {
+	content: "\e861" !important;
 }
