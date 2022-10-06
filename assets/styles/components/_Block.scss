@@ -859,6 +859,24 @@
 	}
 }
 
+.Block--logos {
+
+	.heroHeadline__home + &,
+	.heroHeadline + &,
+	.HeroBig + & {
+		margin-top: $block-bg-space-sm;
+		margin-bottom: $block-bg-space-sm;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: $block-bg-space;
+			margin-bottom: $block-bg-space;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet - 1px) {
+		display: none;
+	}
+}
 
 .Block--background {
 
