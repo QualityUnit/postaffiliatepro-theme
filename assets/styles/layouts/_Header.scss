@@ -567,6 +567,10 @@
 
 	.label-integrations {
 		padding: 0 70px 0 30px !important;
+		border-radius: $border-radius-16;
+		background: $light-grayBg;
+		background-size: 100% calc(100% - 6em);
+		background-position: center 6em;
 
 		ul li {
 			padding: 0 !important;
