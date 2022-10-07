@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 
+@import "../elements/integrationMethods";
+
 #app {
 	padding-top: $header-height;
 }
@@ -353,23 +355,6 @@
 				justify-content: flex-start;
 				align-items: flex-start;
 
-				.button-more-integrations {
-
-					a {
-						color: #ababab !important;
-						font-size: 12px;
-
-						&:hover {
-							color: $black !important;
-						}
-					}
-
-					&::after {
-						height: 1.875em !important;
-						bottom: -2px !important;
-					}
-				}
-
 				li {
 					position: relative;
 					display: flex;
@@ -445,6 +430,9 @@
 						z-index: 1;
 						content: "";
 						display: block;
+					}
+
+					&:not(.icon-header-menu)::before {
 						width: 24px;
 						height: 24px;
 						font-size: 20px;
@@ -502,30 +490,6 @@
 		}
 	}
 
-	.icon-header-menu {
-
-		&::before {
-			width: 1.5em;
-			height: 1.75em;
-			background: url(../images/iconsmenu-sprite.svg?v3) no-repeat;
-		}
-	}
-
-	$iconHeader: (
-		"wix": 100% 100%,
-		"braintree": 0 0,
-		"stripe": 100% 0,
-		"mailchimp": 50% 100%,
-		"drupal": 50 0%,
-		"joomla": 0 100%
-	);
-
-	@each $icon, $pos in $iconHeader {
-		.icon-header-menu-#{$icon}:before {
-			background-position: $pos;
-		}
-	}
-
 	.label-overview {
 
 		a[href="#"],
@@ -566,19 +530,22 @@
 	}
 
 	.label-integrations {
-		padding: 0 70px 0 30px !important;
-		border-radius: $border-radius-16;
-		background: $light-grayBg;
-		background-size: 100% calc(100% - 6em);
-		background-position: center 6em;
+		position: relative !important;
+		padding: 0 4.375em 0 1.875em !important;
+		overflow: visible !important;
 
-		ul li {
-			padding: 0 !important;
-			margin: 0 !important;
+		> a[href]:not(.label-integrations) {
+			color: #ababab !important;
 		}
 
-		a[href="#"] {
-			color: #ababab !important;
+		> a[href].label-integrations-url {
+
+			width: calc(100% - 4.375em - 1em);
+			height: 100%;
+			position: absolute;
+			cursor: pointer;
+			left: 0.5em;
+			z-index: 3;
 		}
 
 		> * {
@@ -586,12 +553,70 @@
 			z-index: 1;
 		}
 
-		::after {
-			background-color: $lightest-gray !important;
-			left: -10px !important;
-			bottom: 2px !important;
-			height: 30px !important;
-			z-index: 0;
+		@media (hover: hover) {
+
+			&:hover {
+
+				> ul.sub-menu {
+
+					&::after {
+
+						background-color: $lighter-gray !important;
+					}
+
+					.button-more-integrations {
+
+						a {
+							color: $primary !important;
+						}
+					}
+				}
+			}
+		}
+
+		> ul.sub-menu {
+			position: relative;
+			width: 100% !important;
+			top: auto !important;
+
+			&::after {
+
+				@include square(calc(100% + 1.5em), !important);
+				left: -1.5em !important;
+				position: absolute;
+				box-shadow: none;
+				border-radius: $border-radius-16;
+				background-color: $light-grayBg !important;
+				transition: background-color 0.2s;
+			}
+		}
+
+		ul li {
+			padding: 0 !important;
+			margin: 0 !important;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		.button-more-integrations {
+
+			a {
+				color: #ababab !important;
+				font-size: 12px;
+			}
+		}
+
+		.icon-header-menu {
+
+			&::before {
+				background-image: url(../images/integration-methods.svg?v3) !important;
+			}
+		}
+
+		.icon-header-menu-woocommerce::before {
+			top: 0.35em !important;
 		}
 	}
 

@@ -4,6 +4,7 @@
 *.sql
 build
 dist
+_integrationMethods.scss
 
 # Dotenv
 .env
