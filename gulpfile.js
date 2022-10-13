@@ -153,7 +153,7 @@ gulp.task( 'iconsSprite', () =>
 	gulp
 		.src( [
 			'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
-			'./vendor/qualityunit/wordpress-icons/icons/liveagent/**/*.svg',
+			'./vendor/qualityunit/wordpress-icons/icons/postaffiliatepro/**/*.svg',
 		] )
 		.pipe( svgSprites( iconsConfig ) )
 		.pipe( gulp.dest( './assets/images' ) )
