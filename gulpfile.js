@@ -53,6 +53,10 @@ gulp.task( 'browser-sync', () => {
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
 	);
+	gulp.watch(
+		'./assets/images/integrationMethods/*.svg',
+		gulp.series( 'integrationMethods' )
+	);
 } );
 
 gulp.task( 'styles', () =>
@@ -99,10 +103,39 @@ const langFlagsConfig = {
 	},
 };
 
+const integrationMethods = {
+	shape: {
+		id: {
+			generator: 'icon-header-menu-%s',
+		},
+	},
+	mode: {
+		css: {
+			dest: '.',
+			sprite: 'integration-methods.svg',
+			prefix: '.%s:before',
+			dimensions: true,
+			bust: false,
+			rootviewbox: false,
+			render: {
+				scss: { dest: '../styles/elements/_integrationMethods.scss' },
+			},
+		},
+	},
+};
+
 gulp.task( 'langFlagsSprite', () =>
 	gulp
 		.src( [ './assets/images/flags/*.svg' ] )
 		.pipe( svgSprites( langFlagsConfig ) )
+		.pipe( gulp.dest( './assets/images' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
+gulp.task( 'integrationMethods', () =>
+	gulp
+		.src( [ './assets/images/integrationMethods/*.svg' ] )
+		.pipe( svgSprites( integrationMethods ) )
 		.pipe( gulp.dest( './assets/images' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
 );
@@ -178,11 +211,12 @@ gulp.task(
 	'build',
 	gulp.series(
 		'clean-dist',
+		'integrationMethods',
 		'styles',
 		'splide-js',
 		'app-js',
 		'custom-js',
-		'langFlagsSprite'
+		'langFlagsSprite',
 	)
 );
 
@@ -190,11 +224,12 @@ gulp.task(
 	'default',
 	gulp.series(
 		'clean-dist',
+		'integrationMethods',
 		'styles',
 		'splide-js',
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
-		'browser-sync'
+		'browser-sync',
 	)
 );

@@ -18,10 +18,15 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 		$item_output = str_replace( $args->link_after . '</a>', '<div class="menu-item-description">' . $item->description . '</div>' . $args->link_after . '</a>', $item_output );
 	}
 
+	// For better conversions and direct Integration methods link
+	if ( in_array( 'label-integrations', $item->classes ) ) {
+		$item_output .= '
+		<a href="' . $item->url . '" class="label-integrations-url"></a>';
+	}
+
 	return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'show_description_header_nav', 10, 4 );
-
 
 /**
 	* Lightbox Rel
