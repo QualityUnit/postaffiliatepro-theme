@@ -3,6 +3,10 @@
 .Reference {
 	overflow: hidden;
 
+	.Block--title-big + & {
+		margin-top: 3em !important;
+	}
+
 	&.Block--background {
 		padding: 0 !important;
 		background: none;
