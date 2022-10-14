@@ -13,7 +13,7 @@ if ( iconTabs.length > 0 ) {
 		);
 		svgAnims.forEach( ( animation, index ) => {
 			const anim = animation;
-			anim.dataset.src = `${ anim.dataset.src }-${ index }`;
+			anim.dataset.src = `${ anim.dataset.src }?${ index }`;
 		} );
 
 		const percentCounter = ( thisBlock ) => {
