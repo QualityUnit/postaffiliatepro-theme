@@ -47,10 +47,14 @@
 	.Faq__item {
 		padding: 0 0.5em;
 		overflow: hidden;
-		max-width: 45%;
+		width: 45%;
+
+		.Content & {
+			width: 100%;
+		}
 
 		@media (max-width: $breakpoint-tablet) {
-			max-width: 100%;
+			width: 100%;
 		}
 
 		h3 {

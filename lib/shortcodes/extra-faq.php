@@ -34,7 +34,7 @@ function ms_extrafaq( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Faq Post__m__negative" itemscope itemtype="https://schema.org/FAQPage">
+	<div class="Faq" itemscope itemtype="https://schema.org/FAQPage">
 		<h2>
 		<?php 
 			$headline = esc_html( $atts['headline'] );

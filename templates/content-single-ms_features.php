@@ -100,7 +100,7 @@ do_action( 'wpml_switch_language', $current_lang );
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
-				<div class="Post__content__resources Post__m__negative">
+				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
 					<div class="SimilarSources">

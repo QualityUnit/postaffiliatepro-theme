@@ -103,7 +103,7 @@ do_action( 'wpml_switch_language', $current_lang );
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
-				<div class=" Post__buttons">
+				<div class="Post__buttons">
 					<a href="<?php _e( '/academy/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Back to Academy'])"><span><?php _e( 'Back to Academy', 'ms' ); ?></span></a>
 
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
@@ -111,7 +111,7 @@ do_action( 'wpml_switch_language', $current_lang );
 					</a>
 				</div>
 
-				<div class="Post__content__resources Post__m__negative">
+				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Resources', 'ms' ); ?></div>
 
 					<div class="SimilarSources">
