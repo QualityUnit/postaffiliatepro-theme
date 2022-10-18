@@ -1,0 +1,38 @@
+@import "../common/variables";
+
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 250ms ease-in-out;
+	border: 1px solid $black;
+	border-radius: 16px;
+	z-index: 100;
+	background-color: $white;
+	width: 300px;
+	max-width: 500px;
+	height: 100px;
+
+	&.active {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+#overlay {
+	position: fixed;
+	opacity: 0;
+	transition: 250ms ease-in-out;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.5);
+	pointer-events: none;
+
+	&.active {
+		pointer-events: all;
+		opacity: 1;
+	}
+}
