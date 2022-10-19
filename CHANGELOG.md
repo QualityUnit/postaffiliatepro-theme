@@ -1,3 +1,7 @@
+### 1.1.0: October 19th, 2022
+
+- New Releasing GitHub Action
+
 ### 1.0.24: October 14th, 2022
 
 - Bug Fixes and Improvements
