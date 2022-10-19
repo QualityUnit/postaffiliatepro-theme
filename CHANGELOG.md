@@ -1,3 +1,8 @@
+### 1.1.1: October 19th, 2022
+
+- Fix Releasing GitHub Action
+- Add wp_body_open tag
+
 ### 1.1.0: October 19th, 2022
 
 - New Releasing GitHub Action

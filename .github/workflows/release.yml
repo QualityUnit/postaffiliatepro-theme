@@ -91,7 +91,7 @@ jobs:
         with:
           workflow: update-theme.yml
           repo: QualityUnit/postaffiliatepro-wp
-          ref: dev
+          ref: main
           token: ${{ secrets.CICD_PAT }}
           wait-for-completion-interval: 5s
           inputs: '{
