@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 
 .bullet-list {
 	$bulletList: "basic", "first", "second", "third", "fourth";
@@ -53,6 +53,10 @@
 		box-shadow: 0.325rem 0.625rem 5.625rem -1rem rgba($black, 0.1);
 		border-radius: 0.75rem;
 		padding: 1.125em;
+	}
+
+	[class*="bullet-list__"] {
+		all: unset;
 	}
 
 	h4 {
