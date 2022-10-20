@@ -23,7 +23,7 @@ set_custom_source( 'components/Modal', 'css' );
 			<?php _e( 'I want to be in list', 'ms' ); ?>
 		</a>
 		<div class="Archive__header__filter">
-			<div class="searchField">
+			<div class="searchField" data-searchfield>
 				<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 				<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="20">
 			</div>
@@ -32,23 +32,23 @@ set_custom_source( 'components/Modal', 'css' );
 					<span class="selected"><?php _e( 'Category', 'ms' ); ?></span>
 					<img class="dropdown-arrow" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-arrow.svg" alt="<?php _e( 'dropdown arrow', 'ms' ); ?>">
 				</button>
-				<ul class="Archive__header__dropdown--menu">
-					<li class="Archive__header__dropdown--menu--item">
-						<input type="radio" checked>
+				<div class="Archive__header__dropdown--menu">
+					<label class="Archive__header__dropdown--menu--item">
+						<input data-filteritem type="radio" value name="category" checked>
 						<span><?= esc_html( 'Category', 'ms' ); ?></span>
-					</li>
+					</label>
 					<?php foreach ( $categories as $category ) { ?>
-						<li class="Archive__header__dropdown--menu--item">
-							<input type="radio">
+						<label class="Archive__header__dropdown--menu--item">
+							<input data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category">
 							<span><?= esc_html( $category->slug ); ?></span>
-						</li>
+						</label>
 					<?php } ?>
-				</ul>
+					</div>
 			</div>
 		</div>
 	</div>
 	<div class="wrapper Archive__directory">
-		<ul class="Archive__directory__container">
+		<ul class="Archive__directory__container" data-list>
 			<?php foreach ( $categories as $category ) {
 				$query_glossary_posts = new WP_Query(
 					array(
@@ -69,10 +69,10 @@ set_custom_source( 'components/Modal', 'css' );
 					}
 					$post_description = get_post_meta( get_the_ID(), 'company_description', true );
 					?>
-					<li class="Archive__directory__container__item" itemscope itemtype="https://schema.org/DefinedTerm">
+					<li class="Archive__directory__container__item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
 						<img class="Archive__directory__container__item--screenshot domain-placeholder" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
-						<h5 class="Archive__directory__container__item--title" itemprop="name"><?php echo esc_html( $post_title ); ?></h5>
-						<span class="Archive__directory__container__item--description"><?php echo esc_html( $post_description ); ?></span>
+						<h5 class="Archive__directory__container__item--title" data-listitem-title itemprop="name"><?php echo esc_html( $post_title ); ?></h5>
+						<span class="Archive__directory__container__item--description" data-listitem-excerpt><?php echo esc_html( $post_description ); ?></span>
 					</li>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
@@ -87,8 +87,11 @@ set_custom_source( 'components/Modal', 'css' );
 			<div class="Archive__directory__sidebar__categories">
 				<h5><?php _e( "Affiliate program categories", 'ms' ); ?></h5>
 				<?php foreach ( $categories as $category ) { ?>
-					<span><?= esc_html( $category->name ); ?></span>
-			<?php } ?>
+					<label>
+						<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category">
+						<span><?= esc_html( $category->name ); ?></span>
+					</label>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
