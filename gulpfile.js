@@ -57,6 +57,10 @@ gulp.task( 'browser-sync', () => {
 		'./assets/images/integrationMethods/*.svg',
 		gulp.series( 'integrationMethods' )
 	);
+	gulp.watch(
+		'./assets/images/icons-common/*.svg',
+		gulp.series( 'iconsSprite' )
+	);
 } );
 
 gulp.task( 'styles', () =>
@@ -85,6 +89,27 @@ gulp.task( 'styles', () =>
 		.pipe( gulp.dest( './assets/dist' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
 );
+
+const iconsConfig = {
+	shape: {
+		id: {
+			generator: '%s',
+		},
+	},
+	svg: {
+		xmlDeclaration: false,
+	},
+	mode: {
+		symbol: {
+			dest: '.',
+			sprite: 'icons.svg',
+			prefix: '%s',
+			dimensions: '',
+			inline: false,
+			rootviewbox: false,
+		},
+	},
+};
 
 const langFlagsConfig = {
 	shape: {
@@ -123,6 +148,17 @@ const integrationMethods = {
 		},
 	},
 };
+
+gulp.task( 'iconsSprite', () =>
+	gulp
+		.src( [
+			'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
+			'./vendor/qualityunit/wordpress-icons/icons/postaffiliatepro/**/*.svg',
+		] )
+		.pipe( svgSprites( iconsConfig ) )
+		.pipe( gulp.dest( './assets/images' ) )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
 
 gulp.task( 'langFlagsSprite', () =>
 	gulp
@@ -217,6 +253,7 @@ gulp.task(
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
+		'iconsSprite'
 	)
 );
 
@@ -230,6 +267,7 @@ gulp.task(
 		'app-js',
 		'custom-js',
 		'langFlagsSprite',
+		'iconsSprite',
 		'browser-sync',
 	)
 );

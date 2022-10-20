@@ -127,3 +127,4 @@ $RECYCLE.BIN/
 ### Git ###
 *.orig
 _integrationMethods.scss
+/assets/images/icons.svg
