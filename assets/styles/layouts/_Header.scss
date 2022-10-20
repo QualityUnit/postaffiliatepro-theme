@@ -422,7 +422,8 @@
 						}
 					}
 
-					&::before {
+					&::before,
+					.icon {
 						position: absolute;
 						left: 0;
 						top: 2px;
@@ -433,9 +434,16 @@
 					}
 
 					&:not(.icon-header-menu)::before {
-						width: 24px;
-						height: 24px;
+
+						@include square(1.5rem);
 						font-size: 20px;
+					}
+
+					.icon {
+
+						@include square(1.25rem);
+						top: 0.25em;
+						left: 0.15em;
 					}
 
 					&::after {
@@ -494,7 +502,8 @@
 
 		a[href="#"],
 		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		[class*="fontello-"]::before,
+		.icon {
 			color: $saturated-blueish-menu !important;
 		}
 
@@ -507,7 +516,8 @@
 
 		a[href="#"],
 		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		[class*="fontello-"]::before,
+		.icon {
 			color: $primary !important;
 		}
 
@@ -520,7 +530,8 @@
 
 		a[href="#"],
 		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		[class*="fontello-"]::before,
+		.icon {
 			color: $saturated-blue !important;
 		}
 
@@ -624,7 +635,8 @@
 
 		a[href="#"],
 		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		[class*="fontello-"]::before,
+		.icon {
 			color: $saturated-green-menu !important;
 		}
 
@@ -637,7 +649,8 @@
 
 		a[href="#"],
 		[class^="fontello-"]::before,
-		[class*="fontello-"]::before {
+		[class*="fontello-"]::before,
+		.icon {
 			color: $saturated-magenta-menu !important;
 		}
 

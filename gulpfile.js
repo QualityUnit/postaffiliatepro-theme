@@ -154,7 +154,22 @@ gulp.task( 'iconsSprite', () =>
 		.src( [
 			'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
 			'./vendor/qualityunit/wordpress-icons/icons/postaffiliatepro/**/*.svg',
-		] )
+		], { base: './' } )
+		.pipe( rename( ( file ) => {
+			let myprefix = file.dirname;
+			myprefix = myprefix.replace( /.+?\/([^\\/]+)$/g, '$1' );
+
+			if ( myprefix !== 'common' && myprefix !== 'postaffiliatepro' ) {
+				myprefix = `${ myprefix }-`;
+			} else {
+				myprefix = '';
+			}
+			return {
+				dirname: file.dirname,
+				basename: `${ myprefix }${ file.basename }`,
+				extname: '.svg',
+			};
+		} ) )
 		.pipe( svgSprites( iconsConfig ) )
 		.pipe( gulp.dest( './assets/images' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
