@@ -104,15 +104,27 @@
 				<ul class="Footer__bottom__social">
 					<li>
 						<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'Facebook', 'ms' ); ?>"><i class="fontello-facebook-square-brands"></i></a>
+							 title="<?php _e( 'Facebook', 'ms' ); ?>">
+							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_facebook' ); // @codingStandardsIgnoreLine ?>
+						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'Twitter', 'ms' ); ?>"><i class="fontello-twitter-square-brands"></i></a>
+							 title="<?php _e( 'Twitter', 'ms' ); ?>">
+							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_twitter' ); // @codingStandardsIgnoreLine ?>
+						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'YouTube', 'ms' ); ?>"><i class="fontello-youtube-square-brands"></i></a>
+							 title="<?php _e( 'YouTube', 'ms' ); ?>">
+							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_youtube' ); // @codingStandardsIgnoreLine ?>
+						</a>
+					</li>
+					<li>
+						<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
+							 title="<?php _e( 'WhatsApp', 'ms' ); ?>">
+							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_whatsapp' ); // @codingStandardsIgnoreLine ?>
+						</a>
 					</li>
 				</ul>
 			</div>
