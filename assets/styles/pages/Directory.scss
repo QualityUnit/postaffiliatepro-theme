@@ -20,7 +20,8 @@
 			line-height: 28px;
 			margin-top: 45px !important;
 
-			&__inner {
+			&__inner,
+			span {
 				position: relative;
 				display: inline-block;
 				padding-right: 25px;
