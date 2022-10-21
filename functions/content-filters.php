@@ -414,3 +414,26 @@ add_filter(
 		return ' &hellip; <a href="' . get_permalink() . '">' . __( 'Read More', 'ms' ) . '</a>';
 	}
 );
+
+// Fixes schema url hostname back to .com domain
+function change_schema_hostname( $data ) {
+	$protocol = 'http:\/\/';
+	$hostname = 'www.postaffiliatepro.com';
+	
+	if ( isset( $_SERVER['HTTPS'] ) &&
+			( $_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1 ) || //@codingStandardsIgnoreLine
+			isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) &&
+			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ) { //@codingStandardsIgnoreLine
+		$protocol = 'https:\/\/';
+	}
+
+	if ( isset( $_SERVER['SERVER_NAME'] ) ) {
+		$hostname = $_SERVER['SERVER_NAME']; //@codingStandardsIgnoreLine
+	}
+
+	$json   = wp_json_encode( $data );
+	$output = preg_replace( '/http(s?):\\\\\/\\\\\/(www\.)?postaffiliatepro\.(.+?)\//', $protocol . $hostname . '\/', $json );
+	return $output;
+}
+
+add_filter( 'wpseo_schema_graph', 'change_schema_hostname', 10, 2 );
