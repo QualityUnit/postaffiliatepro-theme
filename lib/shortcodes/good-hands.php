@@ -32,7 +32,7 @@ function ms_good_hands() {
 									<div class="Reviews__items">
 										<div class="Reviews__items__item">
 											<a href="/awards/" title="G2 Crowd">
-												<img style="opacity: 0; transition: opacity .5s" data-src="/app/uploads/2019/11/logo_g2.svg" alt="G2 Crowd">
+												<img src="/app/uploads/2019/11/logo_g2.svg" alt="G2 Crowd">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
@@ -44,7 +44,7 @@ function ms_good_hands() {
 										</div>
 										<div class="Reviews__items__item">
 											<a href="/awards/" title="Trustpilot">
-												<img style="opacity: 0; transition: opacity .5s" data-src="/app/uploads/2019/11/logo_trustpilot.svg" alt="Trustpilot">
+												<img src="/app/uploads/2019/11/logo_trustpilot.svg" alt="Trustpilot">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
@@ -56,7 +56,7 @@ function ms_good_hands() {
 										</div>
 										<div class="Reviews__items__item">
 											<a href="/awards/" title="GetApp">
-												<img style="opacity: 0; transition: opacity .5s" data-src="/app/uploads/2019/11/logo_getapp.svg" alt="GetApp">
+												<img src="/app/uploads/2019/11/logo_getapp.svg" alt="GetApp">
 											</a>
 											<div class="Reviews__items__item__stars">
 												<span class="Reviews__items__item__stars__item"></span>
