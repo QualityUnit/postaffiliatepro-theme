@@ -6,13 +6,34 @@
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	transition: 250ms ease-in-out;
-	border: 1px solid $black;
-	border-radius: 16px;
+	border-radius: $border-radius-16;
 	z-index: 100;
 	background-color: $white;
-	width: 300px;
-	max-width: 500px;
-	height: 100px;
+	max-width: 540px;
+	padding: 1.25em 3.625em;
+
+	&--heading {
+		display: inline-block;
+		font-size: 1.875rem;
+		margin: 0.6em auto;
+
+		&::after {
+			transform: rotate(180deg) scale(1.1);
+		}
+	}
+
+	&--text {
+		line-height: $line-height-default;
+		font-size: $font-size-smaller;
+		cursor: pointer;
+	}
+
+	&--close {
+		position: absolute;
+		right: 2.125rem;
+		top: 1.81rem;
+		cursor: pointer;
+	}
 
 	&.active {
 		transform: translate(-50%, -50%) scale(1);

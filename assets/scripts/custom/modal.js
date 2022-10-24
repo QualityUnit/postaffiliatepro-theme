@@ -1,4 +1,5 @@
 const openModalButtons = document.querySelectorAll( '[data-modal-open]' );
+const closeModalButtons = document.querySelectorAll( '[data-modal-close]' );
 const overlay = document.getElementById( 'overlay' );
 
 function openModal( modal ) {
@@ -21,6 +22,13 @@ openModalButtons.forEach( ( button ) => {
 	button.addEventListener( 'click', () => {
 		const modal = document.querySelector( button.dataset.modalOpen );
 		openModal( modal );
+	} );
+} );
+
+closeModalButtons.forEach( ( button ) => {
+	button.addEventListener( 'click', () => {
+		const modal = document.querySelector( button.dataset.modalClose );
+		closeModal( modal );
 	} );
 } );
 
