@@ -96,7 +96,7 @@ set_custom_source( 'components/Modal', 'css' );
 				<button data-modal-open="#modal" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
 			<div class="Archive__directory__sidebar__categories">
-				<h5><?php _e( "Affiliate program categories", 'ms' ); ?></h5>
+				<h5><?php _e( 'Affiliate program categories', 'ms' ); ?></h5>
 				<?php foreach ( $categories as $category ) { ?>
 					<label>
 						<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category">
