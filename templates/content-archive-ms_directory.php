@@ -20,8 +20,8 @@ set_custom_source( 'components/Modal', 'css' );
 			<h1 class="Archive__header__title--directory" itemprop="name"><?php single_cat_title(); ?></h1>
 			<div class="Archive__header__subtitle--directory"><p itemprop="description"><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
-		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' );?></span></h1>
-		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( "A directory of companies and affiliate programs", 'ms' ); ?></p>
+		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' ); ?></span></h1>
+		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( 'A directory of companies and affiliate programs', 'ms' ); ?></p>
 			<?php } ?>
 		<a data-modal-open="#modal" class="Archive__header__button Button Button--full">
 			<?php _e( 'I want to be in list', 'ms' ); ?>
@@ -53,7 +53,8 @@ set_custom_source( 'components/Modal', 'css' );
 	</div>
 	<div class="wrapper Archive__directory">
 		<ul class="Archive__directory__container" data-list>
-			<?php foreach ( $categories as $category ) {
+			<?php
+			foreach ( $categories as $category ) {
 				$query_glossary_posts = new WP_Query(
 					array(
 						'ms_directory_categories' => $category->slug,
@@ -79,7 +80,7 @@ set_custom_source( 'components/Modal', 'css' );
 					if ( preg_match( '/\<img/', $screenshot ) ) {
 						?>
 						<img class="Archive__directory__container__item--screenshot domain-placeholder" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
-						<?php $screenshot ?>
+						<?php $screenshot; ?>
 						<?php } ?>
 						<h5 class="Archive__directory__container__item--title" data-listitem-title itemprop="name"><?php echo esc_html( $post_title ); ?></h5>
 						<span class="Archive__directory__container__item--description" data-listitem-excerpt><?php echo esc_html( $post_description ); ?></span>
@@ -90,9 +91,9 @@ set_custom_source( 'components/Modal', 'css' );
 		</ul>
 		<div class="Archive__directory__sidebar">
 			<div class="Archive__directory__sidebar__container">
-				<h3 class="Archive__directory__sidebar__container--title"><?php _e( "Would you like to be ", 'ms' ); ?><span class="highlight highlight-splash"><?php _e( "included?", 'ms' ); ?></span></h3>
-				<p class="Archive__directory__sidebar__container--text"><?php _e( "Contact us and we’ll add your company and affiliate program to our comprehensive directory.", 'ms' ); ?></p>
-				<button data-modal-open="#modal" class="Button Button--full"><?php _e( "Join to the list", 'ms' ); ?></button>
+				<h3 class="Archive__directory__sidebar__container--title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
+				<p class="Archive__directory__sidebar__container--text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
+				<button data-modal-open="#modal" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
 			<div class="Archive__directory__sidebar__categories">
 				<h5><?php _e( "Affiliate program categories", 'ms' ); ?></h5>
