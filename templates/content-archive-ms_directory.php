@@ -9,6 +9,10 @@ set_custom_source( 'components/Modal', 'css' );
 
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<div class="modal" id="modal">
+		<h3 class="modal--heading highlight highlight-splash2"><?php _e( 'Join to this list', 'ms' ); ?></h3>
+		<img class="modal--close" data-modal-close="#modal" src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg' ); ?>" alt="close" />
+		<p class="modal--text"><?php _e( 'We have to ask you some questions before we can add you to our affiliate directory. Leave us your details, and we’ll contact you as soon as possible.', 'ms' ); ?></p>
+		<script type="text/javascript"> (function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('85yawl7m', e); }); </script>
 	</div>
 	<?php $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) ); ?>
 	<div class="wrapper Archive__header Archive__header--directory">
@@ -68,8 +72,10 @@ set_custom_source( 'components/Modal', 'css' );
 						$post_title = get_the_title();
 					}
 					$post_description = get_post_meta( get_the_ID(), 'company_description', true );
+					// $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
 					?>
 					<li class="Archive__directory__container__item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
+						<!-- <?php $screenshot ?> -->
 						<img class="Archive__directory__container__item--screenshot domain-placeholder" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
 						<h5 class="Archive__directory__container__item--title" data-listitem-title itemprop="name"><?php echo esc_html( $post_title ); ?></h5>
 						<span class="Archive__directory__container__item--description" data-listitem-excerpt><?php echo esc_html( $post_description ); ?></span>
