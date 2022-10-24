@@ -72,11 +72,15 @@ set_custom_source( 'components/Modal', 'css' );
 						$post_title = get_the_title();
 					}
 					$post_description = get_post_meta( get_the_ID(), 'company_description', true );
-					// $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
+					$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
 					?>
 					<li class="Archive__directory__container__item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
-						<!-- <?php $screenshot ?> -->
+					<?php
+					if ( preg_match( '/\<img/', $screenshot ) ) {
+						?>
 						<img class="Archive__directory__container__item--screenshot domain-placeholder" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
+						<?php $screenshot ?>
+						<?php } ?>
 						<h5 class="Archive__directory__container__item--title" data-listitem-title itemprop="name"><?php echo esc_html( $post_title ); ?></h5>
 						<span class="Archive__directory__container__item--description" data-listitem-excerpt><?php echo esc_html( $post_description ); ?></span>
 					</li>
