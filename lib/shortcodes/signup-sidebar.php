@@ -107,30 +107,30 @@ function ms_signup_sidebar( $atts ) {
 	<script defer data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_de.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_de.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_es.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_es.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_fr.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_fr.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_br.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_br.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_sk.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_sk.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_hu.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_hu.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_nl.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_nl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_pl.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_pl.js' ?>"></script>
 	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_it.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_it.js' ?>"></script>
 	<?php } else { ?>
-		<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
+		<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
 	<?php } ?>
 	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
-	<script defer data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
+	<script defer src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 	<?php }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 

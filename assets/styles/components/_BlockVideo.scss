@@ -20,7 +20,7 @@
 		}
 	}
 
-	.youtube__loader {
+	.youtube_urlslab_loader {
 		overflow: visible;
 		min-height: 29em;
 
@@ -40,7 +40,8 @@
 			background-size: contain;
 			top: 58%;
 			transform: translateY(-50%);
-			z-index: 2;
+			z-index: 3;
+			cursor: pointer;
 
 			@media (max-width: ($breakpoint-tablet)) {
 				top: initial;
@@ -66,12 +67,12 @@
 
 		&::after {
 			//gradient is placed in $positions
-			@include square(100%);
+			@include posZero();
 			content: "";
 			position: absolute;
 			font-size: $font-size-default;
 			overflow: hidden;
-			z-index: 1;
+			z-index: 2;
 		}
 	}
 }
@@ -239,7 +240,7 @@ $positions: ("left", "right");
 		}
 	}
 
-	.youtube__loader,
+	.youtube_urlslab_loader,
 	.elementor-custom-embed-image-overlay,
 	.elementor-widget-image {
 
@@ -249,6 +250,13 @@ $positions: ("left", "right");
 			border-radius: $border-radius-16;
 			overflow: hidden;
 		}
+	}
+
+	.elementor-custom-embed-image-overlay {
+
+		@include posZero();
+		position: absolute;
+		z-index: 1;
 	}
 
 	.elementor-widget-image {
@@ -316,7 +324,7 @@ $positions: ("left", "right");
 			.elementor-widget-video {
 				margin-left: -1.5em;
 
-				.youtube__loader {
+				.youtube_urlslab_loader {
 
 					&--img,
 					&::after {
@@ -343,7 +351,7 @@ $positions: ("left", "right");
 			.elementor-widget-video {
 				margin-right: -1.5em;
 
-				.youtube__loader {
+				.youtube_urlslab_loader {
 
 					&--img,
 					&::after {
@@ -379,11 +387,13 @@ $positions: ("left", "right");
 			&-#{$pos} {
 
 				.elementor-widget-image .elementor-image::after {
-					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.8));
+					background: linear-gradient(to #{$pos}, rgba($black, 0.3) 10%, rgba($black, 0.6));
+					cursor: pointer;
 				}
 
-				.elementor-widget-video .youtube__loader::after {
-					background: linear-gradient(to #{$pos}, rgba($black, 0.8), rgba($black, 0.3) 90%);
+				.elementor-widget-video .youtube_urlslab_loader::after {
+					background: linear-gradient(to #{$pos}, rgba($black, 0.6), rgba($black, 0.3) 90%);
+					cursor: pointer;
 				}
 
 				@media (min-width: ($breakpoint-tablet + 1px)) {
@@ -436,7 +446,7 @@ $positions: ("left", "right");
 							}
 						}
 
-						.youtube__loader::before {
+						.youtube_urlslab_loader::before {
 
 							@if $pos == left {
 
@@ -536,7 +546,7 @@ $positions: ("left", "right");
 
 	@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 
-		.youtube__loader,
+		.youtube_urlslab_loader,
 		.elementor-custom-embed-image-overlay,
 		.elementor-widget-image {
 
@@ -610,7 +620,7 @@ $positions: ("left", "right");
 	.elementor-widget-video {
 
 		.elementor-video,
-		.youtube__loader {
+		.youtube_urlslab_loader {
 
 			&::after {
 				display: none;

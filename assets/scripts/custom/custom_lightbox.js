@@ -27,7 +27,8 @@ if ( gallery.length > 0 ) {
     <img class="lightbox__image" \
     data-splide-lazy="${ imageLink.href }" \
     data-imageid="${ imageIndex }" \
-    alt="gallery image" /></div></li>`;
+		alt="gallery image" \
+		/></div></li>`;
 
 		galleryConst.querySelector(
 			'.splide__list'
