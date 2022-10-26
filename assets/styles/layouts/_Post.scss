@@ -41,6 +41,8 @@ $signupSidebarWidth: 16.875em;
 
 		@media (min-width: $breakpoint-tablet) {
 			display: flex;
+			justify-content: center;
+			align-items: center;
 			position: absolute;
 			top: -8.5em;
 		}
