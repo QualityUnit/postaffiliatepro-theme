@@ -45,6 +45,27 @@ function tocRemoveActive() {
 	} );
 }
 
+function loadImg( element ) {
+	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
+		element.setAttribute( 'laprocessing', 'y' );
+		element.parentElement.childNodes.forEach( ( childNode ) => {
+			loadImg( childNode );
+		} );
+		element.removeAttribute( 'laprocessing' );
+	}
+
+	if ( element.hasAttribute( 'data-srcset' ) ) {
+		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
+		element.removeAttribute( 'data-srcset' );
+	}
+
+	if ( element.hasAttribute( 'data-src' ) ) {
+		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
+		element.removeAttribute( 'data-src' );
+	}
+	element.style.opacity = '1';
+}
+
 function activateSidebars() {
 	let isScrolling;
 
@@ -54,9 +75,7 @@ function activateSidebars() {
 				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
 				unloaded.forEach( ( elem ) => {
 					const el = elem;
-					const datasrc = el.getAttribute( 'data-src' );
-					el.setAttribute( 'src', datasrc );
-					el.style.opacity = '1';
+					loadImg( el );
 				} );
 			}
 		} );
