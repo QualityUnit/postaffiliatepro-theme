@@ -1,3 +1,8 @@
+### 1.3.0: October 20th, 2022
+
+- New Lazy loading
+- Bug Fixes and Improvements
+
 ### 1.2.0: October 20th, 2022
 
 - New SVG Icons Sprite
