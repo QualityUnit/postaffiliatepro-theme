@@ -310,6 +310,10 @@
 					padding-right: 30px;
 				}
 
+				.sub-menu {
+					width: calc(100% + 30px);
+				}
+
 				@media (min-width: $breakpoint-tablet-landscape) {
 					width: 25%;
 				}

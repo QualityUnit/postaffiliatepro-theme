@@ -73,12 +73,7 @@
 		<div class="Post__content">
 			<div class="Post__content__breadcrumbs">
 				<ul>
-					<li><a href="<?php _e( '/affiliate-program-directory/', 'ms' ); ?>"><?php _e( 'Directory', 'ms' ); ?></a></li>
-					<?php
-					if ( isset( $_REQUEST['directory_url'] ) ) { // @codingStandardsIgnoreLine
-						?>
-						<li><a href="<?= esc_url( $_REQUEST['directory_url'] ); ?>"><?= esc_html( $_REQUEST['directory_name'] ); // @codingStandardsIgnoreLine ?></a></li>
-					<?php } ?>
+					<li><a href="../"><?php _e( 'Affiliate Manager Directory', 'ms' ); ?></a></li>
 					<li><?php single_cat_title(); ?></li>
 				</ul>
 			</div>
