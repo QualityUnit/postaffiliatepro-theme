@@ -151,7 +151,7 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url">
 						<div class="Blog__item__thumbnail Box--article__image">
 							<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( '' ) ); ?>"></meta>
-							<img style="opacity: 0; transition: opacity 0.2s;" data-src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
+							<img src="<?= esc_url( get_the_post_thumbnail_url() ); ?>" alt="<?= esc_attr( get_the_title() ); ?>" />
 						</div>
 						<div class="Blog__item__content Box--article__text">
 							<div class="Blog__item__meta Blog__item__meta-flat">
