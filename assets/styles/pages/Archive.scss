@@ -200,6 +200,7 @@
 				border-radius: $border-radius-16;
 				padding: 1.125rem;
 				box-shadow: 0 1px 0.05em 0 rgba($black-real, 0.25);
+				max-height: 320px;
 
 				&--screenshot {
 					width: 100%;
@@ -278,8 +279,13 @@
 				flex-flow: wrap column;
 				padding: 1.4375em;
 
+				&--count {
+					color: $medium-gray-quotes;
+				}
+
 				label {
 					display: block;
+					font-size: $font-size-smaller;
 				}
 
 				input[type="radio"] {

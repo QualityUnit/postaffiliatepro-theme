@@ -100,7 +100,8 @@ set_custom_source( 'components/Modal', 'css' );
 				<?php foreach ( $categories as $category ) { ?>
 					<label>
 						<input class="filter-item" data-filteritem type="radio" value="<?php echo esc_attr( $category->slug ); ?>" name="category">
-						<span><?= esc_html( $category->name ); ?></span>
+						<span data-sidebarfilteritem><?= esc_html( $category->name ); ?></span>
+						<span class="Archive__directory__sidebar__categories--count"> (<?= esc_html( $category->count ); ?>)</span>
 					</label>
 				<?php } ?>
 			</div>
