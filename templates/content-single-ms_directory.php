@@ -258,7 +258,8 @@ if ( 'voluum' === $software_id ) {
 
 				<div class="Directory__blocks">
 
-					<h2 id="ap-overview" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
+					<h2 id="ap-overview" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html(
+					get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
 
 					<?php
 					$overview = __( '${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
@@ -331,7 +332,7 @@ if ( 'voluum' === $software_id ) {
 
 					</div>
 
-					<h2 id="ap-campaigns" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program campaigns', 'ms' ); ?></span></h2>
+					<h2 id="ap-campaigns" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program campaigns', 'ms' ); ?></span></h2>
 					<?php
 					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
 					$campaign_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $campaign_text );
@@ -464,7 +465,7 @@ if ( 'voluum' === $software_id ) {
 						</div>
 					</div>
 
-					<h2 id="ap-payouts" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & payouts', 'ms' ); ?></span></h2>
+					<h2 id="ap-payouts" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & payouts', 'ms' ); ?></span></h2>
 
 					<p>
 						<?php _e( 'Payouts are one of the most important factors to consider when choosing an affiliate program.', 'ms' ); ?>
@@ -686,7 +687,7 @@ if ( 'voluum' === $software_id ) {
 					if ( isset( $software ) ) {
 						
 						?>
-							<h2 id="ap-software" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
+							<h2 id="ap-software" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
 
 							<p><?= $aff_software; // @codingStandardsIgnoreLine ?></p>
 
@@ -704,7 +705,7 @@ if ( 'voluum' === $software_id ) {
 					}
 					?>
 
-					<h2 id="affiliate-manager" class="Directory__blocks__title"><span><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate manager', 'ms' ); ?></span></h2>
+					<h2 id="affiliate-manager" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate manager', 'ms' ); ?></span></h2>
 
 					<?php
 					// Saves to post data directory name and url for Affiliate manager breadcrumb
