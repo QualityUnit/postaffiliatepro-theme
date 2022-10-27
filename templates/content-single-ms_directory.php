@@ -258,9 +258,7 @@ if ( 'voluum' === $software_id ) {
 
 				<div class="Directory__blocks">
 
-					<h2 id="ap-overview" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html(
-					get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
-
+					<h2 id="ap-overview" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
 					<?php
 					$overview = __( '${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
 
