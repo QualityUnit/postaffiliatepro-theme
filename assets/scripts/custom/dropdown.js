@@ -11,7 +11,11 @@ dropdown.addEventListener( 'click', () => {
 } );
 items.forEach( ( item ) => {
 	item.addEventListener( 'click', () => {
-		selected.innerText = item.innerText;
+		if ( 'any' === item.innerText.toLowerCase() ) {
+			selected.innerText = 'Category';
+		} else {
+			selected.innerText = item.innerText;
+		}
 		menu.classList.remove( 'menu-open' );
 		arrow.classList.toggle( 'rotate' );
 		items.forEach( ( option ) => {
