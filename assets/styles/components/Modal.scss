@@ -25,7 +25,8 @@
 	&--text {
 		line-height: $line-height-default;
 		font-size: $font-size-smaller;
-		cursor: pointer;
+		max-width: 400px;
+		margin-bottom: 1.5625rem;
 	}
 
 	&--close {
