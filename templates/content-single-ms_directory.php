@@ -856,7 +856,9 @@ if ( 'voluum' === $software_id ) {
 											title="<?= esc_attr( $url_title ); ?>"
 											>
 												<?php _e( 'Show profile', 'ms' ); ?>
-												<?= QualityUnit\Extras\load_inline_svg( 'arrow_small_right' ); // @codingStandardsIgnoreLine ?>
+												<svg>
+													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#arrow-right' ) ?>"></use>
+												</svg>
 											</a>
 										</div>
 										<?php

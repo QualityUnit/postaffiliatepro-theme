@@ -194,7 +194,8 @@
 			font-weight: $font-weight-semi;
 
 			svg {
-				width: 1.2em;
+
+				@include square(1.333em);
 				position: relative;
 				margin-left: 0.5em;
 				transform: translateX(0);
