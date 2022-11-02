@@ -1,4 +1,4 @@
-<header class="Header">
+<header class="Header urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Header__logo">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
