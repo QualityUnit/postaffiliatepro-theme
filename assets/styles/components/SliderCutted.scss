@@ -176,7 +176,8 @@
 		position: relative;
 		height: 13em;
 
-		img, picture {
+		img,
+		picture {
 
 			@include square(100%);
 			object-fit: cover;
