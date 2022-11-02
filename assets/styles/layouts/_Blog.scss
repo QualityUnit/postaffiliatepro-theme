@@ -326,12 +326,14 @@
 			display: block;
 			height: 10em;
 
-			img {
+			img,
+			picture {
 
 				@include square(100%);
 				object-fit: cover;
 
-				&[src*=".svg"] {
+				&[src*=".svg"],
+				[src*=".svg"] {
 					object-position: 25% center;
 				}
 			}

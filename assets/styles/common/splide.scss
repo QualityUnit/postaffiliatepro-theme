@@ -48,8 +48,12 @@
 	flex-shrink: 0;
 }
 
-.splide__slide img {
-	vertical-align: bottom;
+.splide__slide {
+
+	img,
+	picture {
+		vertical-align: bottom;
+	}
 }
 
 .splide__slider {

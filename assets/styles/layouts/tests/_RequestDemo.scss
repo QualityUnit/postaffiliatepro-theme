@@ -160,7 +160,8 @@ body {
 			}
 		}
 
-		img {
+		img,
+		picture {
 			height: 1.25rem;
 			max-width: none;
 			filter: grayscale(100%) contrast(0) brightness(125%);

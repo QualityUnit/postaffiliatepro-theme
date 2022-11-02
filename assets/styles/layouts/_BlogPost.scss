@@ -30,7 +30,8 @@
 		height: 10em;
 		margin-bottom: 1.5em;
 
-		img {
+		img,
+		picture {
 			object-fit: cover;
 			object-position: center;
 			width: 100%;
@@ -174,7 +175,8 @@
 		&__avatar {
 			margin: 0.5em 0;
 
-			img {
+			img,
+			picture {
 				width: 1.625rem;
 				height: auto;
 				border-radius: 50%;
@@ -229,7 +231,8 @@
 		&__image {
 			width: 220px;
 
-			img {
+			img,
+			picture {
 				width: auto;
 				height: 200px;
 				max-width: 220px;
@@ -298,7 +301,8 @@
 
 					&__thumbnail {
 
-						img {
+						img,
+						picture {
 							width: 90px;
 							height: 60px;
 							object-fit: cover;

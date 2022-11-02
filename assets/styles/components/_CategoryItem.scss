@@ -34,7 +34,7 @@
 				margin-bottom: 1.5em;
 				overflow: hidden;
 
-				img {
+				img, picture {
 					width: auto;
 					height: auto;
 					max-width: 100%;
@@ -145,7 +145,7 @@
 			overflow: visible;
 			display: none;
 
-			img {
+			img, picture {
 
 				@include square(100%);
 				object-fit: contain;
@@ -305,7 +305,7 @@
 			}
 		}
 
-		img {
+		img, picture {
 
 			@include square(100%);
 			object-fit: cover;

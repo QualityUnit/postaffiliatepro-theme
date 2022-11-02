@@ -36,7 +36,8 @@
 			max-width: 100%;
 		}
 
-		img {
+		img,
+		picture {
 			position: absolute;
 			width: auto;
 			max-height: 275px;
@@ -83,7 +84,8 @@
 		&__video {
 			margin-top: 50px;
 
-			img {
+			img,
+			picture {
 				position: relative;
 				top: 0;
 				right: 0;

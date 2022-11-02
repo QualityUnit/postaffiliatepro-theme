@@ -185,7 +185,8 @@ $positions: ("left", "right");
 				}
 			}
 
-			img {
+			img,
+			picture {
 				position: relative;
 				transform: translateY(-10%);
 			}
@@ -289,7 +290,8 @@ $positions: ("left", "right");
 				z-index: 2;
 			}
 
-			img {
+			img,
+			picture {
 
 				@include fullSize;
 				appearance: none;
@@ -306,7 +308,8 @@ $positions: ("left", "right");
 
 			.elementor-text-editor {
 
-				img {
+				img,
+				picture {
 					transform: translateY(10%);
 				}
 			}

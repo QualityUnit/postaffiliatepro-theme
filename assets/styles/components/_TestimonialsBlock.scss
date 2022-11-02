@@ -58,7 +58,8 @@
 			margin-right: -2em;
 			overflow: hidden;
 
-			img {
+			img,
+			picture {
 
 				@include square(100%);
 				object-fit: cover;

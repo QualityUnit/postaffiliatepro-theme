@@ -21,7 +21,8 @@
 		background-position: center;
 	}
 
-	img {
+	img,
+	picture {
 		max-height: 350px;
 		margin-bottom: 80px;
 	}
@@ -47,7 +48,8 @@
 			height: 335px;
 		}
 
-		img {
+		img,
+		picture {
 			max-height: 250px;
 		}
 	}
@@ -58,7 +60,8 @@
 			height: 235px;
 		}
 
-		img {
+		img,
+		picture {
 			max-height: 150px;
 		}
 	}
@@ -71,7 +74,8 @@
 			height: 185px;
 		}
 
-		img {
+		img,
+		picture {
 			max-height: 100px;
 		}
 	}
