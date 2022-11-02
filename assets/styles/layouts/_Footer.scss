@@ -138,19 +138,30 @@
 
 		li {
 
-			svg path {
+			a {
 
-				@include color(fill, font-color-medium);
-				transition: fill 0.5s;
-			}
+				svg {
 
-			a:hover {
+					@include square(1.2em);
 
-				@include color(color, primary-color);
+					path {
 
-				svg path {
+						@include color(fill, font-color-medium);
+						transition: fill 0.5s;
+					}
+				}
 
-					@include color(fill, primary-color);
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(color, primary-color);
+					text-decoration: none;
+
+					svg path {
+
+						@include color(fill, primary-color);
+					}
 				}
 			}
 

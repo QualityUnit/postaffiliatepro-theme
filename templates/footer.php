@@ -105,25 +105,34 @@
 					<li>
 						<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
 							 title="<?php _e( 'Facebook', 'ms' ); ?>">
-							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_facebook' ); // @codingStandardsIgnoreLine ?>
+							<svg>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-facebook' )
+								?>"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
 							 title="<?php _e( 'Twitter', 'ms' ); ?>">
-							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_twitter' ); // @codingStandardsIgnoreLine ?>
+							<svg>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-twitter' ) ?>"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
 							 title="<?php _e( 'YouTube', 'ms' ); ?>">
-							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_youtube' ); // @codingStandardsIgnoreLine ?>
+							<svg>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-youtube' ) ?>"></use>
+							</svg>
 						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
 							 title="<?php _e( 'WhatsApp', 'ms' ); ?>">
-							<?= QualityUnit\Extras\load_inline_svg( 'icon_social_whatsapp' ); // @codingStandardsIgnoreLine ?>
+							<svg>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-whatsapp' ) ?>"></use>
+							</svg>
 						</a>
 					</li>
 				</ul>
