@@ -55,7 +55,7 @@
 	</div>
 <?php } ?>
 
-<footer class="Footer Box Box--gray">
+<footer class="Footer Box Box--gray urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Footer__top">
 			<div class="Footer__top__column">
@@ -149,7 +149,7 @@
 	</div>
 </footer>
 
-<div id="loader" class="invisible">
+<div id="loader" class="invisible urlslab-skip-all">
 	<div class="loaderIn">
 
 		<div class="BuildingApp">
@@ -196,7 +196,7 @@
 	</div>
 </div>
 
-<div class="Kolaciky">
+<div class="Kolaciky urlslab-skip-all">
 	<div class="wrapper">
 		<p>
 			<?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?>

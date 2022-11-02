@@ -10,7 +10,7 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 	<div class="Blog__header Block--lines--header">
 		<div class="wrapper wrapper__extended">
 			<h1 class="Blog__header__title"><?php single_cat_title(); ?></h1>
-			<div class="Blog__header__navigation">
+			<div class="Blog__header__navigation urlslab-skip-keywords">
 				<?php
 				if ( has_nav_menu( 'blog_filter_navigation' ) ) :
 					wp_nav_menu(

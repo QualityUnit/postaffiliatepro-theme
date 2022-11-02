@@ -18,7 +18,7 @@ function ms_signup_sidebar( $atts ) {
 	ob_start();
 	?>
 
-	<div class="Signup__sidebar">
+	<div class="Signup__sidebar urlslab-skip-keywords">
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
