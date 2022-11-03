@@ -219,40 +219,38 @@
 
 			@media (min-width: $breakpoint-desktop) {
 				display: grid;
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-rows: repeat(3, 1fr);
+				width: 100%;
+				grid-template-columns: repeat(5, calc(20% - 1em));
 				grid-column-gap: 1rem;
 				grid-row-gap: 3.125rem;
 				justify-content: space-between;
 			}
 
 			&__item {
-				flex: 0 1 205px;
-				display: flex;
-				flex-flow: wrap column;
-				justify-content: space-between;
+				display: block;
 				background: $white;
 				border-radius: $border-radius-16;
 				padding: 1.125rem;
 				box-shadow: 0 1px 0.05em 0 rgba($black-real, 0.25);
-				min-height: 320px;
-				max-height: 320px;
-				margin-bottom: 2rem;
 
-				@media (min-width: $breakpoint-desktop) {
-					flex-grow: 0;
-					max-width: unset;
-					margin-bottom: 0;
-				}
+				.urlslab-screenshot-container {
+					position: relative;
+					padding-bottom: 100%;
+					height: 0 !important;
 
-				&--screenshot {
-					width: 100%;
-					background-color: $lightest-gray;
-					border: 2px solid $light-gray;
-					border-radius: 0.75rem;
+					img {
 
-					&.domain-placeholder {
-						padding: 10px;
+						@include square(100%);
+						position: absolute;
+						max-width: 100%;
+						object-fit: cover;
+						background-color: $lightest-gray;
+						border: 2px solid $light-gray;
+						border-radius: 0.75rem;
+
+						&[src*=".svg"] {
+							object-fit: contain;
+						}
 					}
 				}
 
@@ -267,10 +265,6 @@
 					color: $black;
 					overflow: hidden;
 					text-overflow: ellipsis;
-					display: -webkit-box;
-					-webkit-line-clamp: 3;
-					line-clamp: 3;
-					-webkit-box-orient: vertical;
 				}
 			}
 		}
@@ -280,7 +274,6 @@
 			align-self: flex-start;
 			flex: 0 0 227px;
 			flex-flow: wrap column;
-			position: -webkit-sticky;
 			position: sticky;
 			top: 90px;
 
@@ -458,7 +451,7 @@
 
 			.Archive__container__content__item {
 				position: relative;
-				max-width: 33.3333333333%;
+				max-width: 33.333%;
 				margin-bottom: 40px;
 
 				&__thumbnail {
@@ -789,7 +782,7 @@
 			}
 
 			.Archive__container__content__item {
-				width: 33.3333333333%;
+				width: 33.333%;
 
 				&__category {
 
