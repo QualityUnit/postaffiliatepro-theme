@@ -113,7 +113,7 @@ ul.checklist {
 	li {
 		font-size: 1rem;
 
-		* {
+		*:not(.Tooltip) {
 			all: unset;
 			font-size: inherit;
 		}
