@@ -140,11 +140,12 @@
 
 			a {
 
+				@include color(color, font-color-medium);
+				transition: color 0.5s;
+
 				svg {
 
 					@include square(1.2em);
-					@include color(fill, font-color-medium);
-					transition: fill 0.5s;
 				}
 
 				&:active,
@@ -153,11 +154,6 @@
 
 					@include color(color, primary-color);
 					text-decoration: none;
-
-					svg {
-
-						@include color(fill, primary-color);
-					}
 				}
 			}
 
