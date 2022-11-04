@@ -193,17 +193,15 @@
 			font-family: $font-secondary;
 			font-size: $font-size-small;
 			font-weight: $font-weight-semi;
+			color: $primary;
 
 			svg {
-				width: 1.2em;
+
+				@include square(1.333em);
 				position: relative;
 				margin-left: 0.5em;
 				transform: translateX(0);
 				transition: transform 0.2s;
-
-				path {
-					fill: $primary;
-				}
 			}
 
 			@include hover() {
