@@ -20,7 +20,8 @@
 		padding-right: 0;
 		overflow: visible;
 
-		img {
+		img,
+		picture {
 			margin-top: -50px;
 			margin-bottom: -50px;
 		}
@@ -52,7 +53,8 @@
 
 		.elementor-image {
 
-			img {
+			img,
+			picture {
 				margin-top: 0;
 				margin-bottom: 0;
 			}

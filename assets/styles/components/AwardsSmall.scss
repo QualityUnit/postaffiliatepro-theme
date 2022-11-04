@@ -22,7 +22,8 @@
 			position: absolute;
 			display: block;
 
-			img {
+			img,
+			picture {
 
 				@include square(100%);
 				object-fit: cover;

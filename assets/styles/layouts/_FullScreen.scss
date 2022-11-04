@@ -50,7 +50,8 @@ body.page-template-template-demo {
 			width: 75%;
 
 			img,
-			svg {
+			svg,
+			picture {
 				width: 18.75em;
 			}
 		}
@@ -137,7 +138,8 @@ body.page-template-template-demo {
 
 				&__item {
 
-					img {
+					img,
+					picture {
 						height: 1.875rem;
 
 						.elementor-element & {
@@ -289,7 +291,8 @@ body.page-template-template-demo {
 						}
 					}
 
-					img {
+					img,
+					picture {
 						max-width: 100%;
 						width: auto;
 						height: 30px;
@@ -433,7 +436,8 @@ body.page-template-template-demo {
 		left: 50px;
 		z-index: 1;
 
-		img {
+		img,
+		picture {
 			height: 32px;
 		}
 	}
@@ -560,7 +564,8 @@ body.page-template-template-demo {
 					}
 				}
 
-				img {
+				img,
+				picture {
 					max-width: 100%;
 					width: auto;
 					height: 30px;
@@ -613,7 +618,8 @@ body.page-template-template-demo {
 						margin-right: 0;
 					}
 
-					img {
+					img,
+					picture {
 						height: 23px;
 					}
 				}
@@ -685,7 +691,8 @@ body.page-template-template-demo {
 					&__item {
 						margin: 15px;
 
-						img {
+						img,
+						picture {
 							height: 25px;
 						}
 					}

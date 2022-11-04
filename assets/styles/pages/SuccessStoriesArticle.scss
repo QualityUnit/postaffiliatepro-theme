@@ -9,7 +9,8 @@
 		max-width: 86.25em;
 		margin: 2em auto;
 
-		img {
+		img,
+		picture {
 			max-width: 100%;
 			height: auto;
 		}
@@ -39,9 +40,10 @@
 				width: 50%;
 				min-height: 4.5em;
 
-				img {
-					width: 100%;
-					height: 100%;
+				img,
+				picture {
+
+					@include square(100%);
 					object-fit: cover;
 					object-position: center center;
 				}
@@ -108,9 +110,13 @@
 		&__content {
 			width: 57%;
 
-			.wp-block-image.size-full img {
-				margin-left: -10%;
-				max-width: 120%;
+			.wp-block-image.size-full {
+
+				img,
+				picture {
+					margin-left: -10%;
+					max-width: 120%;
+				}
 			}
 		}
 
@@ -142,9 +148,13 @@
 
 		&__content {
 
-			.wp-block-image.size-full img {
-				margin-left: -19%;
-				max-width: 140%;
+			.wp-block-image.size-full {
+
+				img,
+				picture {
+					margin-left: -19%;
+					max-width: 140%;
+				}
 			}
 		}
 	}

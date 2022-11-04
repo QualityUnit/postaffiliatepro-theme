@@ -272,13 +272,15 @@
 				margin-left: 1em !important;
 			}
 
-			img {
+			img,
+			picture {
 				max-width: 4rem;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
 
-				img {
+				img,
+				picture {
 					max-width: 6rem;
 				}
 			}
@@ -317,7 +319,8 @@
 				height: 100%;
 
 				svg,
-				img {
+				img,
+				picture {
 
 					@include square(100%);
 					object-fit: contain;
@@ -355,7 +358,8 @@
 				max-height: none;
 				overflow: hidden;
 
-				img {
+				img,
+				picture {
 
 					@include square(100%);
 					object-fit: cover;
@@ -382,7 +386,8 @@
 			.elementor-image {
 				overflow: hidden;
 
-				img {
+				img,
+				picture {
 					border-radius: 5em;
 				}
 			}
@@ -553,7 +558,8 @@
 
 				.elementor-widget-container {
 
-					img {
+					img,
+					picture {
 
 						@include square(3.375em);
 					}
@@ -696,8 +702,12 @@
 			height: 40rem;
 
 			&::before,
-			.elementor-widget-image:not(.animation) .elementor-image img {
-				border-radius: 5em 0 0 5em;
+			.elementor-widget-image:not(.animation) .elementor-image {
+
+				img,
+				picture {
+					border-radius: 5em 0 0 5em;
+				}
 			}
 		}
 
@@ -705,8 +715,12 @@
 			height: calc(100vh - 7.5em);
 
 			&::before,
-			.elementor-widget-image:not(.animation) .elementor-image img {
-				border-radius: 5em 0 0 5em;
+			.elementor-widget-image:not(.animation) .elementor-image {
+
+				img,
+				picture {
+					border-radius: 5em 0 0 5em;
+				}
 			}
 		}
 
@@ -734,8 +748,12 @@
 		@media (min-width: 1921px) {
 
 			&::before,
-			.elementor-widget-image:not(.animation) .elementor-image img {
-				border-radius: 5em;
+			.elementor-widget-image:not(.animation) .elementor-image {
+
+				img,
+				picture {
+					border-radius: 5em;
+				}
 			}
 		}
 

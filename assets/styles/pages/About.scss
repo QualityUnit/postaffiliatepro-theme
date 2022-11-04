@@ -32,7 +32,8 @@
 				&-icon {
 					margin-right: 1em;
 
-					img {
+					img,
+					picture {
 
 						@include square(1.25em);
 					}
@@ -82,7 +83,8 @@
 			}
 		}
 
-		img {
+		img,
+		picture {
 			border: none;
 		}
 	}
@@ -166,7 +168,8 @@
 			display: flex;
 			align-items: center;
 
-			img {
+			img,
+			picture {
 				margin-right: 1.25em;
 			}
 
@@ -387,7 +390,8 @@
 					padding: 0;
 					border-radius: 0;
 
-					img {
+					img,
+					picture {
 						border-radius: 0;
 					}
 				}

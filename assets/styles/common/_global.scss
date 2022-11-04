@@ -39,7 +39,8 @@ picture {
 	height: auto;
 }
 
-img {
+img,
+picture {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -177,7 +178,8 @@ img {
 	padding: 1em;
 	flex-shrink: 0;
 
-	img {
+	img,
+	picture {
 
 		@include square(100%);
 	}

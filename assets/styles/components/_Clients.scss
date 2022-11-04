@@ -19,7 +19,8 @@
 		}
 	}
 
-	img {
+	img,
+	picture {
 		display: block;
 		max-width: 125px;
 		height: 25px;
@@ -53,7 +54,8 @@
 		width: 30% !important;
 		margin: 20px 0 !important;
 
-		img {
+		img,
+		picture {
 			max-width: 85%;
 		}
 	}

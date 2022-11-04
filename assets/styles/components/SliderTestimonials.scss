@@ -37,7 +37,8 @@
 			&__photo {
 				width: 48px;
 
-				img {
+				img,
+				picture {
 					border-radius: 50%;
 				}
 			}
@@ -69,7 +70,8 @@
 					height: 22px;
 					overflow: hidden;
 
-					img {
+					img,
+					picture {
 						max-width: 95px !important;
 						max-height: 22px;
 					}
@@ -104,7 +106,8 @@
 		.splide__slide {
 			margin: 0 50px;
 
-			img {
+			img,
+			picture {
 				max-width: 100%;
 			}
 		}
@@ -220,7 +223,8 @@
 						overflow: visible;
 						height: auto;
 
-						img {
+						img,
+						picture {
 							max-width: 100% !important;
 							max-height: none;
 							height: 36px;

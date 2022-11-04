@@ -139,7 +139,8 @@
 				max-height: none;
 			}
 
-			img {
+			img,
+			picture {
 				display: inline-block;
 				margin: 0;
 				width: auto !important;
@@ -190,8 +191,12 @@
 
 		.elementor-col-25 {
 
-			.elementor-widget-image img {
-				max-height: 3.5em;
+			.elementor-widget-image {
+
+				img,
+				picture {
+					max-height: 3.5em;
+				}
 			}
 
 			.elementor-widget-heading {

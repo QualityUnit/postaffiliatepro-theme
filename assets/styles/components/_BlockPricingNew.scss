@@ -142,7 +142,8 @@
 				.elementor-image-box-img[class] {
 					margin-right: 0.5em;
 
-					img {
+					img,
+					picture {
 
 						@include square(1.5em);
 					}

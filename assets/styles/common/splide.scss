@@ -46,10 +46,11 @@
 	list-style-type: none !important;
 	margin: 0;
 	flex-shrink: 0;
-}
 
-.splide__slide img {
-	vertical-align: bottom;
+	img,
+	picture {
+		vertical-align: bottom;
+	}
 }
 
 .splide__slider {
