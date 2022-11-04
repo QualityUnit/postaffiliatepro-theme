@@ -74,44 +74,6 @@
 		&__button {
 			margin: 4.3em auto;
 		}
-
-		&__filter {
-			background-color: $white;
-			border-radius: $border-radius-16;
-			padding: 1em;
-
-			@media (min-width: $breakpoint-tablet) {
-				max-width: 1140px;
-				padding: 1.4375em 1.5625em;
-				margin: 0 auto;
-				display: flex;
-				flex-flow: wrap row;
-				justify-content: flex-start;
-			}
-
-			.searchField {
-
-				@extend %searchField;
-				margin: 0 !important;
-				align-self: center;
-
-				&__icon {
-
-					@include square(1.35em);
-					position: absolute;
-					top: 50%;
-					left: 2.5rem;
-					transform: translateY(-50%);
-				}
-
-				input[type="search"] {
-					background: $light-grayBg;
-					min-width: 300px;
-					height: 3em;
-					border-radius: $border-radius-14;
-				}
-			}
-		}
 	}
 
 	&__directory {
@@ -150,6 +112,7 @@
 				grid-template-columns: repeat(5, calc(20% - 1em));
 				grid-row-gap: 3.125rem;
 			}
+
 
 			&__item {
 				display: block;
@@ -266,6 +229,90 @@
 					appearance: none;
 				}
 			}
+		}
+	}
+
+	&__filter {
+
+		.wrapper {
+			justify-content: flex-start;
+			padding-top: 35px;
+			padding-bottom: 35px;
+		}
+
+		&__item {
+			position: relative;
+			margin-right: 35px;
+
+			i {
+
+				@include color(color, font-color-normal);
+				position: absolute;
+				margin-left: 20px;
+				line-height: 48px;
+				pointer-events: none;
+			}
+		}
+
+		label {
+			font-size: 16px;
+			line-height: 48px;
+			margin-right: 20px;
+		}
+
+		select {
+			font-size: 1rem;
+			line-height: 3;
+			font-weight: $font-weight-bold;
+			border: 0;
+			background-color: transparent;
+			appearance: none;
+		}
+
+		input[type="search"] {
+			position: relative;
+			min-width: 300px;
+			margin-right: 45px;
+			padding-left: 45px;
+		}
+
+		ul {
+			display: flex;
+			flex-flow: wrap row;
+			margin-bottom: 0;
+
+			li {
+				font-size: 1rem;
+				line-height: 1.75;
+				font-weight: $font-weight-bold;
+
+				a {
+
+					@include color(color, font-color-normal);
+				}
+
+				&.current-menu-item,
+				&:active,
+				&:focus,
+				&:hover {
+
+					a {
+
+						@include color(color, primary-color);
+					}
+				}
+
+				+ li {
+					margin-left: 25px;
+				}
+			}
+		}
+
+		&.sticky {
+			position: fixed;
+			top: 90px;
+			z-index: 5;
+			width: 100%;
 		}
 	}
 
