@@ -1,20 +1,13 @@
 <?php // @codingStandardsIgnoreLine
-
-set_custom_source( 'dropdown', 'js' );
+set_custom_source( 'components/Filter', 'css' );
+set_custom_source( 'components/FormPopup', 'css' );
 set_custom_source( 'filter', 'js' );
-set_custom_source( 'modal', 'js' );
-set_custom_source( 'components/Modal', 'css' );
+set_custom_source( 'filterMenu', 'js' );
 
+$categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) );
 ?>
 
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
-	<div class="modal" id="modal">
-		<h3 class="modal--heading highlight highlight-splash2"><?php _e( 'Join to this list', 'ms' ); ?></h3>
-		<img class="modal--close" data-modal-close="#modal" src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg' ); ?>" alt="close" />
-		<p class="modal--text"><?php _e( 'We have to ask you some questions before we can add you to our affiliate directory. Leave us your details, and we’ll contact you as soon as possible.', 'ms' ); ?></p>
-		<script type="text/javascript"> (function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('iem5p5kz', e); }); </script>
-	</div>
-	<?php $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) ); ?>
 	<div class="wrapper Archive__header Archive__header--directory">
 		<?php if ( is_tax( 'ms_directory_categories' ) ) { ?>
 			<h1 class="Archive__header__title--directory" itemprop="name"><?php single_cat_title(); ?></h1>
@@ -23,32 +16,50 @@ set_custom_source( 'components/Modal', 'css' );
 		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' ); ?></span></h1>
 		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( 'A directory of companies and affiliate programs', 'ms' ); ?></p>
 			<?php } ?>
-		<a data-modal-open="#modal" class="Archive__header__button Button Button--full">
-			<?php _e( 'I want to be in list', 'ms' ); ?>
-		</a>
-		<div class="Archive__header__filter">
+
+		<button class="Button Button--full mb-xxxl" type="button" data-target="joinAffDirectory"><span data-target="joinAffDirectory"><?php _e( 'I want to be in the list', 'ms' ); ?></span></button>
+
+		<div class="Filter">
 			<div class="searchField" data-searchfield>
 				<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-				<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="20">
+				<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
 			</div>
-			<div class="Archive__header__dropdown">
-				<button class="dropdown">
-					<span class="selected"><?php _e( 'Category', 'ms' ); ?></span>
-					<img class="dropdown-arrow" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-arrow.svg" alt="<?php _e( 'dropdown arrow', 'ms' ); ?>">
-				</button>
-				<div class="Archive__header__dropdown--menu">
-					<label class="Archive__header__dropdown--menu--item">
-						<input data-filteritem type="radio" value name="category" checked>
-						<span><?= esc_html( 'Any', 'ms' ); ?></span>
-					</label>
-					<?php foreach ( $categories as $category ) { ?>
-						<label class="Archive__header__dropdown--menu--item">
-							<input data-filteritem type="radio" value="<?= esc_attr( $category->slug ); ?>" name="category">
-							<span><?= esc_html( $category->slug ); ?></span>
+
+		<?php
+		if ( isset( $categories ) && count( $categories ) > 0 ) {
+			?>
+
+		<div class="FilterMenu">
+			<div class="FilterMenu__title flex flex-align-center">
+			<?php _e( 'Category', 'ms' ); ?>
+			</div>
+			<div class="FilterMenu__items">
+				<div class="FilterMenu__items--inn">
+					<div class="checkbox FilterMenu__item">
+						<input class="filter-item" data-filteritem type="radio" id="cat-all" value="" name="category" checked />
+						<label for="cat-all">
+							<span><?php _e( 'Any', 'ms' ); ?></span>
 						</label>
-					<?php } ?>
+					</div>
+					<?php
+					foreach ( $categories as $category ) {
+						?>
+
+							<div class="checkbox FilterMenu__item">
+								<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
+
+								<label for="<?php echo esc_attr( $category->slug ); ?>" >
+									<span><?= esc_html( $category->name ); ?></span>
+								</label>
+							</div>
+						<?php } ?>
 				</div>
 			</div>
+		</div>
+
+			<?php
+		}
+		?>
 		</div>
 	</div>
 	<div class="wrapper Archive__directory">
@@ -116,4 +127,16 @@ set_custom_source( 'components/Modal', 'css' );
 		</div>
 	</div>
 </div>
-<div id="overlay"></div>
+<div class="lightbox lightbox__wrapper lightbox__wrapper--light hidden FormPopup" data-targetId="joinAffDirectory">
+	<div class="Form Box--shadow">
+		<button class="Form__close" data-close="joinAffDirectory" type="button">
+			<img class="Form__close--image" src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg' ); ?>" alt="close" />
+		</button>
+		<div class="Form__title h2">
+			<span class="highlight highlight-splash3"><?php _e( 'Join to this list', 'ms' ); ?></span>
+		</div>
+		<p class="Form__subtitle"><?php _e( 'We have to ask you some questions before we can add you to our affiliate directory. Leave us your details, and we’ll contact you as soon as possible.', 'ms' ); ?></p>
+
+		<script type="text/javascript"> (function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('iem5p5kz', e); }); </script>
+	</div>
+</div>

@@ -112,96 +112,12 @@
 				}
 			}
 		}
-
-		&__dropdown {
-			position: relative;
-			margin: 1em auto;
-			max-width: 200px;
-
-			@media (min-width: $breakpoint-tablet) {
-				margin-left: 0.625rem;
-			}
-
-			&--menu {
-				position: absolute;
-				left: 0;
-				top: 105%;
-				width: 100%;
-				max-height: 300px;
-				overflow-y: scroll;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				z-index: 2;
-				padding: 1em 0;
-				background-color: $white;
-				border-radius: $border-radius-14;
-				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
-				opacity: 0;
-				pointer-events: none;
-				transform: translateY(-10px);
-				transition: all 100ms ease-in-out;
-
-				&--item {
-					display: flex;
-					align-content: center;
-					width: 100%;
-					padding: 0.5em 1.5em;
-					overflow: visible;
-					margin-bottom: 0.25em;
-					color: $black;
-					font-size: $font-size-smaller;
-					cursor: pointer;
-
-					&:hover {
-						background-color: $light-grayBg;
-					}
-
-					input[type="radio"] {
-						appearance: none;
-					}
-				}
-
-				&.menu-open {
-					opacity: 1;
-					transform: translateY(0);
-					pointer-events: auto;
-				}
-			}
-
-			.dropdown {
-				display: flex;
-				justify-content: space-between;
-				min-width: 178px;
-				height: 3em;
-				background-color: $white;
-				border: $input-border-width-normal solid $medium-gray-inputs;
-				border-radius: 12px;
-				padding: 0.6857rem 1rem;
-				font-family: $font-primary;
-				font-weight: $font-weight-normal;
-				font-size: $font-size-smaller;
-
-				img,
-				picture {
-					height: 0.75rem;
-					width: 0.4375rem;
-					background: none;
-					border: none;
-					transform: rotate(90deg);
-					transition: 0.3s;
-
-					&.rotate {
-						transform: rotate(-90deg);
-					}
-				}
-			}
-		}
 	}
 
 	&__directory {
 		margin-top: 2.265rem;
 		display: flex;
+		align-items: flex-start;
 		justify-content: space-between;
 		gap: 1em;
 
@@ -218,13 +134,21 @@
 			padding: 1.5652em;
 			gap: 1rem;
 
-			@media (min-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet) {
 				display: grid;
 				width: 100%;
-				grid-template-columns: repeat(5, calc(20% - 1em));
+				grid-template-columns: repeat(2, calc(50% - 1em));
 				grid-column-gap: 1rem;
+				grid-row-gap: 1rem;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				grid-template-columns: repeat(3, calc(33.333% - 1em));
+			}
+
+			@media (min-width: $breakpoint-desktop) {
+				grid-template-columns: repeat(5, calc(20% - 1em));
 				grid-row-gap: 3.125rem;
-				justify-content: space-between;
 			}
 
 			&__item {
@@ -236,8 +160,10 @@
 
 				.urlslab-screenshot-container {
 					position: relative;
-					padding-bottom: 100%;
+					width: 50%;
 					height: 0 !important;
+					margin: 0 auto;
+					padding-bottom: 34%;
 
 					img,
 					picture {
@@ -253,6 +179,11 @@
 						&[src*=".svg"] {
 							object-fit: contain;
 						}
+					}
+
+					@media (min-width: $breakpoint-tablet) {
+						width: 100%;
+						padding-bottom: 100%;
 					}
 				}
 
@@ -335,90 +266,6 @@
 					appearance: none;
 				}
 			}
-		}
-	}
-
-	&__filter {
-
-		.wrapper {
-			justify-content: flex-start;
-			padding-top: 35px;
-			padding-bottom: 35px;
-		}
-
-		&__item {
-			position: relative;
-			margin-right: 35px;
-
-			i {
-
-				@include color(color, font-color-normal);
-				position: absolute;
-				margin-left: 20px;
-				line-height: 48px;
-				pointer-events: none;
-			}
-		}
-
-		label {
-			font-size: 16px;
-			line-height: 48px;
-			margin-right: 20px;
-		}
-
-		select {
-			font-size: 1rem;
-			line-height: 3;
-			font-weight: $font-weight-bold;
-			border: 0;
-			background-color: transparent;
-			appearance: none;
-		}
-
-		input[type="search"] {
-			position: relative;
-			min-width: 300px;
-			margin-right: 45px;
-			padding-left: 45px;
-		}
-
-		ul {
-			display: flex;
-			flex-flow: wrap row;
-			margin-bottom: 0;
-
-			li {
-				font-size: 1rem;
-				line-height: 1.75;
-				font-weight: $font-weight-bold;
-
-				a {
-
-					@include color(color, font-color-normal);
-				}
-
-				&.current-menu-item,
-				&:active,
-				&:focus,
-				&:hover {
-
-					a {
-
-						@include color(color, primary-color);
-					}
-				}
-
-				+ li {
-					margin-left: 25px;
-				}
-			}
-		}
-
-		&.sticky {
-			position: fixed;
-			top: 90px;
-			z-index: 5;
-			width: 100%;
 		}
 	}
 
