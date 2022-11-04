@@ -110,7 +110,7 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 			<div class="Archive__directory__sidebar__container">
 				<h3 class="Archive__directory__sidebar__container--title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
 				<p class="Archive__directory__sidebar__container--text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
-				<button data-modal-open="#modal" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
+				<button data-target="joinAffDirectory" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
 			<div class="Archive__directory__sidebar__categories">
 				<h5><?php _e( 'Affiliate program categories', 'ms' ); ?></h5>
