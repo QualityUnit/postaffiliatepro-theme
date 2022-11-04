@@ -4,9 +4,16 @@
 	*/
 
 function orderby_modified_posts( $query ) {
+	global $wp_the_query;
+	
 	if ( ( $query->is_category() && $query->is_main_query() ) || ( $query->is_archiveg() && $query->is_main_query() ) ) {
 		$query->set( 'orderby', 'modified' );
 		$query->set( 'order', 'desc' );
+	}
+	
+	if ( ( $query === $wp_the_query ) && $query->is_main_query() && ( $query->is_post_type_archive( 'ms_integrations' ) ) ) {
+		$query->set( 'orderby', 'title' );
+		$query->set( 'order', 'asc' );
 	}
 }
 add_action( 'pre_get_posts', 'orderby_modified_posts' );
