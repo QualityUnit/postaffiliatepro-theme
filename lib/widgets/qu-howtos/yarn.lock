@@ -2524,7 +2524,7 @@
     "@wordpress/dom-ready" "^3.21.0"
     "@wordpress/i18n" "^4.21.0"
 
-"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.17.0", "@wordpress/api-fetch@^6.18.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.7.0":
+"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.18.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.7.0":
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.18.0.tgz#be046923000d17a30a742a9bac9a11d57e45611d"
   integrity sha512-b2ico5JuMVyuo80saShDikJoGsuYEYQoLh4/pK5hAytSfRylL9DBd9LZRbimt4xg89sRFdIFUzlZDIddoPCsLQ==
@@ -2575,7 +2575,7 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-4.11.0.tgz#b9ee263e908f7a24c0101a0851d13d92ac98e806"
   integrity sha512-KGHGtOP8q4u3DhlDsw4mMxlcnqxFPMsPa2GrbFBFgFEMeC/v9XMJAAY97V93D5Tbz1JaWBXjQHI+FwPFuyvCHQ==
 
-"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.20.0", "@wordpress/blob@^3.21.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.7.0":
+"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.21.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.7.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.21.0.tgz#2ee6a4ade40bbcabfbc4ac16093f7495ec62b80b"
   integrity sha512-2NOHIcpVE7ZGyZNCBcLWJSEktRRpqoJjSwFXMsRnbaO1LMaVti1/+bA/2yFInNSB1fv5K5+MAO968lduC9POYg==
@@ -3281,15 +3281,15 @@
     lodash "^4.17.21"
 
 "@wordpress/media-utils@^4":
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.11.0.tgz#a10a05ffc5eeb626681a690edc5e6286199dd481"
-  integrity sha512-FePzT6elgmN6kiDkID19tMhC8+y7RJ5vmoVS9kzagh3wKBFvDzaz9Bt5hgN3BTyrVKc+XZPpAo8ju54Ox+Jx+Q==
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.12.0.tgz#f604be0666ebc83ebaf828c56ea88def92d93698"
+  integrity sha512-HNsVl9d91iEkdcsnRubPmlxgM0IEOh/J82hRO6SsorUeqg2hs7FML1cQCJwurZ8ARusb/2WjtbbNVs0EPxsFCQ==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^6.17.0"
-    "@wordpress/blob" "^3.20.0"
-    "@wordpress/element" "^4.18.0"
-    "@wordpress/i18n" "^4.20.0"
+    "@wordpress/api-fetch" "^6.18.0"
+    "@wordpress/blob" "^3.21.0"
+    "@wordpress/element" "^4.19.0"
+    "@wordpress/i18n" "^4.21.0"
 
 "@wordpress/notices@^3.10.0", "@wordpress/notices@^3.16.0", "@wordpress/notices@^3.21.0", "@wordpress/notices@^3.3.2", "@wordpress/notices@^3.7.0":
   version "3.21.0"
