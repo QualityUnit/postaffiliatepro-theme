@@ -1,0 +1,126 @@
+/* stylelint-disable selector-class-pattern */
+
+.BlockIcons {
+
+	@media (max-width: $breakpoint-tablet - 1) {
+		padding: 0 1.5em;
+	}
+
+	&.elementor-section {
+
+		&-boxed > .elementor-container {
+			max-width: $breakpoint-desktop-box !important;
+		}
+	}
+
+	&__header {
+
+		@include boxBackground();
+		border-radius: $border-radius-16;
+		padding: 2em;
+		margin-top: 0;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 8em 2em 13em 2em;
+
+			.elementor-column.elementor-col-50 {
+				display: flex;
+				justify-content: center;
+
+				&:first-child {
+					width: 55%;
+				}
+
+				&:last-child {
+					justify-content: flex-end;
+					width: 38%;
+					margin-left: 7%;
+				}
+			}
+		}
+	}
+
+	&__icons {
+		max-width: $wrapper-width;
+		margin: 1.5em 0 0 0;
+
+		@media (min-width: $breakpoint-tablet) {
+			position: relative;
+			z-index: 1;
+			margin: -8em auto 0 auto;
+		}
+
+		&-wrap {
+
+			@include square(100%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 1.5em 1em;
+			color: $black;
+		}
+
+		&-icon {
+
+			@include square(3.75em);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 0.75em;
+			border-radius: $border-radius-14;
+			background-color: $light-grayBg;
+
+			svg {
+
+				@include square(1.5em);
+			}
+		}
+
+		&-text {
+			font-family: $font-secondary;
+			font-size: $font-size-h4;
+			font-weight: $font-weight-bold;
+		}
+
+		.elementor-widget-wrap {
+			position: relative;
+			display: flex;
+			flex-wrap: wrap;
+			width: auto;
+			margin: -0.625em;
+		}
+
+		.elementor-widget-html {
+			position: relative;
+			width: 100%;
+			max-width: 50%;
+			padding: 0.625em;
+
+			@media (min-width: $breakpoint-tablet) {
+				max-width: 25%;
+			}
+
+			.elementor-widget-container {
+
+				@include square(100%);
+				@include color(background-color, main-background);
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				box-shadow: 2px 4px 1.5em 0 rgba($black-real, 0.05);
+				border-radius: $border-radius-16;
+				text-align: center;
+				color: $black;
+
+				@media (min-width: $breakpoint-tablet) {
+					transition: all 0.3s ease;
+
+					@include hover {
+						transform: translateY(-1.25em);
+					}
+				}
+			}
+		}
+	}
+}
