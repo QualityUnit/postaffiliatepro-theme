@@ -63,15 +63,14 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 		</div>
 	</div>
 	<div class="wrapper Archive__directory">
-		<ul class="Archive__directory__container" data-list>
+		<ul class="Archive__directory--container" data-list>
 			<?php
 			foreach ( $categories as $category ) {
 				$query_glossary_posts = new WP_Query(
 					array(
 						'ms_directory_categories' => $category->slug,
-						'posts_per_page' => 500,
-						'orderby'        => 'title',
-						'order'          => 'ASC',
+						'orderby'                 => 'title',
+						'order'                   => 'ASC',
 					)
 				);
 				while ( $query_glossary_posts->have_posts() ) :
@@ -84,42 +83,44 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 						$post_title = get_the_title();
 					}
 					$post_description = get_post_meta( get_the_ID(), 'company_description', true );
-					$screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
+					$screenshot       = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
 					?>
-					<li class="Archive__directory__container__item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
-					<?php
-					if ( preg_match( '/\<img/', $screenshot ) ) {
-						echo $screenshot; // @codingStandardsIgnoreLine
-					} 
-					if ( ! preg_match( '/\<img/', $screenshot ) ) {
-						?>
-						<div class="urlslab-screenshot-container">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
-						</div>
-						<?php
-					}
-					?>
-						<h5 class="Archive__directory__container__item--title" data-listitem-title itemprop="name"><?= esc_html( $post_title ); ?></h5>
-						<div class="Archive__directory__container__item--description" data-listitem-excerpt><?= esc_html( substr( $post_description, 0, 64 ) . '…' ); ?></div>
+					<li class="Archive__directory--item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
+						<a class="Archive__directory--item__url" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post_title ); ?> <?php _e( 'customer support contacts', 'ms' ); ?>" itemprop="url">
+							<?php
+							if ( preg_match( '/\<img/', $screenshot ) ) {
+								echo $screenshot; // @codingStandardsIgnoreLine
+							} 
+							if ( ! preg_match( '/\<img/', $screenshot ) ) {
+								?>
+								<div class="urlslab-screenshot-container">
+									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/domain_placeholder.svg" alt="<?php _e( 'domain screenshot', 'ms' ); ?>">
+								</div>
+								<?php
+							}
+							?>
+								<h5 class="Archive__directory--item__title" data-listitem-title itemprop="name"><?= esc_html( $post_title ); ?></h5>
+								<div class="Archive__directory--item__description" data-listitem-excerpt><?= esc_html( substr( $post_description, 0, 64 ) . '…' ); ?></div>
+						</a>
 					</li>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php } ?>
 		</ul>
-		<div class="Archive__directory__sidebar">
-			<div class="Archive__directory__sidebar__container">
-				<h3 class="Archive__directory__sidebar__container--title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
-				<p class="Archive__directory__sidebar__container--text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
+		<div class="Archive__directory--sidebar">
+			<div class="Archive__directory--sidebar__container">
+				<h3 class="Archive__directory--sidebar__title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
+				<p class="Archive__director--sidebar__text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
 				<button data-target="joinAffDirectory" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
-			<div class="Archive__directory__sidebar__categories">
+			<div class="Archive__directory--sidebar__categories">
 				<h5><?php _e( 'Affiliate program categories', 'ms' ); ?></h5>
-				<div class="Archive__directory__sidebar__categories--menu">
+				<div class="Archive__directory--sidebar__menu">
 					<?php foreach ( $categories as $category ) { ?>
 						<label>
 							<input class="filter-item" data-filteritem type="radio" value="<?= esc_attr( $category->slug ); ?>" name="category">
 							<span data-sidebarfilteritem><?= esc_html( $category->name ); ?></span>
-							<span class="Archive__directory__sidebar__categories--count"> (<?= esc_html( $category->count ); ?>)</span>
+							<span class="Archive__directory--sidebar__count"> (<?= esc_html( $category->count ); ?>)</span>
 						</label>
 					<?php } ?>
 				</div>
