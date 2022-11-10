@@ -25,11 +25,11 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 					<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
 				</div>
-	
+
 				<?php
 				if ( isset( $categories ) && count( $categories ) > 0 ) {
 					?>
-	
+
 				<div class="FilterMenu">
 					<div class="FilterMenu__title flex flex-align-center">
 					<?php _e( 'Category', 'ms' ); ?>
@@ -45,10 +45,10 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 							<?php
 							foreach ( $categories as $category ) {
 								?>
-	
+
 									<div class="checkbox FilterMenu__item">
 										<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
-	
+
 										<label for="<?php echo esc_attr( $category->slug ); ?>" >
 											<span><?= esc_html( $category->name ); ?></span>
 										</label>
@@ -57,7 +57,7 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 						</div>
 					</div>
 				</div>
-	
+
 					<?php
 				}
 				?>

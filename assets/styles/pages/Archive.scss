@@ -246,6 +246,7 @@
 				padding: 1.4375em;
 
 				&--inn {
+					background-color: $white;
 					top: 0;
 					transition: transform 0.2s;
 
@@ -254,7 +255,6 @@
 						transform: translateY(190px);
 					}
 				}
-
 
 				li {
 					display: block;
@@ -302,6 +302,7 @@
 				flex-direction: column;
 				overflow-y: scroll;
 				max-height: 25em;
+				background-color: $white;
 				margin: 0 -1em;
 			}
 		}

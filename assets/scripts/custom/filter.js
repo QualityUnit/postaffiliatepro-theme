@@ -2,7 +2,7 @@
 	const query = document.querySelector.bind( document );
 	const queryAll = document.querySelectorAll.bind( document );
 
-	function recountVisible() {
+	const recountVisible = () => {
 		// ReCount
 		setTimeout( () => {
 			const listItem = queryAll( '[data-listitem]' );
@@ -26,7 +26,19 @@
 				} );
 			}
 		}, 25 );
-	}
+	};
+
+	const checkSameItems = ( val, name ) => {
+		const sameFilterItemsType = document.querySelectorAll( `[data-filteritem][name="${ name }"]` );
+		const sameFilterItems = document.querySelectorAll( `[data-filteritem][name="${ name }"][value="${ val }"]` );
+
+		sameFilterItemsType.forEach( ( item ) => {
+			item.classList.remove( 'checked' );
+		} );
+		sameFilterItems.forEach( ( item ) => {
+			item.classList.add( 'checked' );
+		} );
+	};
 
 	if ( query( '[data-list]' ) !== null ) {
 		const list = query( '[data-list]' );
@@ -72,15 +84,7 @@
 					const val = filterItem.value;
 					const name = filterItem.getAttribute( 'name' );
 
-					const sameFilterItemsType = document.querySelectorAll( `[data-filteritem][name="${ name }"]` );
-					const sameFilterItems = document.querySelectorAll( `[data-filteritem][name="${ name }"][value="${ val }"]` );
-
-					sameFilterItemsType.forEach( ( item ) => {
-						item.classList.remove( 'checked' );
-					} );
-					sameFilterItems.forEach( ( item ) => {
-						item.classList.add( 'checked' );
-					} );
+					checkSameItems( val, name );
 
 					if ( name === 'category' || name === 'type' ) {
 						window.history.pushState( {}, '', `#${ val }` );
@@ -167,6 +171,7 @@
 					filterItem.checked = true;
 
 					activeFilter[ name ] = val;
+					checkSameItems( val, name );
 					recountVisible();
 				}
 			} );
