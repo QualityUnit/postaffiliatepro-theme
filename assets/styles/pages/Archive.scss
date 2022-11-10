@@ -28,13 +28,20 @@
 			background-size: auto 65%;
 		}
 
-		&--directory {
-			padding-top: 7em;
+		&--directory[class] {
+			padding: 1.5em;
 			text-align: center;
 			max-width: unset;
 			background-color: $light-grayBg;
 
+			@media (min-width: $breakpoint-tablet) {
+				padding-top: 2em;
+				padding-bottom: 2em;
+			}
+
 			@media (min-width: $breakpoint-desktop) {
+				padding-top: 7em;
+				padding-bottom: 3em;
 				background: url(../../images/bg_directory_header.jpg) center no-repeat;
 				background-size: cover;
 			}
@@ -49,14 +56,17 @@
 
 			&--directory {
 				max-width: unset;
-				font-size: 3.4375rem;
 				font-family: $font-secondary;
+				line-height: 1.33;
 				font-weight: $font-weight-bold;
 
 				span::after {
 					transform: rotate(180deg);
 				}
 
+				@media (min-width: $breakpoint-tablet) {
+					font-size: 3.4375rem;
+				}
 			}
 		}
 
@@ -65,9 +75,12 @@
 
 			&--directory {
 				max-width: unset;
-				font-size: 1.625rem;
 				font-family: $font-secondary;
 				font-weight: $font-weight-normal;
+
+				@media (min-width: $breakpoint-tablet) {
+					font-size: 1.625rem;
+				}
 			}
 		}
 
@@ -88,29 +101,29 @@
 		}
 
 		&--container {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-around;
 			background: $lightest-gray;
 			border-radius: $border-radius-16;
 			padding: 1.5652em;
-			gap: 1rem;
 
 			@media (min-width: $breakpoint-tablet) {
 				display: grid;
 				width: 100%;
-				grid-template-columns: repeat(2, calc(50% - 1em));
+				grid-template-columns: repeat(3, calc(33.333% - 1rem));
 				grid-column-gap: 1rem;
 				grid-row-gap: 1rem;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
-				grid-template-columns: repeat(3, calc(33.333% - 1em));
+				grid-template-columns: repeat(4, calc(25% - 1rem));
 			}
 
 			@media (min-width: $breakpoint-desktop) {
 				grid-template-columns: repeat(5, calc(20% - 1em));
 				grid-row-gap: 3.125rem;
+			}
+
+			@media (min-width: $breakpoint-ipad-pro) {
+				width: calc(100% - 14.25em - 1em);
 			}
 		}
 
@@ -122,6 +135,10 @@
 			box-shadow: 0 0 0.25em 0 rgba($black-real, 0.16);
 			color: $black;
 			transition: all 0.2s;
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+				margin-bottom: 1em;
+			}
 
 			@media (hover: hover) {
 
@@ -183,33 +200,22 @@
 		}
 
 		&--sidebar {
+			position: relative;
 			display: none;
-			align-self: flex-start;
-			flex: 0 0 227px;
-			flex-flow: wrap column;
-			position: sticky;
-			top: 90px;
+			height: fit-content;
+			width: 14.25em;
 
-			@media (min-width: $breakpoint-tablet) {
+			@media (min-width: $breakpoint-ipad-pro) {
 				display: block;
 			}
 
-			&__container {
-				flex-flow: wrap column;
-				padding: 1.875em 1.4375em;
-				margin-top: 0.45rem;
-				margin-bottom: 0.45rem;
-				border: 2px solid $light-grayBg;
-				border-radius: $border-radius-16;
-
-
-				.Button {
-					width: 100%;
-				}
+			@media (min-height: $breakpoint-tablet-landscape) {
+				position: sticky;
+				top: 92px;
 			}
 
 			&__title {
-				font-size: 22px;
+				font-size: 1.375rem;
 				font-weight: 700;
 				font-family: $font-secondary;
 
@@ -223,17 +229,65 @@
 				line-height: 1.43;
 			}
 
+			&__container {
+				flex-flow: wrap column;
+				padding: 1.875em 1.4375em;
+				margin-bottom: 0.45rem;
+				border: 2px solid $light-grayBg;
+				border-radius: $border-radius-16;
+
+				.Button {
+					width: 100%;
+				}
+			}
+
 			&__categories {
 				flex-flow: wrap column;
 				padding: 1.4375em;
 
-				label {
-					display: block;
-					font-size: $font-size-smaller;
+				&--inn {
+					top: 0;
+					transition: transform 0.2s;
+
+					&[data-is-sticky="true"] {
+						z-index: 5;
+						transform: translateY(190px);
+					}
 				}
 
-				input[type="radio"] {
-					appearance: none;
+
+				li {
+					display: block;
+					font-size: $font-size-smaller;
+					cursor: pointer;
+
+					.Archive__directory--sidebar__label {
+						position: relative;
+						display: block;
+						padding: 0.25em 1em;
+						border-radius: 1em;
+
+						@media (hover: hover) {
+
+							&:hover {
+
+								background-color: $light-grayBg;
+							}
+						}
+					}
+
+					input[type="radio"] {
+						display: none;
+
+						&:checked,
+						&.checked {
+
+							+ span {
+								font-weight: 600;
+								background-color: $light-grayBg;
+							}
+						}
+					}
 				}
 			}
 
@@ -248,6 +302,7 @@
 				flex-direction: column;
 				overflow-y: scroll;
 				max-height: 25em;
+				margin: 0 -1em;
 			}
 		}
 	}

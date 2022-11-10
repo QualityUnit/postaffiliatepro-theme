@@ -1,4 +1,4 @@
-/* global fetch, IntersectionObserver, customLazyLoad */
+/* global customLazyLoad */
 /* eslint-disable camelcase */
 
 /*

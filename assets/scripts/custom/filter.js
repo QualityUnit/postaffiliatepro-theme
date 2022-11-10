@@ -72,6 +72,16 @@
 					const val = filterItem.value;
 					const name = filterItem.getAttribute( 'name' );
 
+					const sameFilterItemsType = document.querySelectorAll( `[data-filteritem][name="${ name }"]` );
+					const sameFilterItems = document.querySelectorAll( `[data-filteritem][name="${ name }"][value="${ val }"]` );
+
+					sameFilterItemsType.forEach( ( item ) => {
+						item.classList.remove( 'checked' );
+					} );
+					sameFilterItems.forEach( ( item ) => {
+						item.classList.add( 'checked' );
+					} );
+
 					if ( name === 'category' || name === 'type' ) {
 						window.history.pushState( {}, '', `#${ val }` );
 						if ( val.length === 0 ) {

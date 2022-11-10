@@ -71,7 +71,8 @@ input[type="checkbox"] {
 		}
 	}
 
-	&:checked {
+	&:checked,
+	&.checked {
 
 		+ label::before {
 			background-image: url(../images/checkbox-active.svg);
@@ -205,13 +206,17 @@ textarea {
 		}
 	}
 
-	[type="checkbox"]:checked,
-	[type="radio"]:checked {
+	[type="checkbox"],
+	[type="radio"] {
 
-		+ label {
+		&:checked,
+		&.checked {
 
-			&::before {
-				background-image: url(../images/checkbox-active.svg);
+			+ label {
+
+				&::before {
+					background-image: url(../images/checkbox-active.svg);
+				}
 			}
 		}
 	}
