@@ -190,6 +190,7 @@ textarea {
 			content: "";
 
 			@include square(1.429em);
+			flex: 0 0 auto;
 			background: url(../images/checkbox-inactive.svg) center center no-repeat;
 			background-size: contain;
 			margin-right: 0.75em;
