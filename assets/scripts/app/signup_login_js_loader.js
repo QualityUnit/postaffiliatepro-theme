@@ -5,6 +5,7 @@ const signuplogin = () => {
 	function loadScripts() {
 		scriptList.map( ( element ) => {
 			const script = element;
+
 			const datasrc = script.getAttribute( 'data-src' );
 			if ( ! datasrc.match( regex ) ) {
 				script.setAttribute( 'src', datasrc );
@@ -24,9 +25,9 @@ const signuplogin = () => {
 		} );
 	}
 
-	if ( document.querySelectorAll( 'script[data-src]' ).length > 0 ) {
+	if ( document.querySelectorAll( 'script[data-src]' ).length ) {
 		const scriptParent = document.querySelectorAll(
-			'#signup input:not([type="hidden"])'
+			'[data-id="signup"] input:not([type="hidden"])'
 		);
 
 		scriptParent.forEach( ( input ) => {

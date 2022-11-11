@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars, prefer-rest-params, consistent-return, new-cap */
-/* global $, grecaptcha, localStorage */
-/* global loginName, textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, recaptchaId, textRedirecting, productDomain */
+/* global $, jQuery, grecaptcha, localStorage */
+/* global textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, textRedirecting */
 
 ( function main() {
-	const query = document.querySelector.bind( document );
+	const $ = jQuery;
+	const productDomain = 'postaffiliatepro.com';
+	const productId = 'ffd43d92';
+	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	const loginName = localStorage.getItem( 'pap_login' );
 
 	if ( loginName ) {
-		query( '#domainFieldmain input' ).value = loginName;
-		query( '#domainFieldmain' ).classList.add( 'Valid' );
+		document.querySelector( '#domainFieldmain input' ).value = loginName;
+		document.querySelector( '#domainFieldmain' ).classList.add( 'Valid' );
 	}
 
 	function sendApiRequest( options ) {

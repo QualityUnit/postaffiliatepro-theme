@@ -49,6 +49,7 @@ gulp.task( 'browser-sync', () => {
 		gulp.series( 'splide-js' )
 	);
 	gulp.watch( './assets/scripts/custom/**/*.js', gulp.series( 'custom-js' ) );
+	gulp.watch( './assets/scripts/static/**/*.js', gulp.series( 'static-js' ) );
 	gulp.watch(
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
@@ -237,6 +238,12 @@ gulp.task( 'custom-js', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+gulp.task( 'static-js', () =>
+	gulp
+		.src( './assets/scripts/static/**/*.js' )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
 gulp.task( 'stylelint', () =>
 	gulp.src( 'assets/styles/**/*.scss' ).pipe(
 		stylelint( {
@@ -281,6 +288,7 @@ gulp.task(
 		'splide-js',
 		'app-js',
 		'custom-js',
+		'static-js',
 		'langFlagsSprite',
 		'iconsSprite',
 		'browser-sync',

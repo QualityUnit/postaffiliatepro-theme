@@ -1,10 +1,5 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const $ = jQuery;
-
-const productId = 'ffd43d92';
-const variationId = 'pap3627f';
-
 const languageCode = 'sk';
 
 const textValidating = 'Overovanie...';
@@ -29,15 +24,3 @@ const textReadyApp = 'Váš Post Affiliate Pro účet je pripravený';
 const textDoneAppTitle = 'Váš Post Affiliate Pro účet je pripravený';
 const textDoneAppText =
 	'Prihlasovacie údaje vám boli práve odoslané do vašej emailovej schránky. Skontrolujte si ju, prosím, aby ste mohli pokračovať do vášho Post Affiliate Pro účtu.';
-
-const productDomain = 'postaffiliatepro.com';
-const authTokenName = 'authToken';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-const papAccount = 'default1';
-const papAction = 'PAPtrial';
-const papCampaign = '1';
-const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
-
-const debug = false; // Set true for display console.log
