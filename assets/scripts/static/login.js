@@ -10,8 +10,8 @@
 	const loginName = localStorage.getItem( 'pap_login' );
 
 	if ( loginName ) {
-		document.querySelector( '#domainFieldmain input' ).value = loginName;
-		document.querySelector( '#domainFieldmain' ).classList.add( 'Valid' );
+		document.querySelector( '[data-id="domainFieldmain"] input' ).value = loginName;
+		document.querySelector( '[data-id="domainFieldmain"]' ).classList.add( 'Valid' );
 	}
 
 	function sendApiRequest( options ) {
@@ -70,7 +70,7 @@
 		} ),
 
 		main: generateAccessor( '_main', function m() {
-			return $( `#${ this.name }main` );
+			return $( `[data-id="${ this.name }main"]` );
 		} ),
 
 		input: generateAccessor( '_input', function i( reset ) {
@@ -378,14 +378,14 @@
 		this.formFields = {};
 
 		this.submitButton = {
-			main: generateAccessor( '_main', () => $( '#createButtonmain' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="createButtonmain"]' ) ),
 		};
 	}
 
 	SignupForm.prototype = {
 		constructor: SignupForm,
 
-		block: generateAccessor( '_block', () => $( '#signup' ) ),
+		block: generateAccessor( '_block', () => $( '[data-id="signup"]' ) ),
 
 		getField( name ) {
 			if ( ! this.formFields[ name ] ) {
@@ -524,7 +524,7 @@
 							'pap_login',
 							sF.domainField.value()
 						);
-						$( '#createButtonmain' )
+						$( '[data-id="createButtonmain"]' )
 							.find( 'span' )
 							.text( textRedirecting );
 						window.location.href = `https://${ sF.domainField.value() }.${ productDomain }/merchants/`;
