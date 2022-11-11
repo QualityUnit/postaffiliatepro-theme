@@ -1,10 +1,5 @@
 /* eslint-disable no-unused-vars, no-undef */
 
-const $ = jQuery;
-
-const productId = 'pan43d92';
-const variationId = 'pan3627f';
-
 const languageCode = 'nl';
 
 const textValidating = 'Valideren...';
@@ -28,15 +23,3 @@ const textReadyApp = 'Uw Post Affiliate Network is klaar';
 const textDoneAppTitle = 'Uw Post Affiliate Network is klaar';
 const textDoneAppText =
 	'De login gegevens werden naar uw email verstuurd. Controleer deze om door te gaan naar Post Affiliate Network.';
-
-const productDomain = 'postaffiliatepro.com';
-const authTokenName = 'authToken';
-
-const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
-const papAccount = 'default1';
-const papAction = 'PAPtrial';
-const papCampaign = '1';
-const googleScript =
-	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
-
-const debug = false; // Set true for display console.log

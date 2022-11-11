@@ -1,9 +1,32 @@
-/* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap */
-/* global $, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
+/* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
+/* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
 /* global progressStep, newProgress, btoa */
-/* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, debug, textInvalidMail, productId, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, productDomain, authTokenName, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, papAccount, papAction, papCampaign, googleScript, textStart, textInvalid, textCreating, recaptchaId, variationId */
+/* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating */
 
 ( function main() {
+	const $ = jQuery;
+	const debug = false; // Set true for display console.log
+
+	let productId = 'ffd43d92';
+	let variationId = 'pap3627f';
+
+	const papnetwork = document.querySelectorAll( 'script[data-src*="crm_network"]' ).item( 0 );
+
+	if ( papnetwork ) {
+		productId = 'pan43d92';
+		variationId = 'pan3627f';
+	}
+
+	const productDomain = 'postaffiliatepro.com';
+	const authTokenName = 'authToken';
+
+	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	const papAccount = 'default1';
+	const papAction = 'PAPtrial';
+	const papCampaign = '1';
+	const googleScript =
+	"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />";
+
 	const capterraScript =
 		"<script src='https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3'></script>";
 
@@ -85,7 +108,7 @@
 		} ),
 
 		main: generateAccessor( '_main', function m() {
-			return $( `#${ this.name }main` );
+			return $( `[data-id="${ this.name }main"]` );
 		} ),
 
 		input: generateAccessor( '_input', function i( reset ) {
@@ -258,6 +281,14 @@
 				this.main().on( event, runValidate );
 			}
 
+			this.main().on( event, function() {
+				const thisId = $( this ).data( 'id' );
+				const thisVal = $( this ).find( 'input' ).val();
+				document.querySelectorAll( `[data-id="${ thisId }"] input` ).forEach( ( item ) => {
+					item.value = thisVal;
+				} );
+			} );
+
 			return this;
 		},
 	};
@@ -423,7 +454,7 @@
 				}
 			},
 
-			main: generateAccessor( '_main', () => $( '#createButtonmain' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="createButtonmain"]' ) ),
 			text: generateAccessor( '_text', () =>
 				$( '#createButtontextSpan' )
 			),
@@ -438,14 +469,14 @@
 				}
 			},
 
-			main: generateAccessor( '_main', () => $( '#signUpError' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="signUpError"]' ) ),
 		};
 	}
 
 	SignupForm.prototype = {
 		constructor: SignupForm,
 
-		block: generateAccessor( '_block', () => $( '#signup' ) ),
+		block: generateAccessor( '_block', () => $( '[data-id="signup"]' ) ),
 
 		getField( name ) {
 			if ( ! this.formFields[ name ] ) {
@@ -767,22 +798,22 @@
 		);
 
 		if ( typeof gtag !== 'undefined' ) {
-			gtag( 'event', $( '#plan' ).val(), {
+			gtag( 'event', $( '[data-id="plan"]' ).val(), {
 				event_category: 'PAP SignUp',
 			} );
 		}
 
-		$( googleScript ).appendTo( '#signup' );
+		$( googleScript ).appendTo( '[data-id="signup"]' );
 		if ( typeof fbq !== 'undefined' ) {
 			$( "<script>fbq('track', 'StartTrial')</script>" ).appendTo(
-				'#signup'
+				'[data-id="signup"]'
 			);
 		}
 
-		$( capterraScript ).appendTo( '#signup' );
+		$( capterraScript ).appendTo( '[data-id="signup"]' );
 		if ( typeof fbq !== 'undefined' ) {
 			$( "<script>fbq('track', 'StartTrial')</script>" ).appendTo(
-				'#signup'
+				'[data-id="signup"]'
 			);
 		}
 
