@@ -1,3 +1,15 @@
+### 1.3.4: November 11th, 2022
+
+- Bug Fixes and Improvements
+
+### 1.3.3: November 11th, 2022
+
+- Bug Fixes and Improvements
+
+### 1.3.2: November 4th, 2022
+
+- Bug Fixes and Improvements
+
 ### 1.3.1: October 31st, 2022
 
 - Bug Fixes and Improvements
