@@ -209,26 +209,6 @@ $positions: ("left", "right");
 		}
 	}
 
-
-	.elementor-widget-text-editor.learn-more {
-
-		.elementor-text-editor {
-			width: 100%;
-		}
-
-		a {
-
-			@include color(color, font-color-level3);
-
-			&::after {
-
-				content: url(../images/arrow_small.svg);
-				filter: saturate(0) brightness(120%);
-			}
-		}
-	}
-
-
 	.elementor-widget-video {
 
 		@extend %pressToPlay;
