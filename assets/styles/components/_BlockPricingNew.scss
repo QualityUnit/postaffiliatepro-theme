@@ -2,6 +2,15 @@
 
 .BlockPricingNew {
 
+	$wrap-program-width: 63%;
+	$wrap-network-width: 32%;
+	$wrap-network-space: 5%;
+	$wrap-header-height: 3.813em;
+	$wrap-h-padding: 2em;
+	$wrap-shadow: 0 10px 15px rgba(145, 145, 145, 0.28), inset 0 -25px 25px -19px rgba(157, 157, 157, 0.12);
+	$price-width: 8.375em;
+	$price-height: 5.188em;
+
 	@include boxBackground();
 	border-radius: $border-radius-16;
 	overflow: hidden;
@@ -54,7 +63,8 @@
 							position: absolute;
 							background-color: $light-gray;
 							width: 1px;
-							height: calc(100% - 2.5em);
+							height: calc(100% - #{$wrap-header-height + $price-height + 1});
+							top: ($price-height + 1);
 							left: 50%;
 							transform: translateX(-50%);
 						}
@@ -62,14 +72,13 @@
 				}
 
 				.elementor-row {
-					padding-top: 2.5em;
+					padding-bottom: $wrap-header-height;
 				}
 			}
 		}
 
-
 		.box.elementor-column[class*="box"] {
-			padding: 2em !important;
+			padding: 7.2em $wrap-h-padding 2em $wrap-h-padding !important;
 
 			p:last-child {
 				margin-bottom: 0;
@@ -92,48 +101,126 @@
 					font-size: 1.5rem;
 				}
 			}
-
-			.elementor-widget-text-editor:not(.BlockPricingNew__pricing--price) {
-
-				p {
-
-					@include color(color, font-color-normal);
-					font-size: 0.875rem;
-					line-height: 1.714;
-				}
-			}
-
-			@media (min-width: $breakpoint-tablet-landscape) {
-
-				&:first-of-type {
-					margin-top: 3.1em;
-				}
-			}
 		}
 
 		&--program[class] {
 			align-content: stretch;
 		}
 
+		&--tag {
+			position: absolute;
+			top: 0.8em;
+			right: $price-width;
+			z-index: 9;
+			width: auto !important;
+			height: 3.125em;
+			padding: 0 1.75em 0 0.75em;
+			border-radius: $border-radius;
+			background-color: $tag;
+
+			&,
+			.elementor-text-editor,
+			.elementor-widget-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.elementor-text-editor {
+				line-height: 1.1;
+				font-family: $font-secondary;
+				font-size: 0.7em;
+				font-weight: $font-weight-semi;
+				text-align: center;
+			}
+		}
 
 		&--price {
-			margin-top: 1em;
+			position: absolute;
+			top: -0.375em;
+			right: 1em;
+			z-index: 10;
+			width: $price-width !important;
+			height: $price-height;
+			padding: 0.625em 2.25em 0 0.625em;
+			text-align: center;
+			background: url(../images/box-price.svg) left center no-repeat;
+			background-size: contain;
+
+			&,
+			.elementor-text-editor,
+			.elementor-widget-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.elementor-text-editor {
+				flex-direction: column;
+				line-height: 1.1;
+				font-family: $font-secondary;
+				font-size: $font-size-smaller;
+				color: $white;
+
+				strong {
+					font-size: $font-size-h2;
+
+					sup {
+						font-size: 0.643em;
+						vertical-align: top;
+					}
+				}
+			}
 		}
 
 		&--program[class],
 		&--network[class] {
 
-			@include color(background-color, main-background);
-			border-radius: $border-radius-16;
-			box-shadow: 0 10px 15px rgba(145, 145, 145, 0.28), inset 0 -25px 25px -19px rgba(157, 157, 157, 0.12);
-			overflow: hidden;
+			.elementor-column-wrap,
+			.elementor-widget-wrap {
+				position: static;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				@include color(background-color, main-background);
+				border-radius: $border-radius-16;
+				box-shadow: $wrap-shadow;
+			}
+
+			@media (max-width: ($breakpoint-tablet - 1px)) {
+
+				.elementor-column {
+
+					@include color(background-color, main-background);
+					border-radius: $border-radius-16;
+					box-shadow: $wrap-shadow;
+				}
+
+				.elementor-col-50:not(:first-child) {
+					margin-top: 1.125em;
+				}
+			}
 		}
 
 		&--header[class] {
-			border-bottom: 1px solid $light-gray;
-			padding: 0.5em;
-			// background-color: $white;
-			border-radius: $border-radius-16 $border-radius-16 0 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: $wrap-header-height;
+			padding: 0.5em $wrap-h-padding;
+			margin: 0;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: $wrap-h-padding;
+				right: $wrap-h-padding;
+				content: "";
+				height: 1px;
+				display: block;
+				background-color: $light-gray;
+			}
 
 			.elementor-image-box-wrapper[class] {
 				align-items: center;
@@ -169,8 +256,10 @@
 
 			&--header[class] {
 				position: absolute;
+				bottom: 0;
+				left: 0;
 				z-index: 3;
-				width: calc(66.6666% - 1em);
+				width: $wrap-program-width;
 
 				&.wide.program {
 					width: 85%;
@@ -178,13 +267,13 @@
 				}
 
 				&:not(.wide) {
-					width: calc(33.3333% - 0.5em);
-					right: 0;
+					width: $wrap-network-width;
+					left: ($wrap-program-width + $wrap-network-space);
 				}
 			}
 
 			&--program[class] {
-				width: 66%;
+				width: $wrap-program-width;
 
 				&.wide {
 					width: 100%;
@@ -193,8 +282,8 @@
 			}
 
 			&--network[class] {
-				width: 33%;
-				margin-left: 2em;
+				width: $wrap-network-width;
+				margin-left: $wrap-network-space;
 			}
 		}
 	}
