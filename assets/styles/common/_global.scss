@@ -109,6 +109,10 @@ picture {
 	display: none !important;
 }
 
+[data-is-sticky] {
+	transition: all 0.2s;
+}
+
 .block {
 	display: block;
 }

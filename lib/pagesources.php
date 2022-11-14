@@ -8,7 +8,7 @@ set_source( 'single-post', 'sidebar_toc', 'js' );
 set_source( 'single-post', 'custom_lightbox', 'js' );
 
 // Archive type pages
-$archive_type = array( 'archive', 'about', 'awards', 'testimonials', 'customers' );
+$archive_type = array( 'archive', 'awards', 'testimonials', 'customers' );
 
 foreach ( $archive_type as $specific_page ) {
 	set_source( $specific_page, 'pages/Archive', 'css' );
