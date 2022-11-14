@@ -1,3 +1,8 @@
+### 1.4.0: November 14th, 2022
+
+- Redesign of Main Directory Page
+- Bug Fixes and Improvements
+
 ### 1.3.4: November 11th, 2022
 
 - Bug Fixes and Improvements
