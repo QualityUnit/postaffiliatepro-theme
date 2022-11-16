@@ -33,9 +33,15 @@
 
 				&:last-child {
 					justify-content: flex-end;
-					width: 38%;
-					margin-left: 7%;
+					width: 45%;
 				}
+			}
+		}
+
+		@media (max-width: $breakpoint-tablet - 1) {
+
+			.elementor-column.elementor-col-50:not(:first-child) {
+				margin-top: 1.5em;
 			}
 		}
 	}
