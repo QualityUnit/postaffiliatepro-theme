@@ -79,7 +79,7 @@
 
 	&__button {
 
-		&--more {
+		&--more[class] {
 
 			@include color(color, font-color-light);
 			border-color: transparent !important;
