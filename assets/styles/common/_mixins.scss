@@ -1,5 +1,9 @@
 /* stylelint-disable */
 
+@use "sass:map";
+@use "sass:math";
+@use "variables" as *;
+
 @mixin color($property, $varName, $important: "") {
 	#{$property}: map-get($vars, $varName) #{$important};
 	#{$property}: var(--#{$varName}) #{$important};
@@ -11,16 +15,67 @@
 	padding-bottom: $ratio * $width;
 }
 
+// Round a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+
+@function decimal-round ($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $mode == round {
+        @return math.div(math.round($number * $n), $n);
+    } @else if $mode == ceil {
+        @return math.div(math.ceil($number * $n), $n);
+    } @else if $mode == floor {
+        @return math.div(math.floor($number * $n), $n);
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return math.div( $number, ($number * 0 + 1) );
+    }
+
+    @return $number;
+}
+
 //Function to convert Px to Ems, for example: width: em(24px);
 
-@function em($target, $context: $base-font-size) {
+@function em($target, $context: $font-size-default, $unit: 'em') {
 
-	@if $target == 0 {
+    @if $target == 0 {
 
-		@return 0;
-	}
+        @return 0;
+    }
 
-	@return $target / $context + 0;
+    $result: math.div( strip-unit($target), strip-unit($context) );
+
+	@return decimal-round($result, 3)+unquote($unit);
 }
 
 @mixin appearance($appearance: none) {
@@ -103,7 +158,7 @@
 	width: 0;
 	border-color: transparent;
 	border-style: solid;
-	border-width: $size / 2;
+	border-width: math.div($size, 2);
 
 	@if $direction == up {
 		border-bottom-color: $color;
@@ -138,8 +193,8 @@
 		@for $r from 1 through $w {
 
 			@for $c from 1 through $w {
-				$x: $c - ceil($w / 2);
-				$y: $r - ceil($w / 2);
+				$x: $c - math.ceil(math.div($w, 2));
+				$y: $r - math.ceil(math.div($w, 2));
 
 				$shadow: #{$shadow}, #{$x}px #{$y}px 0 $color;
 			}

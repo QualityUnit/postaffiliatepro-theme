@@ -1,7 +1,6 @@
 /* stylelint-disable selector-class-pattern, no-duplicate-selectors */
-
-@import "../common/mixins";
-@import "../common/variables";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .Directory {
 

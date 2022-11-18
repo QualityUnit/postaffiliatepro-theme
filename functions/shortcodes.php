@@ -15,8 +15,6 @@
 	require_once get_template_directory() . '/lib/shortcodes/people.php';
 	require_once get_template_directory() . '/lib/shortcodes/extra-faq.php';
 	require_once get_template_directory() . '/lib/shortcodes/short-faq.php';
-	require_once get_template_directory() . '/lib/shortcodes/features-slider.php';
-	require_once get_template_directory() . '/lib/shortcodes/integrations-slider.php';
 	require_once get_template_directory() . '/lib/shortcodes/short-trial.php';
 	require_once get_template_directory() . '/lib/shortcodes/block-quote.php';
 	require_once get_template_directory() . '/lib/shortcodes/copy.php';

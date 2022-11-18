@@ -1,4 +1,2 @@
-@import "../common/mixins";
-@import "../common/variables";
-@import "../layouts/Pricing";
-@import "../layouts/ComparePlans";
+@forward "../layouts/Pricing";
+@forward "../layouts/ComparePlans";

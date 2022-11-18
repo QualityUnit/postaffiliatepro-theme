@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable value-keyword-case */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 input[type="text"],
 input[type="email"],
@@ -133,7 +136,7 @@ textarea {
 	padding: $input-padding-normal;
 	border-width: $input-border-width-normal;
 	border-style: solid;
-	border-radius: ($border-radius / 2);
+	border-radius: math.div($border-radius, 2);
 	background-color: transparent;
 	font-size: $input-font-size-normal;
 	font-weight: $font-weight-normal;

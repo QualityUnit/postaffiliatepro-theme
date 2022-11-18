@@ -1,7 +1,8 @@
 /* stylelint-disable selector-class-pattern */
-
-@import "../elements/Checklist";
-@import "../elements/PostTypography";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/Checklist";
+@forward "../elements/PostTypography";
 
 $sidebarWidth: 13.5em;
 $signupSidebarWidth: 16.875em;

@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .Article__source {
 	background-color: $light-primary;

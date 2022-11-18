@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "Box";
 
 .BlockChannels {
 	margin-top: $block-space !important;
@@ -172,7 +175,7 @@
 		}
 	}
 
-	@media (min-width: $breakpoint-desktop-box - 1) {
+	@media (min-width: ($breakpoint-desktop-box - 1)) {
 
 		.wrapper {
 

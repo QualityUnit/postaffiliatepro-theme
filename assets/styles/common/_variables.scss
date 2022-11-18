@@ -1,3 +1,7 @@
+// Variables
+@use "sass:map";
+$version: "3.0";
+
 // Fonts
 $font-primary: "Open Sans", sans-serif;
 $font-secondary: "Poppins", sans-serif;
@@ -208,23 +212,3 @@ $colorVariants: (
 	"orange": ($tag_orange, $tag_orange-light),
 	"red": ($tag_red, $tag_red-light)
 );
-
-:root {
-
-	@each $name, $var in $vars {
-		--#{$name}: #{$var};
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	$vars: (
-		header-background: #fff,
-	);
-
-	:root {
-
-		@each $name, $var in $vars {
-			--#{$name}: #{$var};
-		}
-	}
-}
