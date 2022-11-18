@@ -1,5 +1,3 @@
 //Our styles
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
-@import "./editor-styles";
-@import "./howto";
+@forward "./editor-styles";
+@forward "./howto";
