@@ -3,7 +3,7 @@
 @use "../common/mixins" as *;
 
 .MerchantAffiliate {
-	background: url(../images/merchant_affiliate_bg.svg) left center no-repeat;
+	background: url(../../images/merchant_affiliate_bg.svg) left center no-repeat;
 	background-size: auto 100%;
 	border-radius: $border-radius-16;
 	overflow: hidden;
@@ -76,7 +76,7 @@
 					&::after {
 
 						@include square(4em);
-						background: url(../images/merchant_affiliate_play.svg) center center no-repeat;
+						background: url(../../images/merchant_affiliate_play.svg) center center no-repeat;
 						background-size: contain;
 					}
 				}
