@@ -48,7 +48,7 @@
 		"minimist": "^1.2",
 		"node-sass": "^8",
 		"prettier": "^2.7",
-		"stylelint": "^14.14"
+		"stylelint": "^14.15"
 	},
 	"dependencies": {}
 }
