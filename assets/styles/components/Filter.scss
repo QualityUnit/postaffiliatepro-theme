@@ -1,10 +1,10 @@
 /* stylelint-disable selector-class-pattern */
-@import "../common/variables";
-@import "../common/mixins";
-@import "../elements/SearchField";
-@import "../elements/FilterMenu";
-@import "../elements/SortingMenu";
-@import "../elements/IndexMenu";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/SearchField";
+@forward "../elements/FilterMenu";
+@forward "../elements/SortingMenu";
+@forward "../elements/IndexMenu";
 
 .Filter {
 	max-width: $wrapper-width;

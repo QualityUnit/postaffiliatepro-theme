@@ -1,10 +1,13 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity,
  scss/no-global-function-names */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .SideRibbon {
 	$height: 3.875rem;
 	$arrowRatio: 0.36507936508;
-	$arrowWidth: ($height * $arrowRatio);
+	$arrowWidth: math($height * $arrowRatio);
 	$triangleSize: 1.2em;
 
 	$ribbonSizes: (
@@ -21,7 +24,7 @@
 	display: flex;
 	align-items: center;
 	padding: 0.75em 0.25em 0.75em 1em;
-	margin: 0 $arrowWidth ($triangleSize / 2) 0;
+	margin: 0 $arrowWidth math.div($triangleSize, 2) 0;
 	height: $height;
 	border-top-left-radius: $border-radius-16;
 
@@ -59,7 +62,7 @@
 		transform-origin: top left;
 		top: 100%;
 		left: 0;
-		border-width: 0 $triangleSize ($triangleSize / 2) 0;
+		border-width: 0 $triangleSize math.div($triangleSize, 2) 0;
 	}
 
 	&__arrow {
@@ -98,7 +101,7 @@
 			font-size: 1.375em;
 		}
 
-		@media (max-width: $breakpoint-tablet + 1) {
+		@media (max-width: ($breakpoint-tablet + 1)) {
 			font-size: 0.75em;
 		}
 	}
@@ -119,7 +122,7 @@
 			&::after {
 
 				@include triangle($triangle, transparent, right);
-				border-width: 0 $triangleSize ($triangleSize / 2) 0;
+				border-width: 0 $triangleSize math.div($triangleSize, 2) 0;
 			}
 
 			.SideRibbon__arrow {

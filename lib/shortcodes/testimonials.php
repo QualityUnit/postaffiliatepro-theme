@@ -48,6 +48,7 @@ function ms_testimonials( $atts ) {
 		</ul>
 
 	<?php
+	set_custom_source( 'shortcodes/TestimonialsBlock' );
 	set_custom_source( 'testimonials_blocks', 'js' );
 	return ob_get_clean();
 }

@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern, value-keyword-case */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .BlogPost__share-sidebar {
 	display: none;

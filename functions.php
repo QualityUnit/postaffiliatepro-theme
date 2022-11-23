@@ -27,6 +27,7 @@ define( 'THEME_VERSION', '1.4.1' );
 		'functions/post-query-mods.php', // Post Query mods
 		'functions/redirects.php', // Taxonomies Redirects
 		'functions/content-filters.php', // Content filters
+		'functions/components-import.php', // Importing CSS by class
 		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions
 		'functions/sidebar-toc.php', // TOC sidebar in features, integrations, blogs etc.

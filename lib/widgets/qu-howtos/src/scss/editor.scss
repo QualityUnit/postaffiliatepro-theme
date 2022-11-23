@@ -1,6 +1,6 @@
 @use "sass:math";
-@import "../../../../../assets/styles/common/variables";
-@import "../../../../../assets/styles/common/mixins";
+@use "../../../../../assets/styles/common/variables" as *;
+@use "../../../../../assets/styles/common/mixins" as *;
 
 .qu-HowTo {
 	position: relative;

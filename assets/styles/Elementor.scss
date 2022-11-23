@@ -1,0 +1,56 @@
+/* Common */
+
+@forward "common/reset";
+@forward "common/sanitize";
+@forward "common/fontello";
+@forward "common/global";
+@forward "common/elementor";
+@forward "common/elementor-cherrypick";
+@forward "common/lightbox";
+@forward "common/animations";
+
+/* Elements */
+
+@forward "elements/Typography";
+@forward "elements/BulletLists";
+@forward "elements/Checklist";
+@forward "elements/Button";
+@forward "elements/Form";
+@forward "elements/Pagination";
+@forward "elements/YoutubeLoader";
+@forward "elements/Tooltip";
+@forward "elements/PricingPlan";
+@forward "elements/FakeChatButton";
+@forward "elements/CategoryTag";
+@forward "elements/SideRibbon";
+
+/* Components */
+@forward "components/CookieBar";
+@forward "components/DemoBar";
+@forward "components/Box";
+@forward "components/BoxShadow";
+@forward "components/BoxFullWidth";
+@forward "components/Boxes";
+@forward "components/Block";
+@forward "components/BlockSolutions";
+@forward "components/BlockSplitImage";
+@forward "components/Breadcrumb";
+@forward "components/HeroHeadlineHome";
+@forward "components/HeroHeadlinePage";
+@forward "components/ElementorSlider";
+@forward "components/Text";
+@forward "components/Faq";
+@forward "components/ExtraFaq";
+@forward "components/ShortFaq";
+@forward "components/FullHeadline";
+@forward "components/Loader";
+@forward "components/Logos";
+@forward "components/Numbers";
+@forward "components/Reference";
+@forward "components/Reviews";
+@forward "components/PapPanHomeSplit";
+@forward "components/SimilarIntegrations";
+@forward "components/SimilarSources";
+
+/* Layouts */
+@forward "layouts/FullScreen";

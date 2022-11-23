@@ -46,7 +46,7 @@ function ms_awards_small( $atts ) {
 	</div>
 
 	<?php
-	set_custom_source( 'components/AwardsSmall' );
+	set_custom_source( 'shortcodes/AwardsSmall' );
 	return ob_get_clean();
 }
 add_shortcode( 'awards_small', 'ms_awards_small' );

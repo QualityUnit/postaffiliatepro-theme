@@ -1,10 +1,10 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 /* stylelint-disable value-keyword-case */
-
-@import "../common/variables";
-@import "../common/mixins";
-@import "../elements/CategoryTag";
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/CategoryTag";
 
 .Archive__columns {
 	display: flex;
@@ -37,11 +37,11 @@
 			animation: chatDots 1.5s linear infinite;
 
 			&:nth-child(2) {
-				animation-delay: $animationTime / 6;
+				animation-delay: math.div($animationTime, 6);
 			}
 
 			&:nth-child(3) {
-				animation-delay: $animationTime / 3;
+				animation-delay: math.div($animationTime, 3);
 			}
 		}
 	}

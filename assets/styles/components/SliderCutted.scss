@@ -1,7 +1,6 @@
 /* stylelint-disable selector-class-pattern, value-keyword-case */
-
-@import "../common/mixins";
-@import "../common/variables";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .SliderCutted {
 	max-width: 77em;

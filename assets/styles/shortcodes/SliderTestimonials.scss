@@ -1,0 +1,270 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Gutenberg {
+
+	.splide .splide__list {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.SliderTestimonials {
+
+	.splide .splide__list {
+		display: flex;
+		align-items: center;
+	}
+	overflow: hidden;
+
+	.elementor-widget:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	&__slider {
+		max-height: 348px;
+		overflow: hidden;
+
+		&__header {
+			display: flex;
+			flex-flow: wrap row;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 25px;
+
+			&__photo {
+				width: 48px;
+
+				img,
+				picture {
+					border-radius: 50%;
+				}
+			}
+
+			&__text {
+				width: calc(100% - (48px + 15px));
+
+				&__name {
+
+					@include color(color, font-color-dark);
+					font-size: $font-size-default;
+					line-height: 21px;
+					font-weight: $font-weight-bold;
+					text-transform: uppercase;
+					margin-bottom: 0;
+					height: 21px;
+					overflow: hidden;
+				}
+
+				&__position {
+					font-size: $font-size-smaller;
+					line-height: $line-height-smaller;
+					margin-bottom: 10px;
+					height: $line-height-smaller;
+					overflow: hidden;
+				}
+
+				&__logo {
+					height: 22px;
+					overflow: hidden;
+
+					img,
+					picture {
+						max-width: 95px !important;
+						max-height: 22px;
+					}
+				}
+			}
+		}
+
+		&__content {
+
+			p {
+				font-size: $font-size-smaller;
+				line-height: $line-height-smaller;
+				margin-bottom: 0;
+				max-height: 216px;
+				overflow: hidden;
+			}
+		}
+
+		.slider {
+			width: 100%;
+			max-width: 1140px;
+			padding: 0 30px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.splide__track,
+		.splide__list {
+			padding: 0 20px;
+		}
+
+		.splide__slide {
+			margin: 0 50px;
+
+			img,
+			picture {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&:not(.SliderTestimonials--shadow):not(.SliderTestimonials--custom) {
+
+		.splide__slide {
+			margin: 20px;
+		}
+	}
+
+	&--shadow {
+
+		.splide__slide {
+
+			@include color(box-shadow, box-shadow);
+			margin: 20px;
+			border-radius: $border-radius;
+
+			.slide__inn {
+				padding: 30px;
+			}
+		}
+	}
+
+	&--custom {
+
+		.SliderTestimonials__slider {
+			max-height: 750px;
+			text-align: left;
+
+			@media (max-width: $breakpoint-tablet - 1px) {
+
+				.slider,
+				.splide__track {
+					padding: 0;
+				}
+
+				.splide__slide {
+					margin: 0;
+				}
+
+				.slide__inn {
+					padding: 10px;
+				}
+			}
+
+			.splide__slide {
+				box-shadow: none;
+				border-radius: none;
+			}
+
+			.splide__arrow {
+
+				@include square(2.5rem);
+				@include color(background-color, secondary-background);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				opacity: 1;
+
+				&:hover {
+					background-color: darken($lightest-gray, 5%); /* stylelint-disable-line scss/no-global-function-names */
+				}
+
+				&::before {
+
+					@include color(color, font-color-medium);
+					position: relative;
+					font-size: 1.15rem;
+				}
+
+				&--prev {
+
+					&::before {
+						left: -1px;
+					}
+				}
+
+				&--next {
+
+					&::before {
+						right: -1px;
+					}
+				}
+			}
+
+			&__header {
+				position: relative;
+				margin-bottom: 15px;
+
+				&__person {
+					position: relative;
+					z-index: -1;
+					height: 178px;
+
+					&.no-person {
+
+						&::before {
+							content: url(../../images/avatar-generic.svg);
+							display: block;
+						}
+					}
+				}
+
+				&__text {
+					width: 100%;
+
+					&__logo {
+						margin-top: 1.5em;
+						margin-bottom: 1em;
+						overflow: visible;
+						height: auto;
+
+						img,
+						picture {
+							max-width: 100% !important;
+							max-height: none;
+							height: 36px;
+							width: auto;
+						}
+
+						@media (min-width: $breakpoint-tablet) {
+							margin-left: 20px;
+						}
+					}
+				}
+			}
+
+			&__content {
+				margin-top: -2.5em;
+
+				p {
+
+					@include color(color, font-color-dark);
+					text-align: left;
+					max-height: 750px;
+					font-size: 0.875rem;
+					font-style: italic;
+
+					strong {
+						position: absolute;
+						font-size: 1.25rem;
+						top: 5.5rem;
+						left: 10rem;
+						font-style: normal;
+					}
+				}
+
+				@media (min-width: $breakpoint-tablet) {
+					padding-left: 20px;
+
+					p {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+}
