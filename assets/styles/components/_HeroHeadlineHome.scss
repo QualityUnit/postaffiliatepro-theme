@@ -413,7 +413,6 @@
 			justify-content: center;
 		}
 
-
 		.chat--bubble {
 			display: flex;
 			margin-bottom: 0.75em;
@@ -527,7 +526,7 @@
 			z-index: 2;
 			width: max-content;
 			max-width: 29.625em;
-			margin-bottom: 2em;
+			margin-bottom: 1.75em;
 
 			&--big {
 
@@ -546,11 +545,10 @@
 
 				.white--bubble-right.white--bubble-right {
 					margin: auto;
-					font-size: 1.125em !important;
 				}
 
 				.elementor-widget-container {
-					padding: 1.5em 1.5em 1.5em 2em;
+					padding: 0.8em 1.5em 0.8em 2em;
 				}
 			}
 
@@ -561,7 +559,7 @@
 					img,
 					picture {
 
-						@include square(3.375em);
+						@include square(2.5	em);
 					}
 
 					.white--bubble-right.white--bubble-right {
