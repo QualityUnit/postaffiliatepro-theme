@@ -4576,7 +4576,7 @@ gulp-stylelint@^13:
     strip-ansi "^6.0.0"
     through2 "^3.0.1"
 
-gulp-svg-sprite@^2.0:
+gulp-svg-sprite@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/gulp-svg-sprite/-/gulp-svg-sprite-2.0.1.tgz#b43400b958586f528c72bbed9c75d8de73cf6dbb"
   integrity sha512-hK+ipciM9YU9G3lAeBMqZJaDsiq7NMXOkirR7DkU/YhhzE+JEnhp8DzzYC58Dt09KpAmwoK49SIyyk/1UvkJLg==
