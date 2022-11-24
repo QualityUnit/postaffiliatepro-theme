@@ -5,6 +5,7 @@
 @use "../components/Newsletter" as *;
 
 .Footer {
+	overflow-x: hidden;
 	margin-bottom: 2.5em;
 
 	&__top,
@@ -29,8 +30,36 @@
 	padding-top: 5em;
 
 	&__column {
+		position: relative;
+		z-index: 2;
 		padding: 15px 0;
 		font-size: 0.9rem;
+
+		&:first-child {
+			position: relative;
+			z-index: 1;
+
+			> div {
+				position: relative;
+				z-index: 2;
+			}
+
+			&::before {
+				$size: 19em;
+
+				@include square($size);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 1;
+				content: "";
+				display: block;
+				border-radius: ($size / 2) ($size / 10) ($size / 2) ($size / 2);
+				box-shadow: 0.25em 0.25em 3.125em rgba($black, 0.08);
+				background-color: $white;
+				transform: translate3d(-50%, -50%, 0);
+			}
+		}
 
 		&__title {
 			font-size: 1.125em;
