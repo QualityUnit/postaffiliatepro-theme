@@ -26,6 +26,7 @@ function components_imports( $content ) {
 		'BlockButtons'      => 'components/BlockButtons',
 		'BlockPoints'       => 'components/BlockPoints',
 		'BlockChannels'     => 'components/BlockChannels',
+		'BlockPricing'      => 'components/BlockPricing',
 		'BlockPricingNew'   => 'components/BlockPricingNew',
 		'BlockResources'    => 'components/BlockResources',
 		'BlockTrial'        => 'components/BlockTrial',
@@ -33,6 +34,7 @@ function components_imports( $content ) {
 		'Boxes--stars'      => 'components/BoxesStars',
 		'Block--overflow'   => 'components/BlockOverflow',
 		'Block--video'      => 'components/BlockVideo',
+		'CTA'               => 'components/CTA',
 		'HeroBanner'        => 'components/HeroBanner',
 		'HeroBig'           => 'components/HeroBig',
 		'elementor-tabs'    => 'components/HorizontalTabs',
@@ -54,9 +56,9 @@ function components_imports( $content ) {
 	
 	foreach ( $blocks as $class => $csspath ) {
 		$id           = strtolower( $class );
-		$found_blocks = $xpath->query( './/*[contains(@class, ' . $class . ')]' );
-	
-		if ( $found_blocks[0] || is_user_logged_in() ) {
+		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
+		
+		if ( isset( $found_blocks[0] ) || is_user_logged_in() ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 	}
