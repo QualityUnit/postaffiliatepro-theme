@@ -362,6 +362,14 @@
 				max-height: none;
 				overflow: hidden;
 
+				@media (min-width: $breakpoint-tablet) {
+					border-radius: 5em 0 0 5em;
+				}
+
+				@media (min-width: 1921px) {
+					border-radius: 5em;
+				}
+
 				img,
 				picture {
 
