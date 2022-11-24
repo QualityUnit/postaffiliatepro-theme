@@ -8,13 +8,13 @@
 
 		.wrapper {
 
-			@include boxBackground();
+			@include boxBackground("../../images/");
 		}
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
 
-		@include boxBackground();
+		@include boxBackground("../../images/");
 
 		.wrapper {
 			background-color: transparent;

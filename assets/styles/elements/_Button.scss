@@ -210,6 +210,10 @@ button,
 			margin-right: 10px;
 			background-image: url(../images/icon-copy.svg);
 			transition: opacity 0.3s;
+
+			.single & {
+				background-image: url(../../images/icon-copy.svg);
+			}
 		}
 	}
 
@@ -221,6 +225,10 @@ button,
 
 			&::before {
 				background-image: url(../images/icon-copy-hover.svg);
+
+				.single & {
+					background-image: url(../../images/icon-copy-hover.svg);
+				}
 			}
 		}
 	}

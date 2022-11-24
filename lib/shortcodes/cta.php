@@ -27,7 +27,6 @@ function ms_cta( $atts ) {
 	</div>
 
 	<?php
-	set_custom_source( 'shortcodes/CTA' );
 	return ob_get_clean();
 }
 add_shortcode( 'cta', 'ms_cta' );
