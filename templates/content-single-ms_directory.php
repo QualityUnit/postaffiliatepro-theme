@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'directory', 'pages/Directory', 'css' );
-set_custom_source( 'components/CTA', 'css' );
+set_custom_source( 'shortcodes/CTA', 'css' );
 set_custom_source( 'common/splide', 'css' );
 set_custom_source( 'components/AffiliateManagerCard', 'css' );
 set_custom_source( 'splide', 'js' );

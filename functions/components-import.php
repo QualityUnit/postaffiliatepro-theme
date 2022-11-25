@@ -35,7 +35,6 @@ function components_imports( $content ) {
 		'Boxes--stars'      => 'components/BoxesStars',
 		'Block--overflow'   => 'components/BlockOverflow',
 		'Block--video'      => 'components/BlockVideo',
-		'CTA'               => 'components/CTA',
 		'HeroBanner'        => 'components/HeroBanner',
 		'HeroBig'           => 'components/HeroBig',
 		'elementor-tabs'    => 'components/HorizontalTabs',
