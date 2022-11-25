@@ -26,6 +26,7 @@ function components_imports( $content ) {
 		'BlockButtons'      => 'components/BlockButtons',
 		'BlockPoints'       => 'components/BlockPoints',
 		'BlockChannels'     => 'components/BlockChannels',
+		'BlockCoupon'      => 'components/BlockCoupon',
 		'BlockPricing'      => 'components/BlockPricing',
 		'BlockPricingNew'   => 'components/BlockPricingNew',
 		'BlockResources'    => 'components/BlockResources',

@@ -37,3 +37,4 @@
 	require_once get_template_directory() . '/lib/shortcodes/appicons.php';
 	require_once get_template_directory() . '/lib/shortcodes/source.php';
 	require_once get_template_directory() . '/lib/shortcodes/alternatives.php';
+	require_once get_template_directory() . '/lib/shortcodes/countdown.php';
