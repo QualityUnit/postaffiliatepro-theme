@@ -798,7 +798,8 @@ video {
 			background: url(../images/splash-blue.svg) center center no-repeat;
 			background-size: 100%;
 
-			.single & {
+			.single &,
+			.archive & {
 				background-image: url(../../images/splash-blue.svg);
 			}
 		}
@@ -821,7 +822,8 @@ video {
 		&::after {
 			background-image: url(../images/splash2.svg);
 
-			.single & {
+			.single &,
+			.archive & {
 				background-image: url(../../images/splash2.svg);
 			}
 		}
@@ -845,7 +847,8 @@ video {
 		&::after {
 			background-image: url(../images/splash_dark.svg);
 
-			.single & {
+			.single &,
+			.archive & {
 				background-image: url(../../images/splash_dark.svg);
 			}
 		}
@@ -860,7 +863,8 @@ video {
 			background-image: url(../images/splash-yellow.svg);
 			transform: translateX(-5%);
 
-			.single & {
+			.single &,
+			.archive & {
 				background-image: url(../../images/splash-yellow.svg);
 			}
 		}
