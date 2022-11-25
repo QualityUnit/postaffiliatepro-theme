@@ -21,46 +21,48 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 
 		<div data-stickyFrom>
 			<div class="Filter">
-				<div class="searchField" data-searchfield>
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-					<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
-				</div>
-
-				<?php
-				if ( isset( $categories ) && count( $categories ) > 0 ) {
-					?>
-
-				<div class="FilterMenu">
-					<div class="FilterMenu__title flex flex-align-center">
-					<?php _e( 'Category', 'ms' ); ?>
+				<div class="Filter__wrapper">
+					<div class="searchField" data-searchfield>
+						<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+						<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
 					</div>
-					<div class="FilterMenu__items">
-						<div class="FilterMenu__items--inn">
-							<div class="checkbox FilterMenu__item">
-								<input class="filter-item checked" data-filteritem type="radio" id="cat-all" value="" name="category" checked />
-								<label for="cat-all">
-									<span><?php _e( 'Any', 'ms' ); ?></span>
-								</label>
-							</div>
-							<?php
-							foreach ( $categories as $category ) {
-								?>
-
-									<div class="checkbox FilterMenu__item">
-										<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
-
-										<label for="<?php echo esc_attr( $category->slug ); ?>" >
-											<span><?= esc_html( $category->name ); ?></span>
-										</label>
-									</div>
-								<?php } ?>
-						</div>
-					</div>
-				</div>
 
 					<?php
-				}
-				?>
+					if ( isset( $categories ) && count( $categories ) > 0 ) {
+						?>
+
+					<div class="FilterMenu">
+						<div class="FilterMenu__title flex flex-align-center">
+						<?php _e( 'Category', 'ms' ); ?>
+						</div>
+						<div class="FilterMenu__items">
+							<div class="FilterMenu__items--inn">
+								<div class="checkbox FilterMenu__item">
+									<input class="filter-item checked" data-filteritem type="radio" id="cat-all" value="" name="category" checked />
+									<label for="cat-all">
+										<span><?php _e( 'Any', 'ms' ); ?></span>
+									</label>
+								</div>
+								<?php
+								foreach ( $categories as $category ) {
+									?>
+
+										<div class="checkbox FilterMenu__item">
+											<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
+
+											<label for="<?php echo esc_attr( $category->slug ); ?>" >
+												<span><?= esc_html( $category->name ); ?></span>
+											</label>
+										</div>
+									<?php } ?>
+							</div>
+						</div>
+					</div>
+
+						<?php
+					}
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -112,7 +114,7 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 		<div class="Archive__directory--sidebar">
 			<div class="Archive__directory--sidebar__container">
 				<h3 class="Archive__directory--sidebar__title"><?php _e( 'Would you like to be ', 'ms' ); ?><span class="highlight highlight-splash"><?php _e( 'included?', 'ms' ); ?></span></h3>
-				<p class="Archive__director--sidebar__text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
+				<p class="Archive__directory--sidebar__text"><?php _e( 'Contact us and we’ll add your company and affiliate program to our comprehensive directory.', 'ms' ); ?></p>
 				<button data-target="joinAffDirectory" class="Button Button--full"><?php _e( 'Join to the list', 'ms' ); ?></button>
 			</div>
 			<div class="Archive__directory--sidebar__categories" data-stickyFrom="190">

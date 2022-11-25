@@ -17,13 +17,15 @@ if ( stickies.length && 'IntersectionObserver' in window ) {
 				stickyParent.style.height = `${ stickyPos.height }px`;
 
 				if ( entry.isIntersecting || entry.boundingClientRect.top < 0 ) {
+					stickyParent.dataset.isSticky = true;
 					stickyChild.dataset.isSticky = true;
 					stickyChild.style.cssText = `position: fixed; left: ${ stickyPos.x }px; width: ${ stickyPos.width }px`;
 					return;
 				}
 
 				if ( ! entry.isIntersecting ) {
-					stickyChild.dataset.isSticky = false;
+					delete stickyParent.dataset.isSticky;
+					delete stickyChild.dataset.isSticky;
 					stickyChild.style = null;
 				}
 			},
