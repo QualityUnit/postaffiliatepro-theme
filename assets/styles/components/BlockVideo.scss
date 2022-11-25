@@ -23,8 +23,13 @@
 	}
 
 	.youtube_urlslab_loader {
+		position: relative;
 		overflow: visible;
 		min-height: 29em;
+
+		[itemprop="video"] {
+			height: 0 !important;
+		}
 
 		&--img {
 			border-radius: 4.375em;
@@ -69,7 +74,7 @@
 
 		&::after {
 			//gradient is placed in $positions
-			@include posZero();
+			@include square(100%);
 			content: "";
 			position: absolute;
 			font-size: $font-size-default;

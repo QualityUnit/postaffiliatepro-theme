@@ -219,6 +219,11 @@ a {
 			left: -2px;
 			margin-left: -2em;
 			margin-right: 0.5em;
+
+			.single &,
+			.archive & {
+				content: url(../../images/icon_checkmark_primary.svg);
+			}
 		}
 	}
 }

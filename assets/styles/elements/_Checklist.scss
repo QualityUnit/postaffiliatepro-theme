@@ -29,7 +29,8 @@
 			font-size: 1.25em;
 			margin: 0;
 
-			.single & {
+			.single &,
+			.archive & {
 				background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
 				background-size: 50%;
 			}
