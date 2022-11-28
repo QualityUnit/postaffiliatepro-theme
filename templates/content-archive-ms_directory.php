@@ -87,7 +87,7 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 						$post_title = get_the_title();
 					}
 					$post_description = get_post_meta( get_the_ID(), 'company_description', true );
-					$screenshot       = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
+					$screenshot       = do_shortcode( "[urlslab-screenshot screenshot-type='carousel-thumbnail' alt='" . esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) . " Homepage' default-image='' url='" . esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) . "' ]" );
 					?>
 					<li class="Archive__directory--item" data-listitem data-category="<?= esc_attr( $category->slug ); ?>" itemscope itemtype="https://schema.org/DefinedTerm">
 						<a class="Archive__directory--item__url" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post_title ); ?> <?php _e( 'customer support contacts', 'ms' ); ?>" itemprop="url">
