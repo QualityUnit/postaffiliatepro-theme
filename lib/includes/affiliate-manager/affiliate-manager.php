@@ -261,7 +261,7 @@ function show_software( $software ) {
 	}
 }
 
-function show_communication( $communication ) {
+function show_communication( $communication, $software ) {
 	if ( is_array( $communication ) ) {
 		$comm_items       = '';
 		$comm_items_count = count( $communication ) - 1;
@@ -288,4 +288,4 @@ $aff_desc = str_replace( '${manager_industry}', show_industries( $manager_indust
 $aff_desc = str_replace( '${aff_program}', get_the_title(), $aff_desc );
 $aff_desc = str_replace( '${aff_software}', show_software( $software ), $aff_desc );
 $aff_desc = str_replace( '${aff_countries}', $countries, $aff_desc );
-$aff_desc = str_replace( '${aff_communication}', show_communication( $communication ), $aff_desc );
+$aff_desc = str_replace( '${aff_communication}', show_communication( $communication, $software ), $aff_desc );
