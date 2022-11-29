@@ -142,7 +142,7 @@ const integrationMethods = {
 	mode: {
 		css: {
 			dest: '.',
-			sprite: '../../images/integration-methods.svg',
+			sprite: '../images/integration-methods.svg',
 			prefix: '.%s:before',
 			dimensions: true,
 			bust: false,

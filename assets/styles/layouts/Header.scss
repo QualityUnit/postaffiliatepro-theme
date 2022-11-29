@@ -627,6 +627,10 @@
 			}
 		}
 
+		.icon-header-menu::before {
+			background-image: url("../../images/integration-methods.svg");
+		}
+
 		.icon-header-menu-woocommerce::before {
 			top: 0.35em !important;
 		}
