@@ -600,7 +600,7 @@ if ( 'voluum' === $software_id ) {
 							<?php
 							$payout_methods = get_post_meta( get_the_ID(), 'payout_methods', true );
 
-							if ( $payout_methods && count( $payout_methods ) > 1 ) {
+							if ( is_array( $payout_methods ) && count( $payout_methods ) >= 1 ) {
 								foreach ( $payout_methods as $payout_method ) {
 									?>
 
@@ -644,7 +644,7 @@ if ( 'voluum' === $software_id ) {
 								}
 							}
 
-							if ( 1 === count( $payout_methods ) && 'other' === $payout_methods[0] ) {
+							if ( is_array( $payout_methods ) && 1 === count( $payout_methods ) && 'other' === $payout_methods[0] ) {
 								?>
 								<p><?php _e( 'N/A', 'ms' ); ?></p>
 								<?php
