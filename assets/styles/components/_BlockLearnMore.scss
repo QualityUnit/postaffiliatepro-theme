@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern */
-@import "../elements/Checklist";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@use "../elements/Checklist";
+
 %imgalign {
 	margin-top: -0.2em;
 	margin-bottom: -0.2em;
