@@ -1,5 +1,3 @@
-@import "../common/mixins";
-@import "../common/variables";
-@import "../layouts/Post";
-@import "../layouts/Post__header-images";
-@import "../layouts/PostHeader-narrow";
+@forward "../layouts/Post";
+@forward "../layouts/Post__header-images";
+@forward "../layouts/PostHeader-narrow";

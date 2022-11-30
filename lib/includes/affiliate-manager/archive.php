@@ -36,20 +36,22 @@ $maintitle = preg_replace( '/\^(.+?)\^/', '<span class="highlight highlight-spla
 			<button class="Button Button--full" type="button" data-target="joinAffDirManagers"><span data-target="joinAffDirManagers"><?php _e( 'I want to be in this list', 'ms' ); ?></span></button>
 
 			<div class="Filter">
-				<div class="searchField" data-searchfield>
-					<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-					<input type="search" class="search" placeholder="<?php _e( 'Search affiliate manager', 'ms' ); ?>" maxlength="50">
-				</div>
-
-				<ul class="IndexMenu ml-m-tablet">
-					<?php
-					foreach ( $managers_indexed as $index_letter => $aff_managers ) {
+				<div class="Filter__wrapper">
+					<div class="searchField" data-searchfield>
+						<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+						<input type="search" class="search" placeholder="<?php _e( 'Search affiliate manager', 'ms' ); ?>" maxlength="50">
+					</div>
+	
+					<ul class="IndexMenu ml-m-tablet">
+						<?php
+						foreach ( $managers_indexed as $index_letter => $aff_managers ) {
+							?>
+							<li class="IndexMenu__item"><a class="IndexMenu__item--link" href="#<?= esc_html( $index_letter ); ?>"><?= esc_html( $index_letter ); ?></a></li>
+							<?php 
+						}
 						?>
-						<li class="IndexMenu__item"><a class="IndexMenu__item--link" href="#<?= esc_html( $index_letter ); ?>"><?= esc_html( $index_letter ); ?></a></li>
-						<?php 
-					}
-					?>
-				</ul>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

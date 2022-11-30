@@ -1,3 +1,7 @@
+<?php
+	set_custom_source( 'components/SidebarTOC', 'css' );
+	set_custom_source( 'components/SignupSidebar', 'css' );
+?>
 <div id="category" class="Category AffiliateManager">
 	<div class="AffiliateManager__header">
 		<div class="wrapper__wide">

@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars, prefer-rest-params, consistent-return, new-cap */
-/* global $, grecaptcha, localStorage */
-/* global loginName, textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, recaptchaId, textRedirecting, productDomain */
+/* global $, jQuery, grecaptcha, localStorage */
+/* global textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, textRedirecting */
 
 ( function main() {
-	const query = document.querySelector.bind( document );
+	const $ = jQuery;
+	const productDomain = 'postaffiliatepro.com';
+	const productId = 'ffd43d92';
+	const recaptchaId = '6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ';
+	const loginName = localStorage.getItem( 'pap_login' );
 
 	if ( loginName ) {
-		query( '#domainFieldmain input' ).value = loginName;
-		query( '#domainFieldmain' ).classList.add( 'Valid' );
+		document.querySelector( '[data-id="domainFieldmain"] input' ).value = loginName;
+		document.querySelector( '[data-id="domainFieldmain"]' ).classList.add( 'Valid' );
 	}
 
 	function sendApiRequest( options ) {
@@ -66,7 +70,7 @@
 		} ),
 
 		main: generateAccessor( '_main', function m() {
-			return $( `#${ this.name }main` );
+			return $( `[data-id="${ this.name }main"]` );
 		} ),
 
 		input: generateAccessor( '_input', function i( reset ) {
@@ -374,14 +378,14 @@
 		this.formFields = {};
 
 		this.submitButton = {
-			main: generateAccessor( '_main', () => $( '#createButtonmain' ) ),
+			main: generateAccessor( '_main', () => $( '[data-id="createButtonmain"]' ) ),
 		};
 	}
 
 	SignupForm.prototype = {
 		constructor: SignupForm,
 
-		block: generateAccessor( '_block', () => $( '#signup' ) ),
+		block: generateAccessor( '_block', () => $( '[data-id="signup"]' ) ),
 
 		getField( name ) {
 			if ( ! this.formFields[ name ] ) {
@@ -520,7 +524,7 @@
 							'pap_login',
 							sF.domainField.value()
 						);
-						$( '#createButtonmain' )
+						$( '[data-id="createButtonmain"]' )
 							.find( 'span' )
 							.text( textRedirecting );
 						window.location.href = `https://${ sF.domainField.value() }.${ productDomain }/merchants/`;

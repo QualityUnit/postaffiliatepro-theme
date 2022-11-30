@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .heroHeadline-page {
 

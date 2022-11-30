@@ -1,5 +1,7 @@
 /* stylelint-disable selector-class-pattern,
 value-keyword-case, scss/no-global-function-names */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 .CategoryTags {
 	position: relative;

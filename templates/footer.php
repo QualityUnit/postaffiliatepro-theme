@@ -1,5 +1,7 @@
-<?php if ( is_page() ) { ?>
-	<?php
+<?php
+wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+
+if ( is_page() ) {
 	while ( have_posts() ) :
 		the_post();
 		?>
@@ -104,7 +106,7 @@
 				<ul class="Footer__bottom__social">
 					<li>
 						<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'Facebook', 'ms' ); ?>">
+							title="<?php _e( 'Facebook', 'ms' ); ?>">
 							<svg>
 								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-facebook' )
 								?>"></use>
@@ -113,7 +115,7 @@
 					</li>
 					<li>
 						<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'Twitter', 'ms' ); ?>">
+							title="<?php _e( 'Twitter', 'ms' ); ?>">
 							<svg>
 								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-twitter' ) ?>"></use>
 							</svg>
@@ -121,7 +123,7 @@
 					</li>
 					<li>
 						<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'YouTube', 'ms' ); ?>">
+							title="<?php _e( 'YouTube', 'ms' ); ?>">
 							<svg>
 								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-youtube' ) ?>"></use>
 							</svg>
@@ -129,7 +131,7 @@
 					</li>
 					<li>
 						<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
-							 title="<?php _e( 'WhatsApp', 'ms' ); ?>">
+							title="<?php _e( 'WhatsApp', 'ms' ); ?>">
 							<svg>
 								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-whatsapp' ) ?>"></use>
 							</svg>
@@ -163,7 +165,7 @@
 
 		<div class="BuildingApp">
 			<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg"
-					 alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
+					alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
 
 			<h2 class="BuildingHeader BuildingApp__title BuildingApp--desktop">
 				<?php _e( 'Building Your Post Affiliate Pro...', 'ms' ); ?></h2>
@@ -215,7 +217,7 @@
 
 		<div class="Kolaciky__buttons">
 			<a href="<?php _e( '/privacy-policy/', 'ms' ); ?>"
-				 class="Kolaciky__button Kolaciky__button--more Button Button--outline">
+				class="Kolaciky__button Kolaciky__button--more Button Button--outline">
 				<span><?php _e( 'More Information', 'ms' ); ?></span>
 			</a>
 			<a href="#" class="Kolaciky__button Kolaciky__button--no Kolaciky__button--more Button Button--outline">
@@ -429,8 +431,8 @@ if ( show_demo_bar() !== false ) {
 				</div>
 			</div>
 			<a href="<?php _e( '/call/', 'ms' ); ?>"
-				 onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a call' )"
-				 class="DemoBar__button Button Button--full">
+				onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a call' )"
+				class="DemoBar__button Button Button--full">
 				<span><?php _e( 'Schedule a call', 'ms' ); ?></span>
 			</a>
 		</div>

@@ -1,0 +1,62 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Block--trial {
+
+	@media (min-width: $breakpoint-desktop-box - 1) {
+
+		.wrapper {
+
+			@include boxBackground("../../images/");
+		}
+	}
+
+	@media (max-width: $breakpoint-desktop-box) {
+
+		@include boxBackground("../../images/");
+
+		.wrapper {
+			background-color: transparent;
+		}
+	}
+
+	.elementor-widget-heading + .elementor-widget-text-editor p {
+		font-size: $font-size-default;
+	}
+
+	.elementor-inner-section {
+
+		.elementor-col-50 {
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				.elementor-heading-title {
+					font-size: 3.4375rem;
+				}
+
+				width: calc(50% - 0.5em);
+
+				&:first-of-type {
+					margin-right: auto;
+				}
+			}
+		}
+	}
+
+	.Clients {
+		margin-top: 0;
+		justify-content: space-between;
+
+		img,
+		picture {
+			height: 1.875em;
+			width: auto;
+			max-width: 80%;
+		}
+
+		&__item:not(:nth-child(3n + 1)) {
+			justify-content: center;
+		}
+	}
+}

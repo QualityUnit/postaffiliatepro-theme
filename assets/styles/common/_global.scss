@@ -1,5 +1,8 @@
-/* stylelint-disable selector-class-pattern */
-/* stylelint-disable scss/at-extend-no-missing-placeholder */
+/* stylelint-disable selector-class-pattern,
+scss/at-extend-no-missing-placeholder */
+
+@use "variables" as *;
+@use "mixins" as *;
 
 $sizes: (
 	"xxs": 0.15em,
@@ -13,6 +16,26 @@ $sizes: (
 	"extreme": 4.5em,
 	"ultra": 6em
 );
+
+:root {
+
+	@each $name, $var in $vars {
+		--#{$name}: #{$var};
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	$vars: (
+		header-background: #fff,
+	);
+
+	:root {
+
+		@each $name, $var in $vars {
+			--#{$name}: #{$var};
+		}
+	}
+}
 
 html {
 	scroll-behavior: smooth;
@@ -107,6 +130,10 @@ picture {
 
 .grecaptcha-badge {
 	display: none !important;
+}
+
+[data-is-sticky] {
+	transition: all 0.2s;
 }
 
 .block {

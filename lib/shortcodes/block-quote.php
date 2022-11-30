@@ -20,6 +20,7 @@ function ms_blockquote( $atts ) {
 	</div>
 
 	<?php
+	set_custom_source( 'shortcodes/BlockQuote' );
 	return ob_get_clean();
 }
 add_shortcode( 'blockquote', 'ms_blockquote' );

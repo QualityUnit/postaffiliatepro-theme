@@ -1,4 +1,6 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 %checklist {
 	list-style: none;
@@ -21,11 +23,17 @@
 			position: absolute;
 			top: 2px;
 			left: -0.5em;
-			background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
+			background: $primary-checklist url(../images/icon-post-check.svg) center center no-repeat;
 			background-size: 50%;
 			padding: 0.25em;
 			font-size: 1.25em;
 			margin: 0;
+
+			.single &,
+			.archive & {
+				background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
+				background-size: 50%;
+			}
 		}
 	}
 
@@ -73,9 +81,11 @@
 }
 
 .elementor-text-editor.elementor-text-editor ul,
-ul.checklist {
+ul.checklist[class] {
 
-	li {
+	@include color(color, font-color-normal);
+
+	li[class] {
 		position: relative;
 
 		&::before {
@@ -86,15 +96,13 @@ ul.checklist {
 			position: absolute;
 			top: 4px;
 			left: 0;
-			background: $primary-checklist url(../../images/icon-post-check.svg) center center no-repeat;
+			background: $primary-checklist url(../images/icon-post-check.svg) center center no-repeat !important;
 			background-size: 50%;
 			padding: 0.25em;
 			font-size: 1.25em;
 			margin: 0;
 		}
 	}
-
-	@include color(color, font-color-normal);
 }
 
 .elementor-text-editor.elementor-text-editor ul li {

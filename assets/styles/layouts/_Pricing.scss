@@ -1,7 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+$pricing-border: 1px;
 
 .Pricing {
-	$pricing-border: 1px !global;
 
 	@include color(background-color, secondary-background);
 	padding: 90px 0;

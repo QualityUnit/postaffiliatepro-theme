@@ -1,14 +1,12 @@
 <?php
 // Blog page
-set_source( 'blog', 'pages/blog', 'css' );
-set_source( 'search', 'pages/blog', 'css' );
 set_source( 'single-post', 'common/splide', 'css' );
 set_source( 'single-post', 'splide', 'js' );
 set_source( 'single-post', 'sidebar_toc', 'js' );
 set_source( 'single-post', 'custom_lightbox', 'js' );
 
 // Archive type pages
-$archive_type = array( 'archive', 'about', 'awards', 'testimonials', 'customers' );
+$archive_type = array( 'archive', 'awards', 'testimonials', 'customers' );
 
 foreach ( $archive_type as $specific_page ) {
 	set_source( $specific_page, 'pages/Archive', 'css' );
@@ -16,6 +14,8 @@ foreach ( $archive_type as $specific_page ) {
 
 // Post type page
 set_source( 'post', 'pages/post', 'css' );
+set_source( 'post', 'components/SidebarTOC', 'css' );
+set_source( 'post', 'components/SignupSidebar', 'css' );
 set_source( 'post', 'splide', 'js' );
 set_source( 'post', 'custom_lightbox', 'js' );
 

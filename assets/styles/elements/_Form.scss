@@ -1,5 +1,8 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable value-keyword-case */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 input[type="text"],
 input[type="email"],
@@ -65,13 +68,14 @@ input[type="checkbox"] {
 			display: inline-block;
 			content: "";
 			top: 0.35em;
-			background: url(../images/checkbox-unactive.svg) center center no-repeat;
+			background: url(../images/checkbox-inactive.svg) center center no-repeat;
 			background-size: contain;
 			margin-right: 0.5em;
 		}
 	}
 
-	&:checked {
+	&:checked,
+	&.checked {
 
 		+ label::before {
 			background-image: url(../images/checkbox-active.svg);
@@ -132,7 +136,7 @@ textarea {
 	padding: $input-padding-normal;
 	border-width: $input-border-width-normal;
 	border-style: solid;
-	border-radius: ($border-radius / 2);
+	border-radius: math.div($border-radius, 2);
 	background-color: transparent;
 	font-size: $input-font-size-normal;
 	font-weight: $font-weight-normal;
@@ -166,6 +170,96 @@ textarea {
 
 			@include color(background-color, primary-color);
 			@include color(color, font-color-light);
+		}
+	}
+}
+
+.checkbox {
+	color: $dark-gray;
+	font-size: 0.875rem;
+	margin-bottom: 0.75em;
+
+	input {
+		display: none;
+	}
+
+	label {
+		display: flex;
+		align-content: center;
+		width: 100%;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+
+			@include square(1.429em);
+			flex: 0 0 auto;
+			background: url(../images/checkbox-inactive.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.75em;
+		}
+
+		@media (hover: hover) {
+
+			&:hover {
+
+				&::before {
+					background-image: url(../images/checkbox-hover.svg);
+				}
+			}
+		}
+	}
+
+	[type="checkbox"],
+	[type="radio"] {
+
+		&:checked,
+		&.checked {
+
+			+ label {
+
+				&::before {
+					background-image: url(../images/checkbox-active.svg);
+				}
+			}
+		}
+	}
+}
+
+.sorting {
+	color: $dark-gray;
+	font-size: 0.875rem;
+	margin-bottom: 0.75em;
+
+	input {
+		display: none;
+	}
+
+	label {
+		display: flex;
+		align-items: center;
+		align-content: center;
+		width: 100%;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+
+			@include square(0.85em);
+			background: url(../images/icon-sorting-check.svg) center center no-repeat;
+			background-size: contain;
+			margin-right: 0.75em;
+			opacity: 0;
+		}
+	}
+
+	[type="radio"]:checked {
+
+		+ label {
+
+			&::before {
+				opacity: 1;
+			}
 		}
 	}
 }

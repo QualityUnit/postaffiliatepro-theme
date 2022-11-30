@@ -1,7 +1,7 @@
 /* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
-@import "../common/variables";
-@import "../common/mixins";
 
 .CategoryHeader__new {
 	margin-bottom: 3em;

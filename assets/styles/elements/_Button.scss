@@ -1,4 +1,7 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "sass:math";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
 
 input[type="submit"],
 input[type="button"],
@@ -94,7 +97,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius / 2);
+		border-radius: math.div($border-radius, 2);
 		opacity: 1;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -109,7 +112,7 @@ button,
 		left: 0;
 		width: 100%;
 		height: 100%;
-		border-radius: ($border-radius / 2);
+		border-radius: math.div($border-radius, 2);
 		opacity: 0;
 		transition: opacity 0.75s;
 		z-index: 1;
@@ -207,6 +210,10 @@ button,
 			margin-right: 10px;
 			background-image: url(../images/icon-copy.svg);
 			transition: opacity 0.3s;
+
+			.single & {
+				background-image: url(../../images/icon-copy.svg);
+			}
 		}
 	}
 
@@ -218,6 +225,10 @@ button,
 
 			&::before {
 				background-image: url(../images/icon-copy-hover.svg);
+
+				.single & {
+					background-image: url(../../images/icon-copy-hover.svg);
+				}
 			}
 		}
 	}
@@ -298,7 +309,7 @@ button,
 	font-size: 0.875rem;
 
 	&::before {
-		content: url(../images/play_seeinaction.svg);
+		content: url(../../images/play_seeinaction.svg);
 		margin-right: 0.75em;
 		line-height: 0;
 	}

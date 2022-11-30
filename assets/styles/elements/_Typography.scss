@@ -1,6 +1,9 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
 /* stylelint-disable scss/at-extend-no-missing-placeholder */
 /* stylelint-disable value-keyword-case */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../elements/Checklist";
 
 h1,
 .h1,
@@ -216,6 +219,11 @@ a {
 			left: -2px;
 			margin-left: -2em;
 			margin-right: 0.5em;
+
+			.single &,
+			.archive & {
+				content: url(../../images/icon_checkmark_primary.svg);
+			}
 		}
 	}
 }
@@ -794,6 +802,11 @@ video {
 			z-index: -1;
 			background: url(../images/splash-blue.svg) center center no-repeat;
 			background-size: 100%;
+
+			.single &,
+			.archive & {
+				background-image: url(../../images/splash-blue.svg);
+			}
 		}
 
 		&.splash-small {
@@ -813,6 +826,11 @@ video {
 
 		&::after {
 			background-image: url(../images/splash2.svg);
+
+			.single &,
+			.archive & {
+				background-image: url(../../images/splash2.svg);
+			}
 		}
 	}
 
@@ -833,6 +851,11 @@ video {
 
 		&::after {
 			background-image: url(../images/splash_dark.svg);
+
+			.single &,
+			.archive & {
+				background-image: url(../../images/splash_dark.svg);
+			}
 		}
 	}
 
@@ -844,6 +867,11 @@ video {
 		&::after {
 			background-image: url(../images/splash-yellow.svg);
 			transform: translateX(-5%);
+
+			.single &,
+			.archive & {
+				background-image: url(../../images/splash-yellow.svg);
+			}
 		}
 	}
 }

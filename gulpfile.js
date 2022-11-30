@@ -8,7 +8,7 @@ const gcmq = require( 'gulp-group-css-media-queries' );
 const gulp = require( 'gulp' );
 const plumber = require( 'gulp-plumber' );
 const rename = require( 'gulp-rename' );
-const sass = require( 'gulp-sass' )( require( 'node-sass' ) );
+const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const stylelint = require( 'gulp-stylelint' );
 const terser = require( 'gulp-terser' );
 const uglifycss = require( 'gulp-uglifycss' );
@@ -49,6 +49,7 @@ gulp.task( 'browser-sync', () => {
 		gulp.series( 'splide-js' )
 	);
 	gulp.watch( './assets/scripts/custom/**/*.js', gulp.series( 'custom-js' ) );
+	gulp.watch( './assets/scripts/static/**/*.js', gulp.series( 'static-js' ) );
 	gulp.watch(
 		'./assets/images/flags/*.svg',
 		gulp.series( 'langFlagsSprite' )
@@ -70,7 +71,7 @@ gulp.task( 'styles', () =>
 		.pipe(
 			sass( {
 				errLogToConsole: true,
-				outputStyle: 'nested',
+				outputStyle: 'expanded',
 				precision: 10,
 			} )
 		)
@@ -93,7 +94,11 @@ gulp.task( 'styles', () =>
 const iconsConfig = {
 	shape: {
 		id: {
-			generator: '%s',
+			separator: '/',
+			generator: ( name ) => {
+				const renamed = name.replace( '/', '-' ).replace( '.svg', '' );
+				return renamed;
+			},
 		},
 	},
 	svg: {
@@ -137,7 +142,7 @@ const integrationMethods = {
 	mode: {
 		css: {
 			dest: '.',
-			sprite: 'integration-methods.svg',
+			sprite: '../images/integration-methods.svg',
 			prefix: '.%s:before',
 			dimensions: true,
 			bust: false,
@@ -154,22 +159,7 @@ gulp.task( 'iconsSprite', () =>
 		.src( [
 			'./vendor/qualityunit/wordpress-icons/icons/common/**/*.svg',
 			'./vendor/qualityunit/wordpress-icons/icons/postaffiliatepro/**/*.svg',
-		], { base: './' } )
-		.pipe( rename( ( file ) => {
-			let myprefix = file.dirname;
-			myprefix = myprefix.replace( /.+?\/([^\\/]+)$/g, '$1' );
-
-			if ( myprefix !== 'common' && myprefix !== 'postaffiliatepro' ) {
-				myprefix = `${ myprefix }-`;
-			} else {
-				myprefix = '';
-			}
-			return {
-				dirname: file.dirname,
-				basename: `${ myprefix }${ file.basename }`,
-				extname: '.svg',
-			};
-		} ) )
+		] )
 		.pipe( svgSprites( iconsConfig ) )
 		.pipe( gulp.dest( './assets/images' ) )
 		.pipe( browserSync.reload( { stream: true } ) )
@@ -237,6 +227,12 @@ gulp.task( 'custom-js', () =>
 		.pipe( browserSync.reload( { stream: true } ) )
 );
 
+gulp.task( 'static-js', () =>
+	gulp
+		.src( './assets/scripts/static/**/*.js' )
+		.pipe( browserSync.reload( { stream: true } ) )
+);
+
 gulp.task( 'stylelint', () =>
 	gulp.src( 'assets/styles/**/*.scss' ).pipe(
 		stylelint( {
@@ -281,6 +277,7 @@ gulp.task(
 		'splide-js',
 		'app-js',
 		'custom-js',
+		'static-js',
 		'langFlagsSprite',
 		'iconsSprite',
 		'browser-sync',

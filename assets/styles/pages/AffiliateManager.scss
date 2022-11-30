@@ -1,8 +1,7 @@
 /* stylelint-disable selector-class-pattern */
-
-@import "../common/mixins";
-@import "../common/variables";
-@import "../layouts/AffiliateManagerDirectory";
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+@forward "../layouts/AffiliateManagerDirectory";
 
 .AffiliateManager {
 

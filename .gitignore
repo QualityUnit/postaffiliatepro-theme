@@ -6,6 +6,7 @@ build
 dist
 _integrationMethods.scss
 integration-methods.svg
+flags.svg
 
 # Dotenv
 .env
