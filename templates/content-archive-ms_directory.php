@@ -8,60 +8,62 @@ $categories = get_categories( array( 'taxonomy' => 'ms_directory_categories' ) )
 ?>
 
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
-	<div class="wrapper Archive__header Archive__header--directory">
-		<?php if ( is_tax( 'ms_directory_categories' ) ) { ?>
-			<h1 class="Archive__header__title--directory" itemprop="name"><?php single_cat_title(); ?></h1>
-			<div class="Archive__header__subtitle--directory"><p itemprop="description"><?php the_archive_description(); ?></p></div>
-		<?php } else { ?>
-		<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' ); ?></span></h1>
-		<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( 'A directory of companies and affiliate programs', 'ms' ); ?></p>
-			<?php } ?>
-
-		<button class="Button Button--full mb-xxxl" type="button" data-target="joinAffDirectory"><span data-target="joinAffDirectory"><?php _e( 'I want to be in the list', 'ms' ); ?></span></button>
-
-		<div data-stickyFrom>
-			<div class="Filter">
-				<div class="Filter__wrapper">
-					<div class="searchField" data-searchfield>
-						<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-						<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
-					</div>
-
-					<?php
-					if ( isset( $categories ) && count( $categories ) > 0 ) {
-						?>
-
-					<div class="FilterMenu">
-						<div class="FilterMenu__title flex flex-align-center">
-						<?php _e( 'Category', 'ms' ); ?>
+	<div class="Archive__header Archive__header--directory">
+		<div class="wrapper">
+			<?php if ( is_tax( 'ms_directory_categories' ) ) { ?>
+				<h1 class="Archive__header__title--directory" itemprop="name"><?php single_cat_title(); ?></h1>
+				<div class="Archive__header__subtitle--directory"><p itemprop="description"><?php the_archive_description(); ?></p></div>
+			<?php } else { ?>
+			<h1 class="Archive__header__title--directory" itemprop="name"><?php _e( 'Affiliate Program', 'ms' ); ?> <span class=" highlight highlight-splash2"><?php _e( 'Directory', 'ms' ); ?></span></h1>
+			<p class="Archive__header__subtitle--directory" itemprop="description"><?php _e( 'A directory of companies and affiliate programs', 'ms' ); ?></p>
+				<?php } ?>
+	
+			<button class="Button Button--full mb-xxxl" type="button" data-target="joinAffDirectory"><span data-target="joinAffDirectory"><?php _e( 'I want to be in the list', 'ms' ); ?></span></button>
+	
+			<div data-stickyFrom>
+				<div class="Filter">
+					<div class="Filter__wrapper">
+						<div class="searchField" data-searchfield>
+							<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+							<input type="search" class="search" placeholder="<?php _e( 'Search affiliate program', 'ms' ); ?>" maxlength="50">
 						</div>
-						<div class="FilterMenu__items">
-							<div class="FilterMenu__items--inn">
-								<div class="checkbox FilterMenu__item">
-									<input class="filter-item checked" data-filteritem type="radio" id="cat-all" value="" name="category" checked />
-									<label for="cat-all">
-										<span><?php _e( 'Any', 'ms' ); ?></span>
-									</label>
+	
+						<?php
+						if ( isset( $categories ) && count( $categories ) > 0 ) {
+							?>
+	
+						<div class="FilterMenu">
+							<div class="FilterMenu__title flex flex-align-center">
+							<?php _e( 'Category', 'ms' ); ?>
+							</div>
+							<div class="FilterMenu__items">
+								<div class="FilterMenu__items--inn">
+									<div class="checkbox FilterMenu__item">
+										<input class="filter-item checked" data-filteritem type="radio" id="cat-all" value="" name="category" checked />
+										<label for="cat-all">
+											<span><?php _e( 'Any', 'ms' ); ?></span>
+										</label>
+									</div>
+									<?php
+									foreach ( $categories as $category ) {
+										?>
+	
+											<div class="checkbox FilterMenu__item">
+												<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
+	
+												<label for="<?php echo esc_attr( $category->slug ); ?>" >
+													<span><?= esc_html( $category->name ); ?></span>
+												</label>
+											</div>
+										<?php } ?>
 								</div>
-								<?php
-								foreach ( $categories as $category ) {
-									?>
-
-										<div class="checkbox FilterMenu__item">
-											<input class="filter-item" data-filteritem type="radio" id="<?php echo esc_attr( $category->slug ); ?>" value="<?php echo esc_attr( $category->slug ); ?>" name="category" />
-
-											<label for="<?php echo esc_attr( $category->slug ); ?>" >
-												<span><?= esc_html( $category->name ); ?></span>
-											</label>
-										</div>
-									<?php } ?>
 							</div>
 						</div>
+	
+							<?php
+						}
+						?>
 					</div>
-
-						<?php
-					}
-					?>
 				</div>
 			</div>
 		</div>

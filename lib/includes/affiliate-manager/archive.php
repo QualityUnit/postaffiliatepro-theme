@@ -27,30 +27,32 @@ $maintitle = preg_replace( '/\^(.+?)\^/', '<span class="highlight highlight-spla
 		<div class="wrapper">
 			<?php if ( is_tax( 'ms_directory_affiliate_manager' ) ) { ?>
 				<h1 class="AffiliateManagerDirectory__header--title" itemprop="name"><?= $maintitle; // @codingStandardsIgnoreLine ?></h1>
-				<h3 class="AffiliateManagerDirectory__header--subtitle" itemprop="description"><?= esc_html( wp_strip_all_tags( get_the_archive_description() ) ); ?></h3>
+				<h2 class="AffiliateManagerDirectory__header--subtitle" itemprop="description"><?= esc_html( wp_strip_all_tags( get_the_archive_description() ) ); ?></h2>
 			<?php } else { ?>
 				<h1 class="AffiliateManagerDirectory__header--title" itemprop="name"><?php _e( 'Affiliate Manager <span class="highlight highlight-splash3">Directory</span>', 'ms' ); ?></h1>
-				<h3 class="AffiliateManagerDirectory__header--subtitle" itemprop="description" ><?php _e( 'A comprehensive directory of affiliate manager contacts', 'ms' ); ?></h3>
+				<h2 class="AffiliateManagerDirectory__header--subtitle" itemprop="description" ><?php _e( 'A comprehensive directory of affiliate manager contacts', 'ms' ); ?></h2>
 			<?php } ?>
 
 			<button class="Button Button--full" type="button" data-target="joinAffDirManagers"><span data-target="joinAffDirManagers"><?php _e( 'I want to be in this list', 'ms' ); ?></span></button>
 
-			<div class="Filter">
-				<div class="Filter__wrapper">
-					<div class="searchField" data-searchfield>
-						<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
-						<input type="search" class="search" placeholder="<?php _e( 'Search affiliate manager', 'ms' ); ?>" maxlength="50">
-					</div>
-	
-					<ul class="IndexMenu ml-m-tablet">
-						<?php
-						foreach ( $managers_indexed as $index_letter => $aff_managers ) {
+			<div data-stickyFrom>
+				<div class="Filter">
+					<div class="Filter__wrapper">
+						<div class="searchField" data-searchfield>
+							<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
+							<input type="search" class="search" placeholder="<?php _e( 'Search affiliate manager', 'ms' ); ?>" maxlength="50">
+						</div>
+		
+						<ul class="IndexMenu ml-m-tablet">
+							<?php
+							foreach ( $managers_indexed as $index_letter => $aff_managers ) {
+								?>
+								<li class="IndexMenu__item"><a class="IndexMenu__item--link" href="#<?= esc_html( $index_letter ); ?>"><?= esc_html( $index_letter ); ?></a></li>
+								<?php 
+							}
 							?>
-							<li class="IndexMenu__item"><a class="IndexMenu__item--link" href="#<?= esc_html( $index_letter ); ?>"><?= esc_html( $index_letter ); ?></a></li>
-							<?php 
-						}
-						?>
-					</ul>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
