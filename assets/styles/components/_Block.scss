@@ -953,6 +953,26 @@
 		padding-top: $block-bg-space-sm !important;
 		padding-bottom: $block-bg-space-sm !important;
 	}
+
+	&-box {
+
+		@media (min-width: $breakpoint-desktop-box - 1) {
+
+			.wrapper {
+
+				@include boxBackground();
+			}
+		}
+
+		@media (max-width: $breakpoint-desktop-box) {
+
+			@include boxBackground();
+
+			.wrapper {
+				background-color: transparent;
+			}
+		}
+	}
 }
 
 .Block--background-orange {

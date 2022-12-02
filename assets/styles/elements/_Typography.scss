@@ -940,18 +940,21 @@ picture.Screenshot,
 
 	a {
 
-		@include color(color, font-color-level3, !important);
-		display: flex;
+		@include color(color, font-color-dark, !important);
+		display: inline-flex;
 		align-items: center;
+		white-space: nowrap;
 		font-family: $font-secondary;
 		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
 
 		&::after {
 			position: relative;
-			content: url(../images/icon-arrow-grey.svg);
+			content: url(../images/icon-arrow-black.svg);
 			display: inline-block;
 			margin-left: 0.5em;
 			top: 0.1em;
+			scale: 0.875;
 			transform: translateX(0);
 			transition: transform 0.2s;
 		}

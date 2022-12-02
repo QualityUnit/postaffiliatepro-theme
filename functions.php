@@ -26,7 +26,9 @@ define( 'THEME_VERSION', '1.5.3' );
 		'functions/rest-api.php', // Rest API mods
 		'functions/post-query-mods.php', // Post Query mods
 		'functions/redirects.php', // Taxonomies Redirects
+		'functions/content-filters-functions.php', // Content filters functions
 		'functions/content-filters.php', // Content filters
+		'functions/content-filters-learn-more.php', // Content filters for Block--learnMore
 		'functions/components-import.php', // Importing CSS by class
 		'functions/sideribbon-arrow.php', // Adds SVG with bookmark like ending
 		'functions/import-functions.php', // Partials JS and SCSS import functions

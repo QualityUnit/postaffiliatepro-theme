@@ -58,7 +58,7 @@
 				height: 11em;
 				padding-bottom: 0;
 				transform: translate(-50%, 27%);
-				background-image: url(../../images/press_to_play_bottom.svg);
+				background-image: url(../images/press_to_play_bottom.svg);
 				background-position: center bottom;
 			}
 
@@ -74,7 +74,7 @@
 
 		&::after {
 			//gradient is placed in $positions
-			@include square(100%);
+			@include posZero();
 			content: "";
 			position: absolute;
 			font-size: $font-size-default;
@@ -215,26 +215,6 @@ $positions: ("left", "right");
 			}
 		}
 	}
-
-
-	.elementor-widget-text-editor.learn-more {
-
-		.elementor-text-editor {
-			width: 100%;
-		}
-
-		a {
-
-			@include color(color, font-color-level3);
-
-			&::after {
-
-				content: url(../../images/arrow_small.svg);
-				filter: saturate(0) brightness(120%);
-			}
-		}
-	}
-
 
 	.elementor-widget-video {
 
