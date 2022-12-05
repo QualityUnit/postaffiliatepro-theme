@@ -63,7 +63,8 @@
 		}
 	}
 
-	&__image[src*="images"] {
+	&__content + &__image[src*="images"],
+	&__content + picture {
 		display: none;
 	}
 
@@ -76,13 +77,14 @@
 			margin: 2em 0;
 		}
 
-		&__image[src*="images"] {
+		&__content + &__image[src*="images"],
+		&__content + picture {
 			position: relative;
 			display: block;
 			width: 38%;
 			top: 1px;
 			margin-left: auto;
-			margin-top: 2em;
+			margin-top: auto;
 		}
 	}
 }
