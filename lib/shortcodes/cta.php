@@ -23,11 +23,7 @@ function ms_cta( $atts ) {
 				<span><?= esc_html( $atts['button'] ); ?></span>
 			</a>
 		</div>
-		<picture>
-
-			<source src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?= wp_kses_post( $atts['title'] ); ?>" />
-			<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?= wp_kses_post( $atts['title'] ); ?>" />
-		</picture>
+		<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?= wp_kses_post( $atts['title'] ); ?>" />
 	</div>
 
 	<?php
