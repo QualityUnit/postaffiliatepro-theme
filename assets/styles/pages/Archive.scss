@@ -39,8 +39,8 @@
 			}
 
 			@media (min-width: $breakpoint-desktop) {
-				padding-top: 7em;
-				padding-bottom: 3em;
+				padding-top: 4em;
+				padding-bottom: 2em;
 				background: url(../../images/bg_directory_header.jpg) center no-repeat;
 				background-size: cover;
 			}
@@ -64,7 +64,7 @@
 				}
 
 				@media (min-width: $breakpoint-tablet) {
-					font-size: 3.4375rem;
+					font-size: 3rem;
 				}
 			}
 		}
@@ -78,7 +78,7 @@
 				font-weight: $font-weight-normal;
 
 				@media (min-width: $breakpoint-tablet) {
-					font-size: 1.625rem;
+					font-size: 1.5rem;
 				}
 			}
 		}
