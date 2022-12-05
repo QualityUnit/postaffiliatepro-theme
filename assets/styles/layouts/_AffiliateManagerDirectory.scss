@@ -20,12 +20,12 @@
 		}
 
 		&--title {
-			font-size: 3.5rem;
+			font-size: 3rem;
 		}
 
 		&--subtitle {
 			font-weight: 400;
-			margin: 1.5em auto 2em;
+			margin: 1em auto 1em;
 		}
 
 		.Button {
@@ -33,14 +33,14 @@
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			padding: 6.5em 0 4em;
+			padding: 3.5em 0 3em;
 
 			&--subtitle {
-				font-size: 1.625rem;
+				font-size: 1.5rem;
 			}
 
 			.Button {
-				margin-bottom: 4em;
+				margin-bottom: 3em;
 			}
 		}
 
@@ -58,7 +58,7 @@
 			}
 		}
 
-		@media (min-width: $breakpoint-desktop-hd) {
+		@media (min-width: ($breakpoint-desktop-hd + 1px)) {
 			border-radius: $border-radius-16;
 
 			&::after {
