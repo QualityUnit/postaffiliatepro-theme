@@ -222,7 +222,7 @@ set_source( 'features', 'filter', 'js' );
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 									<?php if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_pillar', true ) === 'on' ) { ?>
-										<span><?php _e( 'Read More', 'ms' ); ?></span>
+										<span><?php _e( 'Read more about', 'ms' ); ?> <?= esc_html( strtolower( get_the_title() ) ); ?></span>
 									<?php } ?>
 								</a>
 							</div>
