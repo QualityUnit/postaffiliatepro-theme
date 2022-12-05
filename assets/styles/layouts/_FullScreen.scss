@@ -70,6 +70,10 @@ body.page-template-template-demo {
 
 		.fifty-fifty {
 
+			.Button {
+				padding: 0 1em !important;
+			}
+
 			.Button--full {
 
 				&:hover {
@@ -323,16 +327,6 @@ body.page-template-template-demo {
 					font-size: 2rem;
 					margin-bottom: 20px;
 				}
-			}
-		}
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-
-		.fifty-fifty {
-
-			.Button {
-				padding: 0 1em;
 			}
 		}
 	}
