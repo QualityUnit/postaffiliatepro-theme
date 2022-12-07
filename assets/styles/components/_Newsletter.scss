@@ -9,7 +9,7 @@
 	position: relative;
 	z-index: 1;
 	margin-top: 3em;
-	transform: translateY(1em);
+	margin-bottom: 3em;
 
 	&__inn {
 
@@ -81,7 +81,6 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-		transform: translateY(25%);
 
 		&__inn {
 			flex-direction: row;
@@ -103,16 +102,24 @@
 		&__form {
 			width: auto;
 			margin-left: 1.5rem;
+
+			footer.Footer & {
+				margin-left: 0;
+			}
 		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
-		transform: translateY(50%);
 
 		&__form {
 			display: flex;
 			justify-content: flex-end;
 			width: 55%;
+
+			footer.Footer & {
+				width: 100%;
+				max-width: em(450);
+			}
 
 			form {
 				display: flex;
