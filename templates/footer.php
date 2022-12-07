@@ -108,7 +108,7 @@ if ( is_page() ) {
 						<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
 							title="<?php _e( 'Facebook', 'ms' ); ?>">
 							<svg>
-								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-facebook' )
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-facebook' )
 								?>"></use>
 							</svg>
 						</a>
@@ -117,7 +117,7 @@ if ( is_page() ) {
 						<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
 							title="<?php _e( 'Twitter', 'ms' ); ?>">
 							<svg>
-								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-twitter' ) ?>"></use>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-twitter' ) ?>"></use>
 							</svg>
 						</a>
 					</li>
@@ -125,7 +125,7 @@ if ( is_page() ) {
 						<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
 							title="<?php _e( 'YouTube', 'ms' ); ?>">
 							<svg>
-								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-youtube' ) ?>"></use>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-youtube' ) ?>"></use>
 							</svg>
 						</a>
 					</li>
@@ -133,7 +133,7 @@ if ( is_page() ) {
 						<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
 							title="<?php _e( 'WhatsApp', 'ms' ); ?>">
 							<svg>
-								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#social-whatsapp' ) ?>"></use>
+								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
 							</svg>
 						</a>
 					</li>

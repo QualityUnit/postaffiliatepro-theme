@@ -32,9 +32,9 @@ if ( document.querySelector( '.Kolaciky' ) !== null ) {
 			event.preventDefault();
 			setCookie( 'cookieLaw', 'yes', 14 );
 			document.querySelector( '.Kolaciky' ).classList.add( 'hide' );
-			document
-				.querySelector( '.fakeChatButton' )
-				.classList.add( 'hidden' );
+			document.querySelectorAll( '.fakeChatButton' ).forEach( ( fakeChatBtn ) => {
+				fakeChatBtn.classList.add( 'hidden' );
+			} );
 		} );
 
 	document
