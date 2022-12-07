@@ -857,7 +857,7 @@ if ( 'voluum' === $software_id ) {
 											>
 												<?php _e( 'Show profile', 'ms' ); ?>
 												<svg>
-													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg#arrow-right' ) ?>"></use>
+													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#arrow-right' ) ?>"></use>
 												</svg>
 											</a>
 										</div>
