@@ -58,9 +58,50 @@
 		width: 100%;
 		margin: 0;
 
+		footer.Footer & {
+			padding: 0.2em 0.2em 0.2em 1.25em;
+			border: 1px solid $light-gray-icon;
+			border-radius: 0.375em;
+		}
+
+		form {
+
+			footer.Footer & {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+
+		svg {
+			display: none;
+
+			footer.Footer & {
+
+				@include square(1.125em);
+				display: block;
+				color: $light-gray-icon;
+			}
+		}
+
 		.Input {
 			text-align: center;
 			margin-bottom: 1.5em;
+
+			footer.Footer & {
+				height: auto;
+				padding: 0 1em 0 0.625em;
+				margin: 0;
+				border: none;
+				font-size: 0.875em;
+				text-align: left;
+				background-color: transparent;
+
+				&:focus {
+
+					@include color(color, font-color-dark);
+				}
+			}
 
 			@media (min-width: $breakpoint-tablet) {
 				height: 3rem;
@@ -69,6 +110,25 @@
 
 		.Button {
 			min-width: 185px;
+
+			footer.Footer & {
+				width: 100%;
+				max-width: 5.25em;
+				height: 2.5em;
+				padding: 0;
+				border-color: $light-gray-icon;
+				border-radius: 0.2em;
+				font-size: 0.875em;
+				background-color: $light-gray-icon;
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(background, primary-color);
+					border-color: $primary;
+				}
+			}
 		}
 
 		@media (max-width: $breakpoint-tablet) {
@@ -103,6 +163,13 @@
 			width: auto;
 			margin-left: 1.5rem;
 
+			.Input {
+
+				footer.Footer & {
+					min-width: 18em;
+				}
+			}
+
 			footer.Footer & {
 				margin-left: 0;
 			}
@@ -118,7 +185,6 @@
 
 			footer.Footer & {
 				width: 100%;
-				max-width: em(450);
 			}
 
 			form {

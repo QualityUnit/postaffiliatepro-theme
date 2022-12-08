@@ -24,6 +24,7 @@
 
 		&.menu {
 			flex-flow: wrap column;
+			margin-top: 1.5em !important;
 
 			li {
 
@@ -40,10 +41,10 @@
 		}
 
 		&.nav {
-			margin: -0.5em -1em;
+			margin: -0.25em -0.75em;
 
 			li {
-				padding: 0.5em 1em;
+				padding: 0.25em 0.75em;
 			}
 
 			a {
@@ -103,7 +104,11 @@
 		display: flex;
 		flex-flow: wrap row;
 		justify-content: space-between;
-		margin: 0 -0.75em;
+		margin: -1.5em -0.75em;
+
+		&:not(:last-child) {
+			padding-bottom: 3.75em;
+		}
 
 		&:nth-child(3) {
 
@@ -114,11 +119,11 @@
 
 	&__column {
 		position: relative;
-		padding: 0 0.75em;
+		padding: 1.5em 0.75em;
 	}
 
 	&__title {
-		margin-bottom: 1.5em;
+		margin: 0;
 		font-size: $font-size-default;
 		font-weight: $font-weight-bold;
 		line-height: normal;
@@ -180,6 +185,8 @@
 				svg {
 
 					@include square(1.2em);
+					@include color(color, primary-color);
+					margin-right: 0.35em;
 				}
 
 				&:active,
@@ -193,7 +200,12 @@
 		}
 	}
 
+	&__newsletter {
+		margin-top: 0.5em !important;
+	}
+
 	&__social {
+		margin-top: 0.6em !important;
 		font-size: 1.25rem;
 
 		li {
@@ -229,6 +241,57 @@
 		font-size: $font-size-small;
 	}
 
+	@media (max-width: $breakpoint-desktop-big) {
+
+		&__left {
+			width: 40%;
+		}
+
+		&__right {
+			width: 60%;
+		}
+
+		&__column--menu {
+			width: 100%;
+			max-width: 50%;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet-landscape) {
+
+		&__left,
+		&__right {
+			width: 100%;
+		}
+
+		&__left {
+			margin-bottom: 6em;
+
+			&-inner {
+				margin: 0 auto;
+			}
+		}
+
+		&__column--menu {
+			width: initial;
+			max-width: initial;
+		}
+	}
+
+	@media (max-width: $breakpoint-tablet) {
+
+		&__column--menu {
+			width: 100%;
+			max-width: 50%;
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+
+		&__column--menu {
+			max-width: 100%;
+		}
+	}
 
 }
 

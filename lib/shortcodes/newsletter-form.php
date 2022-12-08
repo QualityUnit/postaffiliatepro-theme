@@ -6,6 +6,9 @@ function ms_newsletter_form() {
 
 	<div class="Newsletter__form">
 		<form action="https://qualityunit.us3.list-manage.com/subscribe/post?u=18d6ab6093f8e6cdbbd783635&amp;id=d980471481" method="post" name="mc-embedded-subscribe-form" target="_blank">
+			<svg>
+				<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#mail' ) ?>"></use>
+			</svg>
 			<input type="email" value="" placeholder="<?php _e( 'Type your e-mail for updates', 'ms' ); ?>" name="EMAIL" class="Input" maxlength="100" required>
 
 			<div style="position: absolute; left: -5000px;" aria-hidden="true">
