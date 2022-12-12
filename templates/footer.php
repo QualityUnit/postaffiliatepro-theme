@@ -74,19 +74,19 @@ if ( is_page() ) {
 				<ul class="Footer__contacts">
 					<li>
 						<a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#phone' ); ?>"></use></svg>
+							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
 							<span><?php _e( '+421 2 33 456 826', 'ms' ); ?></span>
 						</a>
 					</li>
 					<li>
 						<a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#phone' ); ?>"></use></svg>
+							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
 							<span><?php _e( '+1-888-257-8754', 'ms' ); ?></span>
 						</a>
 					</li>
 					<li>
 						<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-whatsapp' ); ?>"></use></svg>
+							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use></svg>
 							<span><?php _e( '+1-786-204-1375', 'ms' ); ?></span>
 						</a>
 					</li>
@@ -140,7 +140,7 @@ if ( is_page() ) {
 								<svg>
 									<use xlink:href="
 									<?php 
-									echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-facebook' )
+									echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
 									?>
 									"></use>
 								</svg>
@@ -150,7 +150,7 @@ if ( is_page() ) {
 							<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
 							   title="<?php _e( 'Twitter', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-twitter' ); ?>"></use>
+									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
@@ -158,7 +158,7 @@ if ( is_page() ) {
 							<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
 							   title="<?php _e( 'YouTube', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-youtube' ); ?>"></use>
+									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
@@ -166,7 +166,7 @@ if ( is_page() ) {
 							<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
 							   title="<?php _e( 'WhatsApp', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
+									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
