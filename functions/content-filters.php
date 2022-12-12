@@ -29,8 +29,7 @@ function show_description_header_nav( $item_output, $item, $depth, $args ) {
 	foreach ( $item_classes as $class ) {
 		if ( str_contains( $class, 'icn-' ) ) {
 			$fragment    = preg_replace( '/^icn-(.+?)/', '$1', $class );
-			$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' .
-                get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#' . $fragment . '"></use></svg>' . $item_output;
+			$item_output = '<svg class="icon icon-' . $fragment . '"><use xlink:href="' . get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#' . $fragment . '"></use></svg>' . $item_output;
 		}
 	}
 
