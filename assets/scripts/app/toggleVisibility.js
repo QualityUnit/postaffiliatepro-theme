@@ -1,56 +1,87 @@
-const activators = document.querySelectorAll( '[data-target]' );
-const targets = document.querySelectorAll( '[data-targetId]' );
-const targetClosers = document.querySelectorAll( '[data-close]' );
+window.addEventListener( 'load', () => {
+	const activators = document.querySelectorAll( '[data-target]' );
+	const closers = document.querySelectorAll( `[data-close-target]` );
 
-// let isPaused = false;
+	const hideVisible = ( target ) => {
+		let activatorElements = document.querySelectorAll( `[data-target]` );
+		let closeTargets = document.querySelectorAll( `[data-targetId]` );
 
-if ( activators.length > 0 ) {
-	activators.forEach( ( elem ) => {
-		const activator = elem;
+		if ( target ) {
+			activatorElements = document.querySelectorAll( `[data-target="${ target }"]` );
+			closeTargets = document.querySelectorAll( `[data-targetId="${ target }"]` );
+		}
 
-		const hideVisible = () => {
-			targets.forEach( ( targetElement ) => {
-				targetElement.classList.remove( 'visible' );
-				targetElement.classList.add( 'hidden' );
-			} );
-		};
-
-		activator.addEventListener( 'click', ( event ) => {
-			event.stopPropagation();
-			const thisActivator = event.target;
-			const thisTarget = document.querySelectorAll(
-				`[data-targetId="${ thisActivator.dataset.target }"]`
-			);
-
-			hideVisible();
-			// isPaused = true;
-
-			thisTarget.forEach( ( target ) => {
-				target.classList.remove( 'hidden' );
-				thisActivator.classList.add( 'active' );
+		activatorElements.forEach( ( activatorElem ) => {
+			if ( activatorElem && activatorElem.classList.contains( 'active' ) ) {
 				setTimeout( () => {
-					target.classList.add( 'visible' );
-				}, 0 );
-			} );
-		} );
-	} );
-}
+					activatorElem.classList.remove( 'active' );
+				}, 10 );
+			}
+			closeTargets.forEach( ( targetElement ) => {
+				let hidedelay = targetElement.dataset.hideDelay;
+				if ( ! hidedelay ) {
+					hidedelay = 10;
+				}
 
-if ( targetClosers.length ) {
-	const hideTargets = ( targetsToHide ) => {
-		targetsToHide.forEach( ( targetElement ) => {
-			targetElement.classList.remove( 'visible' );
-			targetElement.classList.add( 'hidden' );
+				targetElement.classList.remove( 'visible' );
+				targetElement.addEventListener( 'transitionend', () => {
+					if ( targetElement && ! targetElement.classList.contains( 'visible' ) ) {
+						setTimeout( () => {
+							targetElement.classList.add( 'hidden' );
+						}, hidedelay );
+					}
+				} );
+			} );
 		} );
 	};
 
-	targetClosers.forEach( ( closer ) => {
-		const targetId = closer.dataset.close;
-		const targetsToHide = document.querySelectorAll( `[data-targetId="${ targetId }"]` );
+	if ( activators.length > 0 ) {
+		activators.forEach( ( elem ) => {
+			const activator = elem;
 
-		closer.addEventListener( 'click', () => {
-			hideTargets( targetsToHide );
+			activator.addEventListener( 'click', ( event ) => {
+				event.stopPropagation();
+				const thisActivator = activator;
+				const thisTarget = document.querySelectorAll(
+					`[data-targetId="${ thisActivator.dataset.target }"]`
+				);
+
+				if ( ! thisActivator.classList.contains( 'active' ) ) {
+					thisTarget.forEach( ( target ) => {
+						target.classList.remove( 'hidden' );
+						setTimeout( () => {
+							thisActivator.classList.add( 'active' );
+							target.classList.add( 'visible' );
+						}, 10 );
+					} );
+				}
+				hideVisible( thisActivator.dataset.target );
+			} );
 		} );
-		closer.removeEventListener( 'click', hideTargets );
-	} );
-}
+
+		document.querySelector( 'body' ).addEventListener( 'click', ( event ) => {
+			if ( ! event.target.closest( '[data-close-target]' ) && ! event.target.closest( '[data-target]' ) && ! event.target.closest( '[data-targetId]' ) ) {
+				hideVisible( null );
+			}
+		} );
+
+		document.querySelector( 'body' ).removeEventListener( 'click', hideVisible );
+
+		document.addEventListener( 'keyup', ( e ) => {
+			if ( e.key === 'Escape' ) {
+				hideVisible( null );
+			}
+		} );
+		document.removeEventListener( 'keyup', hideVisible );
+	}
+
+	if ( closers.length > 0 ) {
+		closers.forEach( ( closeBtn ) => {
+			closeBtn.addEventListener( 'click', () => {
+				const target = closeBtn.dataset.closeTarget;
+				hideVisible( target );
+			} );
+		} );
+	}
+} );
+
