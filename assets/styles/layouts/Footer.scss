@@ -280,6 +280,10 @@
 
 	@media (max-width: $breakpoint-tablet) {
 
+		&__row:nth-child(2) &__column {
+			width: 100%;
+		}
+
 		&__column--menu {
 			width: 100%;
 			max-width: 50%;
