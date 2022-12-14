@@ -18,13 +18,14 @@ function learnmore_pre_block( $content ) {
 	$blocks      = get_nodes( $xpath, $block_class );
 
 	if ( $blocks[0] ) {
+		set_custom_source( 'components/SidebarTOC', 'css' );
+		set_custom_source( 'components/SignupSidebar', 'css' );
 		set_custom_source( 'pages/post', 'css' );
 		set_custom_source( 'common/splide', 'css' );
-		set_custom_source( 'components/SmallPhotoSlider', 'css' );
 		set_custom_source( 'splide', 'js' );
-		set_custom_source( 'custom_lightbox', 'js' );
-		set_custom_source( 'slider', 'js' );
 		set_custom_source( 'sidebar_toc', 'js' );
+		set_custom_source( 'custom_lightbox', 'js' );
+		set_custom_source( 'components/SmallPhotoSlider', 'css' );
 	}
 
 	foreach ( $blocks as $block ) {
