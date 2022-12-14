@@ -136,8 +136,8 @@ ul.checklist[class] {
 		}
 
 		ul:not([class]) li::before {
-			background-color: $desaturated-green;
-			background-image: url(../images/icon-post-pros.svg);
+			background-color: $desaturated-green !important;
+			background-image: url(../images/icon-post-pros.svg) !important;
 		}
 	}
 
@@ -150,8 +150,8 @@ ul.checklist[class] {
 		}
 
 		ul:not([class]) li::before {
-			background-color: $desaturated-red;
-			background-image: url(../images/icon-post-cons.svg);
+			background-color: $desaturated-red !important;
+			background-image: url(../images/icon-post-cons.svg) !important;
 		}
 	}
 }

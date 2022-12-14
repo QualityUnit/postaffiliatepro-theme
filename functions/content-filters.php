@@ -396,3 +396,61 @@ add_filter(
 		return ' &hellip; <a href="' . get_permalink() . '">' . __( 'Read More', 'ms' ) . '</a>';
 	}
 );
+
+/*
+*  checklists (pros and cons) in Block--learnMore
+*/
+
+function elementor_pros_cons( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+	
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath    = new DOMXPath( $dom );
+	$sections = get_nodes( $xpath, 'elementor-section' );
+	
+	foreach ( $sections as $section ) {
+		//get list of pros/cons sections
+		$new_dom = new DomDocument();
+		libxml_use_internal_errors( true );
+		$new_dom->appendChild( $new_dom->importNode( $section, true ) );
+		libxml_clear_errors();
+		$new_xpath  = new DOMXPath( $new_dom );
+		$checklists = get_nodes( $new_xpath, 'checklist' );
+		$cols       = get_nodes( $new_xpath, 'elementor-col-50' );
+		
+		if ( 2 == $checklists->length && 2 == $cols->length ) {
+			
+			$checklists_index = 1;
+			
+			foreach ( $checklists as $checklist ) {
+				$cl_checklist = $checklist->getAttribute( 'class' );
+				$id_checklist = $checklist->getAttribute( 'data-id' );
+				
+				//get checklist node form $dom and add class
+				$checklist_dom = $xpath->query( "//*[@data-id='$id_checklist']" );
+				$checklist     = $checklist_dom->item( 0 );
+				
+				if ( 1 == $checklists_index ) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--pros' );
+				}
+				
+				if ( 2 == $checklists_index ) {
+					$checklist->setAttribute( 'class', $cl_checklist . ' checklist--cons' );
+				}
+				$checklists_index++;
+			}
+		}
+	}
+	
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'elementor_pros_cons', 9999 );
