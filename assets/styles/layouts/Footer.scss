@@ -1,4 +1,5 @@
 /* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "../components/Portals" as *;
@@ -87,7 +88,7 @@
 				z-index: 1;
 				content: "";
 				display: block;
-				border-radius: ($bg-size / 2) ($bg-size / 10) ($bg-size / 2) ($bg-size / 2);
+				border-radius: math.div($bg-size, 2) math.div($bg-size, 10) math.div($bg-size, 2) math.div($bg-size, 2);
 				box-shadow: 0.25em 0.25em 3.125em rgba($black, 0.08);
 				background-color: $white;
 				transform: translate3d(-50%, -50%, 0);
