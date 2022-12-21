@@ -130,7 +130,7 @@ if ( is_page() ) {
 						</a>
 					</li>
 					<li>
-						<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
+						<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" target="_blank"
 							title="<?php _e( 'WhatsApp', 'ms' ); ?>">
 							<svg>
 								<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#social-whatsapp' ) ?>"></use>
