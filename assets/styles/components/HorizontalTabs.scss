@@ -20,7 +20,12 @@
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			max-width: calc(100% - 5em);
+			max-width: initial;
+		}
+
+		@media (min-width: $breakpoint-desktop-box) {
+			margin-left: -4em;
+			margin-right: -4em;
 		}
 
 		.elementor-tab-title {
@@ -97,7 +102,7 @@
 		}
 
 		@media (min-width: $breakpoint-desktop-box) {
-			margin: 0 -8em;
+			margin: 0 -12em;
 		}
 	}
 }

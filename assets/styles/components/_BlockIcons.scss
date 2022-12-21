@@ -64,8 +64,16 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: 1.5em 1em;
+			padding: 2em 0.5em;
 			color: $black;
+
+			@media (min-width: $breakpoint-iphone-old) {
+				padding: 2.5em 1.5em;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				padding: 2.5em;
+			}
 		}
 
 		&-icon {
