@@ -8,7 +8,6 @@
 .Footer {
 
 	@include color(background-color, newsletter-background);
-	overflow: hidden;
 
 	p {
 		margin: 0;
@@ -38,6 +37,12 @@
 
 				@include color(color, font-color-dark);
 				font-size: $font-size-smaller;
+				transition: color 0.5s;
+
+				@include hover() {
+
+					@include color(color, primary-color);
+				}
 			}
 		}
 
@@ -52,6 +57,12 @@
 
 				@include color(color, font-color-medium);
 				font-size: $font-size-small;
+				transition: color 0.5s;
+
+				@include hover() {
+
+					@include color(color, primary-color);
+				}
 			}
 		}
 	}
