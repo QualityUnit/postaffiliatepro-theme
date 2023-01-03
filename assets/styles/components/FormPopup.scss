@@ -12,6 +12,9 @@
 		max-width: 32.5em;
 		padding: 1.5em;
 		text-align: left;
+		background-color: $white;
+		border-radius: $border-radius-16;
+		box-shadow: 5px 10px 90px -10px rgba($black-real, 0.1);
 
 		&__close {
 
