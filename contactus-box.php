@@ -31,13 +31,8 @@
 			<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg>
 		</button>
 
-		<p class="ContactUs__menu--text">
-			<?php _e( "We're available for you 24/7.", 'ms' ); ?><br />
-			<?php _e( 'Feel free to contact us.', 'ms' ); ?>
-		</p>
-
 		<ul class="ContactUs__menu">
-			<?php 
+			<?php
 			if ( is_page() ) {
 				global $post;
 				$phone = '+421 2 33 456 826';
@@ -74,29 +69,29 @@
 					<?php _e( 'Contact form', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
 				</span>
-			</li>	
+			</li>
 			<li class="ContactUs__menu--item">
 				<a href="https://m.me/PostAffiliatePro" class="ContactUs__menu--link violet" data-close-target="contactUsMenu">
 					Messenger
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
 				</a>
-			</li>	
+			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/19785916509"  class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+				<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
 				</a>
-			</li>	
+			</li>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
-					<span class="fakeChatButton__text"><?php _e( 'Chat', 'ms' ); ?></span>
+					<span class="fakeChatButton__text"><?php _e( 'Live Chat', 'ms' ); ?></span>
 					<div class="ContactUs__icon fakeChatButton__icon"></div>
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
 				</div>
 				<span class="ContactUs__menu--link chat blue" id="chatBtn" data-close-target="contactUsMenu">
 					<?php _e( 'Chat', 'ms' ); ?>
 				</span>
-			</li>	
+			</li>
 		</ul>
 	</nav>
 </div>

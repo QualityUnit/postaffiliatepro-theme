@@ -24,6 +24,15 @@
 		margin-bottom: 0 !important;
 	}
 
+	&.sm-margin-bottom {
+
+		margin-bottom: $block-space-sm;
+
+		+ .Block {
+			margin-top: $block-space-sm;
+		}
+	}
+
 	&.margin-narrow {
 		margin: 4.375em auto;
 	}
@@ -901,6 +910,10 @@
 	.HeroBig + & {
 		margin-top: $block-bg-space-sm;
 		margin-bottom: $block-bg-space-sm;
+
+		+ section {
+			margin-top: 0 !important;
+		}
 
 		@media (min-width: $breakpoint-tablet) {
 			margin-top: $block-bg-space;

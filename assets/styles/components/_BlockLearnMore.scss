@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "../layouts/Post";
 @use "../elements/Checklist";
 
 %imgalign {
@@ -20,6 +21,7 @@
 	}
 
 	.Post__content {
+		margin: 0 auto;
 
 		.SmallPhoto__slider {
 			max-width: 100%;
@@ -51,7 +53,62 @@
 		}
 	}
 
+	&__header {
+
+		@include boxBackground();
+		font-family: $font-secondary;
+		border-radius: $border-radius-16;
+		padding: 1.5em;
+		background-size: cover;
+
+		h2,
+		h3 {
+			font-size: 3rem;
+			line-height: 1.4;
+			margin-top: 0;
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		.elementor-widget-container {
+
+			&::before {
+				content: url(../images/lightbulb.svg);
+			}
+		}
+
+		+ .elementor-widget-text-editor pre,
+		+ .Post__container > .Post__content > .elementor-widget-text-editor:first-child pre {
+
+			@include color(background-color, main-background);
+			@include color(color, font-color-dark);
+			border: none;
+			border-radius: $border-radius-16;
+			overflow: visible;
+			white-space: break-spaces;
+			margin: 0 0 1.5em;
+			padding: 2em;
+			box-shadow: 0 20px 90px 10px rgba(55, 55, 55, 0.08);
+			font-family: $font-primary;
+
+			.flex {
+				margin-bottom: 1.5em;
+
+				strong {
+					margin-right: auto;
+					font-family: $font-secondary;
+				}
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet-landscape) {
+
+		.Post__content {
+			max-width: $wrapper-aside;
+		}
 
 		.wrapper__wide {
 			padding-top: 0;
@@ -62,6 +119,16 @@
 			display: block !important;
 
 			.elementor-element:not(.Block--learnMore__header) {
+				max-width: $wrapper-aside;
+				margin: 0 auto;
+			}
+		}
+
+		&__header {
+			margin: 0;
+			padding: 3em 0;
+
+			.elementor-widget-container {
 				max-width: $wrapper-aside;
 				margin: 0 auto;
 			}
