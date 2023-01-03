@@ -279,9 +279,13 @@
 
 @mixin hover {
 	&:active,
-	&:focus,
-	&:hover {
+	&:focus {
 		@content;
+	}
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
 	}
 }
 
