@@ -9,7 +9,7 @@
 	position: relative;
 	z-index: 1;
 	margin-top: 3em;
-	transform: translateY(1em);
+	margin-bottom: 3em;
 
 	&__inn {
 
@@ -58,9 +58,56 @@
 		width: 100%;
 		margin: 0;
 
+		footer.Footer & {
+			padding: 0.2em 0.2em 0.2em 1.25em;
+			border: 1px solid $light-gray-icon;
+			border-radius: 0.375em;
+
+			@media (max-width: $breakpoint-tablet) {
+				padding-left: 0.5em;
+			}
+		}
+
+		form {
+
+			footer.Footer & {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+		}
+
+		svg {
+			display: none;
+
+			footer.Footer & {
+
+				@include square(1.125em);
+				min-width: 1.125em;
+				min-height: 1.125em;
+				display: block;
+				color: $light-gray-icon;
+			}
+		}
+
 		.Input {
 			text-align: center;
 			margin-bottom: 1.5em;
+
+			footer.Footer & {
+				height: auto;
+				padding: 0 1em 0 0.625em;
+				margin: 0;
+				border: none;
+				font-size: 0.875em;
+				text-align: left;
+				background-color: transparent;
+
+				&:focus {
+
+					@include color(color, font-color-dark);
+				}
+			}
 
 			@media (min-width: $breakpoint-tablet) {
 				height: 3rem;
@@ -69,6 +116,31 @@
 
 		.Button {
 			min-width: 185px;
+
+			footer.Footer & {
+				width: auto;
+				min-width: 6.5em;
+				padding: 0 0.5em;
+				border-color: $light-gray-icon;
+				border-radius: 0.2em;
+				font-size: 0.875em;
+				background-color: $light-gray-icon;
+
+				&,
+				span {
+					height: 2.5em;
+					line-height: 2.5;
+					display: block;
+				}
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(background, primary-color);
+					border-color: $primary;
+				}
+			}
 		}
 
 		@media (max-width: $breakpoint-tablet) {
@@ -81,7 +153,6 @@
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-		transform: translateY(25%);
 
 		&__inn {
 			flex-direction: row;
@@ -103,16 +174,30 @@
 		&__form {
 			width: auto;
 			margin-left: 1.5rem;
+
+			.Input {
+
+				footer.Footer & {
+					min-width: 18em;
+				}
+			}
+
+			footer.Footer & {
+				margin-left: 0;
+			}
 		}
 	}
 
 	@media (min-width: $breakpoint-tablet-landscape) {
-		transform: translateY(50%);
 
 		&__form {
 			display: flex;
 			justify-content: flex-end;
 			width: 55%;
+
+			footer.Footer & {
+				width: 100%;
+			}
 
 			form {
 				display: flex;
