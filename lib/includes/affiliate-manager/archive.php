@@ -90,11 +90,11 @@ $maintitle = preg_replace( '/\^(.+?)\^/', '<span class="highlight highlight-spla
 
 <div class="lightbox lightbox__wrapper lightbox__wrapper--light hidden FormPopup" data-targetId="joinAffDirManagers">
 	<div class="Form Box--shadow">
-		<button class="Form__close" data-close="joinAffDirManagers" type="button">
+		<button class="Form__close" data-close-target="joinAffDirManagers" type="button">
 			<img class="Form__close--image" src="<?= esc_url( get_template_directory_uri() . '/assets/images/icon-close.svg' ); ?>" alt="close" />
 		</button>
 		<div class="Form__title h2">
-			<span class="highlight highlight-splash3"><?php _e( 'Join to this list', 'ms' ); ?></span>
+			<span class="highlight highlight-splash3"><?php _e( 'Join this list', 'ms' ); ?></span>
 		</div>
 		<p class="Form__subtitle"><?php _e( 'We have to ask you some questions before we can add you to our affiliate directory. Leave us your details, and we’ll contact you as soon as possible.', 'ms' ); ?></p>
 
