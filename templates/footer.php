@@ -5,57 +5,10 @@ if ( is_page() ) {
 	while ( have_posts() ) :
 		the_post();
 		?>
-
-		<?php
-		if ( get_post_meta( get_the_ID(), 'mb_page_mb_page_newsletter', true ) === 'on' ) {
-			echo '';
-		} else {
-			?>
-			<div class="Newsletter">
-				<div class="wrapper">
-					<div class="Newsletter__inn">
-						<div class="Newsletter__top">
-				<span class="Newsletter__icon icon-bg-rounded">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-newsletter.svg" alt="Newsletter icon">
-				</span>
-							<h3 class="Newsletter__title Newsletter__title-mobile hidden-desktop"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></h3>
-						</div>
-						<div class="Newsletter__text">
-							<h3 class="Newsletter__title hidden-mobile"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></h3>
-							<p>
-								<?php _e( 'Get exclusive offers and the latest news about our products and services delivered directly to your inbox.', 'ms' ); ?>
-							</p>
-						</div>
-						
-						<?php echo do_shortcode( '[newsletterform]' ); ?>
-					</div>
-				</div>
-			</div>
-			<?php
-		} endwhile;
-} else {
-	?>
-	<div class="Newsletter">
-		<div class="wrapper">
-			<div class="Newsletter__inn">
-				<div class="Newsletter__top">
-				<span class="Newsletter__icon icon-bg-rounded">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon-newsletter.svg" alt="Newsletter icon">
-				</span>
-					<h3 class="Newsletter__title Newsletter__title-mobile hidden-desktop"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></h3>
-				</div>
-				<div class="Newsletter__text">
-					<h3 class="Newsletter__title hidden-mobile"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></h3>
-					<p>
-						<?php _e( 'Get exclusive offers and the latest news about our products and services delivered directly to your inbox.', 'ms' ); ?>
-					</p>
-				</div>
-				
-				<?php echo do_shortcode( '[newsletterform]' ); ?>
-			</div>
-		</div>
-	</div>
-<?php } ?>
+		<?php 
+	endwhile;
+} 
+?>
 
 <footer class="Footer Box urlslab-skip-keywords">
 	<div class="wrapper">
