@@ -91,11 +91,7 @@ if ( is_page() ) {
 							<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
 							   title="<?php _e( 'Facebook', 'ms' ); ?>">
 								<svg>
-									<use xlink:href="
-									<?php 
-									echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' )
-									?>
-									"></use>
+									<use xlink:href=" <?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
@@ -142,7 +138,7 @@ if ( is_page() ) {
 					</div>
 				</div>
 				<div class="Footer__column">
-					<div class="Footer__copyright"><?php _e( '© 2004-', 'ms' ); ?><?php echo esc_html( gmdate( 'Y' ) ); ?><?php _e( 'Quality Unit, LLC. All rights reserved .', 'ms' ); ?></div>
+					<div class="Footer__copyright"><?php _e( '© 2004-', 'ms' ); ?><?php echo esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved .', 'ms' ); ?></div>
 				</div>
 			</div>
 		</div>
