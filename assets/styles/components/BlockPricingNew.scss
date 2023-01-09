@@ -37,6 +37,10 @@
 		}
 	}
 
+	.learn-more {
+		margin: 0;
+	}
+
 	&__content {
 		z-index: 1;
 
@@ -74,6 +78,7 @@
 				}
 
 				.elementor-row {
+					align-items: initial;
 					padding-bottom: $wrap-header-height;
 				}
 			}
@@ -183,6 +188,10 @@
 				position: static;
 			}
 
+			.elementor-widget-html {
+				margin-top: auto;
+			}
+
 			@media (min-width: $breakpoint-tablet) {
 
 				@include color(background-color, main-background);
@@ -213,17 +222,6 @@
 			padding: 0.5em $wrap-h-padding;
 			margin: 0;
 
-			&::before {
-				position: absolute;
-				top: 0;
-				left: $wrap-h-padding;
-				right: $wrap-h-padding;
-				content: "";
-				height: 1px;
-				display: block;
-				background-color: $light-gray;
-			}
-
 			.elementor-image-box-wrapper[class] {
 				align-items: center;
 				justify-content: center;
@@ -243,7 +241,7 @@
 
 					h3 {
 						font-size: 1rem;
-						font-weight: 600;
+						font-weight: $font-weight-bold;
 						margin-bottom: 0;
 					}
 				}
@@ -262,6 +260,17 @@
 				left: 0;
 				z-index: 3;
 				width: $wrap-program-width;
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: $wrap-h-padding;
+					right: $wrap-h-padding;
+					content: "";
+					height: 1px;
+					display: block;
+					background-color: $light-gray;
+				}
 
 				&.wide.program {
 					width: 85%;
@@ -286,6 +295,14 @@
 			&--network[class] {
 				width: $wrap-network-width;
 				margin-left: $wrap-network-space;
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+
+			&--header[class] {
+				margin-top: 3em;
+				padding-bottom: 1.5em;
 			}
 		}
 	}
