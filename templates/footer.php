@@ -23,24 +23,24 @@ if ( is_page() ) {
 						<span>Free Trial</span>
 					</a>
 				</div>
-				<h4 class="Footer__contacts-title"><?php _e( 'Sales and support', 'ms' ); ?></h4>
+				<h4 class="Footer__contacts-title"><?php _e( 'Sales support', 'ms' ); ?></h4>
 				<ul class="Footer__contacts">
 					<li>
-						<a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>">
+						<a href="tel:<?php _e( '+421233456826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>">
 							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
 							<span><?php _e( '+421 2 33 456 826', 'ms' ); ?></span>
 						</a>
 					</li>
 					<li>
-						<a href="tel:<?php _e( '+1-888-257-8754', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>">
+						<a href="tel:<?php _e( '+18888429508', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>">
 							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
-							<span><?php _e( '+1-888-257-8754', 'ms' ); ?></span>
+							<span><?php _e( '+1-888-842-9508', 'ms' ); ?></span>
 						</a>
 					</li>
 					<li>
-						<a href="<?php _e( 'https://wa.me/17862041375', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>">
+						<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>">
 							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use></svg>
-							<span><?php _e( '+1-786-204-1375', 'ms' ); ?></span>
+							<span><?php _e( '+1-978-591-6509', 'ms' ); ?></span>
 						</a>
 					</li>
 				</ul>
@@ -89,7 +89,7 @@ if ( is_page() ) {
 					<ul class="Footer__social">
 						<li>
 							<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'Facebook', 'ms' ); ?>">
+							   title="<?php _e( 'Post Affiliate Pro\'s Facebook', 'ms' ); ?>">
 								<svg>
 									<use xlink:href=" <?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' ); ?>"></use>
 								</svg>
@@ -97,7 +97,7 @@ if ( is_page() ) {
 						</li>
 						<li>
 							<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'Twitter', 'ms' ); ?>">
+							   title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 								</svg>
@@ -105,15 +105,15 @@ if ( is_page() ) {
 						</li>
 						<li>
 							<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'YouTube', 'ms' ); ?>">
+							   title="<?php _e( 'Post Affiliate Pro\'s YouTube', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 								</svg>
 							</a>
 						</li>
 						<li>
-							<a href="<?php _e( 'https://wa.me/19785916509', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'WhatsApp', 'ms' ); ?>">
+							<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" target="_blank"
+							   title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
 								</svg>
