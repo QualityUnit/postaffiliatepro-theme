@@ -96,7 +96,7 @@
 				@include square($bg-size);
 				position: absolute;
 				top: 47%;
-				left: 50%;
+				left: 45%;
 				z-index: 1;
 				content: "";
 				display: block;
@@ -109,7 +109,7 @@
 	}
 
 	&__right {
-		width: 66%;
+		width: 68%;
 	}
 
 	&__row {
@@ -132,6 +132,7 @@
 
 	&__column {
 		position: relative;
+		flex: 1;
 		padding: 1.5em 0.75em;
 	}
 
@@ -215,6 +216,7 @@
 	}
 
 	&__newsletter {
+		display: flex;
 		margin-top: 0.5em !important;
 	}
 
@@ -263,6 +265,10 @@
 
 		&__right {
 			width: 60%;
+		}
+
+		&__column {
+			flex: none;
 		}
 
 		&__column--menu {
