@@ -2,6 +2,10 @@
 @use "sass:map";
 $version: "3.0";
 
+//Paths
+$img-path-1: "../images/";
+$img-path-2: "../../images/";
+
 // Fonts
 $font-primary: "Open Sans", sans-serif;
 $font-secondary: "Poppins", sans-serif;
