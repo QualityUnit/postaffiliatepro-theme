@@ -111,7 +111,7 @@ if ( 'voluum' === $software_id ) {
 		<div class="Post__sidebar">
 			<div class="Post__sidebar__buttons">
 				<?php if ( get_post_meta( get_the_ID(), 'program_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank"
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank"
 					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) { ?>
 						rel="nofollow"
 					<?php } ?>
@@ -121,7 +121,7 @@ if ( 'voluum' === $software_id ) {
 				<?php } ?>
 
 				<?php if ( get_post_meta( get_the_ID(), 'company_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>?utm_medium=referral&utm_source=postaffiliatepro&utm_campaign=directory" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank"
+					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank"
 					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
 						rel="nofollow"
 					<?php } ?>
@@ -139,7 +139,7 @@ if ( 'voluum' === $software_id ) {
 						<li class="SidebarTOC__item"><a href="#ap-campaigns"><?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></a></li>
 						<li class="SidebarTOC__item"><a href="#ap-payouts"><?php _e( 'Affiliate Program Commissions & Payouts', 'ms' ); ?></a></li>
 
-						<?php 
+						<?php
 						if ( $software ) {
 							?>
 							<li class="SidebarTOC__item"><a href="#ap-software"><?php _e( 'Affiliate Software', 'ms' ); ?></a></li>
@@ -660,7 +660,7 @@ if ( 'voluum' === $software_id ) {
 						</div>
 					</div>
 
-					<?php 
+					<?php
 						$aff_software = __( 'The ${company_name} affiliate program uses the ${affiliate_software} affiliate software to manage its portfolio in the ${countries}.', 'ms' );
 					if ( get_post_meta( get_the_ID(), 'countries', true ) === 'Worldwide' ) {
 						$aff_software = __( 'The ${company_name} affiliate program uses the ${affiliate_software} affiliate software to manage its portfolio ${countries}.', 'ms' );
@@ -679,12 +679,12 @@ if ( 'voluum' === $software_id ) {
 						}
 					}
 
-						$aff_software = str_replace( '${affiliate_software}', software_url( $software_id, $software ), $aff_software ); 
+						$aff_software = str_replace( '${affiliate_software}', software_url( $software_id, $software ), $aff_software );
 						$aff_software = str_replace( '${countries}', get_post_meta( get_the_ID(), 'countries', true ), $aff_software );
 
-						
+
 					if ( isset( $software ) ) {
-						
+
 						?>
 							<h2 id="ap-software" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
 
@@ -695,12 +695,12 @@ if ( 'voluum' === $software_id ) {
 									<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/affiliate_program.svg" alt="<?php the_title(); ?>">
 									<h3><?php _e( 'Affiliate software', 'ms' ); ?></h3>
 									<p>
-									<?= software_url($software_id, $software); // @codingStandardsIgnoreLine ?> 
+									<?= software_url($software_id, $software); // @codingStandardsIgnoreLine ?>
 								</p>
 
 								</div>
 							</div>
-						<?php	
+						<?php
 					}
 					?>
 
