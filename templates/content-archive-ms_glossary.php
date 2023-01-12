@@ -5,7 +5,7 @@
 			<h1 class="Archive__header__title" itemprop="name"><?php single_cat_title(); ?></h1>
 			<div class="Archive__header__subtitle"><p itemprop="description" ><?php the_archive_description(); ?></p></div>
 		<?php } else { ?>
-			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Affiliate Software Glossary', 'ms' ); ?></h1>
+			<h1 class="Archive__header__title" itemprop="name"><?php _e( 'Affiliate Marketing Glossary', 'ms' ); ?></h1>
 			<p class="Archive__header__subtitle" itemprop="description" ><?php _e( 'Understanding terminology can be difficult when getting started. We have put together this glossary list to help you with new words that might come while working with your affiliate software.', 'ms' ); ?></p>
 		<?php } ?>
 	</div>
