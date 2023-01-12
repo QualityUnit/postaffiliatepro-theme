@@ -17,10 +17,10 @@ if ( is_page() ) {
 				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="Footer__contacts-logo">
 				<div class="Footer__contacts-cta">
 					<a href="/call/" class="Button Button--outline" title="Schedule a personalized 1-1 demo call with the Post Affiliate Pro team, and get advanced tips on using smart affiliate software for your business case.">
-						<span>Book a consult</span>
+						<span><?php _e( 'Book a consult', 'ms' ); ?></span>
 					</a>
 					<a href="/trial/" class="Button Button--full" title="Post Affiliate Pro has over 30. 000 affiliate programs. Sign up for a trial and improve your affiliate marketing right away.">
-						<span>Free Trial</span>
+						<span><?php _e( 'Start free trial', 'ms' ); ?></span>
 					</a>
 				</div>
 				<h4 class="Footer__contacts-title"><?php _e( 'Sales support', 'ms' ); ?></h4>

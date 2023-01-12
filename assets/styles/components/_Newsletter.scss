@@ -59,6 +59,7 @@
 		margin: 0;
 
 		footer.Footer & {
+			justify-content: initial;
 			padding: 0.2em 0.2em 0.2em 1.25em;
 			border: 1px solid $light-gray-icon;
 			border-radius: 0.375em;
@@ -172,13 +173,13 @@
 		}
 
 		&__form {
-			width: auto;
+			width: auto !important;
 			margin-left: 1.5rem;
 
 			.Input {
 
 				footer.Footer & {
-					min-width: 18em;
+					min-width: 15em;
 				}
 			}
 
