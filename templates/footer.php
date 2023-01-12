@@ -136,8 +136,6 @@ if ( is_page() ) {
 						endif;
 						?>
 					</div>
-				</div>
-				<div class="Footer__column">
 					<div class="Footer__copyright"><?php _e( '© 2004-', 'ms' ); ?><?php echo esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved .', 'ms' ); ?></div>
 				</div>
 			</div>

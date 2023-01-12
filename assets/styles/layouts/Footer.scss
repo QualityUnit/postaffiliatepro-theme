@@ -120,7 +120,7 @@
 		margin: -1.5em -0.75em;
 
 		&:not(:last-child) {
-			padding-bottom: 3.75em;
+			padding-bottom: 2em;
 		}
 
 		&:nth-child(3) {
@@ -255,6 +255,10 @@
 
 		@include color(color, font-color-medium);
 		font-size: $font-size-small;
+
+		&:not(:first-child) {
+			padding-top: 0.8em;
+		}
 	}
 
 	@media (max-width: $breakpoint-desktop-big) {
@@ -268,7 +272,7 @@
 		}
 
 		&__column {
-			flex: none;
+			flex: initial;
 		}
 
 		&__column--menu {
