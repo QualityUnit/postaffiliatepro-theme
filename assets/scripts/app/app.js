@@ -284,11 +284,11 @@
 
 				if (
 					parent.querySelector(
-						'.elementor-tab-content.elementor-active'
+						'[data-active="elementor-active"].elementor-tab-content'
 					) !== null
 				) {
 					const activeElem = parent.querySelectorAll(
-						'.elementor-active'
+						'[data-active="elementor-active"]'
 					);
 
 					if (
@@ -296,16 +296,16 @@
 							.length > 0
 					) {
 						parent.querySelector(
-							'.elementor-tab-content.elementor-active'
+							'[data-active="elementor-active"].elementor-tab-content'
 						).style.height = '0px';
 					}
 					activeElem.forEach( ( elementorItem ) => {
-						elementorItem.classList.remove( 'elementor-active' );
+						elementorItem.dataset.active = '';
 					} );
 				}
 
 				nonActive.forEach( ( elementorItem ) => {
-					elementorItem.classList.add( 'a' );
+					elementorItem.dataset.active = 'elementor-active';
 				} );
 
 				if (
@@ -320,7 +320,7 @@
 		queryAll(
 			`[aria-controls=${ firstItemRef }], #${ firstItemRef }`
 		).forEach( ( item ) => {
-			item.classList.add( 'elementor-active' );
+			item.dataset.active = 'elementor-active';
 			// eslint-disable-next-line no-param-reassign
 			item.style.height = 'auto';
 		} );
