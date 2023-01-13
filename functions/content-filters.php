@@ -117,19 +117,6 @@ function add_alt_tag_to_images( $html ) {
 add_filter( 'the_content', 'add_alt_tag_to_images', 30 );
 add_filter( 'render_block', 'add_alt_tag_to_images', 30 );
 
-/**
-	* Add X-DEFAULT Header
-	*/
-
-function wps_head_hreflang_xdefault( $url, $lang_code ) {
-	if ( apply_filters( 'wpml_default_language', null ) === $lang_code ) {
-		echo '<link rel="alternate" href="' . esc_url( $url ) . '" hreflang="x-default" />';
-	}
-
-	return $url;
-}
-add_filter( 'wpml_alternate_hreflang', 'wps_head_hreflang_xdefault', 10, 2 );
-
 
 /**
 	* Fix CORS for Elementor
