@@ -47,9 +47,6 @@
 
 	<div class="wrapper__wide Post__container">
 		<div class="Post__sidebar">
-			<div class="Post__sidebar__buttons">
-				<a href="<?= esc_url( isset( $_REQUEST['directory_url'] ) ? $_REQUEST['directory_url'] : __( '/affiliate-program-directory/', 'ms' ) ); // @codingStandardsIgnoreLine ?>" class="Button Button--outline"><?php _e( 'Back', 'ms' ); ?></a>
-			</div>
 			<?php
 			if ( is_array( $manager_industries ) ) {
 				?>
@@ -105,13 +102,13 @@
 							if ( software( $softwareitem_id )->name ) {
 								?>
 							<span><?= software_url( ( software( $softwareitem_id )->id ), software( $softwareitem_id )->name ); // @codingStandardsIgnoreLine ?></span>
-								<?php 
-							} 
-						} 
+								<?php
+							}
+						}
 						?>
 					</p>
 						<?php
-					} 
+					}
 				}
 				?>
 
