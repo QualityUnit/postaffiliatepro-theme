@@ -9,19 +9,19 @@
 	</button>
 	<script type="text/javascript">
 		<?php
-		$formId = 'v5kyj497';
+		$form_id = 'v5kyj497';
 		if ( ICL_LANGUAGE_CODE === 'de' ) {
-			$formId = 'hzf0ixe0';
+			$form_id = 'hzf0ixe0';
 		}
 		if ( ICL_LANGUAGE_CODE === 'es' ) {
-			$formId = '77b02acd';
+			$form_id = '77b02acd';
 		}
 		if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
-			$formId = 'm7h7vl7x';
+			$form_id = 'm7h7vl7x';
 		}
 		?>
 		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $formId ); ?>', e); });
+			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
 		}
 
 		if ( getCookieFrontend( "cookieLaw" ) ) {
