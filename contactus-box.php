@@ -8,8 +8,20 @@
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
 	<script type="text/javascript">
+		<?php
+		$formId = 'v5kyj497';
+		if ( ICL_LANGUAGE_CODE === 'de' ) {
+			$formId = 'hzf0ixe0';
+		}
+		if ( ICL_LANGUAGE_CODE === 'es' ) {
+			$formId = '77b02acd';
+		}
+		if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
+			$formId = 'm7h7vl7x';
+		}
+		?>
 		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('99c3idgr', e); });
+			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $formId ); ?>', e); });
 		}
 
 		if ( getCookieFrontend( "cookieLaw" ) ) {
