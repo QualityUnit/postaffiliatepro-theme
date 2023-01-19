@@ -127,16 +127,18 @@
 
 			&,
 			.elementor-text-editor,
+			.elementor-text-editor p,
 			.elementor-widget-container {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			}
 
-			.elementor-text-editor {
+			.elementor-text-editor,
+			.elementor-text-editor p {
 				line-height: 1.1;
 				font-family: $font-secondary;
-				font-size: 0.7em;
+				font-size: 0.7rem;
 				font-weight: $font-weight-semi;
 				text-align: center;
 			}
@@ -156,13 +158,15 @@
 
 			&,
 			.elementor-text-editor,
+			.elementor-text-editor p,
 			.elementor-widget-container {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			}
 
-			.elementor-text-editor {
+			.elementor-text-editor,
+			.elementor-text-editor p {
 				flex-direction: column;
 				line-height: 1.1;
 				font-family: $font-secondary;
@@ -303,6 +307,27 @@
 			&--header[class] {
 				margin-top: 3em;
 				padding-bottom: 1.5em;
+			}
+		}
+	}
+}
+
+html[lang="de-DE"] .BlockPricingNew {
+
+	&__pricing {
+
+		.box.elementor-column[class*="box"] {
+
+			.Button {
+				font-size: 0.75rem;
+			}
+		}
+
+		&--tag {
+
+			.elementor-text-editor,
+			.elementor-text-editor p {
+				font-size: 0.6rem;
 			}
 		}
 	}
