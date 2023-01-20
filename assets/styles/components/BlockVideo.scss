@@ -74,7 +74,7 @@
 
 		&::after {
 			//gradient is placed in $positions
-			@include posZero();
+			@include square(100%);
 			content: "";
 			position: absolute;
 			font-size: $font-size-default;
@@ -665,6 +665,7 @@ $positions: ("left", "right");
 				content: "";
 				background: linear-gradient(to bottom, rgba($black, 0.15), rgba($black, 0.6));
 				border-radius: $border-radius-16;
+				z-index: 2;
 			}
 
 			.elementor-video,
