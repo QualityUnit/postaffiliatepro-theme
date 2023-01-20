@@ -1,6 +1,6 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
-/* global progressStep, newProgress, btoa */
+/* global progressStep, newProgress, btoa, twq */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating */
 
 ( function main() {
@@ -722,6 +722,8 @@
 				}
 
 				progressLoader.setProgress( 100 );
+
+				twq( 'event', 'tw-odjc8-odje5', {} );
 
 				if ( data.login_token ) {
 					const redirectForm = `<form method='POST' action='${ data.login_url }' id="trialform"><input type='hidden' name='action' value='login'><input type='hidden' name='${ authTokenName }' value='${ data.login_token }'><input type='hidden' name='l' value='${ languageCode }'><input type='submit' name='goto' value='${ textGoApp }' class='FinalButton' style='display: none;'><a href='${ data.login_url }' id='gotoapp' class='FinalButton'>Go to your App</a></form>`;
