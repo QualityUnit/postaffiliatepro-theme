@@ -151,7 +151,7 @@ if ( 'voluum' === $software_id ) {
 		</div>
 
 		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
+			<?= do_shortcode( '[signup-sidebar title="Try our affiliate" free="software"]' ); ?>
 		</div>
 
 		<div class="Post__content">
@@ -805,6 +805,24 @@ if ( 'voluum' === $software_id ) {
 											?>
 										</div>
 										<ul class="AffiliateManagerCard__contacts">
+											<?php
+											if ( isset( $email ) && 'N/A' !== $email && strlen( $email ) > 5 ) {
+												?>
+												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--email fontello-mail">
+													<a href="mailto:<?= esc_html( $email ); ?>" title="<?= esc_attr( $url_title . ' ' . __( 'by email', 'ms' ) ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
+												</li>
+												<?php
+											}
+											?>
+											<?php
+											if ( isset( $phone ) && 'N/A' !== $phone && strlen( $phone ) > 9 ) {
+												?>
+												<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--phone fontello-icon-e806">
+													<a href="tel:<?= esc_html( $phone ); ?>" title="<?= esc_attr( $url_title . ' ' . __( 'by phone', 'ms' ) ); ?>"><?= esc_html( $phone ); ?></a>
+												</li>
+												<?php
+											}
+											?>
 											<?php
 											if ( isset( $linkedin ) && 'N/A' !== $linkedin && strlen( $linkedin ) > 5 ) {
 												?>
