@@ -151,7 +151,7 @@ if ( 'voluum' === $software_id ) {
 		</div>
 
 		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
+			<?= do_shortcode( '[signup-sidebar title="Try our affiliate" free="software"]' ); ?>
 		</div>
 
 		<div class="Post__content">
