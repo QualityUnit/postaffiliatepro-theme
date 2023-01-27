@@ -187,6 +187,21 @@
 			}
 		}
 
+		&.image-left,
+		&.image-right {
+
+			[class*="elementor-element-"] {
+
+				> .elementor-element-populated,
+				.elementor-widget-container {
+
+					@media (max-width: $breakpoint-tablet-landscape) {
+						margin: 0 !important;
+					}
+				}
+			}
+		}
+
 
 		&__testimonials {
 
@@ -544,6 +559,19 @@
 						margin-top: 0;
 						order: 1;
 					}
+				}
+			}
+		}
+
+		&.image-left,
+		&.image-right {
+
+			[class*="elementor-element-"] {
+
+				> .elementor-element-populated,
+				.elementor-widget-container {
+
+					margin: 0 !important;
 				}
 			}
 		}

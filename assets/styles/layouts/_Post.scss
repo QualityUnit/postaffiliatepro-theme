@@ -89,9 +89,17 @@ $signupSidebarWidth: 16.875em;
 			}
 		}
 
-		@media (min-width: ($breakpoint-desktop-box - 80px)) {
+		@media (min-width: $breakpoint-desktop-box) {
 			display: block;
 			width: $sidebarWidth;
+			padding-left: 2em;
+		}
+	}
+
+	.Signup__sidebar-wrapper {
+
+		@media (min-width: $breakpoint-desktop-box) {
+			padding-right: 0.25em;
 		}
 	}
 
