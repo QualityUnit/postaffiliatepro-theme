@@ -23,7 +23,7 @@ if ( is_page() ) {
 						<span><?php _e( 'Start free trial', 'ms' ); ?></span>
 					</a>
 				</div>
-				<h4 class="Footer__contacts-title"><?php _e( 'Sales support', 'ms' ); ?></h4>
+				<h4 class="Footer__contacts-title"><?php _e( 'Sales contacts', 'ms' ); ?></h4>
 				<ul class="Footer__contacts">
 					<li>
 						<a href="tel:<?php _e( '+421233456826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>">
