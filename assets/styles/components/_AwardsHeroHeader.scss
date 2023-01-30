@@ -1,0 +1,54 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.AwardsHeroHeader {
+
+	.heroHeadline--bg & {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		z-index: 1;
+		width: 20%;
+		top: 0;
+		padding-left: 1em;
+		right: -1%;
+
+		&::after {
+
+			@include posCustom(-1em);
+			top: 1%;
+			position: absolute;
+			content: "";
+			background: url(../../images/heroHeadline_award_badges_bg.png) center bottom no-repeat;
+			background-size: contain;
+		}
+
+		&__text {
+			position: relative;
+			z-index: 1;
+			margin-top: 1.5em;
+		}
+
+		.AwardsSmall {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 1em 0;
+
+			&__list {
+				display: block;
+
+				li[class] {
+					width: 100%;
+					padding: 0;
+					margin-left: 0;
+
+					a[href] {
+						position: static;
+					}
+				}
+			}
+		}
+	}
+}
