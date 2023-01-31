@@ -35,6 +35,10 @@
 		.wrapper__wide {
 			background-image: url(../../images/bg_category_directory.svg);
 		}
+
+		@media (max-width: $breakpoint-mobile) {
+			display: none;
+		}
 	}
 
 	&.about {

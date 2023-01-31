@@ -313,6 +313,16 @@
 			width: 100%;
 			max-width: 50%;
 		}
+
+		&__left {
+
+			&-inner {
+
+				&::before {
+					width: 20em;
+				}
+			}
+		}
 	}
 
 	@media (max-width: $breakpoint-mobile) {

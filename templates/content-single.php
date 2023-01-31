@@ -5,7 +5,7 @@
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
 	<div class="BlogPost__header wrapper__wide">
-		<div class="BlogPost__thumbnail">
+		<div class="BlogPost__thumbnail urlslab-skip-lazy">
 			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ) ); ?>"></meta>
 			<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
 		</div>
@@ -18,7 +18,7 @@
 			<h1 class="BlogPost__title" itemprop="name"><?php the_title(); ?></h1>
 
 			<div class="BlogPost__author">
-				<div class="BlogPost__author__avatar">
+				<div class="BlogPost__author__avatar urlslab-skip-lazy">
 					<?= get_avatar( get_the_author_meta( 'ID' ), 40, 'gravatar_default', get_the_author() ); ?>
 				</div>
 

@@ -3,7 +3,7 @@
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
 
-	<div class="Article__header">
+	<div class="Article__header urlslab-skip-lazy">
 		<picture>
 			<source media="(min-width: 768px)" srcset="<?= esc_url( the_post_thumbnail_url() ); ?>">
 			<source srcset="<?= esc_url( wp_get_attachment_image_url( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'box_archive_thumbnail' ) ); ?>">
@@ -46,7 +46,7 @@
 						?>
 						<li class="Article__sidebar__item">
 							<a class="Article__sidebar__item-url" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<div class="Article__sidebar__item-image">
+								<div class="Article__sidebar__item-image urlslab-skip-lazy">
 									<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'person_thumbnail' ) ?>
 
 									<?php

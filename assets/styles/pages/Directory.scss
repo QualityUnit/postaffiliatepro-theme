@@ -9,6 +9,10 @@
 		a::after {
 			display: none !important;
 		}
+
+		@media (max-width: $breakpoint-mobile) {
+			display: none !important;
+		}
 	}
 
 	&__blocks {
@@ -189,5 +193,15 @@ body.post-type-archive-ms_directory {
 
 	div[id*="443a9d07"] {
 		display: none !important;
+	}
+}
+
+body.single-ms_directory {
+
+	@media (max-width: $breakpoint-mobile) {
+
+		.wrapper__wide {
+			padding-top: 0;
+		}
 	}
 }
