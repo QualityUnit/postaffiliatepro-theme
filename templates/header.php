@@ -1,6 +1,6 @@
 <header class="Header urlslab-skip-keywords">
 	<div class="wrapper">
-		<div class="Header__logo">
+		<div class="Header__logo urlslab-skip-lazy">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
