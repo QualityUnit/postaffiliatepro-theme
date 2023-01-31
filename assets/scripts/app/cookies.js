@@ -45,6 +45,12 @@ if ( document.querySelector( '.Kolaciky' ) !== null ) {
 		} );
 
 	if ( ! getCookie( 'cookieLaw' ) ) {
-		document.querySelector( '.Kolaciky' ).classList.add( 'show' );
+		document.addEventListener( 'touchstart', () => {
+			document.querySelector( '.Kolaciky' ).classList.add( 'show' );
+		} );
+
+		document.addEventListener( 'mousemove', () => {
+			document.querySelector( '.Kolaciky' ).classList.add( 'show' );
+		} );
 	}
 }
