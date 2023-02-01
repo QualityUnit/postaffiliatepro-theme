@@ -16,8 +16,8 @@ function ms_alternatives() {
 		<a href="<?php _e( '/idevaffiliate-alternative/', 'ms' ); ?>">
 			<?php _e( 'Idevaffiliate', 'ms' ); ?>
 		</a>
-		<a href="<?php _e( '/jam-alternative/', 'ms' ); ?>">
-			<?php _e( 'Jam', 'ms' ); ?>
+		<a href="<?php _e( '/jrox-alternative/', 'ms' ); ?>">
+			<?php _e( 'JROX', 'ms' ); ?>
 		</a>
 		<a href="<?php _e( '/leaddyno-alternative/', 'ms' ); ?>">
 			<?php _e( 'Leaddyno', 'ms' ); ?>

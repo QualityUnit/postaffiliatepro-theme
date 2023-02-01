@@ -7,7 +7,7 @@
 <div class="FullScreen">
 	<div class="FullScreen__wrap flex">
 		<div class="FullScreen__sidebar">
-			<a class="FullScreen__sidebar__logo" href="<?= esc_url( home_url( '/network', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
+			<a class="FullScreen__sidebar__logo" href="<?= esc_url( home_url( '/network/', 'relative' ) ); ?>" title="<?php bloginfo( 'name' ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logo-pan.svg" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
 			<p class="FullScreen__sidebar__item__text large">
