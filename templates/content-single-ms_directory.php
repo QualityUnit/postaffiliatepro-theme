@@ -781,14 +781,14 @@ if ( 'voluum' === $software_id ) {
 										<?php
 										if ( isset( $url ) ) {
 											?>
-												<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
+												<a href="<?= esc_url( $url ); // @codingStandardsIgnoreLine ?>" class="AffiliateManagerCard__image" title="<?= esc_html( $url_title ); ?>">
 												<?= $picture; // @codingStandardsIgnoreLine ?>
 											</a>
 										<?php } ?>
 									</div>
 									<div class="AffiliateManagerCard__content">
 										<h3 class="AffiliateManagerCard__name">
-											<a href="<?= esc_url( add_query_arg( array( 'directory_name' => get_the_title(), 'directory_url' => get_the_permalink() ), $url ) ); // @codingStandardsIgnoreLine ?>" title="<?= esc_html( $url_title ); ?>">
+											<a href="<?= esc_url( $url ); // @codingStandardsIgnoreLine ?>" title="<?= esc_html( $url_title ); ?>">
 								<?= esc_html( $name ); ?>
 									</a>
 										</h3>
@@ -841,15 +841,7 @@ if ( 'voluum' === $software_id ) {
 										<div class="AffiliateManagerCard__showProfile">
 											<a href="
 											<?=
-											esc_url(
-												add_query_arg(
-													array(
-														'directory_name' => get_the_title(),
-														'directory_url'  => get_the_permalink(),
-													),
-													$url
-												)
-											)
+											esc_url( $url )
 											?>
 													"
 											class="learn-more"
