@@ -5,9 +5,9 @@ if ( is_page() ) {
 	while ( have_posts() ) :
 		the_post();
 		?>
-		<?php 
+		<?php
 	endwhile;
-} 
+}
 ?>
 
 <footer class="Footer Box urlslab-skip-keywords">
@@ -232,7 +232,7 @@ function show_demo_bar() {
 		'/affiliate-program',
 		'/typing-test',
 		'/affiliate-marketing-glossary',
-		'/terms-and-conditions',
+		'/terms-of-service',
 		'/privacy-policy',
 		'/security-privacy-policy',
 		'/bug-bounty-program',
