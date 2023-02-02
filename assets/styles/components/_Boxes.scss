@@ -264,11 +264,18 @@
 			}
 
 			.elementor-widget-heading {
-				padding: 1.75em 1.75em 0;
+				padding: 2.375em 2.375em 0;
+
+				.elementor-heading-title {
+					line-height: initial;
+					font-family: $font-secondary;
+					font-size: 1.25em;
+					font-weight: $font-weight-bold;
+				}
 			}
 
 			.elementor-widget-text-editor {
-				padding: 0 1.75em 1.75em;
+				padding: 0 2.375em 2.375em;
 
 				p:last-child {
 					margin-bottom: 0;
