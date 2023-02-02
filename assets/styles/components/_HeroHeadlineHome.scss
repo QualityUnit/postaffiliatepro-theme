@@ -11,7 +11,6 @@
 .heroHeadline {
 	margin-top: 1em;
 	margin-bottom: $block-bg-space-sm;
-	overflow-x: hidden;
 
 	.wrapper,
 	.elementor-column-wrap,
@@ -42,6 +41,10 @@
 		.wrapper {
 			padding-right: 0 !important;
 		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+		overflow-x: hidden;
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
