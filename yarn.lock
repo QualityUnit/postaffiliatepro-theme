@@ -1741,9 +1741,9 @@
   integrity sha512-yvs/GhA1HTpgh1gA7sp0yDxRgvXYDvyTgFSIgCBkYYKyNnynED/D140BJjS4s4LGqdCFfEmcib/DHxL5HTWJ4g==
 
 "@wordpress/stylelint-config@^21":
-  version "21.6.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/stylelint-config/-/stylelint-config-21.6.0.tgz#d1699027dcd7c89a70d8f2a21127dc8c8447c848"
-  integrity sha512-IbukumKSfAsY3PgAT0hkTrij2TfJBckbeVWXSarVfgTXXJrV3Ew87gQ1lqovOauvE63jv4g49P7nZLJqmwh7OQ==
+  version "21.9.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/stylelint-config/-/stylelint-config-21.9.0.tgz#653063cebc20df75541331629c7054bd10156e3b"
+  integrity sha512-o5TMSX4ww3glf8A6byHnfwodMVB95dH0KoQ4nm5T9KMtsBYNd87HdM9WkVGVsFGb7oZlpL1ydREmlhsQh8sKYw==
   dependencies:
     stylelint-config-recommended "^6.0.0"
     stylelint-config-recommended-scss "^5.0.2"
