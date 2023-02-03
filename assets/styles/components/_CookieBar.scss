@@ -124,5 +124,9 @@
 		&.show {
 			bottom: 0;
 		}
+
+		&.hide {
+			bottom: -225px;
+		}
 	}
 }
