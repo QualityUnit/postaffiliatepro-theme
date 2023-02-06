@@ -171,8 +171,8 @@ if ( 'voluum' === $software_id ) {
 			</div>
 
 			<div class="Post__importantNote">
-				<svg class="icon icon-info-solid"><use xlink:href="<?= get_template_directory_uri( ); ?>/assets/images/icons.svg#info-solid"></use></svg>
-				<p>Post Affiliate Pro offers a comprehensive list of affiliate contacts. We are not connected to any of the companies listed here. Feel free to contact us if you want us to update any information.</p>
+				<svg class="icon icon-info-solid"><use xlink:href="<?= get_template_directory_uri(); ?>/assets/images/icons.svg#info-solid"></use></svg>
+				<p><?php _e( 'Post Affiliate Pro offers a comprehensive list of affiliate contacts. We are not connected to any of the companies listed here. Feel free to contact us if you want us to update any information.', 'ms' ); ?></p>
 			</div>
 
 			<h1><?php the_title(); ?></h1>

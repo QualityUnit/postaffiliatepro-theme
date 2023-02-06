@@ -37,8 +37,8 @@
 									'ms_glossary_categories' => $category->slug,
 										// @codingStandardsIgnoreLine
 											'posts_per_page' => 500,
-									'orderby'        => 'title',
-									'order'          => 'ASC',
+									'orderby' => 'title',
+									'order'   => 'ASC',
 								)
 							);
 							while ( $query_glossary_posts->have_posts() ) :
