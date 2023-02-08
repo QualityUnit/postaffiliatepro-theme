@@ -42,13 +42,13 @@ $maintitle = preg_replace( '/\^(.+?)\^/', '<span class="highlight highlight-spla
 							<img class="searchField__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-search_new_v2.svg" alt="<?php _e( 'Search', 'ms' ); ?>" />
 							<input type="search" class="search" placeholder="<?php _e( 'Search affiliate manager', 'ms' ); ?>" maxlength="50">
 						</div>
-		
+
 						<ul class="IndexMenu ml-m-tablet">
 							<?php
 							foreach ( $managers_indexed as $index_letter => $aff_managers ) {
 								?>
 								<li class="IndexMenu__item"><a class="IndexMenu__item--link" href="#<?= esc_html( $index_letter ); ?>"><?= esc_html( $index_letter ); ?></a></li>
-								<?php 
+								<?php
 							}
 							?>
 						</ul>
@@ -72,7 +72,7 @@ $maintitle = preg_replace( '/\^(.+?)\^/', '<span class="highlight highlight-spla
 						}
 						?>
 						<li class="AffiliateManagerDirectory__manager--wrapper" data-listitem itemscope itemtype="https://schema.org/DefinedTerm">
-							<a class="AffiliateManagerDirectory__manager" href="../<?= esc_attr( $aff_manager->slug ); ?>" title="<?= esc_attr( $aff_manager->name ); ?>" itemprop="url" data-listitem-title>
+							<a class="AffiliateManagerDirectory__manager" href="../<?= esc_attr( $aff_manager->slug ); ?>/" title="<?= esc_attr( $aff_manager->name ); ?>" itemprop="url" data-listitem-title>
 							<div class="AffiliateManagerDirectory__manager--image">
 								<?= $aff_image // @codingStandardsIgnoreLine ?>
 							</div>
