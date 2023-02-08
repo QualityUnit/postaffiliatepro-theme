@@ -64,7 +64,7 @@
 			<li class="ContactUs__menu--item">
 				<a href="tel:<?= esc_attr( preg_replace( '/(\s|-)/', '', $phone ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu">
 					<?= esc_html( $phone ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" />
+					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>phone.svg" alt="<?php _e( 'LiveAgent Phone', 'ms' ); ?>" />
 				</a>
 			</li>
 					<?php
@@ -74,24 +74,24 @@
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton no-icon hidden">
 					<span class="fakeChatButton__text"><?php _e( 'Contact form', 'ms' ); ?></span>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
+					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" alt="<?php _e( "LiveAgent's Form", 'ms' ); ?>" />
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
 				</div>
 				<span class="ContactUs__menu--link ContactUs__menu--link__form red" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" />
+					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" alt="<?php _e( "LiveAgent's Form", 'ms' ); ?>" />
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://m.me/PostAffiliatePro" class="ContactUs__menu--link violet" data-close-target="contactUsMenu">
+				<a href="https://m.me/PostAffiliatePro" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener">
 					Messenger
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" />
+					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" alt="<?php _e( "LiveAgent's Messenger", 'ms' ); ?>" />
 				</a>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu">
+				<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
 					Whatsapp
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" />
+					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" alt="<?php _e( "LiveAgent's WhatsApp", 'ms' ); ?>" />
 				</a>
 			</li>
 			<li class="ContactUs__menu--item">
