@@ -111,6 +111,28 @@ $signupSidebarWidth: 18em;
 		}
 	}
 
+	&__importantNote {
+		display: flex;
+		padding: 1em 1.5em;
+		background-color: #fff6d8;
+		border-radius: $border-radius-16;
+		color: $dark-gray;
+
+		svg {
+
+			@include square(1em);
+			flex: 0 0 auto;
+			margin-right: 0.35em;
+			fill: currentcolor;
+		}
+
+		p {
+			font-size: 0.75rem;
+			color: currentcolor;
+			margin: 0;
+		}
+	}
+
 	&__content {
 		padding: 0 1.5em;
 
