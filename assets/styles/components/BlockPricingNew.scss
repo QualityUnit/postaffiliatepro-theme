@@ -44,8 +44,16 @@
 	&__content {
 		z-index: 1;
 
+		.elementor-heading-title {
+			font-size: 1.5em;
+		}
+
 		@media (min-width: $breakpoint-tablet-landscape) {
 			padding-right: 4.5em;
+
+			.elementor-heading-title {
+				font-size: 1.875em;
+			}
 		}
 	}
 
