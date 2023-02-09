@@ -23,6 +23,14 @@
 			content: "";
 			background: url(../../images/heroHeadline_award_badges_bg.png) center bottom no-repeat;
 			background-size: contain;
+
+			@media (min-width: 1921px) {
+
+				@include posZero;
+				top: 1.5%;
+				right: 1%;
+				border-top-right-radius: 5em;
+			}
 		}
 
 		&__text {
