@@ -11,8 +11,8 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		border-radius: $border-radius-16;
-		padding: 2em;
+		border-radius: 0;
+		padding: 2em !important;
 		width: 100%;
 
 		@media (min-width: $breakpoint-tablet-landscape) {
@@ -20,7 +20,8 @@
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			padding: 3em 4.25em;
+			padding: 3em 4.25em !important;
+			border-radius: $border-radius-16;
 		}
 	}
 
@@ -59,6 +60,10 @@
 	&__category {
 		text-transform: uppercase;
 		margin-bottom: 1em;
+
+		span {
+			font-size: 0;
+		}
 
 		a {
 

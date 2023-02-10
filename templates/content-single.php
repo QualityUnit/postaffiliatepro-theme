@@ -1,6 +1,3 @@
-<?php
-	set_custom_source( 'pages/blog', 'css' );
-?>
 <div class="Post" itemscope itemtype="http://schema.org/BlogPosting">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
