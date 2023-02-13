@@ -13,12 +13,16 @@
 		width: 20%;
 		top: 0;
 		padding-left: 1em;
-		right: -1%;
+		right: 1em;
+
+		@media (min-width: $breakpoint-desktop-big) {
+			right: 0;
+		}
 
 		&::after {
 
 			@include posCustom(-1em);
-			top: 1%;
+			top: 0;
 			position: absolute;
 			content: "";
 			background: url(../../images/heroHeadline_award_badges_bg.png) center bottom no-repeat;
@@ -27,8 +31,7 @@
 			@media (min-width: 1921px) {
 
 				@include posZero;
-				top: 1.5%;
-				right: 1%;
+				right: 0;
 				border-top-right-radius: 5em;
 			}
 		}
