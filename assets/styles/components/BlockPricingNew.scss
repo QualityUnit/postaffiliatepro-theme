@@ -318,6 +318,79 @@
 			}
 		}
 	}
+
+	&--program {
+
+		.BlockPricingNew {
+
+			&__content {
+
+				@media (min-width: $breakpoint-tablet) {
+					padding-right: 0;
+				}
+			}
+
+			&__pricing {
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					&--header[class] {
+						left: (100% - $wrap-program-width);
+					}
+
+					> .elementor-column-wrap {
+
+						&,
+						> .elementor-widget-wrap {
+							width: 100%;
+							justify-content: flex-end;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--network {
+
+		.BlockPricingNew {
+
+			&__content {
+
+				@media (min-width: $breakpoint-tablet) {
+					padding-right: 0;
+				}
+			}
+
+			&__pricing {
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+
+					&--header[class] {
+						left: 50%;
+						transform: translateX(-50%);
+					}
+
+					&--network[class] {
+						margin-left: 0;
+					}
+
+					> .elementor-column-wrap {
+
+						&,
+						> .elementor-widget-wrap {
+							width: 100%;
+							justify-content: center;
+						}
+					}
+
+					section:first-of-type .elementor-row::before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
 
 html[lang="de-DE"] .BlockPricingNew {
