@@ -800,7 +800,7 @@
 			&:empty {
 
 				&::before {
-					content: "No results found... 😢";
+					content: "No results found...";
 					display: block;
 				}
 			}
