@@ -73,6 +73,7 @@
 			line-height: 2;
 			letter-spacing: 0.2em;
 			font-weight: 700;
+			text-decoration: none !important;
 
 			+ a {
 
@@ -330,6 +331,7 @@
 
 							@include color(color, font-color-dark);
 							transition: all 0.3s ease;
+							text-decoration: none !important;
 
 							&:active,
 							&:focus,

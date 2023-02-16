@@ -78,6 +78,7 @@
 			a {
 
 				@include color(color, font-color-dark);
+				text-decoration: none !important;
 			}
 
 			@mixin highlight() {
@@ -248,6 +249,10 @@
 
 			&.inactive {
 				opacity: 0;
+			}
+
+			a {
+				text-decoration: none !important;
 			}
 		}
 

@@ -250,6 +250,7 @@ $colors: (
 			transition: all 0.25s 0.15s;
 			z-index: 1;
 			cursor: pointer;
+			text-decoration: none !important;
 
 			&::after {
 				content: "";
@@ -264,6 +265,8 @@ $colors: (
 			}
 
 			&:hover {
+				color: $black-real;
+				text-decoration: none !important;
 
 				&::after {
 					transform: translateX(0);

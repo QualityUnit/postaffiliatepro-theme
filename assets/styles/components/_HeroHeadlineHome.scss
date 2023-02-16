@@ -127,6 +127,7 @@
 
 		.Button--inaction {
 			margin-bottom: 1rem;
+			text-decoration: none !important;
 		}
 
 		@media (max-width: $breakpoint-tablet) {

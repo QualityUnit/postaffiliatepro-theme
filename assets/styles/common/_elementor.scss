@@ -117,11 +117,14 @@ body:not(.elementor-editor-active) {
 
 	a:not(.Button) {
 
-		@include color(color, primary-color);
+		@include color(color, font-color-dark);
+		text-decoration: underline;
 
 		&:active,
 		&:focus,
 		&:hover {
+
+			@include color(color, primary-color);
 			text-decoration: underline;
 		}
 	}
@@ -199,4 +202,12 @@ body:not(.elementor-editor-active) {
 			text-align: center;
 		}
 	}
+}
+
+.elementor-widget-heading .elementor-heading-title[class*="elementor-size-"] > a {
+	text-decoration: none;
+}
+
+.elementor-element[class*="elementor-element-"] .elementor-wrapper {
+	aspect-ratio: auto !important;
 }

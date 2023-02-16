@@ -136,6 +136,7 @@
 			a {
 
 				@include color(color, font-color-normal);
+				text-decoration: none;
 
 				&:active,
 				&:focus,

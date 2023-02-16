@@ -232,6 +232,10 @@
 	cursor: pointer;
 	margin-bottom: 1.375em;
 
+	a {
+		text-decoration: none !important;
+	}
+
 	&:hover {
 		transform: translateY(-2em);
 	}
