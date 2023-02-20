@@ -143,8 +143,12 @@
 
 				&:hover {
 					background-color: $primary;
-					color: $white;
+					color: $white !important;
 					transform: translateY(-1em);
+
+					a {
+						color: $white !important;
+					}
 				}
 			}
 
@@ -182,6 +186,7 @@
 				padding: 1.125em;
 				color: currentcolor;
 				transition: none;
+				text-decoration: none !important;
 			}
 
 			&__title {
@@ -365,6 +370,7 @@
 				a {
 
 					@include color(color, font-color-normal);
+					text-decoration: none !important;
 				}
 
 				&.current-menu-item,
@@ -808,6 +814,7 @@
 			a:not(.Button) {
 
 				@include color(color, font-color-dark);
+				text-decoration: none !important;
 			}
 
 			&__item {

@@ -245,6 +245,10 @@
 		align-items: center;
 	}
 
+	a {
+		text-decoration: none !important;
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 		padding: 2.5em;
 

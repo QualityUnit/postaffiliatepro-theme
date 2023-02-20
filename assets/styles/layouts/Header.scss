@@ -180,6 +180,7 @@
 				line-height: $main-nav-line-height;
 				font-family: $font-secondary;
 				font-weight: $font-weight-semi;
+				text-decoration: none !important;
 
 				&::before {
 
@@ -729,4 +730,3 @@ html[lang="ru-RU"] {
 		}
 	}
 }
-

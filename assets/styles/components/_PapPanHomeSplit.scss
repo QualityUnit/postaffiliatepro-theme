@@ -90,6 +90,7 @@
 				font-family: $font-secondary;
 				font-size: 0.875rem;
 				line-height: 1;
+				text-decoration: none;
 
 				&::before {
 
@@ -103,6 +104,13 @@
 					content: url(../images/icon-arrow-grey.svg);
 					margin-left: 0.5em;
 					margin-top: 0.1em;
+				}
+
+				&:active,
+				&:focus,
+				&:hover {
+
+					@include color(color, font-color-level3);
 				}
 			}
 		}

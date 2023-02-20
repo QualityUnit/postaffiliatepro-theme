@@ -39,6 +39,7 @@
 				@include color(color, font-color-dark);
 				font-size: $font-size-smaller;
 				transition: color 0.5s;
+				text-decoration: none !important;
 
 				@include hover() {
 
@@ -59,6 +60,7 @@
 				@include color(color, font-color-medium);
 				font-size: $font-size-small;
 				transition: color 0.5s;
+				text-decoration: none !important;
 
 				@include hover() {
 
@@ -196,6 +198,7 @@
 				font-size: $font-size-smaller;
 				align-items: center;
 				transition: color 0.5s;
+				text-decoration: none !important;
 
 				svg {
 

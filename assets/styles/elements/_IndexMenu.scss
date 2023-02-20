@@ -15,6 +15,7 @@
 		&--link {
 			padding: 0 0.5em;
 			color: $medium-gray-quotes;
+			text-decoration: none !important;
 
 			@media (hover: hover) {
 

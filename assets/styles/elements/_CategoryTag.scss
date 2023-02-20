@@ -100,6 +100,7 @@ value-keyword-case, scss/no-global-function-names */
 
 	a[href] {
 		color: currentColor;
+		text-decoration: none !important;
 	}
 
 	&__star {

@@ -255,6 +255,7 @@ $pricing-border: 1px;
 			.highlight.small {
 				display: inline-block;
 				line-height: 2.14;
+				text-decoration: none !important;
 
 				&::before {
 					background-color: $primary;

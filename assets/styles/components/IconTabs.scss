@@ -75,6 +75,7 @@
 					font-family: $font-secondary;
 					text-transform: none;
 					transition: all 0.3s;
+					text-decoration: none !important;
 
 					&::after {
 
@@ -232,7 +233,7 @@
 			text-align: center;
 
 			font-size: 3.5rem;
-			font-family: "Patrick Hand", cursive;
+			font-family: $font-third;
 		}
 
 		&.big {
