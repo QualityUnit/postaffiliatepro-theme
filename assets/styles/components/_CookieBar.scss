@@ -11,7 +11,7 @@
 	position: fixed;
 	left: 25px;
 	z-index: 9999999;
-	bottom: -225px;
+	bottom: -285px;
 	flex-flow: wrap row;
 	justify-content: flex-start;
 	align-items: center;
@@ -102,7 +102,7 @@
 	}
 
 	&.hide {
-		bottom: -235px;
+		bottom: -295px;
 	}
 
 	@media (max-width: $breakpoint-tablet) {
