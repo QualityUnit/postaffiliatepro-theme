@@ -21,7 +21,7 @@ gulp.task( 'set-path', async () => {
 	if ( process.env.NODE_ENV === 'production' ) {
 		return process.env.url = '/app/themes/postaffiliatepro/assets';
 	}
-	return process.env.url = '/app/themes/postaffiliatepro-theme/assets';
+	return process.env.url = '/app/themes/postaffiliatepro-dev/assets';
 } );
 
 gulp.task( 'browser-reload', ( done ) => {
