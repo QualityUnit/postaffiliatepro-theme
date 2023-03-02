@@ -1,6 +1,6 @@
 /* eslint-disable no-console, prefer-rest-params, consistent-return, no-global-assign, new-cap, no-mixed-operators, no-redeclare */
 /* global jQuery, _paq, Piwik, pkvid, gtag, PostAffTracker, grecaptcha */
-/* global progressStep, newProgress, btoa, twq */
+/* global progressStep, newProgress, btoa, twq, getCookieFrontend */
 /* global textValidating, textInvalidField, textEmpty, textInstalling, textLaunching, textRedirecting, textFinalizing, textInvalidMail, textValidDomain, textFailedDomain, textDomainNoHttp, textFailedRetrieve, languageCode, textGoApp, textReadyApp, textDoneAppTitle, textDoneAppText, textError, textStart, textInvalid, textCreating */
 
 ( function main() {
@@ -1018,6 +1018,8 @@
 					action: 'login',
 				} )
 				.then( ( token ) => {
+					const gaUserId = getCookieFrontend( '_ga_DLV457J560' ) || '';
+
 					sendSignupRequest( {
 						variation_id: variationId,
 						subdomain: sF.domainField.value(),
@@ -1030,6 +1032,7 @@
 						promo: sF.promoField.isChecked(),
 						grtoken: token,
 						language: languageCode,
+						ga_client_id: gaUserId,
 					} );
 				} );
 		} );
