@@ -63,7 +63,7 @@
 		gtag1.async = true;
 		gtag2.async = true;
 		gtag1.src = "https://www.googletagmanager.com/gtag/js?id=AW-942942148";
-		gtag2.src = "https://www.googletagmanager.com/gtag/js?id=UA-132224268-1";
+		gtag2.src = "https://www.googletagmanager.com/gtag/js?id=G-DLV457J560";
 
 		body.insertAdjacentElement('beforeend', gtag1);
 		body.insertAdjacentElement('beforeend', gtag2);
@@ -100,7 +100,7 @@
 		}
 	})
 
-	gtag("config", "UA-132224268-1", {
+	gtag("config", "G-DLV457J560", {
 		'linker': {
 			'domains': ['postaffiliatepro.com', 'postaffiliatepro.nl', 'postaffiliatepro.fr', 'postaffiliatepro.de', 'postaffiliatepro.hu', 'postaffiliatepro.it', 'postaffiliatepro.pl', 'postaffiliatepro.com.br', 'postaffiliatepro.sk', 'postaffiliatepro.es', 'postaffiliatepro.local', 'support.qualityunit.com', '*.postaffiliatepro.com']
 		}

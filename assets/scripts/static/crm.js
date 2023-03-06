@@ -1018,7 +1018,7 @@
 					action: 'login',
 				} )
 				.then( ( token ) => {
-					const gaUserId = getCookieFrontend( '_ga_DLV457J560' ) || '';
+					const gaUserId = getCookieFrontend( '_ga' ) || '';
 
 					sendSignupRequest( {
 						variation_id: variationId,
