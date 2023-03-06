@@ -336,19 +336,16 @@
 				}
 			}
 
-			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+			@media (min-width: $breakpoint-tablet-landscape) {
 				display: block;
-				left: -40% !important;
-				width: 80% !important;
 				bottom: auto;
+				left: 0 !important;
 				height: 100%;
+				transform: translateX(-50%);
 			}
 
-			@media (min-width: $breakpoint-desktop) {
-				display: block;
-				left: -25%;
-				bottom: auto;
-				height: 100%;
+			@media (min-width: $breakpoint-tablet-landscape) and (max-width: $breakpoint-desktop) {
+				width: 80% !important;
 			}
 		}
 
@@ -428,6 +425,7 @@
 		&.flex-column .elementor-widget-wrap {
 			flex-direction: column;
 			justify-content: center;
+			align-items: center;
 		}
 
 		.chat--bubble {
