@@ -101,6 +101,48 @@ if ( 'trackiers' === $software_id ) {
 if ( 'voluum' === $software_id ) {
 	$software = 'Voluum';
 }
+
+function manager_industry( $manager_industry ) {
+	if ( $manager_industry ) {
+		if ( 'other' === $manager_industry ) {
+			$manager_industry = __( 'Other', 'ms' );  }
+		if ( 'administration' === $manager_industry ) {
+			$manager_industry = __( 'Administration, Business Support and Waste Management Services', 'ms' );  }
+		if ( 'agriculture' === $manager_industry ) {
+			$manager_industry = __( 'Agriculture, Forestry, Fishing and Hunting', 'ms' );  }
+		if ( 'finance_insurance' === $manager_industry ) {
+			$manager_industry = __( 'Finance and Insurance', 'ms' );  }
+		if ( 'real_estate' === $manager_industry ) {
+			$manager_industry = __( 'Real Estate and Rental and Leasing', 'ms' );  }
+		if ( 'transportation_warehousing' === $manager_industry ) {
+			$manager_industry = __( 'Transportation and Warehousing', 'ms' );  }
+		if ( 'retail' === $manager_industry ) {
+			$manager_industry = __( 'Retail Trade', 'ms' );  }
+		if ( 'professional_scientific' === $manager_industry ) {
+			$manager_industry = __( 'Professional, Scientific and Technical Services', 'ms' );  }
+		if ( 'healthcare' === $manager_industry ) {
+			$manager_industry = __( 'Healthcare and Social Assistance', 'ms' );  }
+		if ( 'wholesale' === $manager_industry ) {
+			$manager_industry = __( 'Wholesale Trade', 'ms' );  }
+		if ( 'accommodation_food' === $manager_industry ) {
+			$manager_industry = __( 'Accommodation and Food Services', 'ms' );  }
+		if ( 'utilities' === $manager_industry ) {
+			$manager_industry = __( 'Utilities', 'ms' );  }
+		if ( 'manufacturing' === $manager_industry ) {
+			$manager_industry = __( 'Manufacturing', 'ms' );  }
+		if ( 'educational_services' === $manager_industry ) {
+			$manager_industry = __( 'Educational Services', 'ms' );  }
+		if ( 'arts_entertainment' === $manager_industry ) {
+			$manager_industry = __( 'Arts, Entertainment and Recreation', 'ms' );  }
+		if ( 'media_marketing' === $manager_industry ) {
+			$manager_industry = __( 'Media and Marketing', 'ms' );  }
+		if ( 'software' === $manager_industry ) {
+			$manager_industry = __( 'Software', 'ms' );
+		}
+		
+		return $manager_industry;
+	}
+}
 ?>
 <div class="Post">
 	<div class="Post__header directory">
@@ -737,47 +779,6 @@ if ( 'voluum' === $software_id ) {
 								$phone              = get_term_meta( $taxonomy_id, 'phone', true );
 								$linkedin           = get_term_meta( $taxonomy_id, 'linkedin', true );
 								$manager_industries = get_term_meta( $taxonomy_id, 'industry_focus', true );
-								function manager_industry( $manager_industry ) {
-									if ( $manager_industry ) {
-										if ( 'other' === $manager_industry ) {
-											$manager_industry = __( 'Other', 'ms' );  }
-										if ( 'administration' === $manager_industry ) {
-											$manager_industry = __( 'Administration, Business Support and Waste Management Services', 'ms' );  }
-										if ( 'agriculture' === $manager_industry ) {
-											$manager_industry = __( 'Agriculture, Forestry, Fishing and Hunting', 'ms' );  }
-										if ( 'finance_insurance' === $manager_industry ) {
-											$manager_industry = __( 'Finance and Insurance', 'ms' );  }
-										if ( 'real_estate' === $manager_industry ) {
-											$manager_industry = __( 'Real Estate and Rental and Leasing', 'ms' );  }
-										if ( 'transportation_warehousing' === $manager_industry ) {
-											$manager_industry = __( 'Transportation and Warehousing', 'ms' );  }
-										if ( 'retail' === $manager_industry ) {
-											$manager_industry = __( 'Retail Trade', 'ms' );  }
-										if ( 'professional_scientific' === $manager_industry ) {
-											$manager_industry = __( 'Professional, Scientific and Technical Services', 'ms' );  }
-										if ( 'healthcare' === $manager_industry ) {
-											$manager_industry = __( 'Healthcare and Social Assistance', 'ms' );  }
-										if ( 'wholesale' === $manager_industry ) {
-											$manager_industry = __( 'Wholesale Trade', 'ms' );  }
-										if ( 'accommodation_food' === $manager_industry ) {
-											$manager_industry = __( 'Accommodation and Food Services', 'ms' );  }
-										if ( 'utilities' === $manager_industry ) {
-											$manager_industry = __( 'Utilities', 'ms' );  }
-										if ( 'manufacturing' === $manager_industry ) {
-											$manager_industry = __( 'Manufacturing', 'ms' );  }
-										if ( 'educational_services' === $manager_industry ) {
-											$manager_industry = __( 'Educational Services', 'ms' );  }
-										if ( 'arts_entertainment' === $manager_industry ) {
-											$manager_industry = __( 'Arts, Entertainment and Recreation', 'ms' );  }
-										if ( 'media_marketing' === $manager_industry ) {
-											$manager_industry = __( 'Media and Marketing', 'ms' );  }
-										if ( 'software' === $manager_industry ) {
-											$manager_industry = __( 'Software', 'ms' );
-										}
-
-										return $manager_industry;
-									}
-								}
 								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
 								?>
 								<div class="AffiliateManagerCard <?= ( strval( $primary_manager ) === strval( $taxonomy_id ) ? 'primary' : null ); ?>">
