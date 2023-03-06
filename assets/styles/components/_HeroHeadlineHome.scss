@@ -727,10 +727,6 @@
 			.elementor-widget-image:not(.animation) .elementor-widget-container img {
 				border-radius: 5em 0 0 5em;
 			}
-
-			.elementor-widget-image.animation {
-				left: -25% !important;
-			}
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
