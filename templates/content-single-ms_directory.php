@@ -139,7 +139,7 @@ function manager_industry( $manager_industry ) {
 		if ( 'software' === $manager_industry ) {
 			$manager_industry = __( 'Software', 'ms' );
 		}
-		
+
 		return $manager_industry;
 	}
 }
@@ -845,14 +845,7 @@ function manager_industry( $manager_industry ) {
 									if ( isset( $url ) ) {
 										?>
 										<div class="AffiliateManagerCard__showProfile">
-											<a href="
-											<?=
-											esc_url( $url )
-											?>
-													"
-											class="learn-more"
-											title="<?= esc_attr( $url_title ); ?>"
-											>
+											<a href="<?= esc_url( $url )?>" class="learn-more" title="<?= esc_attr( $url_title ); ?>">
 												<?php _e( 'Show profile', 'ms' ); ?>
 												<svg>
 													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#arrow-right' ) ?>"></use>
