@@ -89,7 +89,7 @@
 				</a>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?"  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
+				<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..."  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" alt="<?php _e( "LiveAgent's WhatsApp", 'ms' ); ?>" />
 				</a>
