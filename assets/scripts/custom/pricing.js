@@ -72,6 +72,85 @@ if ( document.querySelector( '#switch-id' ) !== null ) {
 	} );
 }
 
+/* Differences switcher */
+const switchDiff = document.querySelector( '#compare-differences' );
+const allDiff = document.querySelector( '#compare-all' );
+if ( switchDiff && allDiff ) {
+	const visibleRows = document.querySelectorAll(
+		'.ComparePlans__table-row:not(.ComparePlans__same-item)'
+	);
+
+	switchDiff.addEventListener( 'change', () => {
+		if ( switchDiff.matches( ':checked' ) ) {
+			document
+				.querySelectorAll( '.ComparePlans__same-item' )
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.add( 'ComparePlans__differences--hide' );
+					item.classList.remove( 'ComparePlans__differences--show' );
+				} );
+			document
+				.querySelectorAll(
+					'.ComparePlans__header__switcher__title--differences'
+				)
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.remove( 'shadow-price-title' );
+				} );
+			document
+				.querySelectorAll(
+					'.ComparePlans__header__switcher__title--all'
+				)
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.add( 'shadow-price-title' );
+				} );
+			visibleRows.forEach( ( element, index ) => {
+				const item = element;
+				if ( index % 2 === 0 ) {
+					item.classList.add( 'even' );
+				}
+
+				if ( index % 2 !== 0 ) {
+					item.classList.add( 'odd' );
+				}
+			} );
+		}
+	} );
+	allDiff.addEventListener( 'change', () => {
+		if ( allDiff.matches( ':checked' ) ) {
+			document
+				.querySelectorAll( '.ComparePlans__same-item' )
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.remove( 'ComparePlans__differences--hide' );
+					item.classList.add( 'ComparePlans__differences--show' );
+				} );
+			document
+				.querySelectorAll(
+					'.ComparePlans__header__switcher__title--differences'
+				)
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.add( 'shadow-price-title' );
+				} );
+			document
+				.querySelectorAll(
+					'.ComparePlans__header__switcher__title--all'
+				)
+				.forEach( ( i ) => {
+					const item = i;
+					item.classList.remove( 'shadow-price-title' );
+				} );
+			visibleRows.forEach( ( element ) => {
+				const item = element;
+				item.classList.remove( 'even' );
+				item.classList.remove( 'odd' );
+			} );
+		}
+	} );
+}
+
 /* Sticky header */
 function sticky( stickyTable ) {
 	if ( stickyTable !== null ) {
