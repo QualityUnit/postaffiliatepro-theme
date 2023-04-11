@@ -38,7 +38,7 @@ if ( is_page() ) {
 						</a>
 					</li>
 					<li>
-						<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"  rel="nofollow noopener">
+						<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"  rel="nofollow noopener">
 							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use></svg>
 							<span><?php _e( '+1-978-591-6509', 'ms' ); ?></span>
 						</a>
@@ -112,7 +112,7 @@ if ( is_page() ) {
 							</a>
 						</li>
 						<li>
-							<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, can you help me?" target="_blank"
+							<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank"
 							   title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>" rel="nofollow noopener">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
