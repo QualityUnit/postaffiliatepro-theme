@@ -1,4 +1,5 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, scss/no-global-function-names */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 $pricing-border: 1px;
@@ -6,9 +7,9 @@ $pricing-border: 1px;
 .Pricing {
 
 	@include color(background-color, secondary-background);
-	padding: 90px 0;
+	padding: 3.2em 0;
 	overflow: hidden;
-	margin: 0 5%;
+	margin: 0 5% 3.2em 0;
 	border-radius: $border-radius-16;
 
 	&__wrapper {
@@ -26,11 +27,13 @@ $pricing-border: 1px;
 		text-align: center;
 
 		&__title {
-			font-size: $font-size-bigger;
+			margin-top: 0;
+			margin-bottom: 0.25em;
+			font-size: $font-size-h2-xs;
 			line-height: $line-height-h1;
 
 			@media (min-width: $breakpoint-tablet) {
-				font-size: $font-size-h2-l;
+				font-size: 2.5em;
 			}
 
 			@media (min-width: $breakpoint-tablet-landscape) {
@@ -67,6 +70,15 @@ $pricing-border: 1px;
 				font-weight: 600;
 				line-height: 1.42;
 				text-align: center;
+
+				@each $name, $colors in  $colorVariants {
+					$bgColor: nth($colors, 1);
+
+					&--#{$name} {
+						color: $white;
+						background-color: $bgColor;
+					}
+				}
 			}
 		}
 
@@ -147,6 +159,17 @@ $pricing-border: 1px;
 				&::after {
 					left: 85%;
 				}
+			}
+		}
+	}
+
+	.checklist {
+
+		li {
+
+			&::before {
+				content: url(../images/icon_checkmark_circle.svg);
+				top: 0.25em;
 			}
 		}
 	}
@@ -231,14 +254,44 @@ $pricing-border: 1px;
 
 		&__title {
 
+			&:not(:last-child) {
+				margin-bottom: 0.6em;
+			}
+
 			h3 {
+				margin: 0;
 				font-size: $font-size-h2-s;
 			}
 		}
 
+		&__description {
+
+			&:not(:last-child) {
+				margin-bottom: 2em;
+			}
+		}
+
 		&__price {
-			display: flex;
-			font-size: 1.25rem;
+			line-height: 1.375;
+
+			sup {
+				position: relative;
+				top: -0.6em;
+				line-height: 1;
+				vertical-align: middle;
+				font-size: 0.4em;
+			}
+
+			&__amount {
+				font-size: 2.5em;
+			}
+
+			&__label {
+
+				&--l {
+					font-size: 1.5em;
+				}
+			}
 		}
 
 		&__list {
@@ -275,9 +328,15 @@ $pricing-border: 1px;
 			}
 		}
 
+		&__button {
+
+			&:not(:last-child) {
+				margin-bottom: 0.6em;
+			}
+		}
+
 		.Button {
 			width: 100%;
-			margin: 1.5em 0;
 
 			span {
 				line-height: 2.75;

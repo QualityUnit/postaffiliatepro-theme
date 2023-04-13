@@ -37,12 +37,8 @@
 		}
 
 		&__switcher {
-			justify-content: flex-end !important;
-
-			&__title {
-				font-family: $font-primary;
-				font-size: $font-size-default;
-			}
+			align-content: flex-end;
+			padding: 1.5em;
 		}
 
 		&__currency-switcher {
@@ -82,10 +78,14 @@
 		&__table-col {
 			padding: 1.5rem;
 			width: 100%;
+
+			.Button {
+				width: 100%;
+			}
 		}
 
 		&__title {
-			margin-bottom: 0;
+			margin-bottom: 0.4em;
 
 			h3 {
 				font-size: 20px;
@@ -109,7 +109,22 @@
 
 		&__price {
 			font-size: $font-size-default;
-			margin-bottom: 1em;
+			margin-bottom: 0.9em;
+
+			&__amount {
+				line-height: 1.375;
+
+				&--sm {
+					font-size: 0.875em;
+				}
+
+				sup {
+					position: relative;
+					top: -0.4em;
+					line-height: 1;
+					vertical-align: middle;
+				}
+			}
 		}
 
 		&__button {
