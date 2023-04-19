@@ -9,7 +9,7 @@ $pricing-border: 1px;
 	@include color(background-color, secondary-background);
 	padding: 3.2em 0;
 	overflow: hidden;
-	margin: 0 5% 3.2em 0;
+	margin: 0 5% 3.2em 5%;
 	border-radius: $border-radius-16;
 
 	&__wrapper {
