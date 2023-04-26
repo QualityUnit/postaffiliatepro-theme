@@ -98,7 +98,7 @@
 		'accept_incoming': true,
 		'domains': [
 			'postaffiliatepro.com',
-			'*.postaffiliatepro.com'
+			'*.postaffiliatepro.com',
 			'*.qualityunit.com',
 			'postaffiliatepro.nl',
 			'postaffiliatepro.fr',
