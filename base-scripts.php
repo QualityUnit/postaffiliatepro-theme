@@ -98,8 +98,6 @@
 		'accept_incoming': true,
 		'domains': [
 			'postaffiliatepro.com',
-			'*.postaffiliatepro.com',
-			'*.qualityunit.com',
 			'postaffiliatepro.nl',
 			'postaffiliatepro.fr',
 			'postaffiliatepro.de',
@@ -108,7 +106,8 @@
 			'postaffiliatepro.pl',
 			'postaffiliatepro.com.br',
 			'postaffiliatepro.sk',
-			'postaffiliatepro.es'
+			'postaffiliatepro.es',
+			'support.qualityunit.com'
 		]
 	});
 
