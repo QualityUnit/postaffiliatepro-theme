@@ -107,9 +107,48 @@
 			'postaffiliatepro.com.br',
 			'postaffiliatepro.sk',
 			'postaffiliatepro.es',
-			'support.qualityunit.com'
+			'support.qualityunit.com',
+			'postaffiliatepro.local'
 		]
-	});
+	})
+
+	gtag('config', 'AW-942942148', {
+		'linker': {
+			'domains': [
+				'postaffiliatepro.com',
+				'postaffiliatepro.nl',
+				'postaffiliatepro.fr',
+				'postaffiliatepro.de',
+				'postaffiliatepro.hu',
+				'postaffiliatepro.it',
+				'postaffiliatepro.pl',
+				'postaffiliatepro.com.br',
+				'postaffiliatepro.sk',
+				'postaffiliatepro.es',
+				'support.qualityunit.com',
+				'postaffiliatepro.local'
+			]
+		}
+	})
+
+	gtag('config', 'G-DLV457J560', {
+		'linker': {
+			'domains': [
+				'postaffiliatepro.com',
+				'postaffiliatepro.nl',
+				'postaffiliatepro.fr',
+				'postaffiliatepro.de',
+				'postaffiliatepro.hu',
+				'postaffiliatepro.it',
+				'postaffiliatepro.pl',
+				'postaffiliatepro.com.br',
+				'postaffiliatepro.sk',
+				'postaffiliatepro.es',
+				'support.qualityunit.com',
+				'postaffiliatepro.local'
+			]
+		}
+	})
 
 	function consentGranted() {
 		gtag('consent', 'update', {
