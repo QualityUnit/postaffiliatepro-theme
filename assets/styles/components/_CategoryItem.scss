@@ -369,3 +369,23 @@
 		margin-bottom: 3em;
 	}
 }
+
+.Category__item--videos {
+	max-height: 25.5em !important;
+
+	.Category__item {
+
+		&__title {
+			max-height: 5.25em !important;
+			margin-bottom: 0 !important;
+		}
+
+		&__thumbnail {
+			width: 100% !important;
+			height: auto !important;
+			padding: 0 !important;
+			border-radius: 1rem !important;
+			background-color: transparent !important;
+		}
+	}
+}
