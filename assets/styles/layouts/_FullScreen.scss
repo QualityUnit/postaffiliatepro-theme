@@ -8,7 +8,6 @@ body.page-template-template-free-account,
 body.page-template-template-trial,
 body.page-template-template-trial-network,
 body.page-template-template-demo {
-
 	.Header,
 	.Newsletter,
 	.Footer {
@@ -34,11 +33,9 @@ body.page-template-template-demo {
 	margin: 0 auto;
 
 	&__sidebar {
-
 		display: none;
 
 		*:not(.regular) {
-
 			@include color(color, font-color-dark, !important);
 		}
 
@@ -64,20 +61,16 @@ body.page-template-template-demo {
 	}
 
 	&__main {
-
 		@include color(background-color, main-background);
 		padding: 1em 2em;
 
 		.fifty-fifty {
-
 			.Button {
 				padding: 0 1em !important;
 			}
 
 			.Button--full {
-
 				&:hover {
-
 					@include color(background-color, primary-color);
 					@include color(border-color, primary-color);
 					cursor: default;
@@ -85,13 +78,11 @@ body.page-template-template-demo {
 			}
 
 			.Button--outline {
-
 				svg {
 					fill: $light-gray-icon;
 				}
 
 				&:hover {
-
 					svg {
 						fill: currentColor;
 					}
@@ -124,9 +115,9 @@ body.page-template-template-demo {
 					width: 100%;
 					margin: 0 auto;
 
-					@media (max-width: $breakpoint-tablet - 1px) {
-						display: none;
-					}
+					// @media (max-width: $breakpoint-tablet - 1px) {
+					// 	display: none;
+					// }
 
 					@media (max-width: $breakpoint-desktop) {
 						padding: 0 2em;
@@ -143,7 +134,6 @@ body.page-template-template-demo {
 				}
 
 				&__item {
-
 					img,
 					picture {
 						height: 1.875rem;
@@ -186,7 +176,6 @@ body.page-template-template-demo {
 				justify-content: flex-start;
 
 				&__label {
-
 					&:first-of-type {
 						margin-left: 0;
 					}
@@ -205,18 +194,14 @@ body.page-template-template-demo {
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-
 		&__main {
 			padding: 2em 5em;
 		}
 	}
 
 	@media (max-width: $breakpoint-tablet-small) {
-
 		&__main {
-
 			.fifty-fifty {
-
 				.Button {
 					display: block;
 					width: 100%;
@@ -235,17 +220,17 @@ body.page-template-template-demo {
 		position: relative;
 		height: 100vh;
 
-		&::after {
-
-			@include posZero;
-			left: -25%;
-			right: 25%;
-			position: absolute;
-			content: "";
-			z-index: 1;
-			background: $lightest-gray url(../images/trial_bg.svg) center center no-repeat;
-			background-size: cover;
-		}
+		// &::after {
+		// 	@include posZero;
+		// 	left: -25%;
+		// 	right: 25%;
+		// 	position: absolute;
+		// 	content: "";
+		// 	z-index: 1;
+		// 	background: $lightest-gray url(../images/trial_bg.svg) center center
+		// 		no-repeat;
+		// 	background-size: cover;
+		// }
 
 		&__wrap {
 			position: relative;
@@ -322,7 +307,6 @@ body.page-template-template-demo {
 			}
 
 			&__container {
-
 				&__title {
 					font-size: 2rem;
 					margin-bottom: 20px;
@@ -332,9 +316,7 @@ body.page-template-template-demo {
 	}
 
 	@media (min-width: $breakpoint-tablet) {
-
 		&__main {
-
 			.fifty-fifty {
 				display: flex;
 				justify-content: space-between;
@@ -349,7 +331,6 @@ body.page-template-template-demo {
 	}
 
 	@media (min-width: $breakpoint-desktop-box) {
-
 		&::after {
 			position: fixed;
 			left: 0%;
@@ -369,19 +350,16 @@ body.page-template-template-demo {
 	}
 
 	@media (min-width: 92em) {
-
 		&__main {
 			padding: 3.6em 5em;
 
 			&__container {
-
 				&__logos {
 					margin-top: 2.5em;
 				}
 			}
 		}
 	}
-
 }
 
 .talkingHead {
@@ -399,7 +377,6 @@ body.page-template-template-demo {
 	}
 
 	&-image {
-
 		@include square(4em);
 		flex: 0;
 		border-radius: 50%;
@@ -411,7 +388,6 @@ body.page-template-template-demo {
 		line-height: 1.86;
 
 		strong {
-
 			@include color(color, font-color-dark);
 			font-weight: 600;
 		}
@@ -476,7 +452,6 @@ body.page-template-template-demo {
 				margin: 0 5px;
 
 				button {
-
 					@include color(border-color, border-color-light);
 					width: 10px;
 					height: 10px;
@@ -489,9 +464,7 @@ body.page-template-template-demo {
 				}
 
 				&.splide__active {
-
 					button {
-
 						@include color(background, main-background);
 					}
 				}
@@ -518,7 +491,12 @@ body.page-template-template-demo {
 				display: flex;
 				width: 100%;
 				height: 75%;
-				background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+				background: linear-gradient(
+					0deg,
+					rgba(0, 0, 0, 1) 0,
+					rgba(0, 0, 0, 0.5) 50%,
+					rgba(0, 0, 0, 0) 100%
+				);
 			}
 
 			&::after {
@@ -529,7 +507,11 @@ body.page-template-template-demo {
 				display: flex;
 				width: 100%;
 				height: 25%;
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.5) 100%);
+				background: linear-gradient(
+					0deg,
+					rgba(0, 0, 0, 0) 0,
+					rgba(0, 0, 0, 0.5) 100%
+				);
 			}
 
 			&--demo {
@@ -545,7 +527,6 @@ body.page-template-template-demo {
 				z-index: 1;
 
 				p {
-
 					@include color(color, font-color-light);
 					font-size: 18px;
 					line-height: 24px;
@@ -644,7 +625,6 @@ body.page-template-template-demo {
 					justify-content: flex-start;
 
 					&__label {
-
 						&:first-of-type {
 							margin-left: 0;
 						}
@@ -664,7 +644,6 @@ body.page-template-template-demo {
 	}
 
 	@media (max-width: 1024px) {
-
 		&__sidebar,
 		&__logo {
 			display: none;
@@ -677,13 +656,11 @@ body.page-template-template-demo {
 			align-items: flex-start;
 
 			&__container {
-
 				&__image {
 					display: block;
 				}
 
 				&__logos {
-
 					&__item {
 						margin: 15px;
 
