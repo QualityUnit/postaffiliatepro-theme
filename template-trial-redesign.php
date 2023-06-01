@@ -16,14 +16,14 @@
 		<div class="Trial__sidebar urlslab-min-width-1024">
 			<div class="Trial__sidebar__inner">
 				<div class="Trial__sidebar__content checklist">
-					<p class="Trial__sidebar__title">Over 10 000 affiliate programs powered by Post Affiliate Pro™ and counting...</p>
+					<p class="Trial__sidebar__title"><?php _e( 'Over 10 000 affiliate programs powered by Post Affiliate Pro™ and counting...', 'ms' ); ?></p>
 					<ul>
-						<h3 class="Trial__sidebar__checklist__title">What will you get</h3>
-						<li>Free full setup + Website integration</li>
-						<li>Support 365 Days a Year</li>
-						<li>Free Lifetime Updates</li>
+						<h3 class="Trial__sidebar__checklist__title"><?php _e( 'What will you get', 'ms' ); ?></h3>
+						<li><?php _e( 'Free full setup + Website integration', 'ms' ); ?></li>
+						<li><?php _e( 'Support 365 Days a Year', 'ms' ); ?></li>
+						<li><?php _e( 'Free Lifetime Updates', 'ms' ); ?></li>
 					</ul>
-					<p class="Trial__sidebar__content__footer">and many more....</p>
+					<p class="Trial__sidebar__content__footer"><?php _e( 'and many more....', 'ms' ); ?></p>
 				</div>
 				<div class="Trial__sidebar__affiliate__program__img">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_sidebar_AffiliateProgram_img.png" alt="<?php _e( 'affiliate program', 'ms' ); ?>" class="urlslab-skip-lazy">
