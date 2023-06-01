@@ -26,7 +26,7 @@
 					<p class="Trial__sidebar__content__footer"><?php _e( 'and many more....', 'ms' ); ?></p>
 				</div>
 				<div class="Trial__sidebar__affiliate__program__img">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_sidebar_affiliate_network_img.png" alt="<?php _e( 'affiliate program', 'ms' ); ?>" class="urlslab-skip-lazy">
+				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_sidebar_affiliate_network.png" alt="<?php _e( 'affiliate program', 'ms' ); ?>" class="urlslab-skip-lazy">
 				</div>
 			</div>
 		</div>
