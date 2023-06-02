@@ -17,8 +17,8 @@
 			<div class="Trial__sidebar__inner">
 				<div class="Trial__sidebar__content checklist">
 					<p class="Trial__sidebar__title"><?php _e( 'Over 10 000 affiliate programs powered by Post Affiliate Pro™ and counting...', 'ms' ); ?></p>
+					<h3 class="Trial__sidebar__checklist__title"><?php _e( 'What will you get', 'ms' ); ?></h3>
 					<ul>
-						<h3 class="Trial__sidebar__checklist__title"><?php _e( 'What will you get', 'ms' ); ?></h3>
 						<li><?php _e( 'Free full setup + Website integration', 'ms' ); ?></li>
 						<li><?php _e( 'Support 365 Days a Year', 'ms' ); ?></li>
 						<li><?php _e( 'Free Lifetime Updates', 'ms' ); ?></li>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="Trial__main">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__awards">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.svg" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
+				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.png" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
 			</a>
 			<div class="Trial__main__inner">
 				<div class="Trial__main__tabs flex">
