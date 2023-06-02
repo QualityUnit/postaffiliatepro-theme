@@ -69,7 +69,7 @@ do_action( 'wpml_switch_language', $current_lang );
 			</div>
 			<div class="Post__content__breadcrumbs">
 				<ul>
-					<li><a href="<?php _e( '/features/', 'ms' ); ?>"><?php _e( 'Features', 'ms' ); ?></a></li>
+					<li><a href="<?php _e( '/videos/', 'ms' ); ?>"><?php _e( 'Videos', 'ms' ); ?></a></li>
 					<li><?php the_title(); ?></li>
 				</ul>
 			</div>
