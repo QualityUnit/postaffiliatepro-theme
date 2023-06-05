@@ -78,8 +78,10 @@
 		right: 1em;
 		display: none;
 
+
 		@media (min-width: $breakpoint-desktop-big) {
 			display: block;
+			max-width: 120px;
 		}
 	}
 
@@ -122,7 +124,7 @@
 			z-index: -1;
 			display: block;
 			width: $width-left-sm;
-			background: url(../../images/trial_sidebar_bg.png) left/cover no-repeat;
+			background: url(../../images/trial_sidebar_bg.jpg) left/cover no-repeat;
 		}
 
 		&__inner {
@@ -241,6 +243,7 @@
 						color: $dark-gray;
 					}
 				}
+
 			}
 		}
 
