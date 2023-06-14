@@ -34,7 +34,6 @@ body.page-template-template-demo {
 	margin: 0 auto;
 
 	&__sidebar {
-
 		display: none;
 
 		*:not(.regular) {
@@ -123,10 +122,6 @@ body.page-template-template-demo {
 					max-width: $breakpoint-tablet-landscape;
 					width: 100%;
 					margin: 0 auto;
-
-					@media (max-width: $breakpoint-tablet - 1px) {
-						display: none;
-					}
 
 					@media (max-width: $breakpoint-desktop) {
 						padding: 0 2em;
@@ -234,18 +229,6 @@ body.page-template-template-demo {
 	@media (min-width: $breakpoint-tablet-landscape) {
 		position: relative;
 		height: 100vh;
-
-		&::after {
-
-			@include posZero;
-			left: -25%;
-			right: 25%;
-			position: absolute;
-			content: "";
-			z-index: 1;
-			background: $lightest-gray url(../images/trial_bg.svg) center center no-repeat;
-			background-size: cover;
-		}
 
 		&__wrap {
 			position: relative;
@@ -381,7 +364,6 @@ body.page-template-template-demo {
 			}
 		}
 	}
-
 }
 
 .talkingHead {
