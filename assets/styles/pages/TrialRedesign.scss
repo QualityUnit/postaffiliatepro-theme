@@ -3,6 +3,7 @@
 
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../components/AwardsHeroHeader";
 
 .page-template-template-trialredesign,
 .page-template-template-trial-redesign,
@@ -92,6 +93,7 @@
 		border-radius: $border-radius-16;
 		display: grid;
 		grid-template-columns: 1fr;
+		background-color: $lightest-gray;
 
 		* {
 			font-family: $font-secondary;
@@ -170,7 +172,7 @@
 		&__title {
 			font-weight: $font-weight-normal;
 			font-size: 1.125em;
-			line-height: 1.3;
+			line-height: 30px;
 			max-width: 280px;
 		}
 
@@ -233,15 +235,17 @@
 				padding: 0;
 
 				&.Button--full {
-					background: $dark-gray;
-					border-color: $dark-gray;
+
+					@include color(background, font-color-level3);
+					@include color(border-color, font-color-level3);
 				}
 
 				&.Button--outline {
 
 					&:hover {
-						border-color: $dark-gray;
-						color: $dark-gray;
+
+						@include color(color, font-color-level3);
+						@include color(border-color, font-color-level3);
 					}
 				}
 
@@ -354,6 +358,10 @@
 					display: block;
 					padding: 0 0.8em;
 					margin: 0 !important;
+
+					p {
+						font-family: $font-primary;
+					}
 				}
 			}
 
@@ -382,7 +390,7 @@
 			justify-content: center;
 			column-gap: 2em;
 			align-items: center;
-			margin: 3em -0.8em 0 -0.8em;
+			margin: 1.6875em -0.8em 0 -0.8em;
 		}
 
 		&__logo a {
@@ -410,9 +418,27 @@
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			// width: calc(100% - #{$width-left-sm});
+
+			.Signup__form {
+
+				&__item {
+
+					&[data-id="domainFieldmain"] {
+
+						input[type="url"] {
+							padding-right: 230px;
+						}
+					}
+
+					&__domain {
+						padding-inline: 30px;
+					}
+				}
+			}
 
 			&::before {
+
+				margin-left: -1.25em;
 
 				@include posCustom(0);
 				@include color(background-color, main-background);
