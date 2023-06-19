@@ -54,13 +54,13 @@
 				<div class="Trial__main__logos">
 					<div class="Trial__main__logo">
 						<a href="<?php esc_url( '/awards/', 'ms' ); ?>">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php esc_html_e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php esc_attr( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
 
 					<div class="Trial__main__logo">
 						<a href="<?php esc_url( '/awards/', 'ms' ); ?>">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php esc_html_e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php esc_attr( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
 						</a>
 					</div>
 				</div>
