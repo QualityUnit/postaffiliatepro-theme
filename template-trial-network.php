@@ -2,11 +2,10 @@
 	/**
 	 * Template Name: Trial Network
 	 */
+
 	set_source( 'trial', 'pages/TrialRedesign', 'css' );
 ?>
-<style>
 
-</style>
 <div class="Trial FullScreen">
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
@@ -31,9 +30,7 @@
 			</div>
 		</div>
 		<div class="Trial__main">
-			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__awards">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.png" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
-			</a>
+			<div class="AwardsHeroHeader"><img class="AwardsHeroHeader__text" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/heroHeadline_award_badges_text.svg" alt="Awards" /><?= do_shortcode( '[awards_small posts=3]' ); ?></div>
 			<div class="Trial__main__inner">
 				<div class="Trial__main__tabs flex">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline Button--outline-light Button--narrow Button--icon">

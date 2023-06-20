@@ -2,11 +2,10 @@
 	/**
 	 * Template Name: Trial
 	 */
+
 	set_source( 'trial', 'pages/TrialRedesign', 'css' );
 ?>
-<style>
 
-</style>
 <div class="Trial FullScreen">
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
@@ -31,9 +30,7 @@
 			</div>
 		</div>
 		<div class="Trial__main">
-			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__awards">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/trial_badges.png" alt="<?php _e( 'Awards', 'ms' ); ?>" class="urlslab-skip-lazy">
-			</a>
+			<div class="AwardsHeroHeader"><img class="AwardsHeroHeader__text" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/heroHeadline_award_badges_text.svg" alt="Awards" /><?= do_shortcode( '[awards_small posts=3]' ); ?></div>
 			<div class="Trial__main__inner">
 				<div class="Trial__main__tabs flex">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full Button--narrow Button--icon">
@@ -45,10 +42,10 @@
 						<span>&nbsp;<?php _e( 'Affiliate Network', 'ms' ); ?></span>
 					</a>
 				</div>
-				<h1 class="Trial__main__title"><?php _e( 'Try Our 14-Day <span class="highlight-background">Free Trial</span>', 'ms' ); ?></h1>
+				<h1 class="Trial__main__title"><?php _e( 'Try Our 1-Month <span class="highlight-background">Free Trial</span>', 'ms' ); ?></h1>
 				<p class="Trial__main__text"><?php _e( 'Sign up for Post Affiliate Pro in less than 60 seconds. Enjoy testing every feature from our All-Inclusive plan starting today.', 'ms' ); ?></p>
 				<div class="Signup__form__labels Trial__labels">
-					<div class="Signup__form__labels__label"><?php _e( '14-day free trial', 'ms' ); ?></div>
+					<div class="Signup__form__labels__label"><?php _e( '1-Month free trial', 'ms' ); ?></div>
 					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
 				</div>
 
