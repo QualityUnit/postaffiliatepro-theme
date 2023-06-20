@@ -866,6 +866,10 @@ function manager_industry( $manager_industry ) {
 					}
 					?>
 
+					<div class="Gutenberg__content__wrapper">
+						<?php the_content(); ?>
+					</div>
+
 					<div class="CTA__wrapper">
 						<div class="CTA__content">
 							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
