@@ -41,7 +41,7 @@ add_action(
 		$args    = array(
 			'label'               => __( 'Directory', 'ms' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'thumbnail' ),
+			'supports'            => array( 'title', 'thumbnail', 'editor' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
