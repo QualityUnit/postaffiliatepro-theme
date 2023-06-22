@@ -49,7 +49,7 @@
 					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
 				</div>
 
-				<?= do_shortcode( '[signupform]' ); ?>
+				<?= do_shortcode( '[signupform-network]' ); ?>
 
 				<div class="Trial__main__logos">
 					<div class="Trial__main__logo">
