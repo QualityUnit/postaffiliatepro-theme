@@ -22,9 +22,9 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "rlaco-qualityunit"
+      - "mvstepanek"
     reviewers:
-      - "rlaco-qualityunit"
+      - "mvstepanek"
 
   - package-ecosystem: npm
     directory: "/lib/widgets/qu-howtos"
@@ -35,9 +35,9 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "rlaco-qualityunit"
+      - "mvstepanek"
     reviewers:
-      - "rlaco-qualityunit"
+      - "mvstepanek"
 
   - package-ecosystem: github-actions
     directory: "/"
