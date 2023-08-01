@@ -8,7 +8,7 @@ function ms_signup_form() {
 		<h3 class="Signup__form__title"><?php _e( 'Start <span class="highlight highlight-splash">Free Trial</span>', 'ms' ); ?></h3>
 
 		<div class="Signup__form__labels">
-			<span class="Signup__form__labels__label"><?php _e( '14 Day Trial', 'ms' ); ?></span>
+			<span class="Signup__form__labels__label"><?php _e( '1-Month Trial', 'ms' ); ?></span>
 			<span class="Signup__form__labels__label"><?php _e( 'No Credit Card required', 'ms' ); ?></span>
 		</div>
 

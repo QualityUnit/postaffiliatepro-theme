@@ -875,7 +875,7 @@ function manager_industry( $manager_industry ) {
 							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
 							<div class="CTA__text"><?php _e( 'Start building an affiliate program today by signing up for our free 14-day trial.', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>
 							<a href="<?php _e( '/trial', 'ms' ); ?>" class="CTA__button Button">
-								<span><?php _e( 'Start 14-day trial for FREE', 'ms' ); ?></span>
+								<span><?php _e( 'Start 1-Month trial for FREE', 'ms' ); ?></span>
 							</a>
 						</div>
 						<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?php _e( 'Build your own affiliate program', 'ms' ); ?>" />
