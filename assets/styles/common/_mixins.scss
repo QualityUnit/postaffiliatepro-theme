@@ -260,13 +260,13 @@
 	&::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
-	
+
 	&::-webkit-scrollbar-thumb {
 		background-color: $light-gray;
 		border-radius: .625em;
 		height: 5em;
 	}
-	
+
 	&::-webkit-scrollbar {
 		width: $width;
 	}

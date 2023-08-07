@@ -84,7 +84,9 @@ add_action(
 				'name'          => __( 'Footer Column #1', 'ms' ),
 				'id'            => 'footer_column_1',
 				'before_widget' => '<div class="%1$s %2$s">',
-				'after_widget'  => '</div>',
+				'after_widget'  => '<div class="Footer__top__cta"><a href="' . __( '/trial/' ) . '" class="Button Button--full"><span>' . __( 'Start free trial' ) . '</span></a><a href="' . __( '/call/' ) . '" class="Button Button--outline"><span>' . __( 'Book a consult' ) . '</span></a></div></div>',
+				'before_title'  => '<div class="Footer__top__column__title Footer__top__column__title--image h5"><img src="' . get_template_directory_uri() . '/assets/images/pap-logo.svg" alt="' . get_bloginfo( 'name' ) . '">',
+				'after_title'   => '</div>',
 			)
 		);
 
@@ -94,8 +96,8 @@ add_action(
 				'id'            => 'footer_column_2',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Footer__title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<div class="Footer__title h5">',
+				'after_title'   => '</div>',
 			)
 		);
 
@@ -105,8 +107,8 @@ add_action(
 				'id'            => 'footer_column_3',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Footer__title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<div class="Footer__title h5">',
+				'after_title'   => '</div>',
 			)
 		);
 
@@ -116,8 +118,8 @@ add_action(
 				'id'            => 'footer_column_4',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Footer__title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<div class="Footer__title h5">',
+				'after_title'   => '</div>',
 			)
 		);
 
@@ -127,8 +129,8 @@ add_action(
 				'id'            => 'footer_column_5',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Footer__title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<div class="Footer__title h5">',
+				'after_title'   => '</div>',
 			)
 		);
 
@@ -138,8 +140,8 @@ add_action(
 				'id'            => 'header_flags',
 				'before_widget' => '<div class="%1$s %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="Header__flags__title">',
-				'after_title'   => '</h4>',
+				'before_title'  => '<div class="Header__flags__title">',
+				'after_title'   => '</div>',
 			)
 		);
 	}
