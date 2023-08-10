@@ -99,6 +99,7 @@ do_action( 'wpml_switch_language', $current_lang );
 		<div class="Post__content">
 			<div class="Content" itemprop="text">
 				<?php the_content(); ?>
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/templates/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Back to Templates'])"><span><?php _e( 'Back to Templates', 'ms' ); ?></span></a>

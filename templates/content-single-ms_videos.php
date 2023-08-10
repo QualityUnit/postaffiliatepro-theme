@@ -82,6 +82,7 @@ do_action( 'wpml_switch_language', $current_lang );
 				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
 
 				<?php the_content(); ?>
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
