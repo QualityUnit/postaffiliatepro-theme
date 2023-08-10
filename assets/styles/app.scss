@@ -35,16 +35,13 @@
 @forward "components/Block";
 @forward "components/Reference";
 @forward "components/Reviews";
-@forward "components/Faq";
 @forward "components/Loader";
 @forward "components/Logos";
 @forward "components/Text";
-@forward "components/ExtraFaq";
-@forward "components/ShortFaq";
 @forward "components/FullHeadline";
 @forward "components/SimilarSources";
 @forward "components/WhatIsHeadline";
-@forward "components/EnhancedFaq";
+@forward "shortcodes/_UrlslabFaq";
 
 
 /* Layouts */

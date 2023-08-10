@@ -43,9 +43,6 @@
 @forward "components/HeroHeadlinePage";
 @forward "components/ElementorSlider";
 @forward "components/Text";
-@forward "components/Faq";
-@forward "components/ExtraFaq";
-@forward "components/ShortFaq";
 @forward "components/FullHeadline";
 @forward "components/Loader";
 @forward "components/Logos";
@@ -55,6 +52,7 @@
 @forward "components/PapPanHomeSplit";
 @forward "components/SimilarIntegrations";
 @forward "components/SimilarSources";
+@forward "shortcodes/_UrlslabFaq";
 
 /* Layouts */
 @forward "layouts/FullScreen";
