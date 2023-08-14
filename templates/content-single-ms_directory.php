@@ -868,6 +868,7 @@ function manager_industry( $manager_industry ) {
 
 					<div class="Gutenberg__content__wrapper">
 						<?php the_content(); ?>
+						<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 					</div>
 
 					<div class="CTA__wrapper">

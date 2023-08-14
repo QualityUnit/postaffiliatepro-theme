@@ -123,47 +123,7 @@ do_action( 'wpml_switch_language', $current_lang );
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
-				<?php if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q1', true ) ) { ?>
-					<div class="Post__m__negative Faq" itemscope itemtype="https://schema.org/FAQPage">
-						<h2 id="faq">
-							<?php
-							$headline = __( 'Frequently asked questions', 'ms' );
-							$words    = explode( ' ', $headline );
-							$counter  = 0;
-							foreach ( $words as $word ) {
-								if ( 0 === $counter ) {
-									echo '<span class="highlight highlight-splash3">' . esc_html( $words[0] ) . '</span>';
-								} else {
-									echo ' ';
-									echo esc_html( $word );
-								}
-								$counter++;
-							}
-							echo '</h2>';
-							if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-text', true ) ) {
-								?>
-								<div class="subhead--wrapper">
-									<p class="subhead"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-text', true ) ); ?></p>
-								</div>
-								<?php
-							}
-							for ( $i = 1; $i <= 10; ++$i ) {
-								if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ) {
-									?>
-									<div class="Faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-										<h3 itemprop="name"><?= esc_html( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-q' . $i, true ) ); ?></h3>
-										<div class="Faq__outer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-											<div class="Faq__inner-wrapper" itemprop="text">
-												<p><?= wp_kses_post( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_faq-a' . $i, true ) ); ?></p>
-											</div>
-										</div>
-									</div>
-									<?php
-								}
-							}
-							?>
-					</div>
-				<?php } ?>
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
 					<a href="<?php _e( '/integration-methods/', 'ms' ); ?>" class="Button Button--outline Button--back"  onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Back to Integrations'])"><span><?php _e( 'Back to Integrations', 'ms' ); ?></span></a>

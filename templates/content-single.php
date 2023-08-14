@@ -54,6 +54,7 @@
 		<div class="BlogPost__content Post__content">
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="BlogPost__share">
 					<p class="BlogPost__share__title"><?php _e( 'Share this article', 'ms' ); ?></p>
