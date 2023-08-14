@@ -28,8 +28,7 @@
 .Footer {
 
 	color: $black;
-	padding-top: em(110);
-	padding-bottom: em(20);
+	padding: em(110) 0 em(20) 0;
 	margin-top: em(100);
 	background-color: $lightest-gray;
 	background-image: url(../../images/footer-background-vector.svg);
