@@ -10,66 +10,43 @@ if ( is_page() ) {
 }
 ?>
 
-<footer class="Footer Box urlslab-skip-keywords">
-	<div class="wrapper">
-		<div class="Footer__left">
-			<div class="Footer__left-inner">
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="Footer__contacts-logo">
-				<div class="Footer__contacts-cta">
-					<a href="/call/" class="Button Button--outline" title="Schedule a personalized 1-1 demo call with the Post Affiliate Pro team, and get advanced tips on using smart affiliate software for your business case.">
-						<span><?php _e( 'Book a consult', 'ms' ); ?></span>
-					</a>
-					<a href="/trial/" class="Button Button--full" title="Post Affiliate Pro has over 30. 000 affiliate programs. Sign up for a trial and improve your affiliate marketing right away.">
-						<span><?php _e( 'Start free trial', 'ms' ); ?></span>
-					</a>
+<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true">
+	<div class="Footer__top">
+		<div class="wrapper">
+			<div class="Footer__top__row">
+				<div class="Footer__top__column">
+					<?php
+					if ( is_active_sidebar( 'footer_column_1' ) ) :
+						dynamic_sidebar( 'footer_column_1' );
+					endif;
+					?>
 				</div>
-				<h4 class="Footer__contacts-title"><?php _e( 'Sales contacts', 'ms' ); ?></h4>
-				<ul class="Footer__contacts">
-					<li>
-						<a href="tel:<?php _e( '+421233456826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
-							<span><?php _e( '+421 2 33 456 826', 'ms' ); ?></span>
-						</a>
-					</li>
-					<li>
-						<a href="tel:<?php _e( '+18888429508', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#phone' ); ?>"></use></svg>
-							<span><?php _e( '+1-888-842-9508', 'ms' ); ?></span>
-						</a>
-					</li>
-					<li>
-						<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"  rel="nofollow noopener">
-							<svg><use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use></svg>
-							<span><?php _e( '+1-978-591-6509', 'ms' ); ?></span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="Footer__right">
-			<div class="Footer__row">
-				<div class="Footer__column Footer__column--menu">
+
+				<div class="Footer__top__column">
 					<?php
 					if ( is_active_sidebar( 'footer_column_2' ) ) :
 						dynamic_sidebar( 'footer_column_2' );
 					endif;
 					?>
 				</div>
-				<div class="Footer__column Footer__column--menu">
+
+				<div class="Footer__top__column">
 					<?php
 					if ( is_active_sidebar( 'footer_column_3' ) ) :
 						dynamic_sidebar( 'footer_column_3' );
 					endif;
 					?>
 				</div>
-				<div class="Footer__column Footer__column--menu">
+
+				<div class="Footer__top__column">
 					<?php
 					if ( is_active_sidebar( 'footer_column_4' ) ) :
 						dynamic_sidebar( 'footer_column_4' );
 					endif;
 					?>
 				</div>
-				<div class="Footer__column Footer__column--menu">
+
+				<div class="Footer__top__column">
 					<?php
 					if ( is_active_sidebar( 'footer_column_5' ) ) :
 						dynamic_sidebar( 'footer_column_5' );
@@ -77,19 +54,27 @@ if ( is_page() ) {
 					?>
 				</div>
 			</div>
-			<div class="Footer__row">
-				<div class="Footer__column">
-					<h4 class="Footer__title"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></h4>
-					<div class="Footer__newsletter">
-						<?php echo do_shortcode( '[newsletterform]' ); ?>
-					</div>
+		</div>
+	</div>
+
+	<div class="Footer__middle">
+		<div class="wrapper">
+			<div class="Footer__middle__row">
+				<div class="Footer__middle__contacts">
+					<div class="Footer__middle__title h5"><?php _e( 'Sales contacts', 'ms' ); ?></div>
+					<ul>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '18888429508', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-842-9508', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-978-591-6509', 'ms' ); ?></a></li>
+					</ul>
 				</div>
-				<div class="Footer__column">
-					<h4 class="Footer__title"><?php _e( 'Social media', 'ms' ); ?></h4>
+
+				<div class="Footer__middle__social">
+					<div class="Footer__middle__title h5"><?php _e( 'Social media', 'ms' ); ?></div>
 					<ul class="Footer__social">
 						<li>
 							<a href="<?php _e( 'https://www.facebook.com/PostAffiliatePro', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'Post Affiliate Pro\'s Facebook', 'ms' ); ?>">
+								 title="<?php _e( 'Post Affiliate Pro\'s Facebook', 'ms' ); ?>">
 								<svg>
 									<use xlink:href=" <?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-facebook' ); ?>"></use>
 								</svg>
@@ -97,7 +82,7 @@ if ( is_page() ) {
 						</li>
 						<li>
 							<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>">
+								 title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 								</svg>
@@ -105,7 +90,7 @@ if ( is_page() ) {
 						</li>
 						<li>
 							<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
-							   title="<?php _e( 'Post Affiliate Pro\'s YouTube', 'ms' ); ?>">
+								 title="<?php _e( 'Post Affiliate Pro\'s YouTube', 'ms' ); ?>">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 								</svg>
@@ -113,7 +98,7 @@ if ( is_page() ) {
 						</li>
 						<li>
 							<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank"
-							   title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>" rel="nofollow noopener">
+								 title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>" rel="nofollow noopener">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
 								</svg>
@@ -121,22 +106,32 @@ if ( is_page() ) {
 						</li>
 					</ul>
 				</div>
+
+				<div class="Footer__middle__newsletter">
+					<div class="Footer__middle__title h5"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
+					<?= do_shortcode( '[newsletterform]' ); ?>
+				</div>
 			</div>
-			<div class="Footer__row">
-				<div class="Footer__column">
-					<div class="Footer__navigation">
-						<?php
-						if ( has_nav_menu( 'footer_bottom_navigation' ) ) :
-							wp_nav_menu(
-								array(
-									'theme_location' => 'footer_bottom_navigation',
-									'menu_class'     => 'nav',
-								)
-							);
-						endif;
-						?>
-					</div>
-					<div class="Footer__copyright"><?php _e( '© 2004-', 'ms' ); ?><?php echo esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved .', 'ms' ); ?></div>
+		</div>
+	</div>
+
+	<div class="Footer__bottom">
+		<div class="wrapper">
+			<div class="Footer__bottom__row">
+				<div class="Footer__bottom__copyright">
+					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
+				</div>
+				<div class="Footer__bottom__navigation">
+					<?php
+					if ( has_nav_menu( 'footer_bottom_navigation' ) ) :
+						wp_nav_menu(
+							array(
+								'theme_location' => 'footer_bottom_navigation',
+								'menu_class'     => 'nav',
+							)
+						);
+					endif;
+					?>
 				</div>
 			</div>
 		</div>
