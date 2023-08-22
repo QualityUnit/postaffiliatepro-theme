@@ -70,8 +70,12 @@
 		}
 
 		&__content {
-			width: 52.5em;
-			margin-left: auto;
+
+			&:not(.wide) {
+
+				width: 52.5em;
+				margin-left: auto;
+			}
 
 			&__items {
 				display: grid;
