@@ -9,6 +9,11 @@ add_action(
 	function () {
 		wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
+		if ( ! is_page_template( 'elementor.php' ) ) {
+			wp_enqueue_style( 'compact-header', get_template_directory_uri() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			wp_enqueue_style( 'compact-header-filter', get_template_directory_uri() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+
 		if ( is_singular( 'post' ) ) {
 			wp_enqueue_style( 'blog-layout', get_template_directory_uri() . '/assets/dist/pages/blog' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
