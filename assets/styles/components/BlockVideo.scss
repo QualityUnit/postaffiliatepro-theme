@@ -27,6 +27,24 @@
 		overflow: visible;
 		min-height: 29em;
 
+		&--wrapper {
+
+			picture {
+				display: none;
+			}
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+
+		&--title,
+		&--duration,
+		&--bottom {
+			display: none;
+		}
+
 		[itemprop="video"] {
 			height: 0 !important;
 		}
@@ -77,6 +95,8 @@
 			@include square(100%);
 			content: "";
 			position: absolute;
+			top: 0;
+			right: 0;
 			font-size: $font-size-default;
 			overflow: hidden;
 			z-index: 2;
@@ -613,6 +633,7 @@ $positions: ("left", "right");
 	.elementor-widget-video {
 
 		.elementor-video,
+		.elementor-video-new,
 		.youtube_urlslab_loader {
 
 			&::after {
