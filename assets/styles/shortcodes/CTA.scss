@@ -63,8 +63,8 @@
 		}
 	}
 
-	&__content + &__image[src*="images"],
-	&__content + picture {
+	&__content + picture,
+	&__content + img.CTA__image {
 		display: none;
 	}
 
@@ -77,8 +77,8 @@
 			margin: 2em 0;
 		}
 
-		&__content + &__image[src*="images"],
-		&__content + picture {
+		&__content + picture,
+		&__content + img.CTA__image {
 			position: relative;
 			display: block;
 			width: 38%;
