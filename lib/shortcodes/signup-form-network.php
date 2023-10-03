@@ -1,11 +1,34 @@
 <?php
 
-function ms_signup_network_form() {
+function ms_signup_network_form($atts) {
+
+	$atts = shortcode_atts(
+		array(
+			'title' => __( 'Start Free Trial', 'ms' ),
+			'label1' => __( '7 or 30 days free trial', 'ms' ),
+			'tooltip1' => __( 'Free trial for 7 days with a free email, or 30 days with a company email', 'ms' ),
+			'label2' => __( 'No Credit Card required', 'ms' ),
+			'button' => __( 'Create account for FREE', 'ms' ),
+		),
+		$atts,
+	);
+
 	ob_start();
 	?>
 
 	<div class="Signup__form">
-		<h3 class="Signup__form__title"><?php _e( 'Start Free Trial', 'ms' ); ?></h3>
+		<h3 class="Signup__form__title"><?= esc_html( $atts['title'] ); ?></h3>
+
+		<div class="Signup__form__labels">
+			<span class="Signup__form__labels__label">
+				<?= esc_html( $atts['label1'] ); ?>&nbsp;
+				<span class="Signup__form__labels__label__tooltip">
+					<span class="fontello-info "></span>
+					<span class="Signup__form__labels__label__tooltip__text Tooltip"><?= esc_html( $atts['tooltip1'] ); ?></span>
+				</span>
+			</span>
+			<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?>&nbsp;</span>
+		</div>
 
 		<div data-id="signup">
 			<input data-id="plan" type="hidden" value="Trial" autocomplete="off">

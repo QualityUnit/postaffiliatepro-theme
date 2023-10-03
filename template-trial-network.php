@@ -43,11 +43,7 @@
 					</a>
 				</div>
 				<h1 class="Trial__main__title"><?php _e( 'Try Our 1-Month <span class="highlight-background">Free Trial</span>', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( 'Sign up for Post Affiliate Network in less than 60 seconds. Enjoy testing every feature from our All-Inclusive plan starting today.', 'ms' ); ?></p>
-				<div class="Signup__form__labels Trial__labels">
-					<div class="Signup__form__labels__label"><?php _e( '1-Month free trial', 'ms' ); ?></div>
-					<div class="Signup__form__labels__label"><?php _e( 'No credit card required', 'ms' ); ?></div>
-				</div>
+				<p class="Trial__main__text"><?php _e( 'Experience working with PostAffiliatePro for free with our 7-day or 30-day trial. Enjoy testing every feature needed for your business starting today.', 'ms' ); ?></p>
 
 				<?= do_shortcode( '[signupform-network]' ); ?>
 
