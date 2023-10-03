@@ -3,7 +3,7 @@
 	 * Template Name: Trial Network
 	 */
 
-	set_source( 'trial', 'pages/TrialRedesign', 'css' );
+	set_source( 'trial', 'pages/TrialRedesign' );
 ?>
 
 <div class="Trial FullScreen">

@@ -1,6 +1,6 @@
 <?php
 
-function ms_signup_network_form($atts) {
+function ms_signup_network_form( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
