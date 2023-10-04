@@ -1,77 +1,63 @@
-<div class="Post" itemscope itemtype="http://schema.org/BlogPosting">
+<?php
+global $post;
+$page_header_args = array(
+	'image' => array(
+		'src' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
+		'alt' => get_the_title(),
+	),
+	'title' => get_the_title(),
+	'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+	'date'  => true,
+	'toc'   => true,
+);
+$categories       = get_the_terms( $post->ID, 'category' );
+if ( isset( $categories ) ) {
+	$page_header_tags = array();
+	foreach ( $categories as $category ) {
+		$page_header_tags[0]['list'][] = array(
+			'href'  => get_category_link( $category->term_id ),
+			'title' => $category->name,
+		);
+	}
+	if ( isset( $page_header_tags[0]['list'] ) ) {
+		$page_header_args['tags'] = $page_header_tags;
+	}
+}
+?>
+<div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/BlogPosting">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
-	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
-	<div class="BlogPost__header wrapper__wide">
-		<div class="BlogPost__thumbnail urlslab-skip-lazy">
-			<meta itemprop="image" content="<?= esc_url( get_the_post_thumbnail_url( $post, 'box_archive_thumbnail' ) ); ?>"></meta>
-			<?php the_post_thumbnail( 'box_archive_thumbnail', array( 'fetchpriority' => 'high' ) ); ?>
-		</div>
-		<div class="BlogPost__intro">
-			<div class="BlogPost__category">
-				<?php /* translators: %s: don't modify */ ?>
-				<?= wp_kses_post( preg_replace( '/<a href=".+?<\/a>.+?(<a)/', '$1', get_the_taxonomies( 0, array( 'template' => __( '<span class="hidden">%s:</span><span>%l</span>' ) ) ) )['category'] );
-				?>
-			</div>
-			<h1 class="BlogPost__title" itemprop="name"><?php the_title(); ?></h1>
+	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="LiveAgent"></span>
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-			<div class="BlogPost__author">
-				<p class="BlogPost__author__name"><?php the_author(); ?></p>
-				<p class="BlogPost__author__position">
-					<?php
-					echo get_the_time( 'F j, Y' ) . '<br />' .// @codingStandardsIgnoreStart
-							__( 'Last modified on', 'ms' ) . ' ' .
-							get_the_modified_time( 'F j, Y' ) . ' ' .
-							__( 'at', 'ms' ) . ' ' .
-							get_the_modified_time( 'g:i a' ); // @codingStandardsIgnoreEnd
-					?>
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="wrapper__wide Post__container">
+	<div class="wrapper Post__container">
 		<div class="Post__sidebar">
-			<?php if ( sidebar_toc() !== false ) { ?>
-				<div class="SidebarTOC-wrapper">
-					<div class="SidebarTOC">
-						<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-						<div class="SidebarTOC__slider slider splide">
-							<div class="splide__track">
-								<ul class="SidebarTOC__content splide__list">
-									<?= wp_kses_post( sidebar_toc() ); ?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php } ?>
+			<div class="Signup__sidebar-wrapper">
+				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
+			</div>
 		</div>
-
-		<div class="Signup__sidebar-wrapper">
-			<?= do_shortcode( '[signup-sidebar]' ); ?>
-		</div>
-
 		<div class="BlogPost__content Post__content">
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
-				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="BlogPost__share">
 					<p class="BlogPost__share__title"><?php _e( 'Share this article', 'ms' ); ?></p>
 
 					<div class="BlogPost__share__items">
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Facebook', 'ms' ); ?>">
 								<i class="fontello-facebook-f-brands"></i>
 							</a>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://twitter.com/share?url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
+							<a href="https://twitter.com/share?url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'Twitter', 'ms' ); ?>">
 								<i class="fontello-twitter-brands"></i>
 							</a>
 						</div>
 						<div class="BlogPost__share__items__item">
-							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs" title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
+							<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" itemprop="sameAs"
+								 title="<?php _e( 'Share on', 'ms' ); ?> <?php _e( 'LinkedIn', 'ms' ); ?>">
 								<i class="fontello-linkedin-in-brands"></i>
 							</a>
 						</div>
@@ -85,7 +71,7 @@
 					</div>
 
 					<div class="BlogPost__author-box__content">
-						<p class="BlogPost__author-box__content__name" itemprop="name" ><?php the_author(); ?></p>
+						<p class="BlogPost__author-box__content__name" itemprop="name"><?php the_author(); ?></p>
 						<p class="BlogPost__author-box__content__position"><?php the_author_meta( 'position' ); ?></p>
 						<p class="BlogPost__author-box__content__description" itemprop="description"><?php the_author_meta( 'description' ); ?></p>
 						<div class="BlogPost__author-box__content__social">
@@ -113,7 +99,7 @@
 					</div>
 				</div>
 
-				<div class="BlogPost__articles">
+				<div class="BlogPost__articles urlslab-skip-keywords">
 					<?php
 					$query_blog_posts = new WP_Query(
 						array(
@@ -131,12 +117,14 @@
 										<?php the_post_thumbnail( 'person_thumbnail', array( 'alt' => get_the_title() ) ); ?>
 									</a>
 								</div>
-								<p class="BlogPost__articles__article__title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
+								<p class="BlogPost__articles__article__title"><a href="<?php the_permalink(); ?>"
+																																 title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 							</div>
 						<?php endwhile; ?>
 					<?php endif; ?>
 					<?php wp_reset_postdata(); ?>
 				</div>
+
 
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
