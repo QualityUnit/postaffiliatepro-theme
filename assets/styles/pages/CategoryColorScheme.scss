@@ -1,0 +1,29 @@
+/* stylelint-disable selector-class-pattern */
+@use "../common/variables" as *;
+
+$category_label_colors: (
+	"promotional-materials": $saturated-green-menu,
+	"types-of-commissions": $tag_orange,
+	"user-interface": $tag,
+	"tracking-methods": $saturated-blueish-menu,
+	"reporting": $tag_magenta,
+	"security": $tag_red,
+);
+
+@each $className, $color in $category_label_colors {
+	.redesign.Category__item--features.#{$className} {
+
+		&::after {
+
+			background-color: #{$color};
+		}
+
+		.Category__item__header__label__text {
+
+			&::before {
+				background-color: #{$color};
+			}
+		}
+
+	}
+}

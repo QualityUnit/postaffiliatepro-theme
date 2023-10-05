@@ -228,7 +228,7 @@
 								$filter_fields_count = $filter_fields_count + count( $filer_items );
 							}
 							?>
-							<div class=" compact-header__filters-wrap 
+							<div class=" compact-header__filters-wrap
 							<?php
 							if ( isset( $filer_count ) ) {
 								?>
@@ -293,6 +293,7 @@
 										</div>
 										<?php } ?>
 									<?php } ?>
+
 									<?php if ( isset( $filer_items ) ) { ?>
 										<?php foreach ( $filer_items as $filer_item ) { ?>
 											<?php
