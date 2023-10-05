@@ -37,4 +37,42 @@
 			padding-bottom: 0;
 		}
 	}
+
+	&.Logos--below--hero {
+		display: none;
+
+
+		.FullScreen__main__container__logos {
+
+			&__item {
+				margin: 1.25em;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block;
+
+			.FullScreen__main__container__logos {
+				margin: 2.8125em auto;
+				display: flex;
+				flex-flow: wrap row;
+				align-items: center;
+				column-gap: 2em;
+				height: 4.0625em;
+				overflow: hidden;
+				width: 100%;
+				justify-content: space-between;
+
+				&__item {
+
+					img {
+						display: block;
+						max-width: 7.8125em;
+						height: 1.5625em;
+					}
+				}
+
+			}
+		}
+	}
 }
