@@ -205,6 +205,29 @@ picture {
 	}
 }
 
+.invisible {
+	visibility: hidden !important;
+	opacity: 0 !important;
+	cursor: default;
+
+	*,
+	&:hover * {
+		cursor: default !important;
+	}
+
+}
+
+.pos {
+
+	&-relative {
+		position: relative;
+	}
+
+	&-absolute {
+		position: absolute;
+	}
+}
+
 .icon-bg-rounded {
 
 	@include square(4em);
