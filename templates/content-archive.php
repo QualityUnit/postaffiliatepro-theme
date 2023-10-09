@@ -187,6 +187,6 @@ set_custom_source( 'blogLazyLoad', 'js', array( 'app_js' ) );
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
 		</ul>
-		<div class="Blog__items__loading hidden"><?php _e( 'Loading', 'ms' ); ?><span>.</span><span>.</span><span>.</span></div>
+		<div class="Blog__items__loading invisible"><?php _e( 'Loading', 'ms' ); ?><span>.</span><span>.</span><span>.</span></div>
 	</div>
 </div>
