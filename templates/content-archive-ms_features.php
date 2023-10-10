@@ -61,24 +61,16 @@ $filter_items     = array(
 				'title'   => __( 'Any', 'ms' ),
 			),
 			array(
-				'value' => 'free',
-				'title' => __( 'Free', 'ms' ),
+				'value' => 'pro',
+				'title' => __( 'Pro', 'ms' ),
 			),
 			array(
-				'value' => 'ticket',
-				'title' => __( 'Small', 'ms' ),
+				'value' => 'ultimate',
+				'title' => __( 'Ultimate', 'ms' ),
 			),
 			array(
-				'value' => 'ticket-chat',
-				'title' => __( 'Medium', 'ms' ),
-			),
-			array(
-				'value' => 'all-inclusive',
-				'title' => __( 'Large', 'ms' ),
-			),
-			array(
-				'value' => 'extensions',
-				'title' => __( 'Extensions', 'ms' ),
+				'value' => 'network',
+				'title' => __( 'Network', 'ms' ),
 			),
 		),
 	),
