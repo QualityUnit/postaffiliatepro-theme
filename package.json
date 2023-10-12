@@ -1,6 +1,6 @@
 {
 	"name": "postaffiliatepro",
-	"version": "1.10.3",
+	"version": "1.11.1",
 	"description": "wordpress theme",
 	"author": "Post Affiliate Pro",
 	"license": "GPL-2.0-only",
@@ -17,16 +17,16 @@
 		"node": ">= 14"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.22",
+		"@babel/core": "^7.23",
 		"@babel/eslint-parser": "^7.22",
-		"@commitlint/cli": "^17.7.1",
+		"@commitlint/cli": "^17.7.2",
 		"@commitlint/config-conventional": "^17.7.0",
 		"@wordpress/eslint-plugin": "^14",
 		"@wordpress/stylelint-config": "^21",
 		"browser-sync": "^2.29",
 		"concurrently": "^8.2",
 		"del": "^6",
-		"eslint": "^8.48",
+		"eslint": "^8.51",
 		"eslint-config-airbnb-base": "^14.2",
 		"gulp": "^4",
 		"gulp-autoprefixer": "^8",
@@ -51,6 +51,6 @@
 	},
 	"dependencies": {
 		"gulp-replace": "^1.1.4",
-		"sass": "^1.66.1"
+		"sass": "^1.68.0"
 	}
 }

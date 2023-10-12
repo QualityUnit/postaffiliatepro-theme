@@ -12,7 +12,7 @@ function add_awards_to_header( $content ) {
 	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
 	libxml_clear_errors();
 	$xpath       = new DOMXPath( $dom );
-	$hero_header = $xpath->query( ".//*[contains(@class, 'heroHeadline--bg')]" );
+	$hero_header = $xpath->query( ".//*[contains(@class, 'heroHeadline--bg') or contains(@class, 'heroBanner__image')]" );
 	$awards      = $dom->createDocumentFragment();
 	$awards->appendXML( '<div class="AwardsHeroHeader"><img class="AwardsHeroHeader__text" src="' . get_template_directory_uri() . '/assets/images/heroHeadline_award_badges_text.svg" alt="Awards" />[awards_small posts=3]</div>' );
 

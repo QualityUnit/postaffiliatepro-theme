@@ -113,7 +113,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 				page += 1; // Iterating through pages to fetch from URL
 
 				// Temporarily showing Loader
-				loader.classList.remove( 'hidden' );
+				loader.classList.remove( 'invisible' );
 
 				// Fetching the blog posts from custom REST API endpoint
 				getPosts(
@@ -125,7 +125,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 					}&page=${ page }`
 				).then( ( data ) => {
 					if ( data ) {
-						loader.classList.add( 'hidden' );
+						loader.classList.add( 'invisible' );
 
 						data.map( ( keys ) => {
 							blogItems.insertAdjacentHTML(
@@ -164,7 +164,7 @@ if ( blogItems && 'IntersectionObserver' in window ) {
 		}
 	);
 
-	blogPostsObserver.observe( document.querySelector( '.Footer' ) ); // Binding observer on the Footer newsletter element
+	blogPostsObserver.observe( loader ); // Binding observer on the Footer newsletter element
 }
 
 const customLazyLoad = () => {

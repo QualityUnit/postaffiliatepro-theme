@@ -291,6 +291,41 @@
 
 				&__label {
 					margin: 0.5em;
+					align-items: center;
+
+					&__tooltip {
+						position: relative;
+
+						.fontello-info {
+							color: $dark-gray;
+							font-size: unset;
+
+							&::before {
+								display: inline-block;
+								font-size: 0.8rem !important;
+							}
+
+						}
+
+
+						&__text {
+
+							&.Tooltip {
+								left: 50%;
+								top: -4.6em;
+								transform: translateX(-50%);
+
+								&::after {
+									transform: rotate(180deg) translateX(-50%);
+									top: 100%;
+									left: 54%;
+								}
+
+							}
+
+						}
+
+					}
 
 					&:first-of-type {
 						background-color: #efe6f8;
@@ -299,11 +334,10 @@
 					&:last-of-type {
 						background-color: $desaturated-green;
 					}
+
 				}
 
-				&:not(.Trial__labels) {
-					display: none;
-				}
+
 			}
 
 			&__item {
