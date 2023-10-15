@@ -11,6 +11,24 @@ $screenshot = do_shortcode( "[urlslab-screenshot alt='" . esc_attr( get_post_met
 $software_id = get_post_meta( get_the_ID(), 'affiliate_software', true );
 $software    = null;
 
+$page_header_logo = array(
+	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg',
+	'alt' => __( 'Directory', 'ms' ),
+);
+if ( has_post_thumbnail() ) {
+	$page_header_logo['src'] = get_the_post_thumbnail_url( 'logo_thumbnail' );
+}
+
+$page_header_args = array(
+	'image' => array(
+		'src' => get_template_directory_uri() . '/assets/images/compact-header-directory.png?ver=' . THEME_VERSION,
+		'alt' => get_the_title(),
+	),
+	'logo'  => $page_header_logo,
+	'title' => get_the_title(),
+	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
+);
+
 if ( 'pap' === $software_id ) {
 	$software = 'Post Affiliate Pro';
 }
@@ -144,80 +162,16 @@ function manager_industry( $manager_industry ) {
 	}
 }
 ?>
-<div class="Post">
-	<div class="Post__header directory">
-		<div class="wrapper__wide"></div>
-	</div>
+<div class="Post Post--sidebar-right">
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
-			<div class="Post__sidebar__buttons">
-				<?php if ( get_post_meta( get_the_ID(), 'program_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'program_url', true ) ) ?>" title="Sign up to <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> affiliate program" class="Button Button--full" target="_blank"
-					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' && ! str_contains( get_post_meta( get_the_ID(), 'program_url', true ), 'postaffiliatepro' ) ) { ?>
-						rel="nofollow"
-					<?php } ?>
-					>
-						<span><?php _e( 'Affiliate Program', 'ms' ); ?></span>
-					</a>
-				<?php } ?>
-
-				<?php if ( get_post_meta( get_the_ID(), 'company_url', true ) ) { ?>
-					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ) ?>" title="Show <?= esc_attr( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> website" class="Button Button--outline" target="_blank"
-					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
-						rel="nofollow"
-					<?php } ?>
-					>
-						<span><?php _e( 'Company Website', 'ms' ); ?></span>
-					</a>
-				<?php } ?>
-			</div>
-
-			<div class="SidebarTOC-wrapper">
-				<div class="SidebarTOC Post__SidebarTOC">
-					<strong class="SidebarTOC__title"><?php _e( 'Contents', 'ms' ); ?></strong>
-					<ul class="SidebarTOC__content">
-						<li class="SidebarTOC__item"><a href="#ap-overview"><?php _e( 'Affiliate Program Overview', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#ap-campaigns"><?php _e( 'Affiliate Program Campaigns', 'ms' ); ?></a></li>
-						<li class="SidebarTOC__item"><a href="#ap-payouts"><?php _e( 'Affiliate Program Commissions & Payouts', 'ms' ); ?></a></li>
-
-						<?php
-						if ( $software ) {
-							?>
-							<li class="SidebarTOC__item"><a href="#ap-software"><?php _e( 'Affiliate Software', 'ms' ); ?></a></li>
-						<?php } ?>
-						<li class="SidebarTOC__item"><a href="#affiliate-manager"><?php _e( 'Affiliate Manager', 'ms' ); ?></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<div class="Post__container wrapper">
 
 		<div class="Signup__sidebar-wrapper">
 			<?= do_shortcode( '[signup-sidebar title="Try our affiliate" free="software"]' ); ?>
 		</div>
 
 		<div class="Post__content">
-			<div class="Post__logo">
-				<?php if ( has_post_thumbnail() ) { ?>
-					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
-				<?php } else { ?>
-					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-custom-post_type.svg" alt="<?php _e( 'Affiliate Program Directory', 'ms' ); ?>">
-				<?php } ?>
-			</div>
-
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="<?php _e( '/affiliate-program-directory/', 'ms' ); ?>"><?php _e( 'Affiliate Program Directory', 'ms' ); ?></a></li>
-					<li><?php the_title(); ?></li>
-				</ul>
-			</div>
-
-			<div class="Post__importantNote">
-				<svg class="icon icon-info-solid"><use xlink:href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icons.svg#info-solid"></use></svg>
-				<p><?php _e( 'Post Affiliate Pro offers a comprehensive list of affiliate contacts. We are not connected to any of the companies listed here. Feel free to contact us if you want us to update any information.', 'ms' ); ?></p>
-			</div>
-
-			<h1><?php the_title(); ?></h1>
 
 			<div class="Content">
 				<?php
