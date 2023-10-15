@@ -11,10 +11,17 @@ if ( get_term_meta( $aff_id, 'aff_name', true ) ) {
 	$aff_name = get_term_meta( $aff_id, 'name', true ); // fallback for previous field
 }
 $bio_hide = get_term_meta( $aff_id, 'bio_hide', true );
-$aff_image = wp_get_attachment_image( get_term_meta( $aff_id, 'picture', true ), 'person_thumbnail', false, array( 'class' => 'AffiliateManager__image' ) );
-if ( ! isset( $aff_image ) || '' === $aff_image ) {
-	$aff_image = get_avatar( get_term_meta( $aff_id, 'email', true ), $size = '145', $default = 'mp', $aff_name, array( 'class' => 'AffiliateManager__image' ) );
+
+// getting a picture or an avatar
+$aff_image_id = get_term_meta($aff_id, 'picture', true);
+$aff_image = wp_get_attachment_image_src($aff_image_id, 'person_thumbnail');
+$aff_image_url = $aff_image ? $aff_image[0] : '';
+
+if (!$aff_image_url) {
+	$aff_email = get_term_meta($aff_id, 'email', true);
+	$aff_image_url = get_avatar_url($aff_email, ['size' => 145, 'default' => 'mp']);
 }
+
 $email     = get_term_meta( $aff_id, 'email', true );
 $phone     = get_term_meta( $aff_id, 'phone', true );
 $linkedin  = get_term_meta( $aff_id, 'linkedin', true );

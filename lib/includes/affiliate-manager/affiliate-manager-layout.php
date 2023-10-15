@@ -1,89 +1,41 @@
 <?php
 	set_custom_source( 'components/SidebarTOC', 'css' );
 	set_custom_source( 'components/SignupSidebar', 'css' );
+
+
+$page_header_args = array(
+	'avatar' => [
+		'src' => $aff_image_url,
+		'alt'	=> single_cat_title('', false),
+ 	],
+	'title' => single_cat_title('', false),
+	'manager_industries' => $manager_industries,
+	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
+	'affiliate_manager' =>  __( 'Affiliate manager', 'ms' ),
+	'contacts_info' => [
+		'phone' 			=> $phone,
+		'email'				=> $email,
+		'linkedin'		=> $linkedin,
+	]
+);
+
+
 ?>
-<div id="category" class="Category AffiliateManager">
-	<div class="AffiliateManager__header">
-		<div class="wrapper__wide">
-			<div class="AffiliateManager__image--wrapper">
-				<?= $aff_image // @codingStandardsIgnoreLine ?>
-			</div>
-			<div class="AffiliateManager__header--content">
-				<strong class="AffiliateManager__manager"><?php _e( 'Affiliate manager', 'ms' ); ?></strong>
-				<h1 class="Post__header--title"><?php single_cat_title(); ?></h1>
 
-				<ul class="AffiliateManagerCard__contacts">
-					<?php
-					if ( isset( $email ) && 'N/A' !== $email && strlen( $email ) > 5 ) {
-						?>
-						<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--email fontello-mail">
-							<a href="mailto:<?= esc_html( $email ); ?>"><?php _e( 'Mail', 'ms' ); ?></a>
-						</li>
-						<?php
-					}
-					?>
-					<?php
-					if ( isset( $phone ) && 'N/A' !== $phone && strlen( $phone ) > 9 ) {
-						?>
-						<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--phone fontello-icon-e806">
-							<a href="tel:<?= esc_html( $phone ); ?>"><?= esc_html( $phone ); ?></a>
-						</li>
-						<?php
-					}
-					?>
-					<?php
-					if ( isset( $linkedin ) && 'N/A' !== $linkedin && strlen( $linkedin ) > 5 ) {
-						?>
-						<li class="AffiliateManagerCard__contact AffiliateManagerCard__contact--linkedin fontello-linkedin-brands">
-							<a href="<?= esc_url( $linkedin ); ?>"><?php _e( 'LinkedIn', 'ms' ); ?></a>
-						</li>
-						<?php
-					}
-					?>
-				</ul>
-			</div>
-		</div>
-	</div>
+<div class="Post Post--sidebar-right">
+	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
-	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
-			<?php
-			if ( is_array( $manager_industries ) ) {
-				?>
-				<div class="Post__sidebar__categories">
-					<h4 class="Post__sidebar__title"><?php _e( 'Industry focus', 'ms' ); ?></h4>
-					<ul class="CategoryTags">
-						<?php
-						foreach ( $manager_industries as $manager_industry ) {
-							?>
-							<li class="CategoryTag">
-								<?= esc_html( strlen( manager_industry( $manager_industry ) ) > 30 ? wp_trim_words( manager_industry( $manager_industry ), 2 ) : manager_industry( $manager_industry ) ); ?>
-								<div class="Tooltip Tooltip--centerTop">
-									<?= esc_html( manager_industry( $manager_industry ) ); ?>
-								</div>
-							</li>
-						<?php } ?>
-					</ul>
-				</div>
-			<?php } ?>
-		</div>
+	<div class="Post__container wrapper">
 
 		<div class="Signup__sidebar-wrapper">
 			<?= do_shortcode( '[signup-sidebar]' ); ?>
 		</div>
 		<div class="Post__content">
-			<div class="Post__content__breadcrumbs">
-				<ul>
-					<li><a href="../"><?php _e( 'Affiliate Manager Directory', 'ms' ); ?></a></li>
-					<li><?php single_cat_title(); ?></li>
-				</ul>
-			</div>
-
 			<div class="Post__importantNote">
 				<svg class="icon icon-info-solid"><use xlink:href="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icons.svg#info-solid"></use></svg>
 				<p><?php _e( 'Post Affiliate Pro offers a comprehensive list of affiliate contacts. We are not connected to any of the companies listed here. Feel free to contact us if you want us to update any information.', 'ms' ); ?></p>
 			</div>
-			
+
 			<div class="Directory__blocks">
 				<h2 class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?php _e( 'Affiliate manager\'s bio', 'ms' ); ?></span></h2>
 					<p><?= $aff_desc; // @codingStandardsIgnoreLine ?></p>

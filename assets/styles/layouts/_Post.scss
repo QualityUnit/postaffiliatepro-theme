@@ -103,6 +103,29 @@ $signupSidebarWidth: 16.875em;
 		}
 	}
 
+	&__importantNote {
+		display: flex;
+		padding: 1em 1.5em;
+		background-color: #fff6d8;
+		border-radius: 1em;
+		color: #65676b;
+
+		svg {
+			width: 1em;
+			height: 1em;
+			flex: 0 0 auto;
+			margin-right: 0.35em;
+			fill: currentcolor;
+		}
+
+		p {
+			font-size: 0.75rem;
+			color: currentcolor;
+			margin: 0;
+		}
+	}
+
+
 	&__content {
 		padding: 0 1.5em;
 		margin: 0 auto;

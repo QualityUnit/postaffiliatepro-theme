@@ -54,6 +54,22 @@ body.compact-header--active {
 		}
 	}
 
+	&__industry__tags {
+
+		.CategoryTags {
+			margin-bottom: 0;
+
+		}
+
+		.AffiliateManager__manager {
+			margin-left: 0.2875em;
+		}
+	}
+
+	&__affiliate__manager__avatar {
+		display: none;
+	}
+
 	&__image {
 		position: relative;
 
@@ -503,6 +519,21 @@ body.compact-header--active {
 
 		&__wrapper {
 			justify-content: space-between;
+		}
+
+		&__affiliate__manager__avatar {
+
+			@include square(12.5em);
+			display: block;
+
+			picture {
+				height: 100%;
+			}
+
+			img {
+				border-radius: 100%;
+				height: 100%;
+			}
 		}
 
 		&__left {
