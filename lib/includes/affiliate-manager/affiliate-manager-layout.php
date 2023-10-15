@@ -4,19 +4,19 @@
 
 
 $page_header_args = array(
-	'avatar' => [
+	'avatar' => array(
 		'src' => $aff_image_url,
-		'alt'	=> single_cat_title('', false),
- 	],
-	'title' => single_cat_title('', false),
+		'alt'   => single_cat_title( '', false ),
+	),
+	'title' => single_cat_title( '', false ),
 	'manager_industries' => $manager_industries,
 	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
-	'affiliate_manager' =>  __( 'Affiliate manager', 'ms' ),
-	'contacts_info' => [
-		'phone' 			=> $phone,
-		'email'				=> $email,
-		'linkedin'		=> $linkedin,
-	]
+	'affiliate_manager' => __( 'Affiliate manager', 'ms' ),
+	'contacts_info' => array(
+		'phone'             => $phone,
+		'email'             => $email,
+		'linkedin'      => $linkedin,
+	),
 );
 
 
