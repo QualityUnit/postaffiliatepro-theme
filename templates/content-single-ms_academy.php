@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'single-post', 'common/splide', 'css' );
 set_source( 'single-post', 'splide', 'js' );
-//set_source( 'single-post', 'sidebar_toc', 'js' );
+set_source( 'single-post', 'sidebar_toc', 'js' );
 set_source( 'single-post', 'custom_lightbox', 'js' );
 
 $current_lang    = apply_filters( 'wpml_current_language', null );
@@ -17,7 +17,7 @@ if ( has_post_thumbnail() ) {
 }
 $page_header_args = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_academy.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact-header-academy.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
 	'logo'  => $page_header_logo,

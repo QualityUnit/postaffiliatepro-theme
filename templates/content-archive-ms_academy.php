@@ -2,8 +2,8 @@
 set_source( 'academy', 'pages/Category', 'css' );
 set_source( 'academy', 'filter', 'js' );
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_academy_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'LiveAgent Academy', 'ms' );
-$page_header_text  = __( 'The only resource about customer service you will ever need.', 'ms' );
+$page_header_title = __( 'Affiliate Marketing Academy', 'ms' );
+$page_header_text  = __( 'Become an affiliate marketing expert', 'ms' );
 if ( is_tax( 'ms_academy_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
@@ -32,7 +32,7 @@ $filter_items     = array(
 $page_header_args = array(
 	'type'   => 'lvl-1',
 	'image'  => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_academy.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact-header-academy.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
 	'title'  => $page_header_title,
