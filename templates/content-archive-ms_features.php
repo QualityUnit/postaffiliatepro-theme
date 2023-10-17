@@ -10,7 +10,7 @@ if ( is_tax( 'ms_features_categories' ) === true ) :
 	$page_header_description = the_archive_description();
 else :
 	$page_header_title       = __( 'Features', 'ms' );
-	$page_header_description = __( 'Get to know all LiveAgent features, that are part of the complex multi-channel help desk software. Described in one place and in depth.', 'ms' );
+	$page_header_description = __( 'Explore and get to know all features of Post Affiliate Pro. Find out out how our advanced affiliate software works, and how you can use each functionality to streamline your success.', 'ms' );
 endif;
 $filter_items_categories = array(
 	array(

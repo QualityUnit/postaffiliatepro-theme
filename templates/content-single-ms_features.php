@@ -10,10 +10,9 @@ $page_header_logo = array(
 if ( has_post_thumbnail() ) {
 	$page_header_logo['src'] = get_the_post_thumbnail_url( $post, 'logo_thumbnail' );
 }
-$page_header_image = 'features-category_' . $header_category . '.png';
 $page_header_args  = array(
 	'image' => array(
-		'src' => get_template_directory_uri() . '/assets/images/' . $page_header_image . '?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact-header-features.png?ver=' . THEME_VERSION,
 		'alt' => get_the_title(),
 	),
 	'logo'  => $page_header_logo,
@@ -38,40 +37,71 @@ if ( $categories && $categories_url ) {
 		$page_header_args['tags'][] = $new_tags;
 	}
 }
-if ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) ) {
-	$new_tags = array(
+
+
+$features_post_id = get_the_ID();
+
+$tag_configurations = array(
+	array(
+		'meta_key' => 'mb_features_mb_features_plan',
 		'title' => __( 'Available in', 'ms' ),
-	);
-	foreach ( get_post_meta( get_the_ID(), 'mb_features_mb_features_plan', true ) as $item ) {
-		if ( 'ticket' === $item ) {
-			$new_tags['list'][] = array(
-				'href'  => $la_pricing_url,
-				'title' => __( 'Small', 'ms' ),
-			);
+		'versions' => array(
+			'pro' => __( 'Post Affiliate Pro', 'ms' ),
+			'ultimate' => __( 'Post Affiliate Pro Ultimate', 'ms' ),
+			'network' => __( 'Post Affiliate Network', 'ms' ),
+		),
+	),
+	array(
+		'meta_key' => 'mb_features_mb_features_size',
+		'title' => __( 'Suitable for', 'ms' ),
+		'versions' => array(
+			'individuals' => __( 'Individuals', 'ms' ),
+			'start-ups' => __( 'Start-ups', 'ms' ),
+			'smbs' => __( 'SMBs', 'ms' ),
+			'enterprise' => __( 'Enterprise', 'ms' ),
+		),
+	),
+	array(
+		'meta_key' => 'mb_features_mb_features_collections',
+		'title' => __( 'Collections', 'ms' ),
+		'versions' => array(
+			'featured' => __( 'Featured', 'ms' ),
+			'popular' => __( 'Popular', 'ms' ),
+			'new' => __( 'New', 'ms' ),
+		),
+	),
+);
+
+foreach ( $tag_configurations as $config ) {
+	$features = get_post_meta( $features_post_id, $config['meta_key'], true );
+
+	if ( $features ) {
+		$new_tags = array(
+			'title' => $config['title'],
+			'list' => get_tags_from_features( $features, $la_pricing_url, $config['versions'] ),
+		);
+
+		if ( ! empty( $new_tags['list'] ) ) {
+			$page_header_args['tags'][] = $new_tags;
 		}
-		if ( 'ticket-chat' === $item ) {
-			$new_tags['list'][] = array(
-				'href'  => $la_pricing_url,
-				'title' => __( 'Medium', 'ms' ),
-			);
-		}
-		if ( 'all-inclusive' === $item ) {
-			$new_tags['list'][] = array(
-				'href'  => $la_pricing_url,
-				'title' => __( 'Large', 'ms' ),
-			);
-		}
-		if ( 'self-hosted' === $item ) {
-			$new_tags['list'][] = array(
-				'href'  => $la_pricing_url,
-				'title' => __( 'Self-Hosted', 'ms' ),
-			);
-		}
-	}
-	if ( isset( $new_tags['list'] ) ) {
-		$page_header_args['tags'][] = $new_tags;
 	}
 }
+
+function get_tags_from_features( $features, $la_pricing_url, $versions ) {
+	$tags = array();
+
+	foreach ( $features as $item ) {
+		if ( isset( $versions[ $item ] ) ) {
+			$tags[] = array(
+				'href' => $la_pricing_url,
+				'title' => $versions[ $item ],
+			);
+		}
+	}
+
+	return $tags;
+}
+
 ?>
 
 <div class="Post Post--sidebar-right" itemscope itemtype="http://schema.org/TechArticle">
