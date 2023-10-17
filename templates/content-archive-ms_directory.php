@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
-$page_header_title = __( 'Customer Service Directory', 'ms' );
-$page_header_text  = __( 'Here at LiveAgent, we often get requests for help from customers of other companies. Although we at LiveAgent do not provide support for their services you can find a list of customer support contacts here. ', 'ms' );
+$page_header_title = __( 'Affiliate Program Directory', 'ms' );
+$page_header_text  = __( 'A directory of companies and affiliate programs', 'ms' );
 if ( is_tax( 'ms_directory_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();

@@ -3,7 +3,7 @@ set_source( 'integrations', 'pages/Category', 'css' );
 set_source( 'integrations', 'filter', 'js' );
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
 $page_header_title = __( 'Integrations', 'ms' );
-$page_header_text  = __( "Maximize the value of your existing help desk software and extend customer satisfaction with LiveAgent's range of integrations, plugins, and apps.", 'ms' );
+$page_header_text  = __( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' );
 if ( is_tax( 'ms_integrations_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
