@@ -1,7 +1,8 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'integrations', 'pages/Category', 'css' );
 set_source( 'integrations', 'filter', 'js' );
-$categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
+$integrations_categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
+$integrations_types              = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_types' ) ), SORT_REGULAR );
 $page_header_title = __( 'Integrations', 'ms' );
 $page_header_text  = __( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' );
 if ( is_tax( 'ms_integrations_categories' ) ) :
@@ -15,67 +16,39 @@ $filter_items_categories = array(
 		'title'   => __( 'Any', 'ms' ),
 	),
 );
-foreach ( $categories as $category ) :
+$filter_items_types = array(
+	array(
+		'checked' => true,
+		'value'   => '',
+		'title'   => __( 'Any', 'ms' ),
+	),
+);
+
+foreach ( $integrations_types as $integrations_type ) :
+	$filter_items_types[] = array(
+		'value' => $integrations_type->slug,
+		'title' => $integrations_type->name,
+	);
+endforeach;
+
+foreach ( $integrations_categories as $integrations_category ) :
 	$filter_items_categories[] = array(
-		'value' => $category->slug,
-		'title' => $category->name,
+		'value' => $integrations_category->slug,
+		'title' => $integrations_category->name,
 	);
 endforeach;
 $filter_items     = array(
 	array(
 		'type'  => 'radio',
-		'name'  => 'collections',
-		'title' => __( 'Collections', 'ms' ),
-		'items' => array(
-			array(
-				'checked' => true,
-				'value'   => '',
-				'title'   => __( 'Any', 'ms' ),
-			),
-			array(
-				'value' => 'featured',
-				'title' => __( 'Featured', 'ms' ),
-			),
-			array(
-				'value' => 'popular',
-				'title' => __( 'Popular', 'ms' ),
-			),
-			array(
-				'value' => 'new',
-				'title' => __( 'New', 'ms' ),
-			),
-		),
+		'name'  => 'category',
+		'title' => __( 'Category', 'ms' ),
+		'items' => $filter_items_categories,
 	),
 	array(
 		'type'  => 'radio',
 		'name'  => 'type',
-		'title' => __( 'Available in', 'ms' ),
-		'items' => array(
-			array(
-				'checked' => true,
-				'value'   => '',
-				'title'   => __( 'Any', 'ms' ),
-			),
-			array(
-				'checked' => true,
-				'value'   => 'pro',
-				'title'   => __( 'Pro', 'ms' ),
-			),
-			array(
-				'value' => 'ultimate',
-				'title' => __( 'Ultimate', 'ms' ),
-			),
-			array(
-				'value' => 'network',
-				'title' => __( 'Network', 'ms' ),
-			),
-		),
-	),
-	array(
-		'type'  => 'radio',
-		'name'  => 'category',
-		'title' => __( 'Category', 'ms' ),
-		'items' => $filter_items_categories,
+		'title' => __( 'Type', 'ms' ),
+		'items' => $filter_items_types,
 	),
 );
 $page_header_args = array(
@@ -93,6 +66,7 @@ $page_header_args = array(
 );
 ?>
 
+
 <div id="category" class="Category">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
@@ -105,37 +79,26 @@ $page_header_args = array(
 					?>
 
 					<?php
-					$collections = '';
-					$data_type   = '';
-					$category    = '';
-
-					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_plan', true ) as $item ) {
-							$data_type .= $item . ' ';
-						}
-
-						$data_type = substr( $data_type, 0, -1 );
-
-					}
-
-					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_collections', true ) ) {
-						foreach ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_collections', true ) as $item ) {
-							$collections .= $item . ' ';
-						}
-
-						$collections = substr( $collections, 0, -1 );
-
-					}
+					$integrations_category_slugs = array();
+					$integrations_type_slugs     = array();
 
 					$categories = get_the_terms( 0, 'ms_integrations_categories' );
+					$types = get_the_terms( 0, 'ms_integrations_types' );
+
 					if ( ! empty( $categories ) ) {
 						foreach ( $categories as $category_item ) {
-							$category_item = array_shift( $categories );
-							$category     .= $category_item->slug;
-							$category     .= ' ';
+							$integrations_category_slugs[] = $category_item->slug;
 						}
 					}
-					$category = substr( $category, 0, -1 );
+
+					if ( ! empty( $types ) ) {
+						foreach ( $types as $type_item ) {
+							$integrations_type_slugs[] = $type_item->slug;
+						}
+					}
+
+					$integrations_category = implode( ' ', $integrations_category_slugs );
+					$integrations_type = implode( ' ', $integrations_type_slugs );
 					?>
 
 					<li class="Category__item
@@ -143,7 +106,7 @@ $page_header_args = array(
 					if ( get_post_meta( get_the_ID(), 'mb_integrations_mb_integrations_pillar', true ) === 'on' ) {
 						echo 'pillar'; }
 					?>
-					" data-collections="<?= esc_attr( $collections ); ?>" data-type="<?= esc_attr( $data_type ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Go to <?php the_title(); ?> integration'])">
+					" data-type="<?= esc_attr( $integrations_type ); ?>" data-category="<?= esc_attr( $integrations_category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Integrations', 'Go to <?php the_title(); ?> integration'])">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 							<?php if ( has_post_thumbnail() ) { ?>
 								<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
