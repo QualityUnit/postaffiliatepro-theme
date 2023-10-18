@@ -2,7 +2,6 @@
 $current_lang    = apply_filters( 'wpml_current_language', null );
 $header_category = get_en_category( 'ms_features', $post->ID );
 do_action( 'wpml_switch_language', $current_lang );
-$la_pricing_url   = __( '/pricing/', 'ms' );
 $page_header_logo = array(
 	'src' => get_template_directory_uri() . '/assets/images/icon-custom-post_type.svg' . THEME_VERSION,
 	'alt' => __( 'Integration', 'ms' ),
@@ -41,10 +40,14 @@ if ( $categories && $categories_url ) {
 
 $features_post_id = get_the_ID();
 
+$pap_pricing_url    = __( '/pricing/', 'ms' );
+$pap_features_url    = __( '/features/', 'ms' );
+
 $tag_configurations = array(
 	array(
 		'meta_key' => 'mb_features_mb_features_plan',
 		'title' => __( 'Available in', 'ms' ),
+		'url' => $pap_pricing_url,
 		'versions' => array(
 			'pro' => __( 'Post Affiliate Pro', 'ms' ),
 			'ultimate' => __( 'Post Affiliate Pro Ultimate', 'ms' ),
@@ -54,6 +57,7 @@ $tag_configurations = array(
 	array(
 		'meta_key' => 'mb_features_mb_features_size',
 		'title' => __( 'Suitable for', 'ms' ),
+		'url' => $pap_features_url,
 		'versions' => array(
 			'individuals' => __( 'Individuals', 'ms' ),
 			'start-ups' => __( 'Start-ups', 'ms' ),
@@ -64,6 +68,7 @@ $tag_configurations = array(
 	array(
 		'meta_key' => 'mb_features_mb_features_collections',
 		'title' => __( 'Collections', 'ms' ),
+		'url' => $pap_features_url,
 		'versions' => array(
 			'featured' => __( 'Featured', 'ms' ),
 			'popular' => __( 'Popular', 'ms' ),
@@ -78,7 +83,7 @@ foreach ( $tag_configurations as $config ) {
 	if ( $features ) {
 		$new_tags = array(
 			'title' => $config['title'],
-			'list' => get_tags_from_features( $features, $la_pricing_url, $config['versions'] ),
+			'list' => get_tags_from_features( $features, $config['url'], $config['versions'] ),  // Předání hodnoty 'url' z $tag_configurations
 		);
 
 		if ( ! empty( $new_tags['list'] ) ) {
@@ -87,13 +92,13 @@ foreach ( $tag_configurations as $config ) {
 	}
 }
 
-function get_tags_from_features( $features, $la_pricing_url, $versions ) {
+function get_tags_from_features( $features, $url, $versions ) {
 	$tags = array();
 
 	foreach ( $features as $item ) {
 		if ( isset( $versions[ $item ] ) ) {
 			$tags[] = array(
-				'href' => $la_pricing_url,
+				'href' => $url,  // Použití hodnoty $url jako 'href'
 				'title' => $versions[ $item ],
 			);
 		}
