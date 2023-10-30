@@ -72,13 +72,13 @@ $page_header_args = array(
 					$thumbnail_class = $pillar_check ? 'Category__item__thumbnail__image' : '';
 					?>
 
-					<li class="Category__item <?= $pillar_class ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Go to <?php the_title(); ?> article'])">
+					<li class="Category__item <?= esc_attr( $pillar_class ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Templates', 'Go to <?php the_title(); ?> article'])">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 							<?php if ( has_post_thumbnail() ) : ?>
 								<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
 							<?php else : ?>
 								<?php if ( $pillar_check ) : ?>
-									<span href="<?php the_permalink(); ?>" class="<?= $thumbnail_class ?>">
+									<span href="<?php the_permalink(); ?>" class="esc_attr( $thumbnail_class );">
 								<?php endif; ?>
 								<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-book.svg" alt="<?php _e( 'Templates', 'ms' ); ?>">
 								<?php if ( $pillar_check ) : ?>

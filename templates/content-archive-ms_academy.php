@@ -71,7 +71,7 @@ $page_header_args = array(
 					$pillar_class = $pillar_check ? 'pillar' : '';
 					?>
 
-					<li class="Category__item <?= $pillar_class ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Go to <?php the_title(); ?> article'])">
+					<li class="Category__item <?= esc_attr( $pillar_class ) ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'Academy', 'Go to <?php the_title(); ?> article'])">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 							<?php if ( has_post_thumbnail() ) : ?>
 								<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
