@@ -1,0 +1,27 @@
+/* stylelint-disable selector-class-pattern */
+
+$featured_items_bg: (
+	"promotional-materials": "features-promotional-bg.png",
+	"reporting": "features-reporting-bg.png",
+	"types-of-commissions": "features-commissions-bg.png",
+	"user-interface": "features-user-interface-bg.png",
+	"tracking-methods": "features-tracking-bg.png",
+	"security": "features-security-bg.png",
+);
+
+@each $className, $image in $featured_items_bg {
+
+	.redesign.Category__item--features.#{$className} {
+
+		.Category__item {
+
+			&__header {
+
+				&::before {
+					background-image: url(../../images/#{$image});
+				}
+			}
+		}
+	}
+}
+

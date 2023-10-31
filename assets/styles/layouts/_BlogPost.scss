@@ -1,29 +1,11 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
-/* stylelint-disable value-keyword-case */
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case */
+
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../components/BlogPostHeader";
 
 .BlogPost {
-
-	&__header {
-
-		@include color(background-color, secondary-background);
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		border-radius: 0;
-		padding: 2em !important;
-		width: 100%;
-
-		@media (min-width: $breakpoint-tablet-landscape) {
-			flex-direction: row;
-		}
-
-		@media (min-width: $breakpoint-desktop) {
-			padding: 3em 4.25em !important;
-			border-radius: $border-radius-16;
-		}
-	}
 
 	&__thumbnail {
 		margin: 0;
@@ -33,8 +15,7 @@
 		height: 10em;
 		margin-bottom: 1.5em;
 
-		img,
-		picture {
+		img {
 			object-fit: cover;
 			object-position: center;
 			width: 100%;
@@ -61,10 +42,6 @@
 		text-transform: uppercase;
 		margin-bottom: 1em;
 
-		span {
-			font-size: 0;
-		}
-
 		a {
 
 			@include color(color, font-color-dark);
@@ -72,7 +49,7 @@
 			font-size: 0.75rem;
 			line-height: 2;
 			letter-spacing: 0.2em;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			text-decoration: none !important;
 
 			+ a {
@@ -130,7 +107,7 @@
 
 					@include color(color, font-color-dark);
 					font-size: 14px;
-					font-weight: 700;
+					font-weight: $font-weight-bold;
 					margin-bottom: 0;
 				}
 
@@ -183,8 +160,7 @@
 		&__avatar {
 			margin: 0.5em 0;
 
-			img,
-			picture {
+			img {
 				width: 1.625rem;
 				height: auto;
 				border-radius: 50%;
@@ -196,7 +172,7 @@
 
 			font-size: 0.875rem;
 			line-height: 1;
-			font-weight: 700;
+			font-weight: $font-weight-bold;
 			margin-bottom: 0;
 		}
 
@@ -237,14 +213,16 @@
 		overflow: hidden;
 
 		&__image {
-			width: 220px;
+			width: 13.5em;
+			flex-shrink: 0;
+			align-self: stretch;
 
-			img,
-			picture {
-				width: auto;
-				height: 200px;
-				max-width: 220px;
-				max-height: 200px;
+			picture,
+			img {
+
+				@include square(100%, !important);
+				object-fit: cover;
+				max-width: auto;
 			}
 		}
 
@@ -255,7 +233,7 @@
 
 				@include color(color, font-color-dark);
 				font-size: 11px;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 				margin-bottom: 0 !important;
 			}
 
@@ -263,7 +241,7 @@
 
 				@include color(color, font-color-dark);
 				font-size: 14px;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 				margin-bottom: 10px !important;
 
 				&:empty {
@@ -287,10 +265,10 @@
 
 		.Content {
 
-			p span.dropcap {
+			> p:first-of-type::first-letter {
 				font-size: 100px;
 				line-height: 75px;
-				font-weight: 700;
+				font-weight: $font-weight-bold;
 				float: left;
 				margin-right: 10px;
 			}
@@ -309,8 +287,7 @@
 
 					&__thumbnail {
 
-						img,
-						picture {
+						img {
 							width: 90px;
 							height: 60px;
 							object-fit: cover;
@@ -324,14 +301,13 @@
 
 						@include color(color, font-color-dark);
 						font-size: 14px;
-						font-weight: 700;
+						font-weight: $font-weight-bold;
 						margin-bottom: 0;
 
 						a {
 
 							@include color(color, font-color-dark);
 							transition: all 0.3s ease;
-							text-decoration: none !important;
 
 							&:active,
 							&:focus,

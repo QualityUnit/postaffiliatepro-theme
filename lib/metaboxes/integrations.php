@@ -44,30 +44,6 @@ $metabox = array(
 			'type'        => 'editor',
 		),
 		array(
-			'id'          => 'mb_integrations_plan',
-			'label'       => 'Available in',
-			'description' => '',
-			'type'        => 'multiselect',
-			'args'        => array(
-				''         => 'Any',
-				'pro'      => 'Post Affiliate Pro',
-				'ultimate' => 'Post Affiliate Pro Ultimate',
-				'network'  => 'Post Affiliate Network',
-			),
-		),
-
-		array(
-			'id'          => 'mb_integrations_collections',
-			'label'       => 'Collections',
-			'description' => '',
-			'type'        => 'multiselect',
-			'args'        => array(
-				'Featured' => 'featured',
-				'Popular'  => 'popular',
-				'New'      => 'new',
-			),
-		),
-		array(
 			'id'          => 'mb_integrations_pillar',
 			'label'       => 'Activate as Pillar page',
 			'description' => '',

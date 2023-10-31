@@ -1,9 +1,10 @@
 /* stylelint-disable selector-class-pattern */
+
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@forward "../components/CategoryHeader";
-@forward "../components/CategorySidebar";
-@forward "../components/CategoryItem";
+@use "../components/CategoryHeader" as *;
+@use "../components/CategorySidebar" as *;
+@use "../components/CategoryItem" as *;
 
 .Category {
 
@@ -13,6 +14,8 @@
 	}
 
 	&__content {
+		position: relative;
+		z-index: 1;
 
 		&__description {
 			font-size: 1.125rem;
@@ -36,7 +39,7 @@
 			&:empty {
 
 				&::before {
-					content: "No results found...";
+					content: "No results found... 😢";
 					display: block;
 				}
 			}
@@ -67,20 +70,21 @@
 
 		&__container {
 			display: flex;
+			align-items: flex-start;
 		}
 
 		&__content {
-
-			&:not(.wide) {
-
-				width: 52.5em;
-				margin-left: auto;
-			}
+			//width: 52.5em;
+			margin-left: auto;
 
 			&__items {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-column-gap: 1.25em;
+
+				&.wider {
+					grid-column-gap: 1.875em;
+				}
 			}
 		}
 
@@ -89,6 +93,21 @@
 
 			&.pillar {
 				grid-column: span 3;
+				column-gap: 5em;
+			}
+		}
+	}
+}
+
+
+@media (min-width: $breakpoint-tablet-landscape) {
+
+	.post-type-archive-ms_features {
+
+		.Category {
+
+			.Category__content__items {
+				column-gap: 30px;
 			}
 		}
 	}

@@ -1,19 +1,17 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
-@forward "../elements/Checklist";
-@forward "../elements/PostTypography";
+@use "../elements/Checklist" as *;
+@use "../elements/PostTypography" as *;
+@use "../components/AuthorCard" as *;
 
 $sidebarWidth: 13.5em;
-$signupSidebarWidth: 18em;
+$signupSidebarWidth: 16.875em;
 
 .Post {
 
 	&__header {
-
-		.Category__header__title {
-			margin-bottom: auto;
-		}
 
 		.wrapper__wide {
 			border-radius: $border-radius-16;
@@ -21,6 +19,18 @@ $signupSidebarWidth: 18em;
 
 			@media (min-width: $breakpoint-tablet) {
 				height: 14.375em;
+			}
+
+			&.has-image {
+				padding: 0;
+				overflow: hidden;
+
+				img,
+				picture {
+
+					@include square(100%);
+					object-fit: cover;
+				}
 			}
 		}
 	}
@@ -34,38 +44,16 @@ $signupSidebarWidth: 18em;
 		border-radius: $border-radius-16;
 		display: none;
 
-		img,
-		picture {
+		img {
 			display: block;
 			max-width: 100%;
 			height: auto;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: absolute;
-			top: -8.5em;
-		}
-	}
-
-	&__buttons {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		.Button {
-			margin: 0;
-			margin-bottom: 1em;
-		}
-
-		@media (min-width: $breakpoint-tablet-small) {
 			display: block;
-
-			.Button {
-				margin: 1.5em 1em 0 0;
-			}
+			position: absolute;
+			top: -8em;
 		}
 	}
 
@@ -75,7 +63,7 @@ $signupSidebarWidth: 18em;
 		&__buttons {
 			margin-bottom: 2em;
 
-			.Button {
+			.Button[class] {
 				width: 100%;
 				padding: 0 1em;
 				text-align: center;
@@ -84,8 +72,20 @@ $signupSidebarWidth: 18em;
 
 				+ .Button {
 					margin-top: 0.75em;
-					margin-left: 0;
 				}
+			}
+		}
+
+		&__social {
+			display: inline-block;
+			margin-bottom: 1.5em;
+
+			+ a {
+				margin-left: 0.75em;
+			}
+
+			&::after {
+				display: none !important;
 			}
 		}
 
@@ -98,16 +98,8 @@ $signupSidebarWidth: 18em;
 
 	.Signup__sidebar-wrapper {
 
-		@media (min-width: $breakpoint-tablet) {
-			position: relative;
-			left: -1.5em;
-		}
-	}
-
-	&__container {
-
-		@media (min-width: $breakpoint-tablet) {
-			margin-top: 1em;
+		@media (min-width: $breakpoint-desktop-box) {
+			padding-right: 0.25em;
 		}
 	}
 
@@ -115,12 +107,12 @@ $signupSidebarWidth: 18em;
 		display: flex;
 		padding: 1em 1.5em;
 		background-color: #fff6d8;
-		border-radius: $border-radius-16;
-		color: $dark-gray;
+		border-radius: 1em;
+		color: #65676b;
 
 		svg {
-
-			@include square(1em);
+			width: 1em;
+			height: 1em;
 			flex: 0 0 auto;
 			margin-right: 0.35em;
 			fill: currentcolor;
@@ -133,21 +125,35 @@ $signupSidebarWidth: 18em;
 		}
 	}
 
+
 	&__content {
 		padding: 0 1.5em;
+		margin: 0 auto;
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 			width: calc(100% - #{$signupSidebarWidth} + 3em);
-			max-width: 40.625em;
-			padding: 0;
-			margin: 0 auto;
+			padding: 0 5em;
 
 			.Content {
 
 				> {
 
+					.Post__m__negative {
+
+						&--small {
+							margin-left: -1.5em;
+							margin-right: -1.5em;
+						}
+
+						&--mid {
+							margin-left: -2.5em;
+							margin-right: -2.5em;
+						}
+					}
+
 					.Post__m__negative,
 					.BlockDiscover,
+					.BlockQuote--discover,
 					.wide,
 					.wp-block-embed,
 					.youtube__loader {
@@ -163,6 +169,26 @@ $signupSidebarWidth: 18em;
 							display: flex;
 							justify-content: center;
 							flex-wrap: wrap;
+							margin-left: -3.125em;
+							margin-right: -3.125em;
+							overflow: hidden;
+							border-radius: $border-radius-16;
+
+							&.alignleft {
+								float: left;
+								margin: -0.25em 1em 0 0;
+								border-radius: 0;
+
+								img {
+									max-width: 3em;
+									border: 0;
+								}
+
+								+ h3 {
+									clear: none;
+									margin-bottom: 1.5em;
+								}
+							}
 
 							figcaption {
 								width: 100%;
@@ -179,9 +205,9 @@ $signupSidebarWidth: 18em;
 			}
 		}
 
-		@media (min-width: ($breakpoint-desktop-box - 80px)) {
+		@media (min-width: $breakpoint-desktop-box) {
 			width: calc(100% - #{$sidebarWidth} - #{$signupSidebarWidth});
-			margin-left: calc(16.25em - #{$sidebarWidth});
+			padding: 0 7.5em;
 
 			.Content {
 
@@ -189,12 +215,139 @@ $signupSidebarWidth: 18em;
 
 					.Post__m__negative,
 					.BlockDiscover,
+					.BlockQuote--discover,
 					.wide,
 					.wp-block-embed,
 					.youtube__loader {
-						margin-left: -3em;
-						margin-right: -3em;
+						margin-left: -6em;
+						margin-right: -6em;
 					}
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+
+		.Button {
+			margin: 1em 1em 0 0;
+		}
+
+		@media (max-width: ($breakpoint-mobile - 1px)) {
+
+			.Button {
+				width: 100%;
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+
+	&--sidebar-right {
+		$wider-margin: 0;
+		$wider-margin-sm: 0;
+		$content-width: 60%;
+		$sidebar-width: 33%;
+
+		.Post {
+
+			&__sidebar,
+			&__content {
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+
+			&__content {
+
+				&__whatis-headline {
+					padding-left: 1.125em;
+					padding-right: 1.125em;
+					margin-left: -$wider-margin-sm;
+					margin-right: -$wider-margin-sm;
+
+					@media (min-width: $breakpoint-desktop-box) {
+						margin-left: -$wider-margin;
+						margin-right: -$wider-margin;
+					}
+				}
+
+				.Content {
+
+					> {
+
+						:first-child {
+							margin-top: 0 !important;
+						}
+
+						.Post__m__negative,
+						.Post__m__negative--small,
+						.Post__m__negative--mid,
+						.BlockDiscover,
+						.BlockQuote--discover,
+						.wide,
+						.wp-block-embed,
+						.youtube__loader,
+						.Signup__form--simple {
+							margin-left: -$wider-margin-sm;
+							margin-right: -$wider-margin-sm;
+
+							@media (min-width: $breakpoint-desktop-box) {
+								margin-left: -$wider-margin;
+								margin-right: -$wider-margin;
+							}
+						}
+
+						figure {
+
+							&.size-full,
+							&.wide,
+							&.size-large {
+								margin-left: -$wider-margin-sm;
+								margin-right: -$wider-margin-sm;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Post {
+
+				&__container {
+					display: flex;
+					justify-content: space-between;
+				}
+
+				&__sidebar {
+					order: 2;
+					width: $sidebar-width;
+				}
+
+				&__content {
+					order: 1;
+					width: $content-width;
+				}
+			}
+
+			&.Research .Post__content {
+				width: 100%;
+
+				.Research--wrapper {
+					width: $content-width;
+				}
+			}
+		}
+
+		@media (max-width: ($breakpoint-tablet-landscape - 1)) {
+
+			.Post {
+
+				&__sidebar {
+					display: none;
 				}
 			}
 		}

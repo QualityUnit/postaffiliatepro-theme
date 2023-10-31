@@ -5,7 +5,7 @@ $metabox = array(
 	'id'         => 'sidebar',
 	'capability' => 'edit_posts',
 	'name'       => 'Post Settings',
-	'post_type'  => array( 'post', 'page', 'ms_academy', 'ms_alternatives', 'ms_features', 'ms_glossary', 'ms_integrations', 'ms_templates' ),
+	'post_type'  => array( 'page', 'ms_alternatives' ),
 	'priority'   => 'high',
 	'args'       => array(
 

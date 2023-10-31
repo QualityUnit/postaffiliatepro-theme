@@ -2,70 +2,72 @@
 	const query = document.querySelector.bind( document );
 	const queryAll = document.querySelectorAll.bind( document );
 
-	const recountVisible = () => {
+	function recountVisible() {
 		// ReCount
 		setTimeout( () => {
-			const listItem = queryAll( '[data-listitem]' );
-			const sublist = queryAll( '[data-sublist]' );
+			const listItem = queryAll( '.list li' );
 			const recount =
-				listItem.length - queryAll( "[data-list] [data-listitem][style*='none']" ).length;
+				listItem.length - queryAll( ".list li[style*='none']" ).length;
 			const counter = query( '#countPosts' );
 			if ( counter ) {
 				counter.textContent = recount;
 			}
-			if ( sublist.length ) {
-				sublist.forEach( ( list ) => {
-					const sublistItems = list.querySelectorAll( '[data-listitem]' );
-					const sublistItemsHidden = list.querySelectorAll( "[data-listitem][style*='none']" );
-					if ( sublistItems.length === sublistItemsHidden.length ) {
-						list.classList.add( 'hidden' );
-					}
-					if ( sublistItems.length !== sublistItemsHidden.length ) {
-						list.classList.remove( 'hidden' );
-					}
-				} );
-			}
 		}, 25 );
-	};
+	}
 
-	const checkSameItems = ( val, name ) => {
-		const sameFilterItemsType = document.querySelectorAll( `[data-filteritem][name="${ name }"]` );
-		const sameFilterItems = document.querySelectorAll( `[data-filteritem][name="${ name }"][value="${ val }"]` );
+	function filterMenuTitleChange( item ) {
+		const clWrap = 'FilterMenu';
+		const clTitle = 'FilterMenu__title';
+		const title = item.getAttribute( 'title' );
+		const elMain = item.closest( '.' + clWrap );
+		if ( elMain && title !== null ) {
+			const elTitle = elMain.querySelector( '.' + clTitle );
+			if ( elTitle ) {
+				elTitle.textContent = title;
+			}
+		}
+	}
 
-		sameFilterItemsType.forEach( ( item ) => {
-			item.classList.remove( 'checked' );
-		} );
-		sameFilterItems.forEach( ( item ) => {
-			item.classList.add( 'checked' );
-		} );
-	};
-
-	if ( query( '[data-list]' ) !== null ) {
-		const list = query( '[data-list]' );
-		const listItems = list.querySelectorAll( '[data-listitem]' );
-		const pillars = list.querySelectorAll( '[data-listitem].pillar' );
+	if ( query( '.list' ) !== null ) {
+		const list = query( '.list' );
+		const listItems = list.querySelectorAll( 'li' );
+		const pillars = list.querySelectorAll( 'li.pillar' );
 		const countItems = listItems.length;
 		const filterItems = queryAll(
-			'[data-filteritem]'
+			'.filter-item'
 		);
-		const search = query( "[data-searchfield] input[type='search']" );
+		const search = query( "input[type='search']" );
+		const searchReset = query( "input[type='search']+.search-reset" );
+		const searchResetActive = 'search-reset--active';
 		const { hash } = window.location;
 		const activeFilter = {
 			collections: '',
 			plan: '',
 			size: '',
 			category: '',
+			region: '',
 			favourite: '',
 			type: '',
 		};
 
 		// Count
 		const count =
-			queryAll( '[data-list] [data-listitem]' ).length -
-			queryAll( "[data-list] [data-listitem][style*='none']" ).length;
+			queryAll( '.list li' ).length -
+			queryAll( ".list li[style*='none']" ).length;
 		if ( query( '.Category__content__description' ) ) {
-			query( '.Category__content__description span:not(#filter-show)' ).textContent = count;
-			query( '.Category__content__description #filter-show' ).classList.add( 'show' );
+			query( '.Category__content__description span' ).textContent = count;
+			query( '.Category__content__description div' ).classList.add(
+				'show'
+			);
+		}
+
+		function resultsReset() {
+			searchReset.classList.remove( searchResetActive );
+			list.classList.remove( 'empty' );
+			list.querySelectorAll( 'li' ).forEach( ( element ) => {
+				const el = element;
+				el.style = null;
+			} );
 		}
 
 		// Adds numbered classes to each featured article so we can assign image to it
@@ -84,9 +86,7 @@
 					const val = filterItem.value;
 					const name = filterItem.getAttribute( 'name' );
 
-					checkSameItems( val, name );
-
-					if ( name === 'category' || name === 'type' ) {
+					if ( name === 'category' ) {
 						window.history.pushState( {}, '', `#${ val }` );
 						if ( val.length === 0 ) {
 							window.history.pushState( {}, '', ' ' );
@@ -111,6 +111,9 @@
 			const dataCategory = listItem.dataset.category
 				? listItem.dataset.category
 				: '';
+			const dataRegion = listItem.dataset.region
+				? listItem.dataset.region
+				: '';
 			const dataFavourite = listItem.dataset.favourite
 				? listItem.dataset.favourite
 				: '';
@@ -120,9 +123,16 @@
 				const filterItem = e;
 
 				filterItem.addEventListener( 'change', () => {
-					function regex( activeFilterCategory ) {
+					function regexCategory( activeFilterCategory ) {
 						if ( activeFilterCategory !== '' ) {
-							return new RegExp( `${ activeFilterCategory }` );
+							return new RegExp( ` ?${ activeFilterCategory } ?` );
+						}
+						return '';
+					}
+
+					function regexRegion( activeFilterRegion ) {
+						if ( activeFilterRegion !== '' ) {
+							return new RegExp( ` ?${ activeFilterRegion } ?` );
 						}
 						return '';
 					}
@@ -148,7 +158,10 @@
 						! dataPlan.includes( activeFilter.plan ) ||
 						! dataSize.includes( activeFilter.size ) ||
 						! dataCategory.match(
-							regex( activeFilter.category )
+							regexCategory( activeFilter.category )
+						) ||
+						! dataRegion.match(
+							regexRegion( activeFilter.region )
 						) ||
 						! dataFavourite.includes( activeFilter.favourite ) ||
 						! dataType.includes( activeFilter.type )
@@ -162,37 +175,70 @@
 		// URL filter
 		if ( hash.length ) {
 			const filteredHash = hash.replace( '#', '' );
-			filterItems.forEach( ( element ) => {
-				const filterItem = element;
-				const val = filterItem.value;
-				const name = filterItem.getAttribute( 'name' );
-
-				if ( filteredHash === val ) {
-					filterItem.checked = true;
-
-					activeFilter[ name ] = val;
-					checkSameItems( val, name );
-					recountVisible();
-				}
-			} );
 
 			listItems.forEach( ( element ) => {
 				const listItem = element;
 				const dataCategory = listItem.dataset.category
 					? listItem.dataset.category
 					: '';
-				const dataType = listItem.dataset.type
-					? listItem.dataset.type
-					: '';
 
-				if (
-					! dataCategory.includes( activeFilter.category ) ||
-					! dataType.includes( activeFilter.type )
-				) {
+				if ( ! dataCategory.includes( filteredHash ) ) {
 					listItem.style.display = 'none';
 				}
 			} );
+
+			filterItems.forEach( ( element ) => {
+				const filterItem = element;
+				const val = filterItem.value;
+
+				if ( filteredHash === val ) {
+					filterItem.checked = true;
+					filterMenuTitleChange( filterItem );
+					recountVisible();
+				}
+			} );
 		}
+
+		// Search
+		search.addEventListener( 'keyup', () => {
+			const val = search.value.toLowerCase();
+
+			listItems.forEach( ( element ) => {
+				const listItem = element;
+				const title = listItem
+					.querySelector( '.item-title' )
+					.textContent.toLowerCase();
+				const excerpt = listItem
+					.querySelector( '.item-excerpt' )
+					.textContent.toLowerCase();
+
+				if (
+					listItem.style.display === 'none' &&
+					! listItem.classList.contains( 'pillar' )
+				) {
+					listItem.style.display = 'block';
+				}
+
+				if (
+					listItem.style.display === 'none' &&
+					listItem.classList.contains( 'pillar' )
+				) {
+					listItem.style.display = 'flex';
+				}
+
+				if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
+					listItem.style.display = 'none';
+				}
+
+				recountVisible();
+			} );
+		} );
+
+		searchReset.addEventListener( 'click', () => {
+			search.value = '';
+			resultsReset();
+			recountVisible();
+		} );
 
 		// Empty
 		filterItems.forEach( ( element ) => {
@@ -200,7 +246,7 @@
 
 			filterItem.addEventListener( 'change', () => {
 				if (
-					list.querySelectorAll( "[data-listitem][style*='display: none']" )
+					list.querySelectorAll( "li[style*='display: none']" )
 						.length === countItems
 				) {
 					list.classList.add( 'empty' );
@@ -210,75 +256,23 @@
 			} );
 		} );
 
-		// Search
-		if ( search ) {
-			search.addEventListener( 'keyup', () => {
-				const val = search.value.toLowerCase();
-
-				listItems.forEach( ( element ) => {
-					const listItem = element;
-					let title = listItem.querySelector( '[data-listitem-title]' );
-					let excerpt = listItem.querySelector( '[data-listitem-excerpt]' );
-
-					if ( title ) {
-						title = title.textContent.toLowerCase();
-					}
-
-					if ( excerpt ) {
-						excerpt = excerpt.textContent.toLowerCase();
-					}
-
-					if (
-						listItem.style.display === 'none' &&
-					! listItem.classList.contains( 'pillar' )
-					) {
-						listItem.style.display = 'block';
-					}
-
-					if (
-						listItem.style.display === 'none' &&
-					listItem.classList.contains( 'pillar' )
-					) {
-						listItem.style.display = 'flex';
-					}
-
-					if ( title && excerpt ) {
-						if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
-							listItem.style.display = 'none';
-						}
-					}
-
-					if ( ! excerpt ) {
-						if ( ! title.includes( val ) ) {
-							listItem.style.display = 'none';
-						}
-					}
-
-					recountVisible();
-				} );
-			} );
-
-			search.addEventListener( 'keyup', () => {
-				if (
-					list.querySelectorAll( "[data-listitem][style*='display: none']" ).length ===
+		search.addEventListener( 'keyup', () => {
+			if (
+				list.querySelectorAll( "li[style*='display: none']" ).length ===
 				countItems
-				) {
-					list.classList.add( 'empty' );
-				} else {
-					list.classList.remove( 'empty' );
-				}
-			} );
-			search.addEventListener( 'input', () => {
-				if ( search.value === '' ) {
-					list.classList.remove( 'empty' );
-					list.querySelectorAll( '[data-listitem]' ).forEach( ( element ) => {
-						const el = element;
-						el.style = null;
-					} );
-				}
-
+			) {
+				list.classList.add( 'empty' );
+			} else {
+				list.classList.remove( 'empty' );
+			}
+		} );
+		search.addEventListener( 'input', () => {
+			if ( search.value === '' ) {
+				resultsReset();
+			} else {
+				searchReset.classList.add( searchResetActive );
 				recountVisible();
-			} );
-		}
+			}
+		} );
 	}
 } )();

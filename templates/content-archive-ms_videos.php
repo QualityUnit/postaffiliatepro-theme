@@ -47,11 +47,11 @@ $filter_items     = array(
 $page_header_args = array(
 	'type'   => 'lvl-1',
 	'image'  => array(
-		'src' => get_template_directory_uri() . '/assets/images/compact_header_webinars.png?ver=' . THEME_VERSION,
+		'src' => get_template_directory_uri() . '/assets/images/compact-header-videos.png?ver=' . THEME_VERSION,
 		'alt' => $page_header_title,
 	),
 	'title'  => $page_header_title,
-	'text'   => do_shortcode( '[urlslab-generator id="6"]' ),
+	'text'   => do_shortcode( '[urlslab-generator id="4"]' ),
 	'search' => array(
 		'type' => 'academy',
 	),
