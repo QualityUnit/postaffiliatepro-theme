@@ -22,7 +22,7 @@ $page_header_args = array(
 	),
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => get_the_excerpt( $post ),
+	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
 	'toc'   => true,
 );
 $current_id       = apply_filters( 'wpml_object_id', $post->ID, 'ms_academy' );
