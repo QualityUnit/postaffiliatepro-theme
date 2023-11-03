@@ -15,19 +15,21 @@ $page_header_args = array(
 	'text'  => $page_header_text,
 );
 
-$glossaryposts = get_posts(
+$directoryposts = get_posts(
 	array(
 		'post_type'   => 'ms_directory',
 		'post_status' => 'publish',
 		'numberposts' => -1,
 		'order'       => 'ASC',
 		'orderby'     => 'title',
+		'suppress_filters' => false,
+		'wpml_language' => ICL_LANGUAGE_CODE,
 	)
 );
 
 $index = array();
-foreach ( $glossaryposts as $glossarypost ) {
-	$posttitle = $glossarypost->post_title;
+foreach ( $directoryposts as $directorypost ) {
+	$posttitle = $directorypost->post_title;
 	$first_character = substr( $posttitle, 0, 1 );
 
 	if ( ( ctype_upper( $first_character ) || ctype_digit( $first_character ) ) && ! in_array( $first_character, $index ) ) {
@@ -62,9 +64,9 @@ foreach ( $glossaryposts as $glossarypost ) {
 						<ul>
 							<?php
 
-							foreach ( $glossaryposts as $glossarypost ) {
-								$postid          = $glossarypost->ID;
-								$posttitle       = $glossarypost->post_title;
+							foreach ( $directoryposts as $directorypost ) {
+								$postid          = $directorypost->ID;
+								$posttitle       = $directorypost->post_title;
 								$first_character = substr( $posttitle, 0, 1 );
 
 								if ( $first_character === $index_item ) {
