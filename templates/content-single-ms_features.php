@@ -125,6 +125,8 @@ function get_tags_from_features( $features, $url, $versions ) {
 			<div class="Content" itemprop="articleBody">
 				<?php the_content(); ?>
 
+				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
+
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
