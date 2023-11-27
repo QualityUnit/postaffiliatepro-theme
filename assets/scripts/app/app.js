@@ -478,18 +478,6 @@
 		} );
 	}
 
-	/* Open an External Links in a New Tab */
-	const excludes = [ 'postaffiliatepro' ];
-
-	queryAll( 'a[href^=http]' ).forEach( ( element ) => {
-		if (
-			! element.href.includes( excludes[ 0 ] ) &&
-			! element.href.includes( excludes[ 1 ] )
-		) {
-			element.setAttribute( 'target', '_blank' );
-		}
-	} );
-
 	/* Adding class to Boxes in illustration Block if more or same than 4 */
 	const boxes = document.querySelectorAll( '.Boxes' );
 
