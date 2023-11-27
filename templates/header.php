@@ -1,7 +1,7 @@
 <header class="Header urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Header__logo urlslab-skip-lazy">
-			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Logo'])">
+			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software">
 				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>">
 			</a>
 		</div>
@@ -41,15 +41,15 @@
 
 				<div class="Header__navigation__buttons">
 					<a href="<?= esc_url( $post_slug ); ?><?php _e( '/call/', 'ms' ); ?>"
-					   class="Button Button--outline" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Book a consult'])">
+					   class="Button Button--outline">
 						<span><?php _e( 'Book a consult', 'ms' ); ?></span>
 					</a>
-					<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Free Trial'])">
+					<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 					</a>
 				</div>
 
-				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Login'])">
+				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 					<span class="tooltip"><?php _e( 'PostAffiliatePro Login', 'ms' ); ?></span>
 				</a>

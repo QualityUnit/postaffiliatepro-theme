@@ -42,13 +42,13 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 					<input class="filter-item" type="radio" value="" name="category" checked />
 					<div class="Research__filter--item__inn">
 						<div class="Research__filter--item__icon"><?= $category_icon;  // @codingStandardsIgnoreLine ?></div>
-						<span onclick="_paq.push(['trackEvent', 'Activity', 'research', 'Filter - Category - Any'])"><?php _e( 'All', 'ms' ); ?></span>
+						<span><?php _e( 'All', 'ms' ); ?></span>
 					</div>
 				</label>
 				<?php
 				$categories = array_unique( get_categories( array( 'taxonomy' => 'ms_research_categories' ) ), SORT_REGULAR );
 				foreach ( $categories as $category ) {
-					
+
 					$category_id       = $category->term_id;
 					$category_icon_url = preg_match( '/uploads.+?\.svg/', htmlentities( $category->description ), $has_icon );
 					if ( isset( $has_icon[0] ) ) {
@@ -65,7 +65,7 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 						>
 						<div class="Research__filter--item__inn">
 							<div class="Research__filter--item__icon">
-								<?php 
+								<?php
 								if ( isset( $category_icon_uploaded ) ) {
 									include_once $category_icon_uploaded;
 								}
@@ -74,7 +74,7 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 								}
 								?>
 							</div>
-							<span onclick="_paq.push(['trackEvent', 'Activity', 'research', 'Filter - Category - <?= esc_html( $category->name ); ?>'])"><?= esc_html( $category->name ); ?></span>
+							<span><?= esc_html( $category->name ); ?></span>
 						</div>
 					</label>
 				<?php } ?>
@@ -114,10 +114,10 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 
 					?>
 
-					<li class="Box--article Box--article__padded col col-2 <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-category="<?= esc_attr( $category ); ?>" onclick="_paq.push(['trackEvent', 'Activity', 'research', 'Go to <?php the_title(); ?> research'])">
+					<li class="Box--article Box--article__padded col col-2 <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-category="<?= esc_attr( $category ); ?>">
 						<a href="<?= esc_url( get_the_post_thumbnail_url() ); ?>" data-lightbox="gallery">
 							<div class="Box--article__image--center block text-align-center">
-								<?php 
+								<?php
 								if ( has_post_thumbnail() ) {
 									the_post_thumbnail( 'blog_post_thumbnail' );
 								}

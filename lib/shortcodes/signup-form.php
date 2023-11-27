@@ -65,7 +65,7 @@ function ms_signup_form( $atts ) {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 

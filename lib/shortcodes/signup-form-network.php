@@ -67,12 +67,12 @@ function ms_signup_network_form( $atts ) {
 			<div data-id="signUpError"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Signup Form', 'Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
 					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 				</div>
 
 				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
+					<div class="animation">1
 						<div class="one spin-one"></div>
 						<div class="two spin-two"></div>
 						<div class="three spin-one"></div>

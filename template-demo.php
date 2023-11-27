@@ -5,7 +5,7 @@
 ?>
 
 <div class="FullScreenOld">
-	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FullScreenOld__logo" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Demo Logo'])">
+	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="FullScreenOld__logo">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo_white.svg" alt="<?php bloginfo( 'name' ); ?>">
 	</a>
 

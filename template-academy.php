@@ -27,7 +27,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 			</div>
 
 			<div class="Post__sidebar__buttons">
-				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Page', 'Sign Up Trial'])">
+				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 					<span><?php _e( 'Try It Now', 'ms' ); ?></span>
 				</a>
 			</div>
@@ -62,7 +62,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 				<?php the_content(); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Page', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Try It Now', 'ms' ); ?></span>
 					</a>
 				</div>

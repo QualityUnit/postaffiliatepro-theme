@@ -14,7 +14,7 @@ function ms_login() {
 			</div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Login'])">
+				<div data-id="createButtonmain" class="Button Button--full">
 					<span><?php _e( 'Login', 'ms' ); ?></span>
 				</div>
 			</div>
@@ -28,7 +28,7 @@ function ms_login() {
 		<h3><?php _e( 'Hoops!', 'ms' ); ?></h3>
 		<p><?php _e( "Looks like we couldn't find your Post Affiliate Pro account. No worries, we can help you.", 'ms' ); ?></p>
 
-		<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Login', 'Create new account'])">
+		<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 			<span><?php _e( 'Create new account', 'ms' ); ?></span>
 		</a>
 	</div>

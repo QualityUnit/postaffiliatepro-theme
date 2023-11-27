@@ -36,9 +36,9 @@ $page_header_args = array(
 				<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 
 				<div class="Post__buttons">
-					<a href="<?php _e( '/affiliate-marketing-glossary/', 'ms' ); ?>" class="Button Button--outline Button--back" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Back to Glossary'])"><span><?php _e( 'Back to Glossary', 'ms' ); ?></span></a>
+					<a href="<?php _e( '/affiliate-marketing-glossary/', 'ms' ); ?>" class="Button Button--outline Button--back"><span><?php _e( 'Back to Glossary', 'ms' ); ?></span></a>
 
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Glossary', 'Sign Up Trial'])">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 					</a>
 				</div>

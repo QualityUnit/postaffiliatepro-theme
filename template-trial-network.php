@@ -7,7 +7,7 @@
 ?>
 
 <div class="Trial FullScreen">
-	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top" onclick="_paq.push(['trackEvent', 'Activity', 'Header', 'Trial Logo'])">
+	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
 	</a>
 

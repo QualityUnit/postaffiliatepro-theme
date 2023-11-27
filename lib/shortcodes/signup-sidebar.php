@@ -52,7 +52,7 @@ function ms_signup_sidebar( $atts ) {
 			<div data-id="signUpError" class="signUpError"></div>
 
 			<div class="Signup__sidebar__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Start your free account', 'Sidebar Signup']); ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
+				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
 					<span><?= esc_html( $atts['button'] ); ?></span>
 				</div>
 

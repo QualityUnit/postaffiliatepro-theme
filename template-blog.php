@@ -75,7 +75,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 					<strong class="BlogPost__share-sidebar__title"><?php _e( 'Try Post Affiliate Pro for free', 'ms' ); ?></strong>
 					<img class="BlogPost__share-sidebar__trial__icon" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/icon-star_funny.svg" alt="Try Post Affiliate Pro for free">
 				</div>
-				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Page', 'Sign Up Trial'])">
+				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 					<span><?php _e( 'Get Started', 'ms' ); ?></span>
 				</a>
 			</div>
