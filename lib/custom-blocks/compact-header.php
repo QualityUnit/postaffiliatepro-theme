@@ -58,7 +58,7 @@
 				$buttons          = $args['buttons'] ?? array();
 				$tags             = $args['tags'] ?? array();
 				$contacts_info       = $args['contacts_info'] ?? array();
-				$manager_industries = $args['manager_industries'] ?? array();
+				$manager_industries = ! empty( $args['manager_industries'] ) ? $args['manager_industries'] : array();
 				$toc_items         = $args['toc']['items'] ?? null;
 				$image_src         = $args['image']['src'] ?? null;
 				$image_alt          = $args['image']['alt'] ?? null;
@@ -79,7 +79,10 @@
 					?>
 
 					<!-- Affiliate industry tags -->
-					<div class="compact-header__industry__tags">
+					<?php
+					if ( is_tax( 'ms_directory_affiliate_manager' ) ) { 
+						?>
+						<div class="compact-header__industry__tags">
 						<ul class="CategoryTags">
 							<?php
 							foreach ( $manager_industries as $manager_industry ) {
@@ -87,6 +90,7 @@
 								<li class="CategoryTag">
 									<?= esc_html( strlen( manager_industry( $manager_industry ) ) > 30 ? wp_trim_words( manager_industry( $manager_industry ), 2 ) : manager_industry( $manager_industry ) ); ?>
 									<div class="Tooltip Tooltip--centerTop">
+
 										<?= esc_html( manager_industry( $manager_industry ) ); ?>
 									</div>
 								</li>
@@ -96,7 +100,7 @@
 							<strong class="AffiliateManager__manager"><?= esc_html( $affiliate_manager ); ?></strong>
 						<?php endif; ?>
 					</div>
-
+					<?php } ?>
 
 					<!-- Title -->
 					<?php if ( $post_title ) : ?>
