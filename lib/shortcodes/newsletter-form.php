@@ -15,7 +15,7 @@ function ms_newsletter_form() {
 				<input type="text" name="b_18d6ab6093f8e6cdbbd783635_d980471481" tabindex="-1" value="">
 			</div>
 
-			<button type="submit" name="subscribe" class="Button Button--full" onclick="_paq.push(['trackEvent', 'Activity', 'Newsletter Footer', 'Signup'])">
+			<button type="submit" name="subscribe" class="Button Button--full">
 				<span><?php _e( 'Subscribe', 'ms' ); ?></span>
 			</button>
 		</form>
