@@ -156,6 +156,7 @@ body:not(.elementor-editor-active) {
 	}
 
 	@media (min-width: $breakpoint-tablet-small) {
+
 		iframe {
 			min-height: 20em;
 		}
