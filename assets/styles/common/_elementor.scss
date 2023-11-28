@@ -140,6 +140,10 @@ body:not(.elementor-editor-active) {
 	max-width: 100% !important;
 	max-height: 100%;
 
+	iframe {
+		min-height: 20em;
+	}
+
 	justify-content: center !important;
 
 	.elementor-widget-container {
