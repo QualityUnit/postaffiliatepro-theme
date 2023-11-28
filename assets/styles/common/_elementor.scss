@@ -141,7 +141,7 @@ body:not(.elementor-editor-active) {
 	max-height: 100%;
 
 	iframe {
-		min-height: 20em;
+		min-height: 12em;
 	}
 
 	justify-content: center !important;
@@ -153,6 +153,11 @@ body:not(.elementor-editor-active) {
 	@media (max-width: $breakpoint-desktop) {
 		padding-left: 0;
 		padding-right: 0;
+	}
+	@media (min-width: $breakpoint-tablet-small) {
+		iframe {
+			min-height: 20em;
+		}
 	}
 }
 
