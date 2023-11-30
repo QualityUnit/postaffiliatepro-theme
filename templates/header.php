@@ -55,7 +55,7 @@
 				</a>
 			</div>
 
-			<div class="Header__flags">
+			<div class="Header__flags urlslab-skip-all">
 				<?php
 				if ( is_active_sidebar( 'header_flags' ) ) :
 					dynamic_sidebar( 'header_flags' );
