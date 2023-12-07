@@ -42,6 +42,7 @@ function components_imports( $content ) {
 		'MerchantAffiliate' => 'components/MerchantAffiliate',
 		'RequestDemo'       => 'layouts/tests/RequestDemo',
 		'ScheduleDemo'      => 'layouts/tests/ScheduleDemo',
+		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
 	);
 
 	if ( ! $content ) {
