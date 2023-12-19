@@ -1,3 +1,26 @@
+<?php
+	header_banners(
+		'pricing',
+		array(
+			array(
+				'title'    => __( 'Help Desk of the Future', 'ms' ),
+				'subtitle' => __( 'Turn Support into Superpower with LiveAgent!', 'ms' ),
+				'class'    => 'LiveAgent',
+				'image'    => 'AnnouncementBar-LiveAgent.png',
+				'bg'       => 'AnnouncementBar-LiveAgent_bg.jpg',
+				'url'      => __( 'https://www.liveagent.com/', 'ms' ),
+			),
+			// array(
+			// 	'title'    => __( 'Unleash the Website Wizard', 'ms' ),
+			// 	'subtitle' => __( 'Experience the power of the URLsLab plugin!', 'ms' ),
+			// 	'class'    => 'URLslab',
+			// 	'image'    => 'AnnouncementBar-Urlslab.png',
+			// 	'bg'       => 'AnnouncementBar-Urlslab_bg.jpg',
+			// 	'url'      => __( 'https://www.urlslab.com/', 'ms' ),
+			// ),
+		)
+	)
+	?>
 <header class="Header urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Header__logo urlslab-skip-lazy">
