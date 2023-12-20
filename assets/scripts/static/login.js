@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars, prefer-rest-params, consistent-return, new-cap */
-/* global $, jQuery, grecaptcha, localStorage */
+/* global $, jQuery, grecaptcha */
 /* global textValidating, textInvalidField, textEmpty, productId, textFailedDomain, textValidDomain, textRedirecting */
 
 ( function main() {
