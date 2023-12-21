@@ -39,6 +39,7 @@ define( 'THEME_VERSION', '1.12.9' );
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes
 		'functions/shortcodes.php', // Import ShortCodes
+		'functions/create-language-menu.php', // Function for generate languages
 	);
 
 	foreach ( $theme_includes as $file ) {
