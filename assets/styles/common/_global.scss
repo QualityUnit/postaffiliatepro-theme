@@ -226,6 +226,14 @@ picture {
 	&-absolute {
 		position: absolute;
 	}
+
+	&-fixed {
+		position: fixed;
+	}
+
+	&-sticky {
+		position: sticky;
+	}
 }
 
 .icon-bg-rounded {
