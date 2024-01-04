@@ -80,7 +80,7 @@
 
 					<!-- Affiliate industry tags -->
 					<?php
-					if ( is_tax( 'ms_directory_affiliate_manager' ) ) { 
+					if ( is_tax( 'ms_directory_affiliate_manager' ) ) {
 						?>
 						<div class="compact-header__industry__tags">
 						<ul class="CategoryTags">
@@ -255,12 +255,12 @@
 					<!-- Image and Logo -->
 					<?php if ( $image_src ) : ?>
 						<div class="compact-header__image">
-							<img src="<?= esc_url( $image_src ); ?>" alt="<?= esc_attr( $image_alt ); ?>" class="compact-header__img">
+							<img src="<?= esc_url( $image_src ); ?>" alt="<?= esc_attr( $image_alt ); ?>" class="compact-header__img" fetchpriority="high">
 							<?php if ( $logo_src ) : ?>
 								<div class="compact-header__logo">
 									<img src="<?= esc_url( $logo_src ); ?>"
 											 alt="<?= esc_attr( $logo_alt ); ?>"
-											 class="compact-header__logo-img">
+											 class="compact-header__logo-img" fetchpriority="high">
 								</div>
 							<?php endif; ?>
 						</div>
