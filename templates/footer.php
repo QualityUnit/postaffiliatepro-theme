@@ -63,9 +63,9 @@ if ( is_page() ) {
 				<div class="Footer__middle__contacts">
 					<div class="Footer__middle__title h5"><?php _e( 'Sales contacts', 'ms' ); ?></div>
 					<ul>
-						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '18888429508', 'ms' ); ?>" title="<?php _e( 'LiveAgent\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-842-9508', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'LiveAgent\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-978-591-6509', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '18888429508', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-842-9508', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-978-591-6509', 'ms' ); ?></a></li>
 					</ul>
 				</div>
 
