@@ -22,6 +22,11 @@ add_action(
 			wp_enqueue_style( 'elementor-layout', get_template_directory_uri() . '/assets/dist/Elementor' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 
+		if ( is_archive( 'affiliate-manager.php' ) ) {
+			wp_enqueue_style( 'signup-sidebar', get_template_directory_uri() . '/assets/dist/components/SignupSidebar' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			wp_enqueue_style( 'post', get_template_directory_uri() . '/assets/dist/pages/post' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+
 		if ( ! is_page_template( 'elementor.php' ) ) {
 			wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/dist/app' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 			wp_enqueue_style( 'wp_block-library', includes_url() . 'css/dist/block-library/style' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
