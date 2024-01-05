@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.12.9' );
+define( 'THEME_VERSION', '1.12.13' );
 
 /**
 	* Includes
@@ -39,6 +39,7 @@ define( 'THEME_VERSION', '1.12.9' );
 		'functions/taxonomies.php', // Import Custom Taxonomies
 		'functions/metaboxes.php', // Import Metaboxes
 		'functions/shortcodes.php', // Import ShortCodes
+		'functions/header-banners.php', // Import ShortCodes
 		'functions/create-language-menu.php', // Function for generate languages
 	);
 

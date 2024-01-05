@@ -53,25 +53,27 @@ add_action(
 	'wp_print_styles',
 	function() {
 		if ( ! is_user_logged_in() ) {
-				wp_dequeue_style( 'font-awesome' );
-				wp_dequeue_style( 'font-awesome-5-all' );
-				wp_dequeue_style( 'font-awesome-4-shim' );
-				wp_deregister_style( 'elementor-icons-shared-0' );
-				wp_deregister_style( 'elementor-icons' );
-				wp_deregister_style( 'elementor-icons-fa-brands' );
-				wp_deregister_style( 'elementor-animations' );
-				wp_deregister_style( 'wp-nux' );
-				wp_deregister_style( 'wpml-legacy-horizontal-list-0' );
+			wp_dequeue_style( 'font-awesome' );
+			wp_dequeue_style( 'font-awesome-5-all' );
+			wp_dequeue_style( 'font-awesome-4-shim' );
+			wp_dequeue_style( 'wpml-blocks' );
+			wp_deregister_style( 'elementor-icons-shared-0' );
+			wp_deregister_style( 'elementor-icons' );
+			wp_deregister_style( 'elementor-icons-fa-brands' );
+			wp_deregister_style( 'elementor-animations' );
+			wp_deregister_style( 'wp-nux' );
+			wp_deregister_style( 'wpml-legacy-horizontal-list-0' );
 
-				// Call for Roboto font internal Elementor
-				wp_dequeue_style( 'google-fonts-1' );
+			// Call for Roboto font internal Elementor
+			wp_dequeue_style( 'google-fonts-1' );
 
-				// Scripts
-				wp_dequeue_script( 'font-awesome-4-shim' );
-				wp_deregister_script( 'elementor-sticky' );
-				wp_deregister_script( 'elementor-frontend' );
-				wp_deregister_script( 'wpml-xdomain-data' );
-				wp_deregister_script( 'wpml-xdomain-data-js-extra' );
+
+			// Scripts
+			wp_dequeue_script( 'font-awesome-4-shim' );
+			wp_deregister_script( 'elementor-sticky' );
+			wp_deregister_script( 'elementor-frontend' );
+			wp_deregister_script( 'wpml-xdomain-data' );
+			wp_deregister_script( 'wpml-xdomain-data-js-extra' );
 		}
 	},
 	999
