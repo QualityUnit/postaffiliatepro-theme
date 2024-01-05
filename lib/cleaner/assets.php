@@ -56,6 +56,7 @@ add_action(
 				wp_dequeue_style( 'font-awesome' );
 				wp_dequeue_style( 'font-awesome-5-all' );
 				wp_dequeue_style( 'font-awesome-4-shim' );
+				wp_dequeue_style('wpml-blocks');
 				wp_deregister_style( 'elementor-icons-shared-0' );
 				wp_deregister_style( 'elementor-icons' );
 				wp_deregister_style( 'elementor-icons-fa-brands' );
@@ -65,6 +66,7 @@ add_action(
 
 				// Call for Roboto font internal Elementor
 				wp_dequeue_style( 'google-fonts-1' );
+
 
 				// Scripts
 				wp_dequeue_script( 'font-awesome-4-shim' );
