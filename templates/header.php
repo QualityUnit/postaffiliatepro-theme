@@ -25,7 +25,10 @@
 	<div class="wrapper">
 		<div class="Header__logo urlslab-skip-lazy">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software">
-				<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>">
+				<picture>
+					<source srcset="<?= esc_url( get_template_directory_uri() ) . '/assets/images/pap-logo-small.svg'; ?>" media="(max-width: 415px)">
+					<img src="<?= esc_url( get_template_directory_uri() ) . '/assets/images/pap-logo.svg' ?>" alt="<?php bloginfo( 'name' ); ?>">
+				</picture>
 			</a>
 		</div>
 
