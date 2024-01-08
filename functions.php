@@ -40,6 +40,7 @@ define( 'THEME_VERSION', '1.12.13' );
 		'functions/metaboxes.php', // Import Metaboxes
 		'functions/shortcodes.php', // Import ShortCodes
 		'functions/header-banners.php', // Import ShortCodes
+		'functions/create-language-menu.php', // Function for generate languages
 	);
 
 	foreach ( $theme_includes as $file ) {
