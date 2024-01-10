@@ -31,5 +31,6 @@ use QualityUnit\Wrapper;
 	wp_footer();
 	include_once( 'base-scripts.php' );
 ?>
+<script src="https://cdn.debugbear.com/FBNOx6j1XNbJ.js" async></script>
 </body>
 </html>
