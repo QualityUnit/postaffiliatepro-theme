@@ -85,6 +85,5 @@ function ms_languages( $atts ) {
 		</div>
 		<?php
 		return ob_get_clean();
-
 }
 add_shortcode( 'languages', 'ms_languages' );

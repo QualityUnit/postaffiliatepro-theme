@@ -139,5 +139,3 @@ function register_integration_post() {
 }
 
 add_action( 'rest_api_init', 'register_integration_post' );
-
-
