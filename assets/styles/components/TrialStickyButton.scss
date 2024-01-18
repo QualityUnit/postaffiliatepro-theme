@@ -44,6 +44,11 @@
 		padding: 12px 18px 12px 60px;
 		border-radius: 100px;
 		cursor: pointer;
+		display: flex;
+		align-items: center;
+		svg {
+			@include square(0.625em);
+		}
 	}
 
 	@media (max-width: $breakpoint-iphone-old) {

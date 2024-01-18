@@ -419,6 +419,6 @@ if ( show_demo_bar() !== false ) {
 
 <div class="trial__sticky__button">
 	<a href="<?= esc_url( '/trial/' ) ?>"><?= esc_html( 'Start Free Trial', 'ms' )?></a>
-	<span class="trial__sticky__button--close">x</span>
+	<span class="trial__sticky__button--close"><svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg></span>
 </div>
 
