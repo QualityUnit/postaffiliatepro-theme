@@ -5,7 +5,7 @@ no-descending-specificity, scss/at-extend-no-missing-placeholder */
 @use "../elements/Typography" as *;
 @forward "../elements/FakeChatButton";
 
-$links: 8;
+$links: 4;
 $minWidth: 15.125em;
 
 $colors: (
@@ -23,12 +23,10 @@ $colors: (
 
 	&__button {
 		all: unset;
-		display: flex;
-		align-items: center;
 		position: relative;
 		padding: 0.625em 1em 0.625em 1.5em;
 		font-family: $font-secondary;
-		font-weight: 600;
+		font-weight: $font-weight-semi;
 		color: $white;
 		background: $primary;
 		box-shadow: 0 0.25em 2em rgba($black-real, 0.12);
@@ -66,7 +64,7 @@ $colors: (
 
 			&__wrap {
 
-				@include square(3.5em);
+				@include square(2.5em);
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -78,6 +76,10 @@ $colors: (
 				transform: translateZ(10px);
 				background-color: $white;
 				box-shadow: 0 0.25em 1em 0 rgba($black-real, 0.15);
+
+				@media (min-width: $breakpoint-tablet) {
+					@include square(3.5em);
+				}
 			}
 		}
 
@@ -162,9 +164,18 @@ $colors: (
 			border-radius: $border-radius-16;
 			bottom: calc(100% + 1em);
 			right: 0;
-			transition: all 0.25s;
 			text-align: right;
 			padding: 0.75em;
+			background-color: $white;
+			filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
+			max-height: 0;
+
+			overflow: hidden;
+			transition: max-height 0.4s ease-out, visibility 0.4s ease-out, opacity 0.2s ease-out;
+			visibility: hidden;
+			opacity: 0;
+			display: unset !important;
+
 
 			&::before,
 			&::after {
@@ -179,23 +190,13 @@ $colors: (
 				left: 0;
 				bottom: 0;
 				border-radius: 0 0 $border-radius-16 $border-radius-16;
-				transition: opacity 0.15s $links * 0.075s;
 				opacity: 0;
 			}
 
-			&::after {
-
-				@include posZero;
-				bottom: 0.9em;
-				z-index: -1;
-				border-radius: $border-radius-16 $border-radius-16 0 0;
-				transform: scaleY(0);
-				transform-origin: 50% bottom;
-				transition: transform 0.25s 0.35s;
-				filter: drop-shadow(0 0.25em 1.375em rgba($black-real, 0.12));
-			}
-
 			&.visible {
+				max-height: 800px;
+				visibility: visible;
+				opacity: 1;
 
 				&::before {
 					opacity: 1;
@@ -214,18 +215,12 @@ $colors: (
 						&--close,
 						&--text {
 							opacity: 1;
-							transition: opacity 0.35s $links * 0.075s;
 						}
 
 						&--link {
 							opacity: 1;
 						}
 
-						@for $i from 1 to $links {
-							&--item:nth-of-type(#{$i}) .ContactUs__menu--link {
-								transition-delay: ($links - $i) * 0.085 + s;
-							}
-						}
 					}
 				}
 			}
@@ -233,6 +228,11 @@ $colors: (
 
 		&--item {
 			margin-bottom: 0.625em;
+
+			&.top {
+				position: relative;
+				z-index: 2;
+			}
 		}
 
 		&--link[class] {
@@ -242,15 +242,15 @@ $colors: (
 			justify-content: flex-end;
 			padding: 0.25em 1em 0.25em 0.25em;
 			border-radius: $border-radius-16;
-			font-weight: 600;
+			font-weight: $font-weight-semi;
 			font-family: $font-secondary;
 			color: $black-real;
+			text-decoration: none;
 			opacity: 0;
 			transform: translateZ(10px);
 			transition: all 0.25s 0.15s;
 			z-index: 1;
 			cursor: pointer;
-			text-decoration: none !important;
 
 			&::after {
 				content: "";
@@ -283,12 +283,6 @@ $colors: (
 				}
 			}
 
-			@for $i from 1 to $links {
-				.ContactUs__menu--item:nth-of-type(#{$i}) & {
-					transition-delay: $i * 0.05 + s;
-				}
-			}
-
 			&.chat[class] {
 
 				.circleRollButton.circleRollButton[class],
@@ -318,6 +312,10 @@ $colors: (
 						top: 0;
 						right: 0;
 					}
+
+					@media (min-width: $breakpoint-tablet) {
+						transform: scale(0.8615);
+					}
 				}
 
 				> div[id] > div {
@@ -339,7 +337,6 @@ $colors: (
 			> div:not(.fakeChatButton) {
 
 				@include square(2.5em);
-				filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 				margin-left: 1em;
 
 				@media (min-width: $breakpoint-tablet) {
@@ -377,7 +374,7 @@ $colors: (
 		&--close,
 		&--text {
 			opacity: 0;
-			transition-delay: 0;
+			transition-delay: 0s;
 		}
 	}
 }
