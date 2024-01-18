@@ -78,6 +78,7 @@ $colors: (
 				box-shadow: 0 0.25em 1em 0 rgba($black-real, 0.15);
 
 				@media (min-width: $breakpoint-tablet) {
+
 					@include square(3.5em);
 				}
 			}

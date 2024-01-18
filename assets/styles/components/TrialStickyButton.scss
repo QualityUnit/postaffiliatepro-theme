@@ -46,7 +46,9 @@
 		cursor: pointer;
 		display: flex;
 		align-items: center;
+
 		svg {
+
 			@include square(0.625em);
 		}
 	}
