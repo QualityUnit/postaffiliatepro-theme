@@ -130,4 +130,3 @@ function videos_category_redirect() {
 	}
 }
 add_action( 'template_redirect', 'videos_category_redirect' );
-
