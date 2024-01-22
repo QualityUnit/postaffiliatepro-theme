@@ -1,0 +1,77 @@
+/* stylelint-disable selector-class-pattern */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.urlslab-video-transcript {
+
+	&-inn {
+		position: relative;
+		border: 1px solid $light-gray;
+		border-radius: 10px;
+		background-color: #fff;
+		overflow: hidden;
+
+		[data-deactivator] {
+			display: none;
+		}
+
+		&.active {
+
+			p.urlslab-video-transcript-text {
+				max-height: none;
+			}
+
+			[data-activator] {
+				display: none;
+			}
+
+			[data-deactivator] {
+				display: block;
+			}
+		}
+	}
+
+	&-text {
+		padding: 1.5em 1.5em 4.5em;
+		margin-bottom: -0.01em;
+		max-height: 18em;
+		overflow-y: scroll;
+		position: relative;
+		text-align: justify;
+
+		br {
+			display: none;
+		}
+	}
+
+	&-activator,
+	&-deactivator {
+		position: absolute;
+		left: 50%;
+		bottom: 1em;
+		padding: 0.5em 2em;
+		text-align: center;
+		cursor: pointer;
+		border-radius: 24px;
+		transform: translateX(-50%);
+		background-color: $dark-gray;
+		color: $white;
+		width: max-content;
+
+		&::after {
+			content: "\e821";
+			display: inline-block;
+			font-family: fontello, sans-serif;
+			margin-left: 0.5em;
+
+		}
+	}
+
+	&-deactivator {
+
+		&::after {
+			transform: scaleY(-1);
+		}
+	}
+}
