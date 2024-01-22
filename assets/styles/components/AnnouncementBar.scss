@@ -138,15 +138,19 @@ body {
 			.Announcement__bar {
 
 				.wrapper {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
 
 					.Announcement__bar__col__right {
-						margin-top: auto;
-						display: block;
-						width: 50%;
+						display: flex;
+						flex-direction: column;
+
+						img {
+							margin-top: auto;
+						}
 					}
 
 					.Announcement__bar__col__left {
-						width: 50%;
 
 						h2 {
 							font-size: 2.125em;
@@ -214,4 +218,3 @@ body {
 		}
 	}
 }
-
