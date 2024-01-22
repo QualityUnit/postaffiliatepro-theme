@@ -17,6 +17,10 @@ body {
 		left: 0;
 		top: 0;
 
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			display: none;
+		}
+
 		.Announcement__bar {
 
 			@include square(100%);
@@ -26,6 +30,8 @@ body {
 			opacity: 0;
 			text-decoration: none;
 			transition: opacity 0.5s;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
 
 			&.active {
 				opacity: 1;
@@ -132,14 +138,15 @@ body {
 			.Announcement__bar {
 
 				.wrapper {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
 
 					.Announcement__bar__col__right {
+						margin-top: auto;
 						display: block;
+						width: 50%;
 					}
 
 					.Announcement__bar__col__left {
+						width: 50%;
 
 						h2 {
 							font-size: 2.125em;
@@ -160,17 +167,13 @@ body {
 	}
 
 	.announcement--active {
-		padding-top: calc($Announcement_bar_height_mobile + 5.625em) !important;
 
-		.Header {
-			top: $Announcement_bar_height_mobile;
-			animation: top 0.3s ease;
-		}
-
-		@media (min-width: $breakpoint-mobile ) {
+		@media (min-width: $breakpoint-tablet) {
+			padding-top: calc($Announcement_bar_height_mobile + 5.625em) !important;
 
 			.Header {
 				top: $Announcement_bar_height;
+				animation: top 0.3s ease;
 
 				.sub-menu {
 					top: calc($Announcement_bar_height + 4.5em);
@@ -189,19 +192,22 @@ body {
 
 	&.logged-in {
 
-		#app {
+		@media (min-width: $breakpoint-tablet) {
 
-			&.announcement--active {
+			#app {
 
-				.Announcement__bars__slider {
-					top: 1.85em;
-				}
+				&.announcement--active {
 
-				.Header {
-					top: calc($Announcement_bar_height + 1.4375em);
+					.Announcement__bars__slider {
+						top: 1.85em;
+					}
 
-					.sub-menu {
-						top: calc($Announcement_bar_height + 4.5em + 1.4375em);
+					.Header {
+						top: calc($Announcement_bar_height + 1.4375em);
+
+						.sub-menu {
+							top: calc($Announcement_bar_height + 4.5em + 1.4375em);
+						}
 					}
 				}
 			}
