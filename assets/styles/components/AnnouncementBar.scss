@@ -89,7 +89,7 @@ body {
 						@include square(100%);
 
 						object-fit: contain;
-						object-position: left;
+						object-position: left bottom;
 						overflow: visible;
 					}
 				}
