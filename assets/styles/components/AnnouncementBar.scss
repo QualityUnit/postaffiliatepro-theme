@@ -84,10 +84,11 @@ body {
 				.Announcement__bar__col__right {
 					display: none;
 
-					img {
+					> img,
+					> picture {
 
 						@include square(100%);
-
+						margin-top: auto;
 						object-fit: contain;
 						object-position: left bottom;
 						overflow: visible;
@@ -144,10 +145,6 @@ body {
 					.Announcement__bar__col__right {
 						display: flex;
 						flex-direction: column;
-
-						img {
-							margin-top: auto;
-						}
 					}
 
 					.Announcement__bar__col__left {
