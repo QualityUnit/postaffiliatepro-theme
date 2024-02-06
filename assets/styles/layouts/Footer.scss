@@ -29,18 +29,23 @@
 
 	color: $black;
 	padding: em(110) 0 em(20) 0;
-	margin-top: em(100);
 	background-color: $lightest-gray;
 	background-image: url(../../images/footer-background-vector.svg);
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	background-size: contain;
 
-	@media (max-width: $breakpoint-mobile) {
-		padding-top: em(60);
-		margin-top: em(60);
+	body:not(.home) & {
+		margin-top: em(100);
+
+		@media (max-width: $breakpoint-mobile) {
+			margin-top: em(60);
+		}
 	}
 
+	@media (max-width: $breakpoint-mobile) {
+		padding-top: em(60);
+	}
 }
 
 /* ------------------------------- FOOTER TOP ------------------------------- */

@@ -20,5 +20,5 @@ while ( have_posts() ) :
 			</div>
 		</div>
 	<?php } ?>
-
+	<?php echo do_shortcode( '[good-hands-redesign]' ); ?>
 <?php endwhile; ?>
