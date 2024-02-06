@@ -15,7 +15,7 @@ function remove_old_goodhands( $content ) {
 
 
 	foreach ( $blocks as $block ) {
-		$block->parentNode->removeChild($block);
+		$block->parentNode->removeChild( $block ); // @codingStandardsIgnoreLine
 	}
 
 	$dom->removeChild( $dom->doctype );
