@@ -1,12 +1,43 @@
 <?php
+// Removing old shortcode block
+function remove_old_goodhands( $content ) {
+	if ( ! $content ) {
+		return $content;
+	}
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$dom->loadHTML( mb_convert_encoding( $content, 'HTML-ENTITIES', 'UTF-8' ) );
+	libxml_clear_errors();
+	$xpath       = new DOMXPath( $dom );
+	$block_class = 'Reviews';
+	$blocks      = get_nodes( $xpath, $block_class );
+
+
+	foreach ( $blocks as $block ) {
+		$block->parentNode->removeChild( $block ); // @codingStandardsIgnoreLine
+	}
+
+	$dom->removeChild( $dom->doctype );
+	$content = $dom->saveHtml();
+	$content = str_replace( '<html><body>', '', $content );
+	$content = str_replace( '</body></html>', '', $content );
+	return $content;
+}
+add_filter( 'the_content', 'remove_old_goodhands', 9999 );
+
 
 function ms_good_hands( $atts ) {
+	return;
+}
+
+function ms_good_hands_redesign( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'clients' => 0,
 		),
 		$atts,
-		'good-hands'
+		'good-hands-redesign'
 	);
 
 	ob_start();
@@ -89,3 +120,4 @@ function ms_good_hands( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'good-hands', 'ms_good_hands' );
+add_shortcode( 'good-hands-redesign', 'ms_good_hands_redesign' );
