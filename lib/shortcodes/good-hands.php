@@ -16,7 +16,7 @@ function ms_good_hands( $atts ) {
 		<div class="wrapper">
 			<div class="GoodHands__text">
 				<h3><?php _e( 'You will be<br/>in Good Hands!', 'ms' ); ?></h3>
-				<p><?php _e( 'Join our community of happy clients and provide excellent customer support with PostAffiliate Pro.', 'ms' ); ?></p>
+				<p><?php _e( 'Join our community of happy clients and provide excellent customer support with Post Affiliate Pro.', 'ms' ); ?></p>
 
 				<div class="Buttons">
 					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
