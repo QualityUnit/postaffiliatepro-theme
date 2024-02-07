@@ -19,6 +19,11 @@ while ( have_posts() ) :
 				<?php echo do_shortcode( '[urlslab-related-resources related-count="6" show-image="true" show-summary="true"]' ); ?>
 			</div>
 		</div>
-	<?php } ?>
-	<?php echo do_shortcode( '[good-hands-redesign]' ); ?>
+		<?php } ?>
+		
+	<?php
+	if ( ! is_page( array( 'login' ) ) ) {
+		echo do_shortcode( '[good-hands-redesign]' );
+	}
+	?>
 <?php endwhile; ?>
