@@ -1,6 +1,6 @@
 <?php // @codingStandardsIgnoreLine
-$page_header_title = __( 'Help Desk Software Glossary', 'ms' );
-$page_header_text  = __( 'If you are just getting started with help desk software or customer service in general, you might have a problem with all those new words. We have put together complete list of customer service terminology.', 'ms' );
+$page_header_title = __( 'Affiliate Marketing Glossary', 'ms' );
+$page_header_text  = __( 'If you are just starting out with affiliate software or affiliate marketing, you might struggle with all the new terminology. We have compiled a complete list of affiliate marketing terms.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
