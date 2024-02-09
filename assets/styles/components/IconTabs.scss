@@ -1,4 +1,3 @@
-/* stylelint-disable selector-class-pattern, no-descending-specificity */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -17,7 +16,7 @@
 		letter-spacing: 0.12em;
 	}
 
-	> .elementor-container > .elementor-row {
+	> .elementor-container {
 		flex-direction: column;
 
 		> .elementor-column {
@@ -121,7 +120,7 @@
 
 	&__content {
 
-		@include boxBackground($img-path:"../../images/",$color:"primary");
+		@include boxBackground($img-path: "../../images/", $color: "primary");
 		border-radius: $border-radius-16;
 		overflow: hidden;
 
@@ -137,18 +136,16 @@
 			}
 		}
 
-		> .elementor-column-wrap {
+		> .elementor-widget-wrap {
 
-			> .elementor-widget-wrap {
-				display: flex;
-				flex-wrap: nowrap;
-				align-items: stretch;
-				transform: translateX(0);
-				transition: transform 0.5s;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: stretch;
+			transform: translateX(0);
+			transition: transform 0.5s;
 
-				> * {
-					flex: 1 0 100%;
-				}
+			> * {
+				flex: 1 0 100%;
 			}
 		}
 
