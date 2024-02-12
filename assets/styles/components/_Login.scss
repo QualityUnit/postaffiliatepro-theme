@@ -7,7 +7,8 @@
 	.wrapper {
 		max-width: 57em !important;
 
-		> .elementor-column-wrap > .elementor-widget-wrap {
+		> .elementor-column-wrap > .elementor-widget-wrap,
+		> .elementor-widget-wrap {
 			position: relative;
 			display: block !important;
 			z-index: 2;
@@ -42,7 +43,8 @@
 				background-size: contain;
 			}
 
-			>.elementor-column-wrap > .elementor-widget-wrap {
+			>.elementor-column-wrap > .elementor-widget-wrap,
+			> .elementor-widget-wrap {
 				padding: 5em 7.25em !important;
 			}
 
@@ -225,7 +227,7 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-tablet-landscape - 1px) {
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
 		display: block;
 		width: 100%;
 		text-align: center;
