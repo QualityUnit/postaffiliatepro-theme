@@ -17,7 +17,7 @@
 		letter-spacing: 0.12em;
 	}
 
-	> .elementor-container > .elementor-row {
+	> .elementor-container {
 		flex-direction: column;
 
 		> .elementor-column {
@@ -137,18 +137,16 @@
 			}
 		}
 
-		> .elementor-column-wrap {
+		> .elementor-widget-wrap {
 
-			> .elementor-widget-wrap {
-				display: flex;
-				flex-wrap: nowrap;
-				align-items: stretch;
-				transform: translateX(0);
-				transition: transform 0.5s;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: stretch;
+			transform: translateX(0);
+			transition: transform 0.5s;
 
-				> * {
-					flex: 1 0 100%;
-				}
+			> * {
+				flex: 1 0 100%;
 			}
 		}
 
