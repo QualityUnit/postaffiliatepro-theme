@@ -232,6 +232,7 @@ function show_demo_bar() {
 		'/security-privacy-policy',
 		'/bug-bounty-program',
 		/* DE */ '/testversion/',
+		'/probephase/',
 		'/preise/',
 		'/ueber-uns/',
 		'/buero-in-new-york/',
