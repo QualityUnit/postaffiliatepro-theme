@@ -65,7 +65,7 @@ if ( is_page() ) {
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '18888429508', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-842-9508', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-978-591-6509', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/15084695208?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-508-469-5208', 'ms' ); ?></a></li>
 					</ul>
 				</div>
 
@@ -97,7 +97,7 @@ if ( is_page() ) {
 							</a>
 						</li>
 						<li>
-							<a href="https://wa.me/19785916509?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank"
+							<a href="https://wa.me/15084695208?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." target="_blank"
 								 title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>" rel="nofollow noopener">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-whatsapp' ); ?>"></use>
