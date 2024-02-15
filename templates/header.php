@@ -98,6 +98,7 @@
 				</a>
 			</div>
 
+			<!-- URLSLAB-SKIP-REPLACE-START -->
 			<div class="Header__flags urlslab-skip-all">
 				<?php
 				if ( is_active_sidebar( 'header_flags' ) ) :
@@ -105,6 +106,7 @@
 				endif;
 				?>
 			</div>
+			<!-- URLSLAB-SKIP-REPLACE-END -->
 		</div>
 
 	</div>

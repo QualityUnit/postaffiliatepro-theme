@@ -15,5 +15,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
+	<!-- URLSLAB-SKIP-REPLACE-START -->
 	<?php wp_head(); ?>
+	<!-- URLSLAB-SKIP-REPLACE-END -->
 </head>
