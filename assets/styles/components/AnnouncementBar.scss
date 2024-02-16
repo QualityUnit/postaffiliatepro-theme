@@ -84,7 +84,7 @@ body {
 				.Announcement__bar__col__right {
 					display: none;
 
-					> img,
+					img,
 					> picture {
 
 						@include square(100%);
@@ -92,6 +92,10 @@ body {
 						object-fit: contain;
 						object-position: left bottom;
 						overflow: visible;
+					}
+
+					> picture {
+						display: flex;
 					}
 				}
 			}
