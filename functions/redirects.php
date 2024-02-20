@@ -130,3 +130,15 @@ function videos_category_redirect() {
 	}
 }
 add_action( 'template_redirect', 'videos_category_redirect' );
+
+/**
+	* Alternatives
+	*/
+
+function alternatives_category_redirect() {
+	if ( is_tax( 'ms_alternatives_categories' ) ) {
+		wp_safe_redirect( '/alternatives/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'alternatives_category_redirect' );

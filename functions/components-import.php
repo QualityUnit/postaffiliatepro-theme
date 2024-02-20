@@ -22,6 +22,7 @@ function components_imports( $content ) {
 	$blocks = array(
 		'AffiliateDuo'                  => 'components/AffiliateDuo',
 		'AlternativeTable'              => 'components/AlternativeTable',
+		'table'                         => 'components/Table',
 		'SoftphoneTable'                => 'components/SoftphoneTable',
 		'BlockButtons'                  => 'components/BlockButtons',
 		'BlockPoints'                   => 'components/BlockPoints',
@@ -35,6 +36,7 @@ function components_imports( $content ) {
 		'Boxes--stars'                  => 'components/BoxesStars',
 		'Block--overflow'               => 'components/BlockOverflow',
 		'Block--video'                  => 'components/BlockVideo',
+		'GutenbergVideo'                => 'components/GutenbergVideo',
 		'HeroBanner'                    => 'components/HeroBanner',
 		'HeroBig'                       => 'components/HeroBig',
 		'elementor-tabs'                => 'components/HorizontalTabs',
