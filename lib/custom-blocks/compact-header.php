@@ -26,7 +26,7 @@
 	if ( ! empty( $args['search'] ) ) {
 		$filer_search = $args['search'];
 		if ( ! empty( $filer_search['type'] ) ) {
-			$search_type = $filer_search['type'];
+			$search_type  = $filer_search['type'];
 			$search_class = ' search--' . $search_type;
 		}
 	}
@@ -49,23 +49,21 @@
 			<div class="compact-header__wrapper wrapper">
 				<?php
 				// Variables
-				$breadcrumb       = $args['breadcrumb'] ?? null;
-				$affiliate_manager = $args['affiliate_manager'] ?? null;
-				$post_title            = $args['title'] ?? null;
-				$update_label      = $args['update']['label'] ?? null;
-				$text             = $args['text'] ?? null;
-				$date             = $args['date'] ?? null;
-				$buttons          = $args['buttons'] ?? array();
-				$tags             = $args['tags'] ?? array();
-				$contacts_info       = $args['contacts_info'] ?? array();
+				$breadcrumb         = $args['breadcrumb'] ?? null;
+				$affiliate_manager  = $args['affiliate_manager'] ?? null;
+				$post_title         = $args['title'] ?? null;
+				$update_label       = $args['update']['label'] ?? null;
+				$text               = $args['text'] ?? null;
+				$date               = $args['date'] ?? null;
+				$buttons            = $args['buttons'] ?? array();
+				$tags               = $args['tags'] ?? array();
+				$contacts_info      = $args['contacts_info'] ?? array();
 				$manager_industries = ! empty( $args['manager_industries'] ) ? $args['manager_industries'] : array();
-				$toc_items         = $args['toc']['items'] ?? null;
-				$image_src         = $args['image']['src'] ?? null;
-				$image_alt          = $args['image']['alt'] ?? null;
-				$avatar_src        = $args['avatar']['src'] ?? null;
-				$avatar_alt        = $args['avatar']['alt'] ?? null;
-				$logo_src          = $args['logo']['src'] ?? null;
-				$logo_alt          = $args['logo']['alt'] ?? null;
+				$toc_items          = $args['toc']['items'] ?? null;
+				$avatar_src         = $args['avatar']['src'] ?? null;
+				$avatar_alt         = $args['avatar']['alt'] ?? null;
+				$logo_src           = $args['logo']['src'] ?? null;
+				$logo_alt           = $args['logo']['alt'] ?? null;
 
 				?>
 				<div class="compact-header__left">
@@ -110,8 +108,8 @@
 					<?php if ( $contacts_info ) : ?>
 					<ul class="AffiliateManagerCard__contacts">
 						<?php
-						$email = $contacts_info['email'];
-						$linkedin = $contacts_info['linkedin'];
+						$email        = $contacts_info['email'];
+						$linkedin     = $contacts_info['linkedin'];
 						$phone_number = $contacts_info['phone'];
 
 						if ( isset( $email ) && 'N/A' !== $email && strlen( $email ) > 5 ) {
@@ -160,8 +158,8 @@
 					<!-- Date -->
 					<?php
 					if ( $date ) :
-						$date_machine = get_the_time( 'Y-m-d' );
-						$date_human = get_the_time( 'F j, Y' );
+						$date_machine  = get_the_time( 'Y-m-d' );
+						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
 						?>
@@ -181,8 +179,8 @@
 						<div class="compact-header__buttons-items">
 							<?php foreach ( $buttons as $button ) : ?>
 								<?php
-								$button_title = $button['title'] ?? null;
-								$button_href = $button['href'] ?? '#';
+								$button_title   = $button['title'] ?? null;
+								$button_href    = $button['href'] ?? '#';
 								$button_classes = 'Button Button--outline';
 								if ( isset( $button['target'] ) && '_blank' === $button['target'] ) {
 									$button_classes .= ' Button--outline-gray';
@@ -253,18 +251,45 @@
 					<?php endif; ?>
 
 					<!-- Image and Logo -->
-					<?php if ( $image_src ) : ?>
+					<?php if ( ! empty( $args['image'] ) ) { ?>
+						<?php
+						$image = $args['image'];
+						?>
+						<?php if ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) { ?>
 						<div class="compact-header__image">
-							<img src="<?= esc_url( $image_src ); ?>" alt="<?= esc_attr( $image_alt ); ?>" class="compact-header__img" fetchpriority="high">
-							<?php if ( $logo_src ) : ?>
-								<div class="compact-header__logo">
-									<img src="<?= esc_url( $logo_src ); ?>"
-											 alt="<?= esc_attr( $logo_alt ); ?>"
-											 class="compact-header__logo-img" fetchpriority="high">
-								</div>
-							<?php endif; ?>
+							<?php 
+							if ( isset( $image['src'] ) ) {
+								?>
+							<img
+								fetchpriority="high"
+								src="<?= esc_url( $image['src'] ); ?>"
+								alt="<?= esc_attr( $image['alt'] ); ?>"
+								class="compact-header__img"
+							>
+							<?php } ?>
+							<?php 
+							if ( isset( $image['screenshot'] ) ) {
+								echo $image['screenshot']; // @codingStandardsIgnoreLine
+							} 
+							?>
+							<?php if ( ! empty( $args['logo'] ) ) { ?>
+								<?php $logo = $args['logo']; ?>
+								<?php if ( isset( $logo['src'] ) ) { ?>
+									<div class="compact-header__logo">
+										<img
+											fetchpriority="high"
+											src="<?= esc_url( $logo['src'] ); ?>"
+											<?php if ( isset( $logo['alt'] ) ) { ?>
+												alt="<?= esc_attr( $logo['alt'] ); ?>"
+											<?php } ?>
+											class="compact-header__logo-img"
+										>
+									</div>
+								<?php } ?>
+							<?php } ?>
 						</div>
-					<?php endif; ?>
+					<?php } ?>
+				<?php } ?>
 
 				</div>
 
@@ -398,7 +423,7 @@
 																		<?php foreach ( $filer_list as $filer_list_item ) { ?>
 																			<?php
 																			$item_checked = false;
-																			$item_value = '';
+																			$item_value   = '';
 																			if ( ! empty( $filer_list_item['checked'] ) ) {
 																				$item_checked = $filer_list_item['checked'];
 																			}

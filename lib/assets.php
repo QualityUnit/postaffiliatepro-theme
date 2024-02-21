@@ -7,6 +7,9 @@
 add_action(
 	'wp_enqueue_scripts',
 	function () {
+		wp_dequeue_style( 'wp-block-library' );
+		wp_dequeue_style( 'elementor-custom' );
+
 		wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
 		if ( ! is_page_template( 'elementor.php' ) ) {
@@ -32,7 +35,17 @@ add_action(
 			wp_enqueue_style( 'wp_block-library', includes_url() . 'css/dist/block-library/style' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 
-		wp_deregister_script( 'wp-embed' );
+		if ( is_page_template( 'elementor.php' ) || is_page_template( 'front-page.php' ) || is_page_template( 'page.php' ) || is_page_template( 'template-academy-header.php' ) || is_page_template( 'template-blog-header.php' ) ) {
+			wp_enqueue_style( 'elementor-layout', get_template_directory_uri() . '/assets/dist/Elementor' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+
+		if ( is_page_template( 'template-blog-header.php' ) || is_page_template( 'template-academy-header.php' ) ) {
+			wp_enqueue_style( 'elementor-custom', get_template_directory_uri() . '/assets/dist/common/elementor-custom' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+
+			if ( is_page_template( 'template-blog-header.php' ) ) {
+				wp_enqueue_style( 'post', get_template_directory_uri() . '/assets/dist/pages/post' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+			}
+		}
 	},
 	100
 );
