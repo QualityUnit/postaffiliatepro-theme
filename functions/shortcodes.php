@@ -38,3 +38,4 @@
 	require_once get_template_directory() . '/lib/shortcodes/source.php';
 	require_once get_template_directory() . '/lib/shortcodes/alternatives.php';
 	require_once get_template_directory() . '/lib/shortcodes/countdown.php';
+	require_once get_template_directory() . '/lib/shortcodes/expert-note.php';
