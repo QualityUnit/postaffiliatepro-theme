@@ -83,16 +83,16 @@
 				</span>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://m.me/PostAffiliatePro" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener">
+				<button onclick="contactUsMessenger()" class="ContactUs__menu--link violet" data-close-target="contactUsMenu" rel="nofollow noopener">
 					Messenger
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>messenger.svg" alt="<?php _e( "LiveAgent's Messenger", 'ms' ); ?>" />
-				</a>
+				</button>
 			</li>
 			<li class="ContactUs__menu--item">
-				<a href="https://wa.me/15084695208?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..."  class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
+				<button onclick="contactUsWhatsApp(this)" data-message="<?= esc_attr( __( 'Hi! I am contacting you from ', 'ms' ) . get_permalink() . __( ' and I am contacting you about...', 'ms' ) ); ?>" class="ContactUs__menu--link green" data-close-target="contactUsMenu"  rel="nofollow noopener">
 					Whatsapp
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>whatsapp.svg" alt="<?php _e( "LiveAgent's WhatsApp", 'ms' ); ?>" />
-				</a>
+				</button>
 			</li>
 			<li class="ContactUs__menu--item">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
@@ -107,3 +107,17 @@
 		</ul>
 	</nav>
 </div>
+
+<script>
+	function contactUsWhatsApp( element ) {
+		const message = element.getAttribute( 'data-message' );
+		const number = '15084695208';
+		const whatsappLink = 'https://wa.me/' + number + '?text=' + encodeURIComponent( message );
+
+		window.open( whatsappLink, '_blank' );
+	}
+	function contactUsMessenger() {
+		const facebookLink = 'https://m.me/LiveAgent/';
+		window.open( facebookLink, '_blank' );
+	}
+</script>
