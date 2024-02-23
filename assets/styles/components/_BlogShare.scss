@@ -22,7 +22,7 @@
 		&__item {
 			margin: 0 10px;
 
-			a {
+			button {
 
 				@include square(1.875em);
 				@include color(color, font-color-light, !important);
@@ -33,6 +33,7 @@
 				line-height: 1.875;
 				text-align: center;
 				transition: all 0.3s ease;
+				padding: 0;
 
 				&:active,
 				&:focus,

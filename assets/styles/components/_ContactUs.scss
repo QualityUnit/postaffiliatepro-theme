@@ -241,8 +241,12 @@ $colors: (
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+			width: 100%;
+			height: auto;
 			padding: 0.25em 1em 0.25em 0.25em;
 			border-radius: $border-radius-16;
+			background-color: $white;
+			font-size: 1rem;
 			font-weight: $font-weight-semi;
 			font-family: $font-secondary;
 			color: $black-real;
