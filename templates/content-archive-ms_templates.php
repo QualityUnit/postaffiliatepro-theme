@@ -2,7 +2,7 @@
 set_source( 'templates', 'pages/Category', 'css' );
 set_source( 'templates', 'filter', 'js' );
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_templates_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'Customer Service Templates', 'ms' );
+$page_header_title = __( 'Affiliate Communications Templates', 'ms' );
 $page_header_text  = null;
 if ( is_tax( 'ms_templates_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
