@@ -14,7 +14,7 @@
 		"build:all": "yarn && yarn build && yarn build:qu-howtos"
 	},
 	"engines": {
-		"node": ">= 14"
+		"node": ">= 20"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.23",
