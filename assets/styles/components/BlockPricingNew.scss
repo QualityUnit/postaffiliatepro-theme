@@ -25,8 +25,19 @@
 		}
 	}
 
-	> .elementor-container > .elementor-row {
-		align-items: center;
+	> .elementor-container {
+
+		@media (min-width: $breakpoint-tablet) {
+			flex-direction: column;
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			flex-direction: row;
+		}
+
+		> .elementor-container {
+			align-items: center;
+		}
 	}
 
 	.elementor-section.elementor-section-boxed > .elementor-container {
@@ -74,7 +85,7 @@
 
 				&:first-of-type {
 
-					.elementor-row {
+					.elementor-container {
 
 						&::before {
 							content: "";
@@ -89,7 +100,7 @@
 					}
 				}
 
-				.elementor-row {
+				.elementor-container {
 					align-items: initial;
 					padding-bottom: $wrap-header-height;
 				}
@@ -146,8 +157,8 @@
 				align-items: center;
 			}
 
-			.elementor-text-editor,
-			.elementor-text-editor p {
+			.elementor-widget-container,
+			.elementor-widget-container p {
 				line-height: 1.1;
 				font-family: $font-secondary;
 				font-size: 0.7rem;
@@ -177,8 +188,8 @@
 				align-items: center;
 			}
 
-			.elementor-text-editor,
-			.elementor-text-editor p {
+			.elementor-widget-container,
+			.elementor-widget-text-editor p {
 				flex-direction: column;
 				line-height: 1.1;
 				font-family: $font-secondary;
@@ -199,7 +210,6 @@
 		&--program[class],
 		&--network[class] {
 
-			.elementor-column-wrap,
 			.elementor-widget-wrap {
 				position: static;
 			}
@@ -239,6 +249,7 @@
 			margin: 0;
 
 			.elementor-image-box-wrapper[class] {
+				display: flex;
 				align-items: center;
 				justify-content: center;
 
@@ -266,7 +277,7 @@
 
 		@media (min-width: $breakpoint-tablet-landscape) {
 
-			> .elementor-column-wrap > .elementor-widget-wrap {
+			> .elementor-column > .elementor-widget-wrap {
 				flex-wrap: nowrap;
 			}
 
@@ -342,13 +353,9 @@
 						left: (100% - $wrap-program-width);
 					}
 
-					> .elementor-column-wrap {
-
-						&,
-						> .elementor-widget-wrap {
-							width: 100%;
-							justify-content: flex-end;
-						}
+					&,
+					> .elementor-widget-wrap {
+						justify-content: flex-end;
 					}
 				}
 			}
@@ -379,16 +386,15 @@
 						margin-left: 0;
 					}
 
-					> .elementor-column-wrap {
 
-						&,
-						> .elementor-widget-wrap {
-							width: 100%;
-							justify-content: center;
-						}
+					&,
+					> .elementor-widget-wrap {
+						width: 100%;
+						justify-content: center;
 					}
 
-					section:first-of-type .elementor-row::before {
+
+					section:first-of-type .elementor-container::before {
 						display: none;
 					}
 				}
