@@ -167,12 +167,7 @@ body.login .SimilarSources {
 	}
 
 	&-arrow {
-
-		&:active,
-		&:focus,
-		&:hover {
-			color: #118af7 !important;
-		}
+		display: none !important;
 	}
 
 	@media (max-width: $breakpoint-mobile) {
