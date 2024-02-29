@@ -20,10 +20,4 @@ while ( have_posts() ) :
 			</div>
 		</div>
 		<?php } ?>
-		
-	<?php
-	if ( ! is_page( array( 'login' ) ) ) {
-		echo do_shortcode( '[good-hands-redesign]' );
-	}
-	?>
 <?php endwhile; ?>
