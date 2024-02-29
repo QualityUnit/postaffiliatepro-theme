@@ -1,12 +1,8 @@
 <?php
 wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/dist/layouts/Footer' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 
-if ( is_page() ) {
-	while ( have_posts() ) :
-		the_post();
-		?>
-		<?php
-	endwhile;
+if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/', get_body_class() ) ) ) {
+	echo do_shortcode( '[good-hands-redesign]' );
 }
 ?>
 
@@ -119,7 +115,7 @@ if ( is_page() ) {
 		<div class="wrapper">
 			<div class="Footer__bottom__row">
 				<div class="Footer__bottom__copyright">
-					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ) ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
+					<p><?php _e( '© 2004-', 'ms' ); ?><?= esc_html( gmdate( 'Y' ) ); ?> <?php _e( 'Quality Unit, LLC. All rights reserved.', 'ms' ); ?></p>
 				</div>
 				<div class="Footer__bottom__navigation">
 					<?php
@@ -419,7 +415,7 @@ if ( show_demo_bar() !== false ) {
 <?php } ?>
 
 <div class="trial__sticky__button">
-	<a href="<?= esc_url( '/trial/' ) ?>"><?= esc_html( 'Start Free Trial', 'ms' )?></a>
+	<a href="<?= esc_url( '/trial/' ); ?>"><?= esc_html( 'Start Free Trial', 'ms' ); ?></a>
 	<span class="trial__sticky__button--close"><svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg></span>
 </div>
 
