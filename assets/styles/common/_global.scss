@@ -158,20 +158,28 @@ picture {
 	&-wrap {
 		flex-wrap: wrap;
 	}
-}
 
-.flex-justify-center {
-	justify-content: center;
-}
+	&-justify-center {
+		justify-content: center;
+	}
 
-.flex-align-center {
-	align-items: center;
+	&-align-center {
+		align-items: center;
+
+		&.elementor-widget {
+
+			* {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
 }
 
 .flex-center {
 
-	@extend .flex-justify-center;
-	@extend .flex-align-center;
+	justify-content: center;
+	align-items: center;
 }
 
 .grid {
@@ -330,7 +338,11 @@ picture {
 }
 
 .no-margin[class] {
-	margin: 0;
+	margin: 0 !important;
+}
+
+.no-padding[class] {
+	padding: 0 !important;
 }
 
 $marginSide: (
@@ -362,19 +374,19 @@ $marginSide: (
 	}
 
 	.pt-#{$size}[class] {
-		margin-top: $val;
+		padding-top: $val;
 	}
 
 	.pr-#{$size}[class] {
-		margin-right: $val;
+		padding-right: $val;
 	}
 
 	.pb-#{$size}[class] {
-		margin-bottom: $val;
+		padding-bottom: $val;
 	}
 
 	.pl-#{$size}[class] {
-		margin-left: $val;
+		padding-left: $val;
 	}
 }
 
@@ -398,19 +410,19 @@ $marginSide: (
 		}
 
 		.pt-#{$size}-tablet[class] {
-			margin-top: $val;
+			padding-top: $val;
 		}
 
 		.pr-#{$size}-tablet[class] {
-			margin-right: $val;
+			padding-right: $val;
 		}
 
 		.pb-#{$size}-tablet[class] {
-			margin-bottom: $val;
+			padding-bottom: $val;
 		}
 
 		.pl-#{$size}-tablet[class] {
-			margin-left: $val;
+			padding-left: $val;
 		}
 	}
 }
@@ -435,19 +447,19 @@ $marginSide: (
 		}
 
 		.pt-#{$size}-tablet-landscape[class] {
-			margin-top: $val;
+			padding-top: $val;
 		}
 
 		.pr-#{$size}-tablet-landscape[class] {
-			margin-right: $val;
+			padding-right: $val;
 		}
 
 		.pb-#{$size}-tablet-landscape[class] {
-			margin-bottom: $val;
+			padding-bottom: $val;
 		}
 
 		.pl-#{$size}-tablet-landscape[class] {
-			margin-left: $val;
+			padding-left: $val;
 		}
 	}
 }

@@ -125,6 +125,34 @@
 		border-radius: $border-radius-16;
 		overflow: hidden;
 
+		.IconTabs__grey & {
+
+			@include boxBackground($img-path: "../../images/", $color: "default", $size: "big--default" );
+		}
+
+
+		.BigImage__left & {
+
+			.elementor-col-50:first-of-type {
+				width: 65%;
+			}
+		}
+
+		.BigImage__right & {
+
+			.elementor-col-50:last-of-type {
+				width: 65%;
+			}
+		}
+
+		.IconTabs__align-center & {
+
+			.IconTabs__block > .elementor-container {
+				display: flex;
+				align-items: center;
+			}
+		}
+
 		&:not(.elementor-element-edit-mode) {
 			overflow: hidden;
 		}
@@ -171,7 +199,15 @@
 		&--chart {
 			position: relative;
 
-			.elementor-text-editor {
+			.elementor-widget-image {
+				text-align: center;
+
+				img {
+					margin: 0 auto;
+				}
+			}
+
+			.elementor-widget-text-editor * {
 				width: 100%;
 				text-align: center;
 
@@ -211,6 +247,16 @@
 
 		@media (min-width: $breakpoint-desktop-box) {
 			padding: 3.25em 7.5em;
+
+			.BigImage__left & {
+				padding: 7em 7.5em 7em;
+				padding-left: 2em;
+			}
+
+			.BigImage__right & {
+				padding: 7em 7.5em 7em;
+				padding-right: 2em;
+			}
 
 			&--chart {
 				right: -3em;
