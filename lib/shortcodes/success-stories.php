@@ -30,7 +30,7 @@ function ms_sucess_stories( $atts ) {
 		<li <?php post_class( 'Blog__container__content__item Box--shadow Box--article' ); ?>>
 			<a class="Box--article__inn" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="Box--article__image">
-					<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'box_archive_thumbnail' ) ?>
+					<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'box_archive_thumbnail' ); ?>
 
 					<?php 
 					if ( ! get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ) ) {

@@ -301,14 +301,14 @@
 								<a class="Button Button--outline js-compact-header__toggle">
 									<?= esc_html( __( 'Filters', 'ms' ) ); ?>
 									<svg class="searchField__reset-icon icon-gear">
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ); ?>"></use>
 									</svg>
 								</a>
 							</div>
 							<div class="compact-header__filters js-compact-header__close urlslab-skip-keywords">
 								<a class="compact-header__filters-close js-compact-header__close">
 									<svg class="icon-close">
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 									</svg>
 								</a>
 								<?php
@@ -335,12 +335,12 @@
 											<div class="compact-header__search">
 												<div class="searchField">
 													<svg class="searchField__icon icon-search">
-														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
+														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ); ?>"></use>
 													</svg>
 													<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
 													<span class="search-reset">
 											<svg class="search-reset__icon icon-close">
-												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 											</svg>
 										</span>
 												</div>

@@ -27,7 +27,7 @@ function ms_fullscreenlogos( $atts ) {
 		for ( $logo = 0; $logo < $atts['logos']; $logo++ ) {
 			?>
 			<div class="FullScreen__main__container__logos__item">
-					<img src="<?= esc_url( get_template_directory_uri() ) ?>/assets/images/logos/<?= esc_html( $logos[ $logo ] ); ?>"
+					<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/logos/<?= esc_html( $logos[ $logo ] ); ?>"
 						alt="<?= esc_attr( $logos[ $logo ] ); ?>">
 			</div>
 	<?php	} ?>
