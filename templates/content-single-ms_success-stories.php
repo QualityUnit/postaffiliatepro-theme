@@ -47,7 +47,7 @@
 						<li class="Article__sidebar__item">
 							<a class="Article__sidebar__item-url" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 								<div class="Article__sidebar__item-image urlslab-skip-lazy">
-									<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'person_thumbnail' ) ?>
+									<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ), 'person_thumbnail' ); ?>
 
 									<?php
 									if ( ! get_post_meta( get_the_ID(), 'mb_success-stories_mb_success-stories_logo', true ) ) {

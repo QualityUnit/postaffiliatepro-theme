@@ -57,8 +57,8 @@ function ms_languages( $atts ) {
 					foreach ( $regions as $region => $name ) {
 						if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
 							?>
-							<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ) ?>" />
-							<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ) ?>"><?= esc_html( $name ) ?></label>
+							<input class="input--region hidden" name="regions" type="radio" id="<?= esc_attr( $region ); ?>" />
+							<label class="Header__flags--region-switcher" for="<?= esc_attr( $region ); ?>"><?= esc_html( $name ); ?></label>
 							<?php
 						}
 					}
@@ -68,8 +68,8 @@ function ms_languages( $atts ) {
 						foreach ( $regions as $region => $name ) {
 							if ( ! empty( $atts[ $region . '_from' ] ) || ! empty( $atts[ $region . '_to' ] ) ) {
 								?>
-								<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ) ?>">
-									<div class="Header__flags--region-title h4"><?= esc_html( $name ) ?></div>
+								<div class="Header__flags--region Header__flags--region-<?= esc_html( $region ); ?>">
+									<div class="Header__flags--region-title h4"><?= esc_html( $name ); ?></div>
 									<?php
 									create_language_menu( $region, $atts, $lang_urls, $lang_flags, $lang_codes, $lang_names, $lang_active );
 									?>

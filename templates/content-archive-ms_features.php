@@ -234,7 +234,7 @@ $page_header_args = array(
 										<?php	} ?>
 									</div>
 									<div class="Category__item__header__label">
-										<span class="Category__item__header__label__text"><?= esc_html( $category_name )  ?></span>
+										<span class="Category__item__header__label__text"><?= esc_html( $category_name ); ?></span>
 									</div>
 								</div>
 								<div class="Category__item__content">
