@@ -95,6 +95,10 @@ body.compact-header--active {
 		}
 	}
 
+	&__img--author {
+		display: none;
+	}
+
 	&__logo {
 		width: 26%;
 		position: absolute;
@@ -430,6 +434,27 @@ body.compact-header--active {
 		}
 	}
 
+	.compact-header__author__social {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 1em;
+		margin: 1.6em 0;
+
+		> a {
+
+			&::after {
+				display: none !important;
+			}
+
+			svg {
+
+				@include square(1.5em);
+				margin-right: 0.5em;
+			}
+		}
+	}
+
 	.CircleProgressBar {
 
 		&__middle {
@@ -569,6 +594,17 @@ body.compact-header--active {
 			.#{$class-name}--lvl-2 & {
 				margin-top: 0.7em;
 			}
+		}
+
+		&__img--author {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			max-width: 16em;
+			height: auto;
+			margin-top: 2em;
+			margin-left: auto;
+			border-radius: 100%;
 		}
 
 		&__filters {

@@ -19,6 +19,9 @@
 	if ( ! empty( $args['filter'] ) ) {
 		$filer_items = $args['filter'];
 	}
+	if ( ! empty( $args['author'] ) ) {
+		$author_infos = $args['author'];
+	}
 	if ( ! empty( $args['sort'] ) ) {
 		$filer_sort = $args['sort'];
 	}
@@ -46,7 +49,12 @@
 
 	<div class="compact-header__placeholder">
 		<div class="compact-header compact-header--<?= sanitize_html_class( $header_type ); ?> urlslab-skip-lazy">
-			<div class="compact-header__wrapper wrapper">
+			<div class="compact-header__wrapper wrapper"
+			<?php
+			if ( is_author() ) {
+				?>
+				itemscope itemtype="http://schema.org/Person"
+			<?php } ?> >
 				<?php
 				// Variables
 				$breadcrumb         = $args['breadcrumb'] ?? null;
@@ -67,14 +75,15 @@
 
 				?>
 				<div class="compact-header__left">
-					<!-- Breadcrumb -->
+					<!--Breadcrumb section-->
 					<?php
-					if ( $breadcrumb ) {
-						site_breadcrumb( $breadcrumb );
+					if ( ! empty( $args['breadcrumb'] ) ) {
+						site_breadcrumb( $args['breadcrumb'] );
 					} else {
 						site_breadcrumb();
 					}
 					?>
+					<!-- Breadcrumb section end -->
 
 					<!-- Affiliate industry tags -->
 					<?php
@@ -100,10 +109,23 @@
 					</div>
 					<?php } ?>
 
-					<!-- Title -->
-					<?php if ( $post_title ) : ?>
-					<h1 itemprop="name" class="compact-header__title"><?= esc_html( $post_title ); ?></h1>
-					<?php endif; ?>
+					<?php
+					if ( is_author() ) {
+						if ( ! empty( $author_infos['name'] ) ) {
+							?>
+							<!-- Author title section -->
+							<h1 itemprop="name" class="compact-header__title"><?= esc_html( $author_infos['name'] ); ?></h1>
+						<?php } ?>
+						<!-- Author title section end -->
+						<?php
+					} else {
+						if ( ! empty( $post_title ) ) {
+							?>
+							<!-- Title section -->
+							<h1 itemprop="name" class="compact-header__title"><?= esc_html( $post_title ); ?></h1>
+						<?php } ?>
+						<!-- Title section end -->
+					<?php } ?>
 
 					<?php if ( $contacts_info ) : ?>
 					<ul class="AffiliateManagerCard__contacts">
@@ -150,29 +172,89 @@
 					</div>
 					<?php endif; ?>
 
-					<!-- Text -->
-					<?php if ( $text ) : ?>
-					<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
-					<?php endif; ?>
-
-					<!-- Date -->
 					<?php
-					if ( $date ) :
+					if ( is_author() ) {
+						if ( ! empty( $author_infos['text'] ) ) {
+							?>
+							<!-- Author description section -->
+							<div class="compact-header__text" itemprop="description"><?= wp_kses_post( $author_infos['text'] ); ?></div>
+						<?php } ?>
+						<!-- Author description section end -->
+						<?php
+					} else {
+						if ( ! empty( $text ) ) {
+							?>
+							<!-- Description section -->
+							<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
+						<?php } ?>
+						<!-- Description end -->
+					<?php } ?>
+
+					<?php
+					if ( is_author() ) {
+						if ( ! empty( $author_infos['socials'] ) ) {
+							$website_link = $author_infos['website'];
+							?>
+							<div class="compact-header__author__social">
+								<a href="<?= esc_url( $website_link ); ?>"  title="<?php printf( '%s&#39;s %s', esc_html( get_the_author() ), esc_html( __( 'Website', 'ms' ) ) ); ?>" rel="noopener nofollow">
+									<svg>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#globe' ); ?>"></use>
+									</svg>
+								</a>
+
+								<?php
+								foreach ( $author_infos['socials'] as $social_item ) {
+									$social_name = $social_item['social_name'];
+									$social_link = $social_item['social_link'];
+									?>
+									<?php if ( isset( $social_link ) && isset( $social_name ) ) { ?>
+										<a href="<?= esc_url( $social_link ); ?>"
+											<?php
+											printf(
+												'title="%s&#39;s %s"',
+												esc_attr( $author_infos['name'] ),
+												esc_attr( ucfirst( $social_name ) )
+											);
+											?>
+											 target="_blank" itemprop="sameAs" rel="noopener nofollow"
+										>
+											<svg>
+												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-' . $social_name ); ?>"></use>
+											</svg>
+										</a>
+									<?php } ?>
+								<?php } ?>
+							</div>
+						<?php } ?>
+					<?php	} ?>
+
+					<?php if ( ! empty( $args['date'] ) ) { ?>
+						<!-- Date section -->
+						<?php
 						$date_machine  = get_the_time( 'Y-m-d' );
 						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
+						$author_name = get_the_author_meta( 'display_name' );
+						$author_link = get_author_posts_url( get_the_author_meta( 'ID' ) );
 						?>
-					<div class="compact-header__date">
-			<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>">
-						<?= esc_html( $date_human ); ?>
-			</span>
-						<span>
-						<?= esc_html( __( 'Last modified on', 'ms' ) . ' ' . $date_modified . ' ' . __( 'at', 'ms' ) . ' ' . $time_modified ); ?>
-			</span>
-					</div>
-					<?php endif; ?>
-
+						<div class="compact-header__date">
+							<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>
+								<span itemprop="datePublished" content="<?= esc_attr( $date_machine ); ?>">
+								<?= esc_html( __( 'Published on', 'ms' ) ); ?>
+								<?= esc_html( $date_human ); ?>
+							</span>
+							<?php } ?>
+							<?= esc_html( __( 'by', 'ms' ) ) . ' '; ?><a href="<?= esc_url( $author_link ); ?>"><?= esc_html( $author_name ); ?></a><?= '.'; ?>
+							<?php if ( isset( $date_modified ) && isset( $time_modified ) ) { ?>
+								<?= esc_html( __( 'Last modified on', 'ms' ) ); ?>
+								<?= esc_html( $date_modified ); ?>
+								<?= esc_html( __( 'at', 'ms' ) ); ?>
+								<?= esc_html( $time_modified ) . '.'; ?>
+							<?php } ?>
+						</div>
+						<!-- Date section end -->
+					<?php } ?>
 					<!-- Buttons -->
 					<?php if ( ! empty( $buttons ) ) : ?>
 					<div class="compact-header__buttons">
@@ -250,65 +332,94 @@
 					</div>
 					<?php endif; ?>
 
-					<!-- Image and Logo -->
-					<?php if ( ! empty( $args['image'] ) ) { ?>
-						<?php
-						$image = $args['image'];
-						?>
-						<?php if ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) { ?>
-						<div class="compact-header__image">
-							<?php 
-							if ( isset( $image['src'] ) ) {
-								?>
-							<img
-								fetchpriority="high"
-								src="<?= esc_url( $image['src'] ); ?>"
-								alt="<?= esc_attr( $image['alt'] ); ?>"
-								class="compact-header__img"
-							>
-							<?php } ?>
-							<?php 
-							if ( isset( $image['screenshot'] ) ) {
-								echo $image['screenshot']; // @codingStandardsIgnoreLine
-							} 
+					<?php if ( is_author() ) { ?>
+						<?php if ( ! empty( $author_infos['img'] ) ) { ?>
+							<!--Author thumbnail section-->
+							<?php
+							$img = $author_infos['img'];
 							?>
-							<?php if ( ! empty( $args['logo'] ) ) { ?>
-								<?php $logo = $args['logo']; ?>
-								<?php if ( isset( $logo['src'] ) ) { ?>
-									<div class="compact-header__logo">
+							<?php if ( isset( $img ) ) { ?>
+								<div class="compact-header__image">
+									<?php
+									if ( isset( $img ) ) {
+										?>
+										<meta itemprop="image" content="<?= esc_url( $img ); ?>">
 										<img
 											fetchpriority="high"
-											src="<?= esc_url( $logo['src'] ); ?>"
-											<?php if ( isset( $logo['alt'] ) ) { ?>
-												alt="<?= esc_attr( $logo['alt'] ); ?>"
-											<?php } ?>
-											class="compact-header__logo-img"
+											src="<?= esc_url( $img ); ?>"
+											alt="<?= esc_attr( $author_infos['name'] ); ?>"
+											class="compact-header__img--author"
 										>
-									</div>
-								<?php } ?>
+									<?php } ?>
+								</div>
 							<?php } ?>
-						</div>
+						<?php } ?>
+						<!-- Author thumbnail section end -->
+					<?php } else { ?>
+						<?php if ( ! empty( $args['image'] ) ) { ?>
+							<!-- Thumbnail section -->
+							<?php
+							$image = $args['image'];
+							?>
+							<?php if ( ( isset( $image['src'] ) || isset( $image['screenshot'] ) ) ) { ?>
+								<div class="compact-header__image">
+									<?php
+									if ( isset( $image['src'] ) ) {
+										?>
+										<img
+											fetchpriority="high"
+											src="<?= esc_url( $image['src'] ); ?>"
+											alt="<?= esc_attr( $image['alt'] ); ?>"
+											class="compact-header__img"
+										>
+									<?php } ?>
+									<?php
+									if ( isset( $image['screenshot'] ) ) {
+										echo $image['screenshot']; // @codingStandardsIgnoreLine
+									}
+									?>
+									<?php if ( ! empty( $args['logo'] ) ) { ?>
+										<?php $logo = $args['logo']; ?>
+										<?php if ( isset( $logo['src'] ) ) { ?>
+											<div class="compact-header__logo">
+												<img
+													fetchpriority="high"
+													src="<?= esc_url( $logo['src'] ); ?>"
+													<?php if ( isset( $logo['alt'] ) ) { ?>
+														alt="<?= esc_attr( $logo['alt'] ); ?>"
+													<?php } ?>
+													class="compact-header__logo-img"
+												>
+											</div>
+										<?php } ?>
+									<?php } ?>
+								</div>
+							<?php } ?>
+						<?php } ?>
+						<!-- Thumbnail section end -->
 					<?php } ?>
-				<?php } ?>
 
 				</div>
 
 
-				<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) { ?>
+				<?php
+				if ( ! is_author() ) {
+					if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) || isset( $menu_header ) || isset( $research_nav ) || isset( $checklist ) ) {
+						?>
 					<div class="compact-header__bottom">
 						<?php if ( isset( $filer_search ) || isset( $filer_items ) || isset( $filer_sort ) || isset( $filer_count ) ) { ?>
 							<div class="compact-header__filters-toggle">
 								<a class="Button Button--outline js-compact-header__toggle">
 									<?= esc_html( __( 'Filters', 'ms' ) ); ?>
 									<svg class="searchField__reset-icon icon-gear">
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#gear' ); ?>"></use>
 									</svg>
 								</a>
 							</div>
 							<div class="compact-header__filters js-compact-header__close urlslab-skip-keywords">
 								<a class="compact-header__filters-close js-compact-header__close">
 									<svg class="icon-close">
-										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+										<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 									</svg>
 								</a>
 								<?php
@@ -335,12 +446,12 @@
 											<div class="compact-header__search">
 												<div class="searchField">
 													<svg class="searchField__icon icon-search">
-														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ) ?>"></use>
+														<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#search' ); ?>"></use>
 													</svg>
 													<input type="search" class="search<?= esc_attr( $search_class ); ?>" placeholder="<?php _e( 'Search', 'ms' ); ?>" maxlength="50">
 													<span class="search-reset">
 											<svg class="search-reset__icon icon-close">
-												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ) ?>"></use>
+												<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#close' ); ?>"></use>
 											</svg>
 										</span>
 												</div>
@@ -635,7 +746,11 @@
 							</div>
 						<?php } ?>
 					</div>
-				<?php } ?>
+						<?php
+					}
+				}
+				?>
+
 			</div>
 		</div>
 		</div>
