@@ -318,7 +318,7 @@
 
 //Background for Boxes
 //colors: gray, primary
-@mixin boxBackground($img-path:'../images/',$color:'default'){
+@mixin boxBackground($img-path:'../images/', $color:'default', $size: false ){
 	$border-radius: 1rem;
 	position: relative;
 	border-radius: $border-radius;
@@ -343,14 +343,28 @@
 			background-size: 38% auto;
 		}
 
-		&::before {
-			background-image: url(#{$img-path}box-bg-left--#{$color}.svg);
-			background-position: left center;
+		@if $size != false {
+			&::before {
+				background-image: url(#{$img-path}box-bg-#{$size}.svg);
+				background-position: left top;
+				background-size: cover;
+			}
+			
+			&::after {
+				display: none;
+			}
 		}
 
-		&::after {
-			background-image: url(#{$img-path}box-bg-right--#{$color}.svg);
-			background-position: right center;
+		@if $size == false {
+			&::before {
+				background-image: url(#{$img-path}box-bg-left--#{$color}.svg);
+				background-position: left center;
+			}
+
+			&::after {
+				background-image: url(#{$img-path}box-bg-right--#{$color}.svg);
+				background-position: right center;
+			}
 		}
 	}
 }

@@ -114,7 +114,7 @@ $category_icon = '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><p
 
 					?>
 
-					<li class="Box--article Box--article__padded col col-2 <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ) ?>" data-category="<?= esc_attr( $category ); ?>">
+					<li class="Box--article Box--article__padded col col-2 <?= esc_attr( $category ); ?> <?= esc_attr( $category_en ); ?>" data-category="<?= esc_attr( $category ); ?>">
 						<a href="<?= esc_url( get_the_post_thumbnail_url() ); ?>" data-lightbox="gallery">
 							<div class="Box--article__image--center block text-align-center">
 								<?php

@@ -260,7 +260,7 @@ function manager_industry( $manager_industry ) {
 
 				<div class="Directory__blocks">
 
-					<h2 id="ap-overview" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
+					<h2 id="ap-overview" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ); ?> <?php _e( 'Affiliate program overview', 'ms' ); ?></span></h2>
 					<?php
 					$overview = __( '${company_description} Thus, if you\'re interested in earning extra income from the ${industry}, check out their ${type_program} affiliate program below.', 'ms' );
 
@@ -332,7 +332,7 @@ function manager_industry( $manager_industry ) {
 
 					</div>
 
-					<h2 id="ap-campaigns" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate program campaigns', 'ms' ); ?></span></h2>
+					<h2 id="ap-campaigns" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ); ?> <?php _e( 'Affiliate program campaigns', 'ms' ); ?></span></h2>
 					<?php
 					$campaign_text = __( 'Every affiliate program has its own campaign rules, and each one is important to consider when deciding whether the ${company_name} affiliate program is the right choice for you to promote. The first step is to check accepted countries for the ${company_name} affiliate program since each company has different market preferences. The second information to look for is the traffic source ${company_name} accepts, which explains what platforms you can use to promote your business. The next step is to check ${company_name}\'s cookie duration, displaying how long a cookie lasts from the last click. Last but not least, make sure you look into ${company_name}\'s policy on explicit, religious, and political content.', 'ms' );
 					$campaign_text = str_replace( '${company_name}', get_post_meta( get_the_ID(), 'company_name', true ), $campaign_text );
@@ -431,7 +431,7 @@ function manager_industry( $manager_industry ) {
 							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/affiliate-program-directory/countries.svg" alt="<?php the_title(); ?>">
 							<h3><?php _e( 'Accepted countries', 'ms' ); ?></h3>
 
-							<p><?= esc_html( get_post_meta( get_the_ID(), 'countries', true ) ) ?></p>
+							<p><?= esc_html( get_post_meta( get_the_ID(), 'countries', true ) ); ?></p>
 						</div>
 
 						<div class="Directory__blocks__items__item">
@@ -465,7 +465,7 @@ function manager_industry( $manager_industry ) {
 						</div>
 					</div>
 
-					<h2 id="ap-payouts" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Commissions & payouts', 'ms' ); ?></span></h2>
+					<h2 id="ap-payouts" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ); ?> <?php _e( 'Commissions & payouts', 'ms' ); ?></span></h2>
 
 					<p>
 						<?php _e( 'Payouts are one of the most important factors to consider when choosing an affiliate program.', 'ms' ); ?>
@@ -687,7 +687,7 @@ function manager_industry( $manager_industry ) {
 					if ( isset( $software ) ) {
 
 						?>
-							<h2 id="ap-software" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
+							<h2 id="ap-software" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ); ?> <?php _e( 'Affiliate Software', 'ms' ); ?></span></h2>
 
 							<p><?= $aff_software; // @codingStandardsIgnoreLine ?></p>
 
@@ -705,7 +705,7 @@ function manager_industry( $manager_industry ) {
 					}
 					?>
 
-					<h2 id="affiliate-manager" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ) ?> <?php _e( 'Affiliate manager', 'ms' ); ?></span></h2>
+					<h2 id="affiliate-manager" class="Directory__blocks__title"><span class="Directory__blocks__title__inner"><?= esc_html( get_post_meta( get_the_ID(), 'company_name', true ) ); ?> <?php _e( 'Affiliate manager', 'ms' ); ?></span></h2>
 
 					<?php
 					// Saves to post data directory name and url for Affiliate manager breadcrumb
@@ -799,10 +799,10 @@ function manager_industry( $manager_industry ) {
 									if ( isset( $url ) ) {
 										?>
 										<div class="AffiliateManagerCard__showProfile">
-											<a href="<?= esc_url( $url )?>" class="learn-more" title="<?= esc_attr( $url_title ); ?>">
+											<a href="<?= esc_url( $url ); ?>" class="learn-more" title="<?= esc_attr( $url_title ); ?>">
 												<?php _e( 'Show profile', 'ms' ); ?>
 												<svg>
-													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#arrow-right' ) ?>"></use>
+													<use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#arrow-right' ); ?>"></use>
 												</svg>
 											</a>
 										</div>

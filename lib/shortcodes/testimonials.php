@@ -30,11 +30,11 @@ function ms_testimonials( $atts ) {
 			<li <?php post_class( 'Testimonials__item' . ( 'false' !== $atts['alternative'] ? ' Testimonials__item--alternative' : '' ) ); ?>>
 				<div class="Testimonials__item__top">
 					<div class="Testimonials__item__person">
-						<h3 class="highlight Testimonials__item__name"><?= '<span class="firstWord">' . esc_html( strstr( $person, ' ', true ) ) . '</span>' . esc_html( strstr( $person, ' ' ) ) ?></h3>
-						<p class="Testimonials__item__position"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ) ?></p>
+						<h3 class="highlight Testimonials__item__name"><?= '<span class="firstWord">' . esc_html( strstr( $person, ' ', true ) ) . '</span>' . esc_html( strstr( $person, ' ' ) ); ?></h3>
+						<p class="Testimonials__item__position"><?= esc_html( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_position', true ) ); ?></p>
 					</div>
 					<div class="Testimonials__item__thumbnail">
-						<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'person_thumbnail' ) ?>
+						<?= wp_get_attachment_image( get_post_meta( get_the_ID(), 'mb_testimonials_mb_testimonials_photo', true ), 'person_thumbnail' ); ?>
 					</div>
 				</div>
 				<div class="Testimonials__item__content">

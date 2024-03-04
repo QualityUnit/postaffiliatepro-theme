@@ -27,7 +27,7 @@
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software">
 				<picture>
 					<source srcset="<?= esc_url( get_template_directory_uri() ) . '/assets/images/pap-logo-only-icon.svg'; ?>" media="(max-width: 415px)">
-					<img src="<?= esc_url( get_template_directory_uri() ) . '/assets/images/pap-logo.svg' ?>" alt="<?php bloginfo( 'name' ); ?>">
+					<img src="<?= esc_url( get_template_directory_uri() ) . '/assets/images/pap-logo.svg'; ?>" alt="<?php bloginfo( 'name' ); ?>">
 				</picture>
 			</a>
 		</div>

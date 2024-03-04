@@ -103,24 +103,35 @@
 
 	&--redesign {
 
-		h2 {
-			font-size: $font-size-h2-s;
-			line-height: 1.4;
-			text-align: center;
+		&:not(.elementor-inner-section) {
+
+			h2 {
+				font-size: $font-size-h2-s;
+				line-height: 1.4;
+				text-align: center;
+			}
+
+			.elementor-widget-text-editor {
+
+				@include color(color, font-color-medium);
+				font-size: $font-size-smaller;
+				line-height: 1.7;
+				text-align: center;
+			}
 		}
 
-		.elementor-text-editor {
+		.elementor-inner-section * {
+			text-align: left;
 
-			@include color(color, font-color-medium);
-			font-size: $font-size-smaller;
-			line-height: 1.7;
-			text-align: center;
+			h2 {
+				text-align: left;
+			}
 		}
 
 		&__basic {
 			margin-bottom: 3em !important;
 
-			*:not(.elementor-inner-section) {
+			&:not(.elementor-inner-section) {
 
 				h2,
 				h3 {
@@ -135,7 +146,7 @@
 					}
 				}
 
-				.elementor-text-editor.elementor-text-editor {
+				.elementor-widget-text-editor {
 					width: 100%;
 					margin: 0 auto;
 					text-align: center;
@@ -361,6 +372,30 @@
 					}
 				}
 			}
+		}
+	}
+
+	&__top {
+
+		.elementor-heading-title[class] {
+			font-size: 2.5rem;
+			line-height: 1.4;
+			text-align: center;
+		}
+
+		.elementor-widget-text-editor {
+
+			@include color(color, font-color-medium);
+			font-size: $font-size-smaller;
+			line-height: 1.7;
+			text-align: center;
+		}
+	}
+
+	&__align-center {
+
+		.elementor-inner-section > .elementor-container {
+			align-items: center;
 		}
 	}
 
