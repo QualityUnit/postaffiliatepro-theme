@@ -62,36 +62,39 @@ function is_subcategory() {
 function site_breadcrumb( $breadcrumb = array() ) {
 	if ( empty( $breadcrumb ) ) {
 		$home = array( __( 'Home' ), home_url( '/', 'relative' ) );
-		
+
 		if ( is_single() ) {
 			$post_type = get_post_type_object( get_post_type() );
 			if ( $post_type ) {
 				$post_type_name = $post_type->labels->name;
 				if ( 'Posts' == $post_type_name ) {
 					$categories = get_the_category();
-					$cat = $categories[0];
-					if ( $cat ) {
-						$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
+					if ( isset( $categories[0] ) ) {
+						$breadcrumb[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
 					}
 				} else {
 					$post_type_url = get_post_type_archive_link( $post_type->name );
-					$breadcrumb[] = array( $post_type_name, $post_type_url );
+					$breadcrumb[]  = array( $post_type_name, $post_type_url );
 				}
 			}
 			$breadcrumb[] = array( get_the_title() );
 		} elseif ( is_category() ) {
-			$cat = get_the_category()[0];
 			if ( is_subcategory() ) {
-				if ( $cat ) {
-					$breadcrumb[] = array( $cat->name, get_category_link( $cat->term_id ) );
+				$categories = get_the_category();
+				if ( isset( $categories[0] ) ) {
+					$breadcrumb[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
 				}
 			} else {
 				$breadcrumb[] = $home;
 			}
 			$breadcrumb[] = array( single_cat_title( '', false ) );
+		} elseif ( is_author() ) {
+			$breadcrumb[] = array( __( 'Author' ), home_url( '/', 'relative' ) );
+			$author_name = get_the_author_meta( 'display_name' );
+			$breadcrumb[] = array( $author_name );
 		} elseif ( is_archive() && ! is_category() ) {
 			$breadcrumb[] = $home;
-			$post_type = get_queried_object();
+			$post_type    = get_queried_object();
 			if ( $post_type ) {
 				if ( ! empty( $post_type->labels->name ) ) {
 					$post_type_title = $post_type->labels->name;
@@ -112,46 +115,46 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( get_search_query() );
 		}
 	}
- 
+
 	$allowed_html = array(
-		'div' => array(
+		'div'  => array(
 			'class' => array(),
 		),
-		'ol' => array(
+		'ol'   => array(
 			'itemscope' => array(),
-			'itemtype' => array(),
+			'itemtype'  => array(),
 		),
-		'li' => array(
-			'itemprop' => array(),
+		'li'   => array(
+			'itemprop'  => array(),
 			'itemscope' => array(),
-			'itemtype' => array(),
+			'itemtype'  => array(),
 		),
-		'a' => array(
+		'a'    => array(
 			'itemscope' => array(),
-			'itemtype' => array(),
-			'itemprop' => array(),
-			'itemid' => array(),
-			'href' => array(),
+			'itemtype'  => array(),
+			'itemprop'  => array(),
+			'itemid'    => array(),
+			'href'      => array(),
 		),
 		'span' => array(
 			'itemprop' => array(),
 		),
 		'meta' => array(
 			'itemprop' => array(),
-			'content' => array(),
+			'content'  => array(),
 		),
 	);
-	$i = 1;
-	$output = '';
-	$output .= '<div class="breadcrumbs">';
-	$output .= '<div class="breadcrumbs-inner">';
-	$output .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
+	$i            = 1;
+	$output       = '';
+	$output      .= '<div class="breadcrumbs">';
+	$output      .= '<div class="breadcrumbs-inner">';
+	$output      .= '<ol itemscope itemtype="https://schema.org/BreadcrumbList">';
 	foreach ( $breadcrumb as $item ) {
 		$item_name = str_replace( '^', '', $item[0] );
-		$output .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+		$output   .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 		if ( count( $item ) == 2 ) {
 			$item_url = $item[1];
-			$output .= '<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="' . $item_url . '" href="' . $item_url . '">';
+			$output  .= '<a itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="' . $item_url . '" href="' . $item_url . '">';
 		}
 		$output .= '<span itemprop="name">' . $item_name . '</span>';
 		if ( count( $item ) == 2 ) {
