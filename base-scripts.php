@@ -12,13 +12,13 @@
 		function(e){
 			const chatbotManager = UrlslabChatbot.initChatbot({
 				showChatButton: false, // important to not show chat button on page load
-				chatbotId: 'bd88d24e-1c7d-4dac-87b3-83ae34223f5b',
-				chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEBiZDg4ZDI0ZS0xYzdkLTRkYWMtODdiMy04M2FlMzQyMjNmNWI=',
+				chatbotId: '75caa46f-690e-46da-8e85-74dcfb44d727',
+				chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA3NWNhYTQ2Zi02OTBlLTQ2ZGEtOGU4NS03NGRjZmI0NGQ3Mjc=',
 				welcomeMessage: 'Hi, I\'m PostAffiliatePro Bot. How can I help you?',
 				inputPlaceholder: 'Ask me any question...',
 				suggestedUserMessages: [],
 				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-				maxWindowWidth: '700px',
+				maxWindowWidth: '500px',
 			});
 			chatBotButton.addEventListener('click', () => {
 				chatbotManager.openChat();
