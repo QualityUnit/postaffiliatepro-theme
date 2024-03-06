@@ -25,6 +25,7 @@
 	}
 
 	&__image {
+		display: none;
 		margin-top: auto;
 
 		img {
@@ -90,6 +91,7 @@
 		}
 
 		&__image {
+			display: block;
 			margin-top: 0.25em;
 			width: 52%;
 		}
