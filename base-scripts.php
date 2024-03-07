@@ -1,31 +1,4 @@
-<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
-	<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
-</button>
-
 <script>
-	
-	function loadChatBot() {
-		const chatBotButton = document.querySelector('#chatBotOnly');
-		chatBotButton.classList.remove('hidden');
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
-		function(e){
-			const chatbotManager = UrlslabChatbot.initChatbot({
-				showChatButton: false, // important to not show chat button on page load
-				chatbotId: '75caa46f-690e-46da-8e85-74dcfb44d727',
-				chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA3NWNhYTQ2Zi02OTBlLTQ2ZGEtOGU4NS03NGRjZmI0NGQ3Mjc=',
-				welcomeMessage: 'Hi, I\'m PostAffiliatePro Bot. How can I help you?',
-				inputPlaceholder: 'Ask me any question...',
-				suggestedUserMessages: [],
-				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-				maxWindowWidth: '500px',
-			});
-			chatBotButton.addEventListener('click', () => {
-				chatbotManager.openChat();
-			});
-		});
-	}
-
 
 	const getCookieFrontend = ( name ) => {
 		const nameEq = `${name}=`
@@ -46,8 +19,6 @@
 	const trialButton = document.querySelector( "#createButtonmain" )
 
 	acceptButton.addEventListener( "click", () => {
-		loadChatBot();
-
 		const demobarNow = document.querySelector( '#demobar' )
 
 		if( demobarNow ) {
@@ -98,6 +69,31 @@
 </script>
 
 <!-- LiveAgent - Chat Button -->
+
+<script>
+	function loadChatBot({ chatbotId, chatbotUserId, btnTarget }) {
+		const chatBotButton = document.querySelector(btnTarget);
+		chatBotButton.classList.remove('hidden');
+		
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
+		function(e){
+			const chatbotManager = UrlslabChatbot.initChatbot({
+				showChatButton: false, // important to not show chat button on page load
+				chatbotId: chatbotId,
+				chatbotUserId: chatbotUserId,
+				welcomeMessage: 'Hi, I\'m PostAffiliatePro Bot. How can I help you?',
+				inputPlaceholder: 'Ask me any question...',
+				suggestedUserMessages: [],
+				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
+				maxWindowWidth: '500px',
+			});
+			chatBotButton.addEventListener('click', () => {
+				chatbotManager.openChat();
+			});
+		});
+	}
+</script>
 <?php
 if (
 		! is_page( array( 'request-demo', 'demo', 'call', 'trial', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
@@ -112,10 +108,18 @@ if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
 	) {
 	?>
+	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
+		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
+	</button>
 	
 	<script type="text/javascript" id="urlslab-chatbot-script">
+		const chatBtnOptions = {btnTarget: '#chatBotOnly', chatbotId: '75caa46f-690e-46da-8e85-74dcfb44d727', chatbotUserId:  'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEA3NWNhYTQ2Zi02OTBlLTQ2ZGEtOGU4NS03NGRjZmI0NGQ3Mjc=',}
+		acceptButton.addEventListener( "click", () => {
+			loadChatBot(chatBtnOptions);
+		});
+
 		if ( getCookieFrontend( "cookieLaw" ) ) {
-			loadChatBot();
+			loadChatBot(chatBtnOptions);
 		}
 	</script>
 	<?php
