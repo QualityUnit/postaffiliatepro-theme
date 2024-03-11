@@ -3,6 +3,7 @@
 @use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@use "./menuArrow" as *;
 
 input[type="text"],
 input[type="email"],
@@ -261,5 +262,26 @@ textarea {
 				opacity: 1;
 			}
 		}
+	}
+}
+
+.select {
+
+	@extend %menuArrow;
+	cursor: pointer;
+
+	span {
+		cursor: pointer;
+		pointer-events: none;
+	}
+
+	select {
+		cursor: pointer;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: $input-height-normal;
+		width: 100%;
+		opacity: 0;
 	}
 }

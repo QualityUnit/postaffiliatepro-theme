@@ -39,3 +39,4 @@
 	require_once get_template_directory() . '/lib/shortcodes/alternatives.php';
 	require_once get_template_directory() . '/lib/shortcodes/countdown.php';
 	require_once get_template_directory() . '/lib/shortcodes/expert-note.php';
+	require_once get_template_directory() . '/lib/shortcodes/hero-banner-awards.php';

@@ -51,6 +51,20 @@ body {
 	line-height: $line-height-default;
 	overflow-x: hidden;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	&.overlay {
+		overflow: hidden !important;
+
+		&::before {
+			content: "";
+
+			@include posZero;
+			position: fixed;
+			z-index: 999998;
+			background-color: rgba($black-real, 0.6);
+			animation: fadeIn 0.25s;
+		}
+	}
 }
 
 .AppContainer {
@@ -150,6 +164,24 @@ picture {
 
 .width-100 {
 	width: 100%;
+}
+
+display-block {
+	display: block !important;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		&-tablet {
+			display: block !important;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-tablet-landscape {
+			display: block !important;
+		}
+	}
 }
 
 .flex {
