@@ -49,6 +49,19 @@ function components_imports( $content ) {
 		'BlocksWrap'                    => 'components/BlocksWrap',
 	);
 
+	// Array value in form of array, first is script name, second is dependency id
+	$scripts = array(
+		// '/\<section.+class=".+IconTabs.+/' => array( 'IconTabs' ),
+		'/\<div.+class="FilterMenu.+/'     => array( 'filterMenu' ),
+		// '[data-lightbox="gallery"]'        => array( 'splide' ),
+		// '[data-lightbox="youtube"]'        => array( 'splide' ),
+		// '/data-lightbox="gallery/'         => array( 'custom_lightbox', 'splide' ),
+		// '/data-lightbox="youtube/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		// '/class=.+Block--video/'           => array( 'custom_lightbox_youtube', 'splide' ),
+		// '/class=.+GutenbergVideo/'         => array( 'custom_lightbox_youtube', 'splide' ),
+		'/\<table.+/'                      => array( 'responsiveTable' ),
+	);
+
 	if ( ! $content ) {
 		return $content;
 	}
@@ -63,8 +76,15 @@ function components_imports( $content ) {
 		$id           = strtolower( $class );
 		$found_blocks = $xpath->query( './/*[contains(@class, "' . $class . '")]' );
 		
-		if ( isset( $found_blocks[0] ) || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] || 'elementor' === $_GET['action'] ) ) ) {
+		if ( isset( $found_blocks[0] ) || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] ) ) || isset( $_GET['elementor-preview'] ) ) {
 			wp_enqueue_style( $id, get_template_directory_uri() . '/assets/dist/' . $csspath . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		}
+	}
+
+	foreach ( $scripts as $selector => $runscript ) {
+		$found_blocks = preg_match( $selector, $content );
+		if ( $found_blocks || ( isset( $_GET['action'] ) && ( 'edit' === $_GET['action'] ) ) || isset( $_GET['elementor-preview'] ) ) {
+			set_custom_source( $runscript[0], 'js', isset( $runscript[1] ) );
 		}
 	}
 
