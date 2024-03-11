@@ -26,7 +26,7 @@ function wp_head_content( $page ) {
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
 function set_source( $page, $source_file, $filetype = 'css' ) {
-	if ( wp_head_content( $page ) ) {
+	if ( $page && wp_head_content( $page ) ) {
 		if ( 'css' === $filetype ) {
 			?>
 			<link rel="stylesheet" type="text/css" media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) . '" />' ); ?>
@@ -36,6 +36,11 @@ function set_source( $page, $source_file, $filetype = 'css' ) {
 		if ( 'js' === $filetype ) {
 			wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', array(), THEME_VERSION, true );
 		}
+	}
+	if ( ! $page ) {
+		?>
+	<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+		<?php
 	}
 }
 

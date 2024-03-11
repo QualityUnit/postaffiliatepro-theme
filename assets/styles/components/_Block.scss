@@ -1015,6 +1015,17 @@
 		}
 	}
 
+	&.space-between {
+
+		.elementor-container {
+			justify-content: space-between;
+
+			.elementor-col-50 {
+				width: 46.5%;
+			}
+		}
+	}
+
 	@media (max-width: $breakpoint-desktop-box) {
 		padding-top: $block-bg-space !important;
 		padding-bottom: $block-bg-space !important;
@@ -1038,6 +1049,17 @@
 		margin-bottom: $block-space-sm !important;
 		padding-top: $block-bg-space-sm !important;
 		padding-bottom: $block-bg-space-sm !important;
+
+		&.space-between {
+
+			.elementor-container {
+				justify-content: space-between;
+
+				.elementor-col-50 {
+					width: 100%;
+				}
+			}
+		}
 	}
 
 	&-box {

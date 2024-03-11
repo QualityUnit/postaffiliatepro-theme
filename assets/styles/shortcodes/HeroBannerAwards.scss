@@ -1,0 +1,43 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.heroBanner__awards {
+	display: none;
+
+	@media (min-width: $breakpoint-tablet) {
+
+		display: block;
+
+		&__wrapper {
+
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 5em;
+		}
+
+		&__bg {
+
+			@include posCustom(-1em);
+			position: absolute;
+		}
+
+		&__title {
+			width: 60%;
+			display: block;
+			margin: 0 auto;
+		}
+
+		.heroBanner__awards__img {
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+			// left: 20%;
+			padding-bottom: 75%;
+			background-size: cover !important;
+			z-index: 1;
+		}
+	}
+}

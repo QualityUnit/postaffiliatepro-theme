@@ -20,6 +20,7 @@ add_action( 'admin_enqueue_scripts', 'icontabs_sources' );
 
 function components_imports( $content ) {
 	$blocks = array(
+		'AffiliateSignup'               => 'components/AffiliateSignup',
 		'AffiliateDuo'                  => 'components/AffiliateDuo',
 		'AlternativeTable'              => 'components/AlternativeTable',
 		'table'                         => 'components/Table',
@@ -45,6 +46,7 @@ function components_imports( $content ) {
 		'RequestDemo'                   => 'layouts/tests/RequestDemo',
 		'ScheduleDemo'                  => 'layouts/tests/ScheduleDemo',
 		'urlslab-block-tableofcontents' => 'components/UrlslabTOC',
+		'BlocksWrap'                    => 'components/BlocksWrap',
 	);
 
 	if ( ! $content ) {

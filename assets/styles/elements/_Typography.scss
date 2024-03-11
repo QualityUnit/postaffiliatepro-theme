@@ -153,6 +153,10 @@ ol {
 	margin-top: 0.5em;
 	counter-reset: counter;
 
+	.simple-numbers & {
+		font-size: 1rem;
+	}
+
 	li {
 		counter-increment: counter;
 		position: relative;
@@ -161,19 +165,36 @@ ol {
 
 		&::before {
 
-			@include circle(1.7em);
 			@include color(color, primary-color);
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
 			content: counter(counter);
 			position: absolute;
-			top: 0.25em;
 			left: -0.5em;
-			background-color: $primary-checklist;
-			font-size: 0.75em;
-			font-weight: 700;
 			margin: 0;
+		}
+
+		*:not(.simple-numbers) > div > & {
+
+			&::before {
+
+				@include circle(1.7em);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $primary-checklist;
+				font-size: 0.75em;
+				font-weight: 700;
+				top: 0.25em;
+			}
+		}
+
+		.simple-numbers & {
+			margin-bottom: 0.5em;
+
+			&::before {
+				content: counter(counter) ".";
+				font-size: 1.25em;
+				top: -0.15em;
+			}
 		}
 	}
 }
