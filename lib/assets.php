@@ -65,7 +65,7 @@ add_action(
 			wp_enqueue_script( 'swiper', plugin_dir_path( __FILE__ ) . 'elementor/assets/lib/swiper/swiper' . wpenv() . '.js', false, THEME_VERSION, true );
 			wp_enqueue_script( 'elementor_slider', get_template_directory_uri() . '/assets/dist/elementor_slider' . wpenv() . '.js', false, THEME_VERSION, true );
 		}
-
+		wp_enqueue_script( 'popper_js', get_template_directory_uri() . '/assets/dist/popper' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 		wp_enqueue_script( 'app_js', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 	}
 );
