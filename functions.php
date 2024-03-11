@@ -3,7 +3,7 @@
 /**
  * Setup variables
  */
-define( 'THEME_VERSION', '1.14.4' );
+define( 'THEME_VERSION', '1.14.5' );
 
 /**
 	* Includes
