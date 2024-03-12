@@ -1,4 +1,4 @@
-/* stylelint-disable selector-class-pattern */
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "sass:math";
@@ -130,6 +130,34 @@ $arrow: 0.375rem;
 	}
 }
 
+.info-icon {
+
+	@include square(1rem);
+	background: url(../images/info-icon.svg) no-repeat;
+	background-size: contain;
+	margin: 0 0 0 5px;
+	position: relative;
+	top: -1px;
+
+	&.big {
+
+		@include square(1.5rem);
+	}
+
+	@media (max-width: $breakpoint-desktop) {
+
+		display: none;
+	}
+}
+
+.Tooltip .icon {
+
+	@include square(1rem);
+	margin-left: 0.25em;
+	position: relative;
+	top: -1px;
+}
+
 .Signup__form__item__info__icon,
 [class*="info__icon"],
 .fontello-info,
@@ -154,30 +182,3 @@ $arrow: 0.375rem;
 	}
 }
 
-.Tooltip .icon {
-
-	@include square(1rem);
-	margin-left: 0.25em;
-	position: relative;
-	top: -1px;
-}
-
-.info-icon {
-
-	@include square(1rem);
-	background: url(../images/info-icon.svg) no-repeat;
-	background-size: contain;
-	margin: 0 0 0 5px;
-	position: relative;
-	top: -1px;
-
-	&.big {
-
-		@include square(1.5rem);
-	}
-
-	@media (max-width: $breakpoint-desktop) {
-
-		display: none;
-	}
-}
