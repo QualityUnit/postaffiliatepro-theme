@@ -162,7 +162,9 @@ $arrow: 0.375rem;
 [class*="info__icon"],
 .fontello-info,
 .info-icon,
-.Signup__form__labels__label__tooltip {
+.Signup__form__labels__label__tooltip,
+.checklist > li {
+	position: relative;
 	cursor: pointer;
 
 	.Tooltip {
