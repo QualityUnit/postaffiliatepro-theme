@@ -36,6 +36,10 @@
 		}
 	}
 
+	&__content ~ .elementor-column {
+		padding: 1.5em !important;
+	}
+
 
 	&__box.elementor-column {
 
@@ -215,8 +219,13 @@
 		.MerchantAffiliate__content ~ .elementor-column {
 			padding-left: 0;
 
-			.elementor-row {
-				padding-left: 0;
+			.elementor-widget-wrap {
+				align-content: center;
+
+				.elementor-container {
+					flex-direction: column;
+					align-items: center;
+				}
 			}
 		}
 	}
