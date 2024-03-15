@@ -189,7 +189,7 @@
 
 
 	function displayStatusIndicator(serviceStatus) {
-		let statusClass = 'ok';
+		let statusClass = 'outage';
 		if ( !serviceStatus ) {
 			return 'unavailable';
 		}
