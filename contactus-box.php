@@ -145,7 +145,7 @@
 
 <script>
 	const contactUsBtn = document.querySelector('.ContactUs__button');
-	const url = 'https://status.postaffiliatepro.com/';
+	const statusUrl = 'https://status.postaffiliatepro.com/';
 
 	contactUsBtn.addEventListener('click', async () => {
 			const menu = document.querySelector('.ContactUs__menu--wrap');
@@ -157,12 +157,12 @@
 				});
 				const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
 				statusInfoLink.style.display = 'flex';
-				statusInfoLink.addEventListener( 'click', () => window.open( url, '_blank' ) );
+				statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
 			}
 	})
 
 	const quStatusWidget = {
-		statusJsonUrl: `${url}/status.json`,
+		statusJsonUrl: `${statusUrl}/status.json`,
 		async fetchJson() {
 			try {
 				const data = await fetch(this.statusJsonUrl);
