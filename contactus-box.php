@@ -1,5 +1,5 @@
 <?php
-	$icons     = get_template_directory_uri() . '/assets/images/contact/';
+	$icons = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
 ?>
 
@@ -43,11 +43,23 @@
 			<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg>
 		</button>
 
+		<div class="ContactUs__status">
+			<p><?php _e( 'We are available for you 24/7.', 'contactus' ); ?><br />
+			<?php _e( 'Feel free to contact us.', 'contactus' ); ?>
+			</p>
+			<ul class="ContactUs__status--info" id="contactUsStatus">
+				<li class="ContactUs__status ok" data-status="ok"><?php _e( 'Servers online', 'contactus' ); ?></li>
+				<li class="ContactUs__status outage" data-status="outage"><?php _e( 'Servers offline', 'contactus' ); ?></li>
+				<li class="ContactUs__status degradation" data-status="degradation"><?php _e( 'Servers busy', 'contactus' ); ?></li>
+				<li class="ContactUs__status unavailable" data-status="unavailable"><?php _e( 'Status unavailable', 'contactus' ); ?></li>
+			</ul>
+		</div>
+
 		<ul class="ContactUs__menu">
 			<?php
 			if ( is_page() ) {
 				global $post;
-				$phone = '+421 2 33 456 826';
+				$phone      = '+421 2 33 456 826';
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
 
 				if ( $current_id ) {
@@ -132,6 +144,52 @@
 </script>
 
 <script>
+	const contactUsBtn = document.querySelector('.ContactUs__button');
+
+	contactUsBtn.addEventListener('click', async () => {
+			const menu = document.querySelector('.ContactUs__menu--wrap');
+			const statusInfo = document.querySelector('#contactUsStatus');
+
+			if ( menu?.classList.contains('hidden') ) {
+				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
+					return displayStatusIndicator( result );
+				});
+				statusInfo.querySelector(`[data-status^=${serviceStatus}]`).style.display = 'flex';
+			}
+	})
+
+	const quStatusWidget = {
+		statusJsonUrl: "https://status.postaffiliatepro.com/status.json",
+		async fetchJson() {
+			try {
+				const data = await fetch(this.statusJsonUrl);
+				return await data.json();
+			} catch (error) {
+				console.log(error);
+			}
+		},
+		async getStatus() {
+			const status = await this.fetchJson();
+			return status;
+		}
+	};
+
+
+	function displayStatusIndicator(serviceStatus) {
+		let statusClass = 'ok';
+		if ( !serviceStatus ) {
+			return 'unavailable';
+		}
+		if (serviceStatus?.outages?.length > 0) {
+			statusClass = 'outage';
+		} 
+		if (serviceStatus?.degradations?.length > 0) {
+			statusClass = 'degradation';
+		}
+		return statusClass;
+	}
+
+
 	function contactUsWhatsApp( element ) {
 		const message = element.getAttribute( 'data-message' );
 		const number = '15084695208';
