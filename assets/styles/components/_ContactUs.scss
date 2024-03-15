@@ -416,13 +416,21 @@ $colors: (
 				"unavailable": $medium-gray
 			);
 
-			a {
+			li {
 				display: none;
 				align-items: center;
 				justify-content: flex-end;
 				text-align: inherit;
 				text-decoration: underline;
 				font-size: 0.75rem;
+				cursor: pointer;
+
+				@media (hover: hover) {
+
+					&:hover {
+						color: $primary;
+					}
+				}
 
 				&::before {
 
