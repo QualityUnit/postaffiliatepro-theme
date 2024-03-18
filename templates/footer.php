@@ -61,7 +61,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 					<ul>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '+421 2 33 456 826', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+421 2 33 456 826', 'ms' ); ?></a></li>
 						<li class="Footer__middle__contacts__phone"><a href="tel:<?php _e( '18888429508', 'ms' ); ?>" title="<?php _e( 'Post Affiliate Pro\'s phone number', 'ms' ); ?>"><?php _e( '+1-888-842-9508', 'ms' ); ?></a></li>
-						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/15084695208?text=Hi! I am contacting you from <?php the_permalink(); ?>, and I am contacting you about..." title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-508-469-5208', 'ms' ); ?></a></li>
+						<li class="Footer__middle__contacts__whatsapp"><a href="https://wa.me/15084695208" title="<?php _e( 'Post Affiliate Pro\'s WhatsApp', 'ms' ); ?>"><?php _e( '+1-508-469-5208', 'ms' ); ?></a></li>
 					</ul>
 				</div>
 
@@ -418,4 +418,3 @@ if ( show_demo_bar() !== false ) {
 	<a href="<?= esc_url( '/trial/' ); ?>"><?= esc_html( 'Start Free Trial', 'ms' ); ?></a>
 	<span class="trial__sticky__button--close"><svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg></span>
 </div>
-
