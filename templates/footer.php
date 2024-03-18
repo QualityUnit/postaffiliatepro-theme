@@ -78,7 +78,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 						</li>
 						<li>
 							<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-								 title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>">
+								 title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>" rel="nofollow noopener">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 								</svg>
@@ -86,7 +86,7 @@ if ( empty( preg_grep( '/^(login|trial|free-account|demo|request-for-proposal)$/
 						</li>
 						<li>
 							<a href="<?php _e( 'https://www.youtube.com/channel/UC1UGrbCyFlJ9h8eutLCqntw', 'ms' ); ?>" target="_blank"
-								 title="<?php _e( 'Post Affiliate Pro\'s YouTube', 'ms' ); ?>">
+								 title="<?php _e( 'Post Affiliate Pro\'s YouTube', 'ms' ); ?>" rel="nofollow noopener">
 								<svg>
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-youtube' ); ?>"></use>
 								</svg>
