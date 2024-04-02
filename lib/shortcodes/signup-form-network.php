@@ -126,9 +126,9 @@ function ms_signup_network_form( $atts ) {
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 					<?php } }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
-	
+
 	<?php
-	set_custom_source( 'components/Signup' );
+	set_custom_source( 'shortcodes/Signup' );
 	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
