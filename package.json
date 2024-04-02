@@ -18,7 +18,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.24",
-		"@babel/eslint-parser": "^7.23",
+		"@babel/eslint-parser": "^7.24",
 		"@commitlint/cli": "^19.0.3",
 		"@commitlint/config-conventional": "^19.0.3",
 		"@wordpress/eslint-plugin": "^17",
