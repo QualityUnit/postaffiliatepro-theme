@@ -4,11 +4,11 @@ function ms_signup_network_form( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
-			'title' => __( 'Start Free Trial', 'ms' ),
-			'label1' => __( '14 or 30 days free trial', 'ms' ),
+			'title'    => __( 'Start Free Trial', 'ms' ),
+			'label1'   => __( '14 or 30 days free trial', 'ms' ),
 			'tooltip1' => __( 'Free trial for 14 days with a free email, or 30 days with a company email', 'ms' ),
-			'label2' => __( 'No Credit Card required', 'ms' ),
-			'button' => __( 'Create account for FREE', 'ms' ),
+			'label2'   => __( 'No Credit Card required', 'ms' ),
+			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
 		$atts,
 	);
@@ -87,6 +87,9 @@ function ms_signup_network_form( $atts ) {
 	</div>
 
 	<?php // @codingStandardsIgnoreStart ?>
+	<?php
+		add_action( 'wp_footer', function() {
+	?>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
@@ -112,14 +115,21 @@ function ms_signup_network_form( $atts ) {
 	<?php } else { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_en.js' ?>"></script>
 	<?php } ?>
-	<?php $crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) ); ?>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-	<?php // @codingStandardsIgnoreEnd ?>
-
 	<?php
-	wp_enqueue_script( 'jquerycookie', get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js', array( 'jquery' ), THEME_VERSION, true );
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
-	set_custom_source( 'shortcodes/Signup' );
+	global $crm_ver_app;
+	if ( ! isset( $crm_ver_app ) ) {
+				$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
+					?>
+	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION); ?>"></script>
+	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
+	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
+					<?php } }, 999 ); ?>
+	<?php // @codingStandardsIgnoreEnd ?>
+	
+	<?php
+	set_custom_source( 'components/Signup' );
+	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'signupform-network', 'ms_signup_network_form' );

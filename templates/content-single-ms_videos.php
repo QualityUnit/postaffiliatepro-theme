@@ -43,11 +43,7 @@ if ( $categories && $categories_url ) {
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar">
-			<div class="Signup__sidebar-wrapper">
-				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
-			</div>
-		</div>
+		
 		<div class="Post__content">
 			<div class="Content" itemprop="text">
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo esc_attr( get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) ); ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -90,6 +86,11 @@ if ( $categories && $categories_url ) {
 						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="Post__sidebar">
+			<div class="Signup__sidebar-wrapper">
+				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
 			</div>
 		</div>
 	</div>

@@ -72,6 +72,7 @@ body.compact-header--active {
 
 	&__image {
 		position: relative;
+		display: none;
 
 		.#{$class-name}--lvl-1 & {
 			.#{$class-name}__img {
@@ -92,6 +93,10 @@ body.compact-header--active {
 				object-fit: cover;
 				object-position: center;
 			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			display: block;
 		}
 	}
 

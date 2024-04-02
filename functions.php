@@ -10,6 +10,7 @@ define( 'THEME_VERSION', '1.14.14' );
 	*/
 
 	$theme_includes = array(
+		'functions/detectmobilebrowser.php',             // Detects mobile
 		'lib/assets.php',             // Scripts and stylesheets
 		'lib/extras.php',             // Custom functions
 		'lib/setup.php',              // Theme setup
@@ -41,6 +42,7 @@ define( 'THEME_VERSION', '1.14.14' );
 		'functions/shortcodes.php', // Import ShortCodes
 		'functions/header-banners.php', // Import ShortCodes
 		'functions/create-language-menu.php', // Function for generate languages
+		'functions/dynamic-award-badges.php', // Function to place award badges dynamically
 		'functions/dynamic-award-badges.php', // Function to place award badges dynamically
 	);
 
