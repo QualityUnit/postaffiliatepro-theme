@@ -4,7 +4,6 @@ use QualityUnit\Wrapper;
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <?php get_template_part( 'templates/head' ); ?>
-<?php get_template_part( 'lib/pagesources' ); ?>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="app">
@@ -27,7 +26,7 @@ use QualityUnit\Wrapper;
 
 <?php
 	wp_footer();
-	include_once 'base-scripts.php';
+	require_once 'base-scripts.php';
 ?>
 </body>
 </html>

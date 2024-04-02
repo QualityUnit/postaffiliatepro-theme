@@ -10,8 +10,6 @@ add_action(
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'elementor-custom' );
 
-		wp_enqueue_style( 'header', get_template_directory_uri() . '/assets/dist/layouts/Header' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
-
 		if ( ! is_page_template( 'elementor.php' ) ) {
 			wp_enqueue_style( 'compact-header', get_template_directory_uri() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 			wp_enqueue_style( 'compact-header-filter', get_template_directory_uri() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
@@ -58,13 +56,6 @@ add_action(
 add_action(
 	'wp_footer',
 	function () {
-		wp_enqueue_script( 'jquery' );
-
-		// Adds splide elementor slide JS
-		if ( ! is_user_logged_in() && strpos( apply_filters( 'the_content', get_the_content() ), 'elementor-widget-slides' ) ) {
-			wp_enqueue_script( 'swiper', plugin_dir_path( __FILE__ ) . 'elementor/assets/lib/swiper/swiper' . wpenv() . '.js', false, THEME_VERSION, true );
-			wp_enqueue_script( 'elementor_slider', get_template_directory_uri() . '/assets/dist/elementor_slider' . wpenv() . '.js', false, THEME_VERSION, true );
-		}
 		wp_enqueue_script( 'popper_js', get_template_directory_uri() . '/assets/dist/popper' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 		wp_enqueue_script( 'app_js', get_template_directory_uri() . '/assets/dist/app' . wpenv() . '.js', array( 'wp-i18n' ), THEME_VERSION, true );
 	}
