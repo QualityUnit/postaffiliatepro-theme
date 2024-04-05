@@ -1,81 +1,83 @@
-const list = document.querySelector( '.list' );
+( () => {
+	const query = document.querySelector.bind( document );
+	const queryAll = document.querySelectorAll.bind( document );
 
-function recountVisible() {
-	// ReCount
-	setTimeout( () => {
-		const listItem = document.querySelectorAll( '.list li' );
-		const recount =
-				listItem.length - document.querySelectorAll( ".list li[style*='none']" ).length;
-		const counter = document.querySelector( '#countPosts' );
-		if ( counter ) {
-			counter.textContent = recount;
-		}
-	}, 25 );
-}
+	function recountVisible() {
+		// ReCount
+		setTimeout( () => {
+			const listItem = queryAll( '.list li' );
+			const recount =
+				listItem.length - queryAll( ".list li[style*='none']" ).length;
+			const counter = query( '#countPosts' );
+			if ( counter ) {
+				counter.textContent = recount;
+			}
+		}, 25 );
+	}
 
-function filterMenuTitleChange( item ) {
-	const clWrap = 'FilterMenu';
-	const clTitle = 'FilterMenu__title';
-	const title = item.getAttribute( 'title' );
-	const elMain = item.closest( '.' + clWrap );
-	if ( elMain && title !== null ) {
-		const elTitle = elMain.querySelector( '.' + clTitle );
-		if ( elTitle ) {
-			elTitle.textContent = title;
+	function filterMenuTitleChange( item ) {
+		const clWrap = 'FilterMenu';
+		const clTitle = 'FilterMenu__title';
+		const title = item.getAttribute( 'title' );
+		const elMain = item.closest( '.' + clWrap );
+		if ( elMain && title !== null ) {
+			const elTitle = elMain.querySelector( '.' + clTitle );
+			if ( elTitle ) {
+				elTitle.textContent = title;
+			}
 		}
 	}
-}
 
-if ( list ) {
-	const listItems = list.querySelectorAll( 'li' );
-	const pillars = list.querySelectorAll( 'li.pillar' );
-	const countItems = listItems.length;
-	const filterItems = document.querySelectorAll(
-		'.filter-item'
-	);
-	const search = document.querySelector( "input[type='search']" );
-	const searchReset = document.querySelector( "input[type='search']+.search-reset" );
-	const searchResetActive = 'search-reset--active';
-	const { hash } = window.location;
-	const activeFilter = {
-		collections: '',
-		plan: '',
-		size: '',
-		category: '',
-		region: '',
-		favourite: '',
-		type: '',
-	};
-
-	// Count
-	const count =
-			document.querySelectorAll( '.list li' ).length -
-			document.querySelectorAll( ".list li[style*='none']" ).length;
-	if ( document.querySelector( '.Category__content__description' ) ) {
-		document.querySelectorAll( '.Category__content__description span' ).textContent = count;
-		document.querySelectorAll( '.Category__content__description div' ).classList.add(
-			'show'
+	if ( query( '.list' ) !== null ) {
+		const list = query( '.list' );
+		const listItems = list.querySelectorAll( 'li' );
+		const pillars = list.querySelectorAll( 'li.pillar' );
+		const countItems = listItems.length;
+		const filterItems = queryAll(
+			'.filter-item'
 		);
-	}
+		const search = query( "input[type='search']" );
+		const searchReset = query( "input[type='search']+.search-reset" );
+		const searchResetActive = 'search-reset--active';
+		const { hash } = window.location;
+		const activeFilter = {
+			collections: '',
+			plan: '',
+			size: '',
+			category: '',
+			region: '',
+			favourite: '',
+			type: '',
+		};
 
-	function resultsReset() {
-		searchReset?.classList.remove( searchResetActive );
-		list.classList.remove( 'empty' );
-		list.querySelectorAll( 'li' ).forEach( ( element ) => {
-			const el = element;
-			el.style = null;
-		} );
-	}
+		// Count
+		const count =
+			queryAll( '.list li' ).length -
+			queryAll( ".list li[style*='none']" ).length;
+		if ( query( '.Category__content__description' ) ) {
+			query( '.Category__content__description span' ).textContent = count;
+			query( '.Category__content__description div' ).classList.add(
+				'show'
+			);
+		}
 
-	// Adds numbered classes to each featured article so we can assign image to it
-	if ( pillars !== null ) {
-		pillars.forEach( ( pillar, i ) => {
-			pillar.classList.add( `pillar-${ i }` );
-		} );
-	}
+		function resultsReset() {
+			searchReset.classList.remove( searchResetActive );
+			list.classList.remove( 'empty' );
+			list.querySelectorAll( 'li' ).forEach( ( element ) => {
+				const el = element;
+				el.style = null;
+			} );
+		}
 
-	// Filter
-	if ( filterItems.length ) {
+		// Adds numbered classes to each featured article so we can assign image to it
+		if ( pillars !== null ) {
+			pillars.forEach( ( pillar, i ) => {
+				pillar.classList.add( `pillar-${ i }` );
+			} );
+		}
+
+		// Filter
 		filterItems.forEach( ( element ) => {
 			const filterItem = element;
 
@@ -97,10 +99,8 @@ if ( list ) {
 				recountVisible();
 			} );
 		} );
-	}
 
-	// Items
-	if ( listItems.length ) {
+		// Items
 		listItems.forEach( ( element ) => {
 			const listItem = element;
 			const dataCollections = listItem.dataset.collections
@@ -171,43 +171,46 @@ if ( list ) {
 				} );
 			} );
 		} );
-	}
 
-	// URL filter
-	if ( hash.length ) {
-		const filteredHash = hash.replace( '#', '' );
+		// URL filter
+		if ( hash.length ) {
+			const filteredHash = hash.replace( '#', '' );
 
-		listItems.forEach( ( element ) => {
-			const listItem = element;
-			const dataCategory = listItem.dataset.category
-				? listItem.dataset.category
-				: '';
+			listItems.forEach( ( element ) => {
+				const listItem = element;
+				const dataCategory = listItem.dataset.category
+					? listItem.dataset.category
+					: '';
 
-			if ( ! dataCategory.includes( filteredHash ) ) {
-				listItem.style.display = 'none';
-			}
-		} );
+				if ( ! dataCategory.includes( filteredHash ) ) {
+					listItem.style.display = 'none';
+				}
+			} );
 
-		filterItems.forEach( ( element ) => {
-			const filterItem = element;
-			const val = filterItem.value;
+			filterItems.forEach( ( element ) => {
+				const filterItem = element;
+				const val = filterItem.value;
 
-			if ( filteredHash === val ) {
-				filterItem.checked = true;
-				filterMenuTitleChange( filterItem );
-				recountVisible();
-			}
-		} );
-	}
+				if ( filteredHash === val ) {
+					filterItem.checked = true;
+					filterMenuTitleChange( filterItem );
+					recountVisible();
+				}
+			} );
+		}
 
-	// Search
-	search.addEventListener( 'keyup', () => {
-		const val = search.value.toLowerCase();
+		// Search
+		search.addEventListener( 'keyup', () => {
+			const val = search.value.toLowerCase();
 
-		if ( listItems.length ) {
-			listItems.forEach( ( listItem ) => {
-				const title = listItem.querySelector( '.item-title' )?.textContent.toLowerCase();
-				const excerpt = listItem.querySelector( '.item-excerpt' )?.textContent.toLowerCase();
+			listItems.forEach( ( element ) => {
+				const listItem = element;
+				const title = listItem
+					.querySelector( '.item-title' )
+					.textContent.toLowerCase();
+				const excerpt = listItem
+					.querySelector( '.item-excerpt' )
+					.textContent.toLowerCase();
 
 				if (
 					listItem.style.display === 'none' &&
@@ -223,25 +226,21 @@ if ( list ) {
 					listItem.style.display = 'flex';
 				}
 
-				if ( ! title?.includes( val ) && ! excerpt?.includes( val ) ) {
+				if ( ! title.includes( val ) && ! excerpt.includes( val ) ) {
 					listItem.style.display = 'none';
 				}
 
 				recountVisible();
 			} );
-		}
-	} );
+		} );
 
-	if ( searchReset ) {
 		searchReset.addEventListener( 'click', () => {
 			search.value = '';
 			resultsReset();
 			recountVisible();
 		} );
-	}
 
-	// Empty
-	if ( filterItems.length ) {
+		// Empty
 		filterItems.forEach( ( element ) => {
 			const filterItem = element;
 
@@ -256,26 +255,24 @@ if ( list ) {
 				}
 			} );
 		} );
-	}
 
-	search.addEventListener( 'keyup', () => {
-		if (
-			list.querySelectorAll( "li[style*='display: none']" ).length ===
+		search.addEventListener( 'keyup', () => {
+			if (
+				list.querySelectorAll( "li[style*='display: none']" ).length ===
 				countItems
-		) {
-			list.classList.add( 'empty' );
-		} else {
-			list.classList.remove( 'empty' );
-		}
-	} );
-	search.addEventListener( 'input', () => {
-		if ( search.value === '' ) {
-			resultsReset();
-			return;
-		}
-		if ( searchReset ) {
-			searchReset.classList.add( searchResetActive );
-			recountVisible();
-		}
-	} );
-}
+			) {
+				list.classList.add( 'empty' );
+			} else {
+				list.classList.remove( 'empty' );
+			}
+		} );
+		search.addEventListener( 'input', () => {
+			if ( search.value === '' ) {
+				resultsReset();
+			} else {
+				searchReset.classList.add( searchResetActive );
+				recountVisible();
+			}
+		} );
+	}
+} )();
