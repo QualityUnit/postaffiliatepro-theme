@@ -2,6 +2,66 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+.searchfield {
+
+	&.inputField {
+		position: relative;
+		border-radius: 0.625em;
+		border: 1px solid $medium-gray-inputs;
+		margin-bottom: 0;
+
+
+		svg {
+
+			@include square(1.25em);
+			position: absolute;
+			fill: $black-real;
+			height: 1.5em;
+			left: 0.85em;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 1;
+		}
+
+		input[type="search"] {
+			outline: none;
+			border: none;
+			font-size: 1em;
+			line-height: 1;
+			height: auto;
+			font-family: $font-primary;
+			width: 100%;
+			color: currentcolor;
+			transition: all 0.2s;
+			padding: 0.5em 0.5em 0.5em 3.5em;
+			border-radius: 12px;
+			background-color: $light-grayBg;
+
+			@include input-placeholder {
+				color: currentcolor;
+				font-size: 0.875rem;
+				transition: all 0.2s;
+				opacity: 1;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			max-width: 15.625em;
+		}
+	}
+
+	&:focus-within {
+		color: $black;
+		border-color: transparent;
+		box-shadow: none;
+	}
+
+	&.has-value {
+		color: $black;
+	}
+
+}
+
 %searchField, .searchField {
 	position: relative;
 	margin: 0 auto;

@@ -277,25 +277,29 @@
 			line-height: inherit;
 		}
 
-		&.elementor-size-small {
-			font-size: 15px;
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			&.elementor-size-small {
+				font-size: 15px;
+			}
+
+			&.elementor-size-medium {
+				font-size: 19px;
+			}
+
+			&.elementor-size-large {
+				font-size: 29px;
+			}
+
+			&.elementor-size-xl {
+				font-size: 39px;
+			}
+
+			&.elementor-size-xxl {
+				font-size: 59px;
+			}
 		}
 
-		&.elementor-size-medium {
-			font-size: 19px;
-		}
-
-		&.elementor-size-large {
-			font-size: 29px;
-		}
-
-		&.elementor-size-xl {
-			font-size: 39px;
-		}
-
-		&.elementor-size-xxl {
-			font-size: 59px;
-		}
 	}
 }
 

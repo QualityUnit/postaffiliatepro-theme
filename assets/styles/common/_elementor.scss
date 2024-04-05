@@ -24,14 +24,28 @@
 
 .elementor-widget-heading {
 
+	@media (max-width: ($breakpoint-tablet - 1px)) {
+
+		.elementor-heading-title {
+
+			br {
+				display: none;
+			}
+		}
+	}
+
 	h2.elementor-heading-title {
 		line-height: $line-height-h2;
 
 		&.elementor-size-xl {
-			font-size: $font-size-h2-xl;
+			font-size: $font-size-h2;
 
 			@media (max-width: ($breakpoint-tablet - 1px)) {
 				font-size: 1.25rem;
+			}
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				font-size: $font-size-h2-xl;
 			}
 		}
 	}
@@ -105,9 +119,9 @@ body:not(.elementor-editor-active) {
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (max-width: 481px) {
 
-		.elementor .elementor-hidden-phone {
+		.elementor .elementor-hidden-mobile {
 			display: none !important;
 		}
 	}

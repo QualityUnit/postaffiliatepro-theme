@@ -1,4 +1,9 @@
 <?php // @codingStandardsIgnoreLine
+require_once get_template_directory() . '/lib/components/searchfield.php';
+set_custom_source( 'layouts/Archive' );
+set_custom_source( 'layouts/Index' );
+set_custom_source( 'indexFilter', 'js' );
+
 $page_header_title = __( 'Affiliate Program Directory', 'ms' );
 $page_header_text  = __( 'A directory of companies and affiliate programs', 'ms' );
 if ( is_tax( 'ms_directory_categories' ) ) :
@@ -17,19 +22,19 @@ $page_header_args = array(
 
 $directoryposts = get_posts(
 	array(
-		'post_type'   => 'ms_directory',
-		'post_status' => 'publish',
-		'numberposts' => -1,
-		'order'       => 'ASC',
-		'orderby'     => 'title',
+		'post_type'        => 'ms_directory',
+		'post_status'      => 'publish',
+		'numberposts'      => -1,
+		'order'            => 'ASC',
+		'orderby'          => 'title',
 		'suppress_filters' => false,
-		'wpml_language' => ICL_LANGUAGE_CODE,
+		'wpml_language'    => ICL_LANGUAGE_CODE,
 	)
 );
 
 $index = array();
 foreach ( $directoryposts as $directorypost ) {
-	$posttitle = $directorypost->post_title;
+	$posttitle       = $directorypost->post_title;
 	$first_character = substr( $posttitle, 0, 1 );
 
 	if ( ( ctype_upper( $first_character ) || ctype_digit( $first_character ) ) && ! in_array( $first_character, $index ) ) {
@@ -41,46 +46,40 @@ foreach ( $directoryposts as $directorypost ) {
 ?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	<div class="Archive__filter">
-		<div class="wrapper">
-			<div class="Archive__filter__item">
-				<ul>
+	<div class="Index Archive__filter">
+		<div class="wrapper flex-tablet flex-align-center">
+			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?>
+				<ul class="Index__top">
 					<?php foreach ( $index as $index_item ) { ?>
 						<li class="Index__top--item"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
 					<?php } ?>
 				</ul>
-			</div>
 		</div>
 	</div>
 
-	<div class="wrapper Archive__container Archive__container--glossary">
-		<div class="Archive__container__content list">
+	<div class="wrapper Index__list">
 			<?php
 			foreach ( $index as $index_item ) {
 				?>
-				<div id="item-<?= esc_attr( $index_item ); ?>" class="Archive__container__content__item">
-					<h2 class="Archive__container__content__item__title"><?= esc_html( $index_item ); ?></h2>
-					<div class="Archive__container__content__item__content">
-						<ul>
-							<?php
+				<div id="item-<?= esc_attr( $index_item ); ?>"  class="Index__list--group" data-searchGroup>
+					<h2 class="Index__list--groupTitle"><?= esc_html( $index_item ); ?></h2>
+					<ul>
+						<?php
 
-							foreach ( $directoryposts as $directorypost ) {
-								$postid          = $directorypost->ID;
-								$posttitle       = $directorypost->post_title;
-								$first_character = substr( $posttitle, 0, 1 );
+						foreach ( $directoryposts as $directorypost ) {
+							$postid          = $directorypost->ID;
+							$posttitle       = $directorypost->post_title;
+							$first_character = substr( $posttitle, 0, 1 );
 
-								if ( $first_character === $index_item ) {
-									?>
-									<li itemscope="" itemtype="https://schema.org/DefinedTerm"><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span itemprop="name" data-search><?= esc_html( $posttitle ); ?></span></a></li>
-									<?php
-								}
+							if ( $first_character === $index_item ) {
+								?>
+								<li class="Index__list--item" itemscope="" itemtype="https://schema.org/DefinedTerm" data-search><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span class="item-title" itemprop="name" ><?= esc_html( $posttitle ); ?></span></a></li>
+								<?php
 							}
-							?>
-						</ul>
-					</div>
+						}
+						?>
+					</ul>
 				</div>
 			<?php } ?>
-
-		</div>
 	</div>
 </div>

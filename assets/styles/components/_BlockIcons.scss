@@ -64,10 +64,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: 2em 0.5em;
+			padding: 0.5em;
 			color: $black;
 
-			@media (min-width: $breakpoint-iphone-old) {
+			@media (min-width: $breakpoint-tablet) {
 				padding: 2.5em 1.5em;
 			}
 
@@ -94,8 +94,12 @@
 
 		&-text {
 			font-family: $font-secondary;
-			font-size: $font-size-h4;
+			font-size: 0.875em;
 			font-weight: $font-weight-bold;
+
+			@media (min-width: $breakpoint-tablet) {
+				font-size: $font-size-h4;
+			}
 		}
 
 		.elementor-widget-wrap {

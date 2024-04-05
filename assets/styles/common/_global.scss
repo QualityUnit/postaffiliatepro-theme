@@ -187,31 +187,82 @@ display-block {
 .flex {
 	display: flex;
 
-	&-wrap {
-		flex-wrap: wrap;
+	&-inline {
+		display: inline-flex;
+	}
+
+	&-align {
+
+		&-center {
+			align-items: center;
+			align-content: center;
+		}
+
+		&-bottom {
+			align-items: flex-end;
+			align-content: flex-end;
+		}
 	}
 
 	&-justify-center {
 		justify-content: center;
 	}
 
-	&-align-center {
-		align-items: center;
+	&-justify-end {
+		justify-content: flex-end;
+	}
 
-		&.elementor-widget {
+	&-wrap {
+		flex-wrap: wrap;
+	}
 
-			* {
-				display: flex;
-				align-items: center;
-			}
+	@media (min-width: $breakpoint-tablet) {
+
+		&-tablet {
+			display: flex;
+		}
+	}
+
+	@media (min-width: $breakpoint-tablet-landscape) {
+
+		&-tablet-landscape {
+			display: flex;
 		}
 	}
 }
 
-.flex-center {
 
-	justify-content: center;
-	align-items: center;
+// Text align
+.text-align {
+
+	&-center {
+		text-align: center;
+	}
+
+	&-right {
+		text-align: right;
+	}
+}
+
+.mobile--only {
+
+	@media (min-width: $breakpoint-tablet) {
+		display: none;
+	}
+}
+
+.tablet--only {
+
+	@media (min-width: $breakpoint-tablet-landscape ) {
+		display: none;
+	}
+}
+
+.desktop--only {
+
+	@media (max-width: ($breakpoint-desktop-box - 1px)) {
+		display: none;
+	}
 }
 
 .grid {
@@ -298,21 +349,6 @@ display-block {
 	}
 }
 
-.text-align {
-
-	&-center {
-		text-align: center;
-	}
-
-	&-right {
-		text-align: right;
-	}
-
-	&-justify {
-		text-align: justify;
-	}
-}
-
 .text-decoration {
 
 	&-none {
@@ -324,26 +360,6 @@ display-block {
 	}
 }
 
-.mobile--only {
-
-	@media (min-width: $breakpoint-tablet) {
-		display: none;
-	}
-}
-
-.tablet--only {
-
-	@media (min-width: $breakpoint-tablet-landscape ) {
-		display: none;
-	}
-}
-
-.desktop--only {
-
-	@media (max-width: ($breakpoint-desktop-box - 1px)) {
-		display: none;
-	}
-}
 
 .w-100 {
 	width: 100%;

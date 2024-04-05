@@ -1,0 +1,78 @@
+/* stylelint-disable selector-class-pattern, no-descending-specificity */
+
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.Index {
+	background-color: $lightest-gray;
+
+	.wrapper {
+		padding: 0.5em;
+	}
+
+	&__top {
+		font-family: $font-secondary;
+		font-weight: 700;
+		margin-bottom: 0;
+
+		&--item {
+			display: inline-block;
+			padding: 0 0.5em;
+
+			a {
+				color: $dark-gray;
+				text-decoration: none;
+			}
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-left: 0.5em;
+		}
+	}
+
+	&__list {
+
+		&--groupTitle {
+			font-size: 2.625rem;
+			line-height: 1;
+			font-weight: 600;
+			color: $primary;
+			width: 1.5em;
+		}
+
+		&--group {
+			margin-top: 1.5em;
+
+			+ .Index__list--group {
+				margin-top: 3em;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			ul {
+				font-family: $font-secondary;
+
+				li {
+					display: inline-block;
+					padding: 0.35em 0;
+				}
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+				display: flex;
+
+				ul {
+					flex-basis: calc(100% - 4em);
+					border-left: 1px solid $light-gray;
+					padding-left: 1.5em;
+
+					li {
+						width: 33%;
+					}
+				}
+			}
+		}
+	}
+}
