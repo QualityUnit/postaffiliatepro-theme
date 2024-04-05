@@ -36,12 +36,13 @@
 		}
 
 		> .elementor-container {
-			align-items: center;
+			align-items: flex-start;
 		}
 	}
 
 	.elementor-section.elementor-section-boxed > .elementor-container {
 		max-width: 1140px;
+		align-items: flex-start;
 	}
 
 	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
@@ -109,6 +110,7 @@
 
 		.box.elementor-column[class*="box"] {
 			padding: 7.2em $wrap-h-padding 2em $wrap-h-padding !important;
+			height: 100%;
 
 			p:last-child {
 				margin-bottom: 0;

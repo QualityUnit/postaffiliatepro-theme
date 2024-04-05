@@ -6,8 +6,14 @@
 	overflow: hidden;
 
 	.Block--title-big + & {
-		margin-top: 3em !important;
+		margin: 0 !important;
+
+		@media (min-width: $breakpoint-tablet) {
+
+			margin-top: 3em !important;
+		}
 	}
+
 
 	&.Block--background {
 		padding: 0 !important;
@@ -31,7 +37,7 @@
 				display: flex;
 				align-items: stretch;
 				width: 100%;
-				padding: 10em 0 7em;
+				padding: 3em 0;
 			}
 
 			.splide__arrows {
@@ -68,17 +74,19 @@
 			margin: 0;
 
 			.slide__inn {
+				padding: 0 1em;
 
 				&::after {
 
-					@include square(100%);
+					height: 100%;
+					width: calc(100% - 2em);
 					top: 0;
-					left: 0;
+					left: 1em;
 					content: "";
 					position: absolute;
 					background-color: $white;
 					border-radius: $border-radius-16;
-					box-shadow: 0 0 3em rgba($black-real, 0);
+					box-shadow: 0 0 3em rgba($black-real, 0.2);
 					overflow: hidden;
 				}
 			}
@@ -86,12 +94,25 @@
 
 		@media (min-width: $breakpoint-tablet) {
 
+			.splide {
+
+				.splide__list {
+					padding: 10em 0 7em;
+				}
+			}
+
 			.splide__slide {
 				margin: 0;
 
 				.slide__inn {
+					padding: 0;
 					opacity: 0.6;
 					transition: all 0.8s;
+
+					&::after {
+						width: 100%;
+						left: 0;
+					}
 				}
 
 				&.is-active {
@@ -113,7 +134,6 @@
 
 			.splide {
 				position: relative;
-				left: 1em;
 			}
 
 			.splide__slide {

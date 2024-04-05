@@ -1,4 +1,5 @@
 /* stylelint-disable selector-class-pattern */
+@use "sass:math";
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
@@ -34,37 +35,93 @@
 	}
 
 	&__content {
-		gap: 2.625em;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2em;
+
+		@media (min-width: $breakpoint-tablet) {
+			grid-template-columns: repeat(2, 1fr);
+
+		}
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
 	}
 
 	&__item {
+		max-width: 100%;
+		width: 100%;
+		opacity: 1;
+		transition: opacity 0.5s;
+
+		&.inactive {
+			opacity: 0;
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+		}
 
 		article {
-			margin: 0 !important;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			cursor: pointer;
 		}
 
 		&--thumbnail {
 			position: relative;
 			z-index: 1;
 
-			a {
-				display: block;
+			img {
+				width: 100%;
+				max-width: 100%;
+				height: 100% !important;
 			}
 		}
 
 		&--text {
 
-			@include color(background-color, main-background);
-			border-radius: $border-radius-16;
-			box-shadow: 0 4px 64px rgba(0, 0, 0, 0.08);
-			margin-top: -3em;
-			min-height: 6em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-height: 12em;
 			padding: 2em !important;
+			margin-top: -3em;
+			height: 100%;
+			border-radius: $border-radius-16;
+			background-color: $white;
+			box-shadow: 0 0.25em 4em 0 rgba($black-real, 0.08);
 			text-align: center;
+			transition-duration: 0.2s;
+
+			p {
+				color: $dark-gray;
+			}
+
+			&:hover {
+				background-color: $primary;
+
+				a {
+					color: $primary;
+					text-decoration: none !important;
+				}
+			}
+
+			h3 {
+
+				@media (min-width: $breakpoint-iphone-old) {
+					font-size: 1.5rem;
+					line-height: 1.2;
+				}
+			}
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			width: calc(50% - 1.75em) !important;
 
 			&--text {
 				min-height: 11.875em;
@@ -72,10 +129,44 @@
 		}
 
 		@media (min-width: $breakpoint-tablet-landscape) {
-			width: calc(33.333% - 1.75em) !important;
 
 			&--text {
 				padding: 2.625em !important;
+			}
+		}
+
+		@media (min-width: $breakpoint-desktop) {
+
+			&--thumbnail {
+				min-height: 12.8125em;
+			}
+		}
+	}
+
+	&__items__loading {
+		text-align: center;
+		font-size: 1.5rem;
+
+
+		line-height: 1.5;
+		font-family: $font-secondary;
+		font-weight: $font-weight-semi;
+		margin-bottom: 1em;
+
+		span {
+			$animationTime: 1.5s;
+
+			display: inline-block;
+			font-size: 1.5em;
+			margin-left: 0.05em;
+			animation: chatDots 1.5s linear infinite;
+
+			&:nth-child(2) {
+				animation-delay: math.div($animationTime, 6);
+			}
+
+			&:nth-child(3) {
+				animation-delay: math.div($animationTime, 3);
 			}
 		}
 	}

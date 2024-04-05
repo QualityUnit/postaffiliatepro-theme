@@ -1,12 +1,18 @@
 <?php
-//todo: vymazat zakomentovane includovanie 'sidebar_toc'
-//todo: vymazat 'Post__header__small' v php a css
-//todo: filter toggle ikona
-//todo: content-archive-ms_reviews.php ... zobrazovat $whatis_post?
+function inline_compact_header() {
+	ob_start();
+	$css  = file_get_contents( get_template_directory() . '/assets/dist/components/compactHeader' . isrtl() . wpenv() . '.css' );
+	$css .= file_get_contents( get_template_directory() . '/assets/dist/components/Filter' . isrtl() . wpenv() . '.css' );
+	ob_get_clean();
 
-// Note: CSS was moved to assets.php because of CLS Web Vital
-
+	// return the stored style
+	if ( '' != $css ) {
+		echo '<style id="compactheader-css" type="text/css">' . $css . '</style>'; // @codingStandardsIgnoreLine
+	}
+};
+	inline_compact_header();
 ?>
+
 <?php set_custom_source( 'filterMenu', 'js' ); ?>
 <?php set_custom_source( 'sortingMenu', 'js' ); ?>
 <?php set_custom_source( 'compactHeader', 'js' ); ?>
@@ -235,8 +241,8 @@
 						$date_human    = get_the_time( 'F j, Y' );
 						$date_modified = get_the_modified_time( 'F j, Y' );
 						$time_modified = get_the_modified_time( 'g:i a' );
-						$author_name = get_the_author_meta( 'display_name' );
-						$author_link = get_author_posts_url( get_the_author_meta( 'ID' ) );
+						$author_name   = get_the_author_meta( 'display_name' );
+						$author_link   = get_author_posts_url( get_the_author_meta( 'ID' ) );
 						?>
 						<div class="compact-header__date">
 							<?php if ( isset( $date_machine ) && isset( $date_human ) ) { ?>

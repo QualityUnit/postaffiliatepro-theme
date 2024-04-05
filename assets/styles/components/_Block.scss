@@ -8,7 +8,16 @@
 	margin-top: $block-space;
 	margin-bottom: $block-space;
 
+	@media (max-width: ($breakpoint-tablet-landscape - 1px)) {
+		margin-top: 4.5em;
+		margin-bottom: 4.5em;
+	}
+
 	.elementor-row {
+		align-items: center;
+	}
+
+	.elementor-top-column .elementor-inner-section > .elementor-container {
 		align-items: center;
 	}
 
@@ -70,12 +79,12 @@
 	}
 
 	h2 {
-		font-size: 1.25rem;
+		font-size: 1.75rem;
 		line-height: $line-height-h2;
 		margin-bottom: 1rem;
 	}
 
-	@media (min-width: $breakpoint-tablet) {
+	@media (min-width: $breakpoint-tablet-landscape) {
 
 		h1 {
 			font-size: $font-size-h1;
@@ -165,7 +174,7 @@
 
 		}
 
-		@media (min-width: ($breakpoint-tablet + 1px)) {
+		@media (min-width: $breakpoint-tablet) {
 
 			h2 {
 				text-align: left;
@@ -406,13 +415,19 @@
 		}
 
 		.elementor-section .elementor-container .elementor-column:last-of-type {
-			padding-left: 7.5em;
+			padding-left: 1.5em;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+
+				padding-left: 7.5em;
+			}
 		}
 
-		@media (max-width: $breakpoint-tablet) {
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			text-align: center;
 
 			.elementor-section .elementor-container .elementor-column:last-of-type {
-				padding: 0 1.5em !important;
+				padding: 0 !important;
 			}
 		}
 	}
@@ -420,19 +435,26 @@
 	&.image-right {
 
 		.elementor-section .elementor-container .elementor-column:first-of-type {
-			padding-right: 7.5em;
+			padding-right: 1.5em;
+
+			@media (min-width: $breakpoint-tablet-landscape) {
+				padding-right: 7.5em;
+			}
 		}
 
 		.elementor-section .elementor-container .elementor-column:last-of-type {
 			padding-left: 0;
 		}
 
-		@media (max-width: $breakpoint-tablet) {
+		@media (max-width: ($breakpoint-tablet - 1px)) {
+			text-align: center;
 
 			.elementor-section .elementor-container .elementor-column:first-of-type {
-				padding: 0 1.5em !important;
+				padding: 0 !important;
 			}
 		}
+
+
 	}
 
 	&--big.Block--background {
@@ -627,12 +649,12 @@
 .Block--title-big {
 	text-align: center;
 
-	.elementor-heading-title {
-		font-size: 2.5rem;
-	}
-
 	@media (min-width: $breakpoint-tablet) {
 		margin-top: 5em;
+
+		.elementor-heading-title {
+			font-size: 2.5rem;
+		}
 	}
 }
 
@@ -1027,8 +1049,6 @@
 	}
 
 	@media (max-width: $breakpoint-desktop-box) {
-		padding-top: $block-bg-space !important;
-		padding-bottom: $block-bg-space !important;
 
 		.wrapper {
 			padding-top: 0 !important;

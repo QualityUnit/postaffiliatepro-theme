@@ -1,4 +1,9 @@
 <?php // @codingStandardsIgnoreLine
+require_once get_template_directory() . '/lib/components/searchfield.php';
+set_custom_source( 'layouts/Archive' );
+set_custom_source( 'layouts/Index' );
+set_custom_source( 'indexFilter', 'js' );
+
 $page_header_title = __( 'Affiliate Marketing Glossary', 'ms' );
 $page_header_text  = __( 'If you are just starting out with affiliate software or affiliate marketing, you might struggle with all the new terminology. We have compiled a complete list of affiliate marketing terms.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
@@ -17,47 +22,42 @@ $page_header_args = array(
 ?>
 <div id="archive" class="Archive" itemscope itemtype="https://schema.org/DefinedTermSet">
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
-	<div class="Archive__filter">
-		<div class="wrapper">
-			<div class="Archive__filter__item">
-				<ul>
+	<div class="Index Archive__filter">
+		<div class="wrapper flex-tablet flex-align-center">
+			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?> 
+				<ul class="Index__top">
 					<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 					<?php foreach ( $categories as $category ) { ?>
-						<li><a href="#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a></li>
+						<li class="Index__top--item"><a href="#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a></li>
 					<?php } ?>
 				</ul>
-			</div>
 		</div>
 	</div>
 
-	<div class="wrapper Archive__container Archive__container--glossary">
-		<div class="Archive__container__content list">
+	<div class="wrapper Index__list">
 			<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 			<?php foreach ( $categories as $category ) { ?>
-				<div id="<?= esc_attr( $category->slug ); ?>" class="Archive__container__content__item">
-					<h2 class="Archive__container__content__item__title"><?= esc_html( $category->name ); ?></h2>
-					<div class="Archive__container__content__item__content">
-						<ul>
-							<?php
-							$query_glossary_posts = new WP_Query(
-								array(
-									'ms_glossary_categories' => $category->slug,
-									// @codingStandardsIgnoreLine
-									'posts_per_page' => 500,
-									'orderby'        => 'title',
-									'order'          => 'ASC',
-								)
-							);
-							while ( $query_glossary_posts->have_posts() ) :
-								$query_glossary_posts->the_post();
-								?>
-								<li itemscope itemtype="https://schema.org/DefinedTerm"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url"><span itemprop="name"><?php the_title(); ?></span></a></li>
-							<?php endwhile; ?>
-							<?php wp_reset_postdata(); ?>
-						</ul>
-					</div>
+				<div id="<?= esc_attr( $category->slug ); ?>" class="Index__list--group" data-searchGroup>
+					<h2 class="Index__list--groupTitle"><?= esc_html( $category->name ); ?></h2>
+					<ul>
+						<?php
+						$query_glossary_posts = new WP_Query(
+							array(
+								'ms_glossary_categories' => $category->slug,
+								// @codingStandardsIgnoreLine
+								'posts_per_page' => 500,
+								'orderby'                => 'title',
+								'order'                  => 'ASC',
+							)
+						);
+						while ( $query_glossary_posts->have_posts() ) :
+							$query_glossary_posts->the_post();
+							?>
+							<li itemscope itemtype="https://schema.org/DefinedTerm"  data-search><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url" ><span class="item-title" itemprop="name"><?php the_title(); ?></span></a></li>
+						<?php endwhile; ?>
+						<?php wp_reset_postdata(); ?>
+					</ul>
 				</div>
 			<?php } ?>
-		</div>
 	</div>
 </div>

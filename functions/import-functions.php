@@ -17,7 +17,7 @@ function get_en_category( $post_type, $post_id ) {
 
 // Function to get content of <head> to identify page for CSS/JS import
 function wp_head_content( $page ) {
-	$body_class     = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
+	$body_class = preg_match( '/.+' . $page . '.+/', implode( get_body_class() ) );
 
 	if ( $body_class ) {
 		return true;
@@ -25,11 +25,21 @@ function wp_head_content( $page ) {
 }
 
 // Calling specific JS/CSS for page or subpage, ie. features/pageXXX will be $page = features
-function set_source( $page, $source_file, $filetype = 'css' ) {
+function set_source( $page, $source_file, $filetype = 'css', $defer = false ) {
 	if ( $page && wp_head_content( $page ) ) {
-		if ( 'css' === $filetype ) {
+		if ( 'css' === $filetype && false === $defer ) {
 			?>
-			<link rel="stylesheet" type="text/css" media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) . '" />' ); ?>
+			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+			
+			<?php
+			// @codingStandardsIgnoreEnd
+		}
+		if ( 'css' === $filetype && true === $defer ) {
+			?>
+			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css" as="style" onload='this.rel=\"stylesheet\"' media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
+			<noscript>
+				<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" type="text/css" media="all">
+			</noscript>
 			<?php
 			// @codingStandardsIgnoreEnd
 		}
@@ -37,6 +47,7 @@ function set_source( $page, $source_file, $filetype = 'css' ) {
 			wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', array(), THEME_VERSION, true );
 		}
 	}
+
 	if ( ! $page ) {
 		?>
 	<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
@@ -44,9 +55,19 @@ function set_source( $page, $source_file, $filetype = 'css' ) {
 	}
 }
 
-function set_custom_source( $source_file, $filetype = 'css', $depends = false ) {
+function preload_custom_styles( $html, $handle, $href, $media ) {
+	if ( 'all' === $media ) {
+		$fallback = '<noscript>' . $html . '</noscript>';
+		$preload  = str_replace( "rel='stylesheet'", "rel='preload' as='style' onload='this.rel=\"stylesheet\"'", $html );
+		$html     = $preload . $fallback;
+	}
+		return $html;
+}
+
+function set_custom_source( $source_file, $filetype = 'css', $depends = false, $defer = true ) {
 	if ( 'css' === $filetype ) {
-		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, THEME_VERSION );
+		wp_enqueue_style( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . isrtl() . wpenv() . '.css', false, THEME_VERSION, $defer ? 'all' : 'screen' );
+		add_filter( 'style_loader_tag', 'preload_custom_styles', 10, 4 );
 	}
 	if ( 'js' === $filetype ) {
 		wp_enqueue_script( $source_file, get_template_directory_uri() . '/assets/dist/' . $source_file . wpenv() . '.js', $depends, THEME_VERSION, true );
@@ -58,7 +79,7 @@ function get_nodes( $xpath, $classname ) {
 }
 
 function is_subcategory() {
-	$cat = get_query_var( 'cat' );
+	$cat      = get_query_var( 'cat' );
 	$category = get_category( $cat );
 	return ! ( ( '0' == $category->parent ) );
 }
@@ -95,7 +116,7 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$breadcrumb[] = array( single_cat_title( '', false ) );
 		} elseif ( is_author() ) {
 			$breadcrumb[] = array( __( 'Author' ), home_url( '/', 'relative' ) );
-			$author_name = get_the_author_meta( 'display_name' );
+			$author_name  = get_the_author_meta( 'display_name' );
 			$breadcrumb[] = array( $author_name );
 		} elseif ( is_archive() && ! is_category() ) {
 			$breadcrumb[] = $home;
