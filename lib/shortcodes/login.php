@@ -35,6 +35,9 @@ function ms_login() {
 	</div>
 
 	<?php // @codingStandardsIgnoreStart ?>
+	<?php
+		add_action( 'wp_footer', function() {
+	?>
 	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
 	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/login_en.js' ?>"></script>
@@ -59,12 +62,17 @@ function ms_login() {
 	<?php } else { ?>
 		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/login_en.js' ?>"></script>
 	<?php } ?>
-	<?php $login_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/login.js' ) ); ?>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/login.js?ver=' . $login_ver_app ?>"></script>
+	<?php
+	global $login_ver_app;
+	if ( ! isset( $login_ver_app ) ) {
+		$login_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/login.js' ) );?>
+		<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
+		<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
+		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/login.js?ver=' . $login_ver_app ?>"></script>
+		<?php } }, 999 ); ?>
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
 	set_source( false, 'shortcodes/Signup' );
 	return ob_get_clean();
 }
