@@ -733,7 +733,7 @@ function manager_industry( $manager_industry ) {
 								$phone              = get_term_meta( $taxonomy_id, 'phone', true );
 								$linkedin           = get_term_meta( $taxonomy_id, 'linkedin', true );
 								$manager_industries = get_term_meta( $taxonomy_id, 'industry_focus', true );
-								$url_title = $name . ' ' . __( 'affiliate manager of', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
+								$url_title          = $name . ' ' . __( 'affiliate manager of', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_name', true ) . ' ' . __( 'affiliate program', 'ms' );
 								?>
 								<div class="AffiliateManagerCard <?= ( strval( $primary_manager ) === strval( $taxonomy_id ) ? 'primary' : null ); ?>">
 									<div class="AffiliateManagerCard__image--wrapper">
