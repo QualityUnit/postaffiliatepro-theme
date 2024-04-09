@@ -1,6 +1,11 @@
 <?php
 
 function ms_signup_sidebar( $atts ) {
+	if ( ! is_mobile() ) {
+		set_custom_source( 'filterMenu', 'js' );
+		set_source( false, 'components/SignupSidebar', 'css', false, false );
+	}
+	
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Try it for', 'ms' ),
@@ -142,10 +147,7 @@ function ms_signup_sidebar( $atts ) {
 	<?php // @codingStandardsIgnoreEnd ?>
 
 	<?php
-	if ( ! is_mobile() ) {
-		set_custom_source( 'filterMenu', 'js' );
-		set_custom_source( 'components/SignupSidebar', 'css', false, false );
-	}
+	
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );
