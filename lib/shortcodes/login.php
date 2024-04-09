@@ -65,7 +65,7 @@ function ms_login() {
 
 	<?php
 	wp_enqueue_script( 'jqueryalphanum', get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js', array( 'jquery' ), THEME_VERSION, true );
-	set_custom_source( 'shortcodes/Signup' );
+	set_source( false, 'shortcodes/Signup' );
 	return ob_get_clean();
 }
 add_shortcode( 'login', 'ms_login' );
