@@ -95,9 +95,6 @@
 		grid-template-columns: 1fr;
 		background-color: $lightest-gray;
 
-		* {
-		}
-
 		@media (min-width: $breakpoint-tablet-landscape) {
 			grid-template-columns: $width-left-sm auto;
 		}
@@ -389,9 +386,6 @@
 					display: block;
 					padding: 0 0.8em;
 					margin: 0 !important;
-
-					p {
-					}
 				}
 			}
 
