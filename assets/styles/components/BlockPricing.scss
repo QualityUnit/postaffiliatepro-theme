@@ -95,7 +95,6 @@
 
 					&__text {
 						line-height: 1.2;
-						font-family: $font-secondary;
 						font-weight: $font-weight-semi;
 						font-size: $font-size-small;
 					}
@@ -106,7 +105,6 @@
 				}
 
 				&__description {
-					font-family: $font-primary;
 				}
 
 				&__icon {
@@ -115,7 +113,6 @@
 				}
 
 				&__price {
-					font-family: $font-secondary;
 					font-weight: 700;
 					align-items: center;
 					margin: 0 0 1rem;

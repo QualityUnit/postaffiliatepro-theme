@@ -177,7 +177,6 @@ $positions: ("left", "right");
 		p {
 
 			@include color(color, font-color-light);
-			font-family: $font-secondary;
 			font-weight: 600;
 			font-size: 0.75rem;
 		}
@@ -624,7 +623,6 @@ $positions: ("left", "right");
 		p {
 
 			@include color(color, font-color-light);
-			font-family: $font-secondary;
 			font-weight: 600;
 			font-size: 0.75rem;
 		}

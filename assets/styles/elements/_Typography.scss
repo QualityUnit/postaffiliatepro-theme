@@ -20,7 +20,6 @@ h6,
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
-	font-family: $font-secondary;
 	font-weight: $font-weight-bold;
 	position: relative;
 	z-index: 1;
@@ -93,7 +92,6 @@ p {
 
 	@include color(color, font-color-dark);
 	margin-bottom: $default-element-margin;
-	font-family: $font-primary;
 	font-size: 1rem;
 	font-weight: $font-weight-normal;
 	line-height: $line-height-smaller;
@@ -123,7 +121,6 @@ p {
 .learn-more {
 	display: flex;
 	align-items: center;
-	font-family: $font-secondary;
 	margin-top: 0.75em;
 
 	svg {
@@ -136,7 +133,6 @@ ol {
 
 	@include color(color, font-color-normal);
 	margin-bottom: $default-element-margin;
-	font-family: $font-primary;
 	font-size: $font-size-default;
 	font-weight: $font-weight-normal;
 }
@@ -147,7 +143,6 @@ ol {
 	list-style: none;
 	padding-left: 0.5em;
 	text-align: left;
-	font-family: $font-secondary;
 	font-size: $font-size-smaller;
 	line-height: 1.8;
 	margin-top: 0.5em;
@@ -308,7 +303,6 @@ a:not(.Button) {
 
 	h2,
 	.h2 {
-		font-family: $font-primary;
 
 		strong {
 			font: inherit;
@@ -341,7 +335,6 @@ a:not(.Button) {
 	table {
 
 		@include color(color, font-color-normal);
-		font-family: $font-primary;
 		font-size: $font-size-default;
 		font-weight: $font-weight-normal;
 		line-height: $line-height-default;
@@ -550,7 +543,6 @@ a:not(.Button) {
 		margin: $default-element-margin * 2 0;
 		padding: 0.5em 1.5em;
 		border-left: 1px solid transparent;
-		font-family: $font-primary;
 		font-size: $font-size-default;
 		font-weight: $font-weight-normal;
 		line-height: $line-height-default;
@@ -1002,7 +994,6 @@ picture.Screenshot,
 		align-items: center;
 		background-color: $tag;
 		border-radius: 1em;
-		font-family: $font-secondary;
 		font-size: 0.875rem;
 		font-weight: 600;
 		min-height: 30px;
@@ -1087,7 +1078,6 @@ picture.Screenshot,
 	}
 
 	&__text {
-		font-family: $font-secondary;
 		font-weight: 600;
 	}
 }
