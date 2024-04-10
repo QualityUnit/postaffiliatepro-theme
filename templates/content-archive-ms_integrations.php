@@ -1,10 +1,10 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'integrations', 'pages/Category', 'css' );
 set_source( 'integrations', 'filter', 'js' );
-$integrations_categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
-$integrations_types              = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_types' ) ), SORT_REGULAR );
-$page_header_title = __( 'Integrations', 'ms' );
-$page_header_text  = __( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' );
+$integrations_categories = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_categories' ) ), SORT_REGULAR );
+$integrations_types      = array_unique( get_categories( array( 'taxonomy' => 'ms_integrations_types' ) ), SORT_REGULAR );
+$page_header_title       = __( 'Integrations', 'ms' );
+$page_header_text        = __( 'Enhance your workflow and add new functionalities to Post Affiliate Pro with our selection of plugins and integrations', 'ms' );
 if ( is_tax( 'ms_integrations_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
@@ -16,7 +16,7 @@ $filter_items_categories = array(
 		'title'   => __( 'Any', 'ms' ),
 	),
 );
-$filter_items_types = array(
+$filter_items_types      = array(
 	array(
 		'checked' => true,
 		'value'   => '',
@@ -83,7 +83,7 @@ $page_header_args = array(
 					$integrations_type_slugs     = array();
 
 					$categories = get_the_terms( 0, 'ms_integrations_categories' );
-					$types = get_the_terms( 0, 'ms_integrations_types' );
+					$types      = get_the_terms( 0, 'ms_integrations_types' );
 
 					if ( ! empty( $categories ) ) {
 						foreach ( $categories as $category_item ) {
@@ -98,7 +98,7 @@ $page_header_args = array(
 					}
 
 					$integrations_category = implode( ' ', $integrations_category_slugs );
-					$integrations_type = implode( ' ', $integrations_type_slugs );
+					$integrations_type     = implode( ' ', $integrations_type_slugs );
 					?>
 
 					<li class="Category__item
@@ -107,9 +107,9 @@ $page_header_args = array(
 						echo 'pillar'; }
 					?>
 					" data-type="<?= esc_attr( $integrations_type ); ?>" data-category="<?= esc_attr( $integrations_category ); ?>" data-href="<?php the_permalink(); ?>">
-						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
+						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail integrationMethod">
 							<?php if ( has_post_thumbnail() ) { ?>
-								<?php the_post_thumbnail( 'archive_thumbnail' ); ?>
+								<?php the_post_thumbnail( 'person_thumbnail' ); ?>
 							<?php } ?>
 						</a>
 						<?php
