@@ -30,7 +30,7 @@ function set_source( $page, $source_file, $filetype = 'css', $defer = false ) {
 		if ( 'css' === $filetype && false === $defer ) {
 			?>
 			<link rel="stylesheet" id="<?= esc_attr( $source_file ); ?>" type="text/css"  media="all" href="<?php echo ( esc_url( get_template_directory_uri() ) . '/assets/dist/' . esc_attr( $source_file ) . esc_attr( isrtl() . wpenv() ) . '.css?ver=' . esc_attr( THEME_VERSION ) ); ?>" />
-			
+
 			<?php
 			// @codingStandardsIgnoreEnd
 		}
@@ -121,6 +121,11 @@ function site_breadcrumb( $breadcrumb = array() ) {
 		} elseif ( is_archive() && ! is_category() ) {
 			$breadcrumb[] = $home;
 			$post_type    = get_queried_object();
+
+			if ( is_tax( 'ms_directory_affiliate_manager' ) ) {
+				array_splice( $breadcrumb, 1, 0, array( array( 'Affiliate manager directory' ) ) );
+			}
+
 			if ( $post_type ) {
 				if ( ! empty( $post_type->labels->name ) ) {
 					$post_type_title = $post_type->labels->name;

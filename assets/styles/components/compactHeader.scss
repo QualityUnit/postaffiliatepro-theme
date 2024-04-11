@@ -59,6 +59,14 @@ body.compact-header--active {
 		.CategoryTags {
 			margin-bottom: 0;
 
+			.CategoryTag {
+
+				.Tooltip {
+					width: fit-content;
+					min-width: fit-content;
+				}
+			}
+
 		}
 
 		.AffiliateManager__manager {
@@ -337,6 +345,16 @@ body.compact-header--active {
 
 	.breadcrumbs {
 		margin-bottom: 0.35em;
+
+		ol {
+
+			li {
+
+				+ li::before {
+					background-color: transparent;
+				}
+			}
+		}
 
 		&::before {
 			left: 0;

@@ -221,6 +221,7 @@ function show_demo_bar() {
 		'/request-for-proposal',
 		'/partner-with-us',
 		'/affiliate-program',
+		'/affiliate-manager',
 		'/typing-test',
 		'/affiliate-marketing-glossary',
 		'/terms-of-service',

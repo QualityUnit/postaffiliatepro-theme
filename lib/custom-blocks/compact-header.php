@@ -100,7 +100,7 @@ function inline_compact_header() {
 							<?php
 							foreach ( $manager_industries as $manager_industry ) {
 								?>
-								<li class="CategoryTag">
+								<li class="CategoryTag CategoryTag__item__info__icon">
 									<?= esc_html( strlen( manager_industry( $manager_industry ) ) > 30 ? wp_trim_words( manager_industry( $manager_industry ), 2 ) : manager_industry( $manager_industry ) ); ?>
 									<div class="Tooltip Tooltip--centerTop">
 
