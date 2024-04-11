@@ -50,7 +50,6 @@
 	p {
 
 		@include color(color, font-color-dark);
-		font-family: $font-secondary;
 
 		&:last-of-type {
 			margin-bottom: 0;

@@ -41,7 +41,6 @@ $colors: (
 		all: unset;
 		position: relative;
 		padding: 0.625em 1em 0.625em 1.5em;
-		font-family: $font-secondary;
 		font-weight: $font-weight-semi;
 		color: $white;
 		background: $primary;
@@ -264,7 +263,6 @@ $colors: (
 			background-color: $white;
 			font-size: 1rem;
 			font-weight: $font-weight-semi;
-			font-family: $font-secondary;
 			color: $black-real;
 			text-decoration: none;
 			opacity: 0;
@@ -386,7 +384,6 @@ $colors: (
 		}
 
 		&--text {
-			font-family: $font-secondary;
 			font-size: 0.825rem;
 			line-height: 1.5;
 			margin-bottom: 0.75em;
