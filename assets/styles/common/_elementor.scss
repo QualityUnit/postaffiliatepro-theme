@@ -221,7 +221,6 @@ body:not(.elementor-editor-active) {
 		&-text {
 
 			@include color(color, font-color-dark);
-			font-family: $font-secondary;
 			font-size: $font-size-smaller;
 			font-weight: 600;
 			text-align: center;

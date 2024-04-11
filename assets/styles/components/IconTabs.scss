@@ -72,7 +72,6 @@
 					margin: 0 10px;
 					line-height: 1.3;
 					font-weight: 600;
-					font-family: $font-secondary;
 					text-transform: none;
 					transition: all 0.3s;
 					text-decoration: none !important;
@@ -229,7 +228,6 @@
 				@include color(color, font-color-dark, !important);
 				display: flex;
 				align-items: center;
-				font-family: $font-secondary;
 				font-weight: 700;
 
 

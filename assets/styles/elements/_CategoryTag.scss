@@ -45,7 +45,6 @@ value-keyword-case, scss/no-global-function-names */
 			@include color(color, font-color-level3);
 			display: inline-flex;
 			align-items: center;
-			font-family: $font-secondary;
 			font-size: 0.75rem;
 			font-weight: 600;
 			padding: 0.5em 0;
@@ -86,7 +85,6 @@ value-keyword-case, scss/no-global-function-names */
 	@include color(background-color, secondary-color);
 	@include color(color, font-color-dark);
 	position: relative;
-	font-family: $font-secondary;
 	font-weight: 600;
 	border-radius: 1.5em;
 

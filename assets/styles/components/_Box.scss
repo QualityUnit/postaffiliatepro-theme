@@ -152,7 +152,6 @@
 		@include color(color, border-color-gray-icon);
 		display: flex;
 		align-items: center;
-		font-family: $font-secondary;
 		font-size: 0.75em;
 		margin-bottom: 1em;
 
@@ -178,7 +177,6 @@
 	}
 
 	&__more {
-		font-family: $font-secondary;
 		color: $light-gray-icon;
 		margin-bottom: 0.5em;
 
@@ -203,7 +201,6 @@
 		padding: 2px 14px;
 		border-radius: 100px;
 		background-color: $primary;
-		font-family: $font-secondary;
 		font-size: $font-size-smaller;
 		font-weight: 700;
 		z-index: 1;

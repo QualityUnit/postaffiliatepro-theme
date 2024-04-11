@@ -148,7 +148,6 @@ $pricing-border: 1px;
 
 			&-usd,
 			&-eur {
-				font-family: $font-primary;
 				font-size: $font-size-default;
 			}
 
@@ -190,7 +189,6 @@ $pricing-border: 1px;
 		align-content: center;
 		width: 100%;
 		text-align: center;
-		font-family: $font-secondary;
 		font-weight: 600;
 		border-bottom: $pricing-border solid $pricing-gray;
 		padding: 0.75em 0.5em;
@@ -302,7 +300,6 @@ $pricing-border: 1px;
 			ul {
 
 				@include color(color, font-color-dark);
-				font-family: $font-primary;
 			}
 
 			.highlight.small {
