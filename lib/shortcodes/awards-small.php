@@ -1,6 +1,9 @@
 <?php
 
 function ms_awards_small( $atts ) {
+	if ( ! is_mobile() ) {
+		set_source( false, 'shortcodes/AwardsSmall' );
+	}
 	$atts = shortcode_atts(
 		array(
 			'posts' => '8',
@@ -46,7 +49,6 @@ function ms_awards_small( $atts ) {
 	</div>
 
 	<?php
-	set_custom_source( 'shortcodes/AwardsSmall' );
 	return ob_get_clean();
 }
 add_shortcode( 'awards_small', 'ms_awards_small' );

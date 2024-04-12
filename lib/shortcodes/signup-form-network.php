@@ -15,7 +15,9 @@ function ms_signup_network_form( $atts ) {
 
 	ob_start();
 	?>
-
+	<style type="text/css">
+		.Signup__form input{width:100%}.Signup__form__item{position: relative}.Signup__form__icon{fill: #bec2c9;position: absolute;z-index: 3;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);left: 1.3125em;width: 1.375em;}
+	</style>
 	<div class="Signup__form">
 		<h3 class="Signup__form__title"><?= esc_html( $atts['title'] ); ?></h3>
 
