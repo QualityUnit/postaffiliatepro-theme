@@ -101,6 +101,7 @@
 
 		@media (min-width: $breakpoint-desktop-box) {
 			grid-template-columns: $width-left auto;
+			min-height: 46em;
 		}
 
 		@media (max-height: 63rem) and (min-width: $breakpoint-tablet-landscape) {
@@ -206,6 +207,7 @@
 				bottom: -4em;
 				left: 4em;
 				max-width: 35em;
+				min-height: 15.625em;
 			}
 		}
 

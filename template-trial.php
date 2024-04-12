@@ -5,7 +5,9 @@
 
 	set_source( 'trial', 'pages/TrialRedesign' );
 ?>
-
+<style type="text/css">
+	.AwardsHeroHeader{position:absolute;top:0;right:2em;padding-left:1em;width:7.5em}.Trial__main__logo{min-width:150px}
+</style>
 <div class="Trial FullScreen">
 	<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" class="Trial__logo__top">
 		<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg" alt="<?php bloginfo( 'name' ); ?>" class="urlslab-skip-lazy">
