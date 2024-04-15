@@ -3,7 +3,6 @@
 	 * Template Name: Page Like Blog Post – Helpdesk Header
 	 */
 	set_custom_source( 'components/SidebarTOC', 'css' );
-	set_custom_source( 'components/SignupSidebar', 'css' );
 	set_custom_source( 'pages/post', 'css' );
 	set_custom_source( 'pages/blog', 'css' );
 	set_custom_source( 'common/splide', 'css' );
@@ -11,17 +10,17 @@
 	set_custom_source( 'sidebar_toc', 'js' );
 	set_custom_source( 'custom_lightbox', 'js' );
 	global $post;
-	$page_title = str_replace( '^', '', get_the_title() );
+	$page_title       = str_replace( '^', '', get_the_title() );
 	$page_header_args = array(
 		'title' => $page_title,
-		'text' => do_shortcode( '[urlslab-generator id="6"]' ),
-		'toc' => true,
+		'text'  => do_shortcode( '[urlslab-generator id="6"]' ),
+		'toc'   => true,
 	);
 	if ( has_post_thumbnail() ) {
 		$page_header_args['image'] = array(
 			'type' => 'main',
-			'src' => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
-			'alt' => $page_title,
+			'src'  => get_the_post_thumbnail_url( $post, 'blog_post_thumbnail' ),
+			'alt'  => $page_title,
 		);
 	}
 	?>

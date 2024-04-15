@@ -24,7 +24,6 @@ add_action(
 		}
 
 		if ( is_archive( 'affiliate-manager.php' ) ) {
-			wp_enqueue_style( 'signup-sidebar', get_template_directory_uri() . '/assets/dist/components/SignupSidebar' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 			wp_enqueue_style( 'post', get_template_directory_uri() . '/assets/dist/pages/post' . isrtl() . wpenv() . '.css', false, THEME_VERSION );
 		}
 

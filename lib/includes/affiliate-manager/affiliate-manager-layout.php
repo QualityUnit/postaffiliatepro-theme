@@ -1,21 +1,20 @@
 <?php
 	set_custom_source( 'components/SidebarTOC', 'css' );
-	set_custom_source( 'components/SignupSidebar', 'css' );
 
 
 $page_header_args = array(
-	'avatar' => array(
+	'avatar'             => array(
 		'src' => $aff_image_url,
-		'alt'   => single_cat_title( '', false ),
+		'alt' => single_cat_title( '', false ),
 	),
-	'title' => single_cat_title( '', false ),
+	'title'              => single_cat_title( '', false ),
 	'manager_industries' => $manager_industries,
-	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
-	'affiliate_manager' => __( 'Affiliate manager', 'ms' ),
-	'contacts_info' => array(
-		'phone'             => $phone,
-		'email'             => $email,
-		'linkedin'      => $linkedin,
+	'text'               => do_shortcode( '[urlslab-generator id="4"]' ),
+	'affiliate_manager'  => __( 'Affiliate manager', 'ms' ),
+	'contacts_info'      => array(
+		'phone'    => $phone,
+		'email'    => $email,
+		'linkedin' => $linkedin,
 	),
 );
 

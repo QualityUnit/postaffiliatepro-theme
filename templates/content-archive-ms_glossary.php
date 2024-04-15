@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 require_once get_template_directory() . '/lib/components/searchfield.php';
 set_custom_source( 'layouts/Archive' );
-set_custom_source( 'layouts/Index' );
+set_source( false, 'layouts/Index' );
 set_custom_source( 'indexFilter', 'js' );
 
 $page_header_title = __( 'Affiliate Marketing Glossary', 'ms' );
@@ -28,7 +28,7 @@ $page_header_args = array(
 				<ul class="Index__top">
 					<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 					<?php foreach ( $categories as $category ) { ?>
-						<li class="Index__top--item"><a href="#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a></li>
+						<li class="Index__top--item" style="display: inline-block"><a href="#<?= esc_attr( $category->slug ); ?>" title="<?= esc_attr( $category->name ); ?>"><?= esc_html( $category->name ); ?></a></li>
 					<?php } ?>
 				</ul>
 		</div>
@@ -37,7 +37,7 @@ $page_header_args = array(
 	<div class="wrapper Index__list">
 			<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 			<?php foreach ( $categories as $category ) { ?>
-				<div id="<?= esc_attr( $category->slug ); ?>" class="Index__list--group" data-searchGroup>
+				<div id="<?= esc_attr( $category->slug ); ?>" class="Index__list--group flex-tablet" data-searchGroup>
 					<h2 class="Index__list--groupTitle"><?= esc_html( $category->name ); ?></h2>
 					<ul>
 						<?php
@@ -53,7 +53,7 @@ $page_header_args = array(
 						while ( $query_glossary_posts->have_posts() ) :
 							$query_glossary_posts->the_post();
 							?>
-							<li itemscope itemtype="https://schema.org/DefinedTerm"  data-search><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url" ><span class="item-title" itemprop="name"><?php the_title(); ?></span></a></li>
+							<li itemscope itemtype="https://schema.org/DefinedTerm" style="display: inline-block" data-search><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" itemprop="url" ><span class="item-title" itemprop="name"><?php the_title(); ?></span></a></li>
 						<?php endwhile; ?>
 						<?php wp_reset_postdata(); ?>
 					</ul>
