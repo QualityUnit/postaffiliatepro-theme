@@ -105,6 +105,7 @@ body.compact-header--active {
 
 		@media (min-width: $breakpoint-tablet) {
 			display: block;
+			min-height: 13.75em;
 		}
 	}
 

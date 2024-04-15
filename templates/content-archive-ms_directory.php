@@ -1,7 +1,7 @@
 <?php // @codingStandardsIgnoreLine
 require_once get_template_directory() . '/lib/components/searchfield.php';
 set_custom_source( 'layouts/Archive' );
-set_custom_source( 'layouts/Index' );
+set_source( false, 'layouts/Index' );
 set_custom_source( 'indexFilter', 'js' );
 
 $page_header_title = __( 'Affiliate Program Directory', 'ms' );
@@ -51,7 +51,7 @@ foreach ( $directoryposts as $directorypost ) {
 			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?>
 				<ul class="Index__top">
 					<?php foreach ( $index as $index_item ) { ?>
-						<li class="Index__top--item"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
+						<li class="Index__top--item" style="display: inline-block"><a href="#item-<?= esc_attr( $index_item ); ?>" title="<?= esc_attr( $index_item ); ?>"><?= esc_html( $index_item ); ?></a></li>
 					<?php } ?>
 				</ul>
 		</div>
@@ -61,7 +61,7 @@ foreach ( $directoryposts as $directorypost ) {
 			<?php
 			foreach ( $index as $index_item ) {
 				?>
-				<div id="item-<?= esc_attr( $index_item ); ?>"  class="Index__list--group" data-searchGroup>
+				<div id="item-<?= esc_attr( $index_item ); ?>"  class="Index__list--group flex-tablet" data-searchGroup>
 					<h2 class="Index__list--groupTitle"><?= esc_html( $index_item ); ?></h2>
 					<ul>
 						<?php
@@ -73,7 +73,7 @@ foreach ( $directoryposts as $directorypost ) {
 
 							if ( $first_character === $index_item ) {
 								?>
-								<li class="Index__list--item" itemscope="" itemtype="https://schema.org/DefinedTerm" data-search><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span class="item-title" itemprop="name" ><?= esc_html( $posttitle ); ?></span></a></li>
+								<li class="Index__list--item" style="display: inline-block" itemscope="" itemtype="https://schema.org/DefinedTerm" data-search><a href="<?= esc_url( get_permalink( $postid ) ); ?>" itemprop="url"><span class="item-title" itemprop="name" ><?= esc_html( $posttitle ); ?></span></a></li>
 								<?php
 							}
 						}
