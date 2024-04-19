@@ -123,7 +123,9 @@ function site_breadcrumb( $breadcrumb = array() ) {
 			$post_type    = get_queried_object();
 
 			if ( is_tax( 'ms_directory_affiliate_manager' ) ) {
-				array_splice( $breadcrumb, 1, 0, array( array( 'Affiliate manager directory' ) ) );
+				$translated_text = __( 'Affiliate manager directory', 'ms' );
+				$translated_url = apply_filters( 'wpml_permalink', '/affiliate-program-directory/', ICL_LANGUAGE_CODE );
+				array_splice( $breadcrumb, 1, 0, array( array( $translated_text, $translated_url ) ) );
 			}
 
 			if ( $post_type ) {
