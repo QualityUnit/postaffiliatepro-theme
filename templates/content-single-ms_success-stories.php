@@ -1,4 +1,8 @@
 <?php // @codingStandardsIgnoreLine ?>
+<?php
+set_custom_source( 'common/splide', 'css' );
+?>
+
 <div class="Article Article--blog Article__success-story" itemscope itemtype="http://schema.org/Article">
 	<meta itemprop="url" content="<?= esc_url( get_permalink() ); ?>">
 	<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="PostAffiliatePro"></span>
