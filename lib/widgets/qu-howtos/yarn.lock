@@ -3675,14 +3675,14 @@
     "@wordpress/dom-ready" "^3.56.0"
     "@wordpress/i18n" "^4.56.0"
 
-"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.51.0", "@wordpress/api-fetch@^6.7.0":
-  version "6.51.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.51.0.tgz#2826d1056b3de056df9956290cdddc323d32a98a"
-  integrity sha512-9jPBMk/TEBR9DFQxCcHvCq7YQJzbFMyDH56vKeYNN0q+hvlJ2Ju2CWVFfsQ4mCSCGBJAblcBxZ7F2D3H4JQJ/A==
+"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.51.0", "@wordpress/api-fetch@^6.53.0", "@wordpress/api-fetch@^6.7.0":
+  version "6.53.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.53.0.tgz#0f3bd1cca516011f64166299073943d9e550ce54"
+  integrity sha512-jHYueGfGfe89akyw1A28WGl17qIKTukMTwol4rHkZY43ygUmSJiTF/FSsExzMwk/j7OmGGr+GTa1TPO/tc71Lw==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/i18n" "^4.54.0"
-    "@wordpress/url" "^3.55.0"
+    "@wordpress/i18n" "^4.56.0"
+    "@wordpress/url" "^3.57.0"
 
 "@wordpress/api-fetch@^6.53.0":
   version "6.53.0"
@@ -3742,10 +3742,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-4.47.0.tgz#c52ece65fc15c2eb87bcb7ce86d9354ea461c411"
   integrity sha512-1myPBFLuMnuxUE8M2VGZ+wbGhgasLNqFdxQnWfYDMRhaSESsZgaLaMoasNZ4+e/N7Nssl97ad/XGwZ721HXqvQ==
 
-"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.22.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.54.0", "@wordpress/blob@^3.7.0":
-  version "3.54.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.54.0.tgz#be5af3020ad3da0dacd142c0505275c7ea528cec"
-  integrity sha512-w0w7K7i+urajy7egEkP4qZWy4gmbLLUvxp5BgjCELi9SlRts3kBvaEuijcuiitu5g0dRXXqV2WHTPYGZIxP0UA==
+"@wordpress/blob@^3.16.0", "@wordpress/blob@^3.22.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.54.0", "@wordpress/blob@^3.56.0", "@wordpress/blob@^3.7.0":
+  version "3.56.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-3.56.0.tgz#2726ec99264dca35b4bbff398ec8a6376692add9"
+  integrity sha512-tAFmFhNh0OgAUTIoeaAyfB92uA9os7vDK2xBQv66q84tBdW45Vq5wXKUQ+F/IfcN2jUzGPO6GX5GVyADXmTYtQ==
   dependencies:
     "@babel/runtime" "^7.16.0"
 
@@ -4540,15 +4540,15 @@
     "@wordpress/i18n" "^4.56.0"
 
 "@wordpress/media-utils@^4":
-  version "4.45.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.45.0.tgz#208638e3f835b3a71479148b3fab990d1946e23b"
-  integrity sha512-kXuN0p+stgNgYIedK7n00+ih4ZHSLiT6RUbVsTZBvl+8nfse4DBQQVDn6XwwZU8zAZzwnKpr81R696fMiysH+g==
+  version "4.47.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-4.47.0.tgz#a50759931c46347a7f01bbbca9e9cd48a06a71d8"
+  integrity sha512-VTkODZbrWI/ORpVLmS+j051VclcuCPC5l/kCnXed0Hubc6yxUG8IgAy7ZQ3WpSjh2tOtSJ2bZJp0zRV5VRTQ4g==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^6.51.0"
-    "@wordpress/blob" "^3.54.0"
-    "@wordpress/element" "^5.31.0"
-    "@wordpress/i18n" "^4.54.0"
+    "@wordpress/api-fetch" "^6.53.0"
+    "@wordpress/blob" "^3.56.0"
+    "@wordpress/element" "^5.33.0"
+    "@wordpress/i18n" "^4.56.0"
 
 "@wordpress/notices@^3.10.0", "@wordpress/notices@^3.16.0", "@wordpress/notices@^3.3.2", "@wordpress/notices@^3.7.0":
   version "3.30.0"
@@ -4874,6 +4874,14 @@
     "@wordpress/is-shallow-equal" "^4.56.0"
 
 "@wordpress/url@^3.11.0", "@wordpress/url@^3.17.0", "@wordpress/url@^3.4.1", "@wordpress/url@^3.55.0", "@wordpress/url@^3.57.0", "@wordpress/url@^3.8.0":
+  version "3.57.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.57.0.tgz#a552798e4d71772dfa4caedf0c1027f3d5913fcc"
+  integrity sha512-W3F0KVEaMoRENya7GGUPXrZGYnhAg3fuLSLpNcf1skSrM5rUVMNdeRlZj+jln1O/+qjboJnC+y+IzOlQRwlS6A==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+    remove-accents "^0.5.0"
+
+"@wordpress/url@^3.57.0":
   version "3.57.0"
   resolved "https://registry.yarnpkg.com/@wordpress/url/-/url-3.57.0.tgz#a552798e4d71772dfa4caedf0c1027f3d5913fcc"
   integrity sha512-W3F0KVEaMoRENya7GGUPXrZGYnhAg3fuLSLpNcf1skSrM5rUVMNdeRlZj+jln1O/+qjboJnC+y+IzOlQRwlS6A==
