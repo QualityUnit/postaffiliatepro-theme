@@ -243,7 +243,7 @@ function manager_industry( $manager_industry ) {
 				<?php
 				if ( preg_match( '/\<img/', $screenshot ) ) {
 					?>
-				<a class="Directory__screenshot" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>"
+				<a class="Directory__screenshot urlslab-skip-lazy" href="<?= esc_url( get_post_meta( get_the_ID(), 'company_url', true ) ); ?>" target="_blank" title="<?= esc_attr( __( 'Go to', 'ms' ) . ' ' . get_post_meta( get_the_ID(), 'company_url', true ) ); ?>"
 					<?php if ( get_post_meta( get_the_ID(), 'nofollow', true ) !== 'yes' ) { ?>
 						rel="nofollow"
 					<?php } ?>
