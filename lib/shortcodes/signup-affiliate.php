@@ -4,6 +4,8 @@ function ms_signup_affiliate_form( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
+			'form_heading'    => __( 'Sign Up Form', 'ms' ),
+			'form_description'    => __( 'Sign up to our affiliate program today and enter the family of 9600+ affiliates from all around the world with the same goal.', 'ms' ),
 			'label_username'    => __( 'Username (Email)', 'ms' ),
 			'label_first_name'   => __( 'First Name', 'ms' ),
 			'label_last_name'   => __( 'Last Name', 'ms' ),
@@ -279,9 +281,9 @@ function ms_signup_affiliate_form( $atts ) {
 
 	<div class="AffiliateSignup hidden">
 		<div class="AffiliateSignup__wrpaper">
-			<h2>Sign Up Form</h2>
+			<h2><?= esc_html( $atts['form_heading'] ); ?></h2>
 
-			<p>Sign up to our affiliate program today and enter the family of 9600+ affiliates from all around the world with the same goal.</p>
+			<p><?= esc_html( $atts['form_description'] ); ?></p>
 
 			<button type="button" id="closeAffSign" class="closeForm icn-close"></button>
 
