@@ -1,10 +1,13 @@
 <?php
+use QualityUnit\Trial_Signup;
 
 function ms_signup_sidebar( $atts ) {
 	if ( ! is_mobile() ) {
 		set_custom_source( 'filterMenu', 'js' );
 	}
 	
+	Trial_Signup::include_crm();
+
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Try it for', 'ms' ),
@@ -19,6 +22,9 @@ function ms_signup_sidebar( $atts ) {
 		$atts,
 		'signup-sidebar'
 	);
+
+	$regions = Trial_Signup::$regions;
+
 	ob_start();
 	?>
 
@@ -26,40 +32,81 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<div data-id="signup">
-			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
-			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
+			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
+			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
+			<!-- <input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
+			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off"> -->
 
 			<div data-id="nameFieldmain" class="Signup__sidebar__item">
-				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<div class="InputWrapper">
+					<input type="text" data-type="text" name="fullname" placeholder="<?php echo esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__sidebar__item">
-				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<div class="InputWrapper">
+					<input type="email" name="email" placeholder="<?php echo esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
-				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
-				<div class="Signup__sidebar__item__domain">
-				<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
-				<div class="Signup__sidebar__item__info ComparePlans__tooltip">
-					<div class="Signup__sidebar__item__info__icon fontello-info">
-						<div class="Tooltip Tooltip--left"><?php _e( 'Choose a name for your PostAffiliate Pro subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+				<div class="InputWrapper">	
+					<input type="text" data-type="text" name="subdomain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
+					<div class="Signup__sidebar__item__domain">
+						<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
+						<div class="Signup__sidebar__item__info ComparePlans__tooltip">
+							<div class="Signup__sidebar__item__info__icon fontello-info">
+								<div class="Tooltip Tooltip--left"><?php _e( 'Choose a name for your PostAffiliate Pro subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
-			<div data-id="signUpError" class="signUpError"></div>
-
-			<div class="Signup__sidebar__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
-					<span><?= esc_html( $atts['button'] ); ?></span>
+			<div data-id="regionFieldmain" class="Signup__sidebar__item">
+				<div class="InputWrapper">
+					<div class="FilterMenu isSingleSelect">
+						<div class="FilterMenu__title flex flex-align-center">
+							<span><?php _e( 'Choose your region (datacenter location)', 'ms' ); ?></span>
+						</div>
+						<div class="FilterMenu__items">
+							<div class="FilterMenu__items--inn">
+								<?php foreach ( $regions as $region_code => $region_name ) { ?>
+									<div class="checkbox FilterMenu__item">
+										<input
+											class="filter-item"
+											type="radio"
+											name="region"
+											id="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>"
+											value="<?php echo esc_attr( $region_code ); ?>"
+											data-title="<?php echo esc_attr( $region_name ); ?>"
+										/>
+										<label for="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>" >
+											<span><?php echo esc_html( $region_name ); ?></span>
+										</label>
+									</div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
 				</div>
+				<div class="ErrorMessage"></div>
+				<div class="DescriptionText"><?php echo esc_html( __( 'Data centre changes are not possible after account creation.', 'ms' ) ); ?></div>
+			</div>
 
+			<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
+
+			<div data-id="signUpError" class="hidden"></div>
+
+			<div data-id="submitFieldmain" class="Signup__sidebar__submit">
+				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
+					<span><?php echo esc_html( $atts['button'] ); ?></span>
+				</button>
+				
 				<div class="WorkingPanel" style="display: none;">
 					<div class="animation">
 						<div class="one spin-one"></div>
@@ -68,6 +115,7 @@ function ms_signup_sidebar( $atts ) {
 					</div>
 					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
 				</div>
+				
 				<div class="Signup__sidebar__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-of-service/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
@@ -101,10 +149,12 @@ function ms_signup_sidebar( $atts ) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 
-	<?php // @codingStandardsIgnoreStart ?>
+	<?php 
+	/*
+	// @codingStandardsIgnoreStart ?>
 	<?php
 		add_action( 'wp_footer', function() {
 	?>
@@ -143,10 +193,12 @@ function ms_signup_sidebar( $atts ) {
 	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
 	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
 					<?php } }, 999 ); ?>
-	<?php // @codingStandardsIgnoreEnd ?>
+	<?php // @codingStandardsIgnoreEnd 
+	
+	*/
+	?>
 
 	<?php
-	
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );
