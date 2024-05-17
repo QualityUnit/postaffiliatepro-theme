@@ -374,6 +374,13 @@
 				height: 3.8em;
 			}
 
+			.FilterMenu {
+
+				&__title {
+					height: 3.8em;
+				}
+			}
+
 			[data-id="promoFieldmain"] {
 				position: relative;
 				display: flex;
