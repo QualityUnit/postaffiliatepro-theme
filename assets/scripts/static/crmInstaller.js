@@ -52,6 +52,7 @@ class CrmInstaller {
 		this.fields.progressHeart = this.fields.main.querySelector( '.progressHeart' );
 		this.fields.progressPercentage = this.fields.main.querySelector( '.progressHeart span.percentage' );
 
+		this.handleBuildingTitles();
 		this.handleInstallation();
 	};
 
@@ -338,6 +339,20 @@ class CrmInstaller {
 				console.warn( 'Tracking script failed:', 'twq' );
 			}
 		}
+	};
+
+	handleBuildingTitles = () => {
+		const mainTitle = this.fields.main.querySelector( '.BuildingApp__title.BuildingApp--desktop' );
+		const mainTitleMobile = this.fields.main.querySelector( '.BuildingApp__title.BuildingApp--mobile' );
+		const mainText = this.fields.main.querySelector( '.BuildingApp__text.BuildingApp--desktop' );
+		const mainTextMobile = this.fields.main.querySelector( '.BuildingApp__text.BuildingApp--mobile' );
+
+		mainTitle.innerHTML = this.isPapNetwork ? this.localized.textBuildingTitleNetwork : this.localized.textBuildingTitle;
+		mainTitleMobile.innerHTML = this.isPapNetwork ? this.localized.textBuildingTitleMobileNetwork : this.localized.textBuildingTitleMobile;
+		mainText.innerHTML = this.isPapNetwork ? this.localized.textBuildingMainTextNetwork : this.localized.textBuildingMainText;
+		mainTextMobile.innerHTML = this.localized.textBuildingMainTextMobile;
+
+		this.fields.main.querySelector( '.BuildingApp' ).classList.remove( 'invisible' );
 	};
 
 	handleTrackersAction = () => {
