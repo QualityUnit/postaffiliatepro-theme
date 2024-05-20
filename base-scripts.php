@@ -16,7 +16,7 @@
 	}
 
 	const acceptButton = document.querySelector( ".Kolaciky__button--yes" )
-	const trialButton = document.querySelector( "#createButtonmain" )
+	const trialButton = document.querySelector( "button[data-id=createButtonmain]" )
 
 	acceptButton.addEventListener( "click", () => {
 		const demobarNow = document.querySelector( '#demobar' )
