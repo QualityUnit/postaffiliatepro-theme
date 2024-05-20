@@ -15,11 +15,27 @@ Trial_Signup::include_crm_installer();
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/pap-logo.svg"
 					alt="<?php bloginfo( 'name' ); ?>" class="BuildingApp__logo">
 
-			<h2 class="BuildingHeader BuildingApp__title BuildingApp--desktop"></h2>
-			<p class="BuildingText BuildingApp__text BuildingApp--desktop"></p>
+			<h2 class="BuildingHeader BuildingApp__title BuildingApp--desktop">
+				<?php 
+				// translators: do not translate %PRODUCT_VERSION%, will be replaced with pro or network version
+				_e( 'Building Your Post Affiliate %PRODUCT_VERSION%...', 'ms' ); 
+				?>
+				</h2>
+			<p class="BuildingText BuildingApp__text BuildingApp--desktop">
+				<?php 
+				// translators: do not translate %PRODUCT_VERSION%, will be replaced with pro or network version
+				_e( 'We appreciate your recent sign up for a Post Affiliate %PRODUCT_VERSION%. <br>A message will be sent to your email address containing login details, right after your account is installed. <br>If you wait for a while, after installation is complete you will be able to access your account directly from here.', 'ms' );
+				?>
+			</p>
 
-			<h2 class="BuildingHeader BuildingApp__title BuildingApp--mobile"></h2>
-			<p class="BuildingText BuildingApp__text BuildingApp--mobile"></p>
+			<h2 class="BuildingHeader BuildingApp__title BuildingApp--mobile">
+				<?php
+				// translators: do not translate %PRODUCT_VERSION%, will be replaced with pro or network version
+				_e( 'We are currently building your Post Affiliate %PRODUCT_VERSION% dashboard...', 'ms' ); 
+				?>
+				</h2>
+			<p class="BuildingText BuildingApp__text BuildingApp--mobile">
+				<?php _e( 'After the process is over, we will send the login details to your mailbox.', 'ms' ); ?></p>
 
 			<h4 id="BuildingSubheader" class="BuildingApp__subtitle"><?php _e( 'Installation status', 'ms' ); ?></h4>
 

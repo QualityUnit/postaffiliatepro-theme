@@ -342,15 +342,18 @@ class CrmInstaller {
 	};
 
 	handleBuildingTitles = () => {
-		const mainTitle = this.fields.main.querySelector( '.BuildingApp__title.BuildingApp--desktop' );
-		const mainTitleMobile = this.fields.main.querySelector( '.BuildingApp__title.BuildingApp--mobile' );
-		const mainText = this.fields.main.querySelector( '.BuildingApp__text.BuildingApp--desktop' );
-		const mainTextMobile = this.fields.main.querySelector( '.BuildingApp__text.BuildingApp--mobile' );
+		const headerTitles = this.fields.main.querySelectorAll( '.BuildingHeader' );
+		const headerTexts = this.fields.main.querySelectorAll( '.BuildingText' );
 
-		mainTitle.innerHTML = this.isPapNetwork ? this.localized.textBuildingTitleNetwork : this.localized.textBuildingTitle;
-		mainTitleMobile.innerHTML = this.isPapNetwork ? this.localized.textBuildingTitleMobileNetwork : this.localized.textBuildingTitleMobile;
-		mainText.innerHTML = this.isPapNetwork ? this.localized.textBuildingMainTextNetwork : this.localized.textBuildingMainText;
-		mainTextMobile.innerHTML = this.localized.textBuildingMainTextMobile;
+		headerTitles.forEach( ( headerElm ) => {
+			const text = headerElm.innerHTML;
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.isPapNetwork ? 'Network' : 'Pro' );
+		} );
+
+		headerTexts.forEach( ( headerElm ) => {
+			const text = headerElm.innerHTML;
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.isPapNetwork ? 'Network' : 'Pro' );
+		} );
 
 		this.fields.main.querySelector( '.BuildingApp' ).classList.remove( 'invisible' );
 	};
