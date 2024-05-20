@@ -84,16 +84,11 @@ function ms_signup_form( $atts ) {
 
 			<div data-id="submitFieldmain" class="Signup__form__submit">
 				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+					<div class="WorkingPanel" style="display: none;">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
+					</div>
 					<span><?php echo esc_html( $atts['button'] ); ?></span>
 				</button>
-				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
-						<div class="one spin-one"></div>
-						<div class="two spin-two"></div>
-						<div class="three spin-one"></div>
-					</div>
-					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
-				</div>
 				
 				<div class="Signup__form__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-of-service/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
