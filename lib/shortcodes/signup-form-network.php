@@ -85,7 +85,7 @@ function ms_signup_network_form( $atts ) {
 			<div data-id="signUpError" class="hidden"></div>
 
 			<div data-id="submitFieldmain" class="Signup__form__submit">
-				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
+				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>

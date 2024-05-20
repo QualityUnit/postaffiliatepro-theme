@@ -68,7 +68,7 @@ function ms_signup_sidebar( $atts ) {
 			<div data-id="signUpError" class="hidden"></div>
 
 			<div data-id="submitFieldmain" class="Signup__sidebar__submit">
-				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
+				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>	

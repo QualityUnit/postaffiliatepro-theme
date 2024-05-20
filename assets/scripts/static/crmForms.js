@@ -1,5 +1,5 @@
 /* global getCookie, setCookie */
-/* global quCrmData */
+/* global quCrmData, ga */
 
 class CrmFormHandler {
 	constructor( formElement ) {
@@ -377,6 +377,8 @@ class CrmFormHandler {
 					...( this.planType !== undefined && { plan_type: this.planType } ),
 				};
 
+				this.handleAccountCreatingScripts();
+
 				setCookie( 'trial_signup_response', JSON.stringify( cookieData ) );
 				window.location.href = quCrmData.thankYouUrl;
 				return;
@@ -471,6 +473,18 @@ class CrmFormHandler {
 			const errorWrapper = fields[ key ].main.querySelector( 'div.ErrorMessage' );
 			if ( errorWrapper ) {
 				errorWrapper.textContent = this.localized.textValidating;
+			}
+		}
+	};
+
+	handleAccountCreatingScripts = () => {
+		if ( typeof ga !== 'undefined' ) {
+			ga( 'send', 'event', 'SignUp', 'Trial', 'Trial Signup' );
+		}
+
+		if ( this.isFreeForm ) {
+			if ( window.dataLayer !== undefined ) {
+				window.dataLayer.push( { 'Click Id': 'startYourfreeAccountBtn' } );
 			}
 		}
 	};
