@@ -52,6 +52,7 @@ class CrmInstaller {
 		this.fields.progressHeart = this.fields.main.querySelector( '.progressHeart' );
 		this.fields.progressPercentage = this.fields.main.querySelector( '.progressHeart span.percentage' );
 
+		this.handleBuildingTitles();
 		this.handleInstallation();
 	};
 
@@ -338,6 +339,23 @@ class CrmInstaller {
 				console.warn( 'Tracking script failed:', 'twq' );
 			}
 		}
+	};
+
+	handleBuildingTitles = () => {
+		const headerTitles = this.fields.main.querySelectorAll( '.BuildingHeader' );
+		const headerTexts = this.fields.main.querySelectorAll( '.BuildingText' );
+
+		headerTitles.forEach( ( headerElm ) => {
+			const text = headerElm.innerHTML;
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.signupData.isPapNetwork ? 'Network' : 'Pro' );
+		} );
+
+		headerTexts.forEach( ( headerElm ) => {
+			const text = headerElm.innerHTML;
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.signupData.isPapNetwork ? 'Network' : 'Pro' );
+		} );
+
+		this.fields.main.querySelector( '.BuildingApp' ).classList.remove( 'invisible' );
 	};
 
 	handleTrackersAction = () => {

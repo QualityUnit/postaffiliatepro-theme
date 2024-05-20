@@ -10,7 +10,7 @@ class Trial_Signup {
 	private static $crm_script_loaded       = false;
 	private static $thank_you_template_name = 'template-thank-you';
 
-	public static $slugs   = array();
+	public static $slugs = array();
 
 	public static function run() {
 		add_action( 'init', array( __CLASS__, 'init' ) );
@@ -185,10 +185,10 @@ class Trial_Signup {
 			'textProgressLaunching'   => __( 'Launching', 'qu_signup' ),
 			'textProgressRedirecting' => __( 'Redirecting', 'qu_signup' ),
 			'textProgressFinalizing'  => __( 'Finalizing', 'qu_signup' ),
-			'textDoneAppTitle'            => __( 'Your Post Affiliate Pro is ready', 'qu_signup' ),
-			'textDoneAppTitleNetwork'     => __( 'Your Post Affiliate Network is ready', 'qu_signup' ),
-			'textDoneAppText'             => __( 'The login credentials have been sent to your inbox. Please check it to continue to Post Affiliate Pro.', 'qu_signup' ),
-			'textDoneAppTextNetwork'      => __( 'The login credentials have been sent to your inbox. Please check it to continue to Post Affiliate Network.', 'qu_signup' ),
+			'textDoneAppTitle'        => __( 'Your Post Affiliate Pro is ready', 'qu_signup' ),
+			'textDoneAppTitleNetwork' => __( 'Your Post Affiliate Network is ready', 'qu_signup' ),
+			'textDoneAppText'         => __( 'The login credentials have been sent to your inbox. Please check it to continue to Post Affiliate Pro.', 'qu_signup' ),
+			'textDoneAppTextNetwork'  => __( 'The login credentials have been sent to your inbox. Please check it to continue to Post Affiliate Network.', 'qu_signup' ),
 			'textError'               => __( 'Something went wrong.', 'qu_signup' ),
 			'textErrorCaptcha'        => __( 'Cannot load captcha', 'qu_signup' ),
 		);
