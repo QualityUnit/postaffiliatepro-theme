@@ -10,7 +10,6 @@ class Trial_Signup {
 	private static $crm_script_loaded       = false;
 	private static $thank_you_template_name = 'template-thank-you';
 
-	public static $regions = array();
 	public static $slugs   = array();
 
 	public static function run() {
@@ -163,12 +162,6 @@ class Trial_Signup {
 	}
 
 	private static function init_defaults() {
-		self::$regions = array(
-			'NA' => __( 'Americas (US)', 'qu_signup' ),
-			'EU' => __( 'Europe & Africa (EU)', 'qu_signup' ),
-			'AS' => __( 'Asia & Pacific (SG)', 'qu_signup' ),
-		);
-
 		self::$slugs = array(
 			'trial'       => __( '/trial/', 'ms' ),
 			'redeem-code' => __( '/redeem-code/', 'ms' ),
@@ -181,7 +174,6 @@ class Trial_Signup {
 				'email'   => __( 'Email invalid', 'qu_signup' ),
 				'domain'  => __( 'Domain can not contain http, www or capital letters (A-Z)', 'qu_signup' ),
 				'code'    => __( 'Invalid code.', 'qu_signup' ),
-				'region'  => __( 'Select datacenter region.', 'qu_signup' ),
 				'captcha' => __( 'Verify captcha.', 'qu_signup' ),
 			),
 			'textEmpty'               => __( "Field can't be empty", 'qu_signup' ),

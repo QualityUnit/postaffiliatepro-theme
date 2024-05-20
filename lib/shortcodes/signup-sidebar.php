@@ -23,8 +23,6 @@ function ms_signup_sidebar( $atts ) {
 		'signup-sidebar'
 	);
 
-	$regions = Trial_Signup::$regions;
-
 	ob_start();
 	?>
 
@@ -64,38 +62,7 @@ function ms_signup_sidebar( $atts ) {
 				</div>
 				<div class="ErrorMessage"></div>
 			</div>
-
-			<div data-id="regionFieldmain" class="Signup__sidebar__item">
-				<div class="InputWrapper">
-					<div class="FilterMenu isSingleSelect">
-						<div class="FilterMenu__title flex flex-align-center">
-							<span><?php _e( 'Choose your region (datacenter location)', 'ms' ); ?></span>
-						</div>
-						<div class="FilterMenu__items">
-							<div class="FilterMenu__items--inn">
-								<?php foreach ( $regions as $region_code => $region_name ) { ?>
-									<div class="checkbox FilterMenu__item">
-										<input
-											class="filter-item"
-											type="radio"
-											name="region"
-											id="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>"
-											value="<?php echo esc_attr( $region_code ); ?>"
-											data-title="<?php echo esc_attr( $region_name ); ?>"
-										/>
-										<label for="<?php echo esc_attr( "signup_sidebar_region_{$region_code}" ); ?>" >
-											<span><?php echo esc_html( $region_name ); ?></span>
-										</label>
-									</div>
-								<?php } ?>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="ErrorMessage"></div>
-				<div class="DescriptionText"><?php echo esc_html( __( 'Data centre changes are not possible after account creation.', 'ms' ) ); ?></div>
-			</div>
-
+		
 			<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
 
 			<div data-id="signUpError" class="hidden"></div>

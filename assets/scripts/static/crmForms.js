@@ -21,7 +21,6 @@ class CrmFormHandler {
 			name: { valid: false },
 			email: { valid: false },
 			domain: { valid: false },
-			region: { valid: false },
 			code: { valid: false },
 			captcha: { valid: false },
 			error: {},
@@ -78,13 +77,6 @@ class CrmFormHandler {
 		this.fields.domain.validator = {
 			callback: () => this.validateDomainField( this.fields.domain.input, 'domain' ),
 			events: [ 'blur', 'input' ],
-		};
-
-		this.fields.region.main = this.form.querySelector( '[data-id=regionFieldmain]' );
-		this.fields.region.input = this.fields.region.main.querySelector( '.FilterMenu' );
-		this.fields.region.validator = {
-			callback: () => this.validateSelection( this.fields.region.input, 'region' ),
-			events: [ 'closedFilterMenu' ],
 		};
 
 		this.fields.code.main = this.form.querySelector( '[data-id=codeFieldmain]' );
@@ -417,7 +409,6 @@ class CrmFormHandler {
 				email: data.email,
 			},
 			subdomain: data.subdomain,
-			region: data.region,
 			promo: data.promo === 'on',
 			language: this.crmLangCode,
 			...( data.grecaptcha !== undefined && { grtoken: data.grecaptcha } ),
