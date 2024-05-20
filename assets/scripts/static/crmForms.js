@@ -365,7 +365,7 @@ class CrmFormHandler {
 				headers: {
 					'Content-Type': 'application/json',
 					accept: 'application/json',
-					'X-WP-Nonce': quCrmData.nonce,
+					'X-WP-Nonce': this.nonce,
 				},
 				body: JSON.stringify( requestData ),
 			} );
