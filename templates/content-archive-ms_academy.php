@@ -1,9 +1,30 @@
 <?php // @codingStandardsIgnoreLine
 set_source( 'academy', 'pages/Category', 'css' );
 set_source( 'academy', 'filter', 'js' );
+
+$main_page = get_posts(
+	array(
+		'name'      => 'affiliate-marketing-academy',
+		'post_type' => 'ms_academy',
+	)
+);
+
+if ( ! empty( $main_page ) ) {
+	$main_page_id  = $main_page[0]->ID;
+	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+	$mainpost     = get_post( $translated_id );
+	$post_title   = $mainpost->post_title;
+	$post_content = $mainpost->post_content;
+}
+
+
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_academy_categories' ) ), SORT_REGULAR );
 $page_header_title = __( 'Affiliate Marketing Academy', 'ms' );
 $page_header_text  = __( 'Become an affiliate marketing expert', 'ms' );
+
+
+
 if ( is_tax( 'ms_academy_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
@@ -106,4 +127,21 @@ $page_header_args = array(
 		</div>
 	</div>
 
+	<?php
+	if ( ! empty( $main_page ) ) {
+		?>
+	<div class="wrapper mt-xxl academy__how">
+		<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
+		<div class="Content">
+			<?php
+				$content = apply_filters( 'the_content', $post_content );
+				echo $content // @codingStandardsIgnoreLine;
+			?>
+		</div>
+	</div>
+		<?php
+	}
+	?>
+
 </div>
+
