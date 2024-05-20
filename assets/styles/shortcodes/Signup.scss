@@ -3,7 +3,6 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @forward "../elements/FilterMenu";
-@forward "../components/WorkingPanel";
 
 .Signup {
 
@@ -100,6 +99,27 @@
 			width: 100%;
 			height: 3.5em;
 			text-align: center;
+
+			&[data-id="createButtonmain"][disabled] {
+
+				.WorkingPanel {
+
+					display: flex !important;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					z-index: 5;
+					margin-right: 0.75em;
+
+					.gear-wheels {
+						position: relative;
+						z-index: 9;
+
+						@include square(2.3125em);
+					}
+
+				}
+			}
 		}
 
 		[data-id="signUpError"] {
