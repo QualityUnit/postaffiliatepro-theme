@@ -347,12 +347,12 @@ class CrmInstaller {
 
 		headerTitles.forEach( ( headerElm ) => {
 			const text = headerElm.innerHTML;
-			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.isPapNetwork ? 'Network' : 'Pro' );
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.signupData.isPapNetwork ? 'Network' : 'Pro' );
 		} );
 
 		headerTexts.forEach( ( headerElm ) => {
 			const text = headerElm.innerHTML;
-			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.isPapNetwork ? 'Network' : 'Pro' );
+			headerElm.innerHTML = text.replace( '%PRODUCT_VERSION%', this.signupData.isPapNetwork ? 'Network' : 'Pro' );
 		} );
 
 		this.fields.main.querySelector( '.BuildingApp' ).classList.remove( 'invisible' );
