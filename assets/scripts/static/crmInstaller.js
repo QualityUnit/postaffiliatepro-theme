@@ -43,8 +43,8 @@ class CrmInstaller {
 		}
 
 		if ( ! this.signupData ) {
-			//window.location.href = quCrmData.trialUrl;
-			//return;
+			window.location.href = quCrmData.trialUrl;
+			return;
 		}
 
 		this.fields.progressBar = this.fields.main.querySelector( '.progress-bar' );

@@ -45,8 +45,6 @@ function ms_signup_network_form( $atts ) {
 		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial" data-pap-network>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
-			<!-- <input data-id="plan" type="hidden" value="Trial" autocomplete="off">
-			<input data-id="variation" type="hidden" value="3513230f" autocomplete="off"> -->
 
 			<div data-id="nameFieldmain" class="Signup__form__item">
 				<div class="InputWrapper">
@@ -140,57 +138,7 @@ function ms_signup_network_form( $atts ) {
 		</form>
 	</div>
 
-	<?php 
-	/*
-	// @codingStandardsIgnoreStart ?>
 	<?php
-		add_action( 'wp_footer', function() {
-	?>
-	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
-	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_en.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_de.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_es.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_fr.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_br.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_sk.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_hu.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_nl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_pl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_it.js' ?>"></script>
-	<?php } else { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_network_en.js' ?>"></script>
-	<?php } ?>
-	<?php
-	global $crm_ver_app;
-	if ( ! isset( $crm_ver_app ) ) {
-				$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
-					?>
-	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-					<?php } }, 999 ); ?>
-	<?php // @codingStandardsIgnoreEnd 
-	
-	
-	*/ 
-	?>
-
-	<?php
-	
-
-
 	return ob_get_clean();
 }
 add_shortcode( 'signupform-network', 'ms_signup_network_form' );
