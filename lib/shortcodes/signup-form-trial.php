@@ -1,34 +1,49 @@
 <?php
+use QualityUnit\Trial_Signup;
 
 function ms_signup_form_trial() {
+
+	// include resources
+	set_source( false, 'shortcodes/Signup' );
+	set_custom_source( 'filterMenu', 'js' );
+	Trial_Signup::include_crm();
+
 	ob_start();
 	?>
+
 	<style type="text/css">
 		.Signup__form input{width:100%}.Signup__form__item{position: relative}.Signup__form__icon{fill: #bec2c9;position: absolute;z-index: 3;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);left: 1.3125em;width: 1.375em;}
 	</style>
+	
 	<div class="Signup__form">
 		<h3 class="Signup__form__title"><?php _e( 'Start Free Trial', 'ms' ); ?></h3>
 
-		<div data-id="signup">
-			<input data-id="plan" type="hidden" value="Trial" autocomplete="off">
-			<input data-id="variation" type="hidden" value="3513230f" autocomplete="off">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial" data-free-form>
+			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
+			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
 			<div data-id="nameFieldmain" class="Signup__form__item">
-				<svg class="Signup__form__icon user" style="width: 1.125em" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M18 19v-2a4.999 4.999 0 0 0-5-5H5a4.999 4.999 0 0 0-5 5v2a1 1 0 0 0 2 0v-2c0-.796.317-1.558.879-2.121h.001A2.996 2.996 0 0 1 5 14h8c.796 0 1.558.317 2.121.879v.001c.563.562.879 1.325.879 2.12v2a1 1 0 0 0 2 0zm-9-9c2.763 0 5-2.237 5-5 0-2.762-2.237-5-5-5S4 2.238 4 5c0 2.763 2.238 5 5 5zm0-2a3 3 0 1 1 0-6 3 3 0 1 1 0 6z"/></svg>
-				<input type="text" name="Full name" placeholder="<?php _e( 'Full Name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<div class="InputWrapper">
+					<svg class="Signup__form__icon user" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M18 19v-2a4.999 4.999 0 0 0-5-5H5a4.999 4.999 0 0 0-5 5v2a1 1 0 0 0 2 0v-2c0-.796.317-1.558.879-2.121h.001A2.996 2.996 0 0 1 5 14h8c.796 0 1.558.317 2.121.879v.001c.563.562.879 1.325.879 2.12v2a1 1 0 0 0 2 0zm-9-9c2.763 0 5-2.237 5-5 0-2.762-2.237-5-5-5S4 2.238 4 5c0 2.763 2.238 5 5 5zm0-2a3 3 0 1 1 0-6 3 3 0 1 1 0 6z"/></svg>
+					<input type="text" data-type="text" name="fullname" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__form__item">
-				<svg class="Signup__form__icon mail" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M3 0C1.35 0 0 1.35 0 3v12c0 1.65 1.35 3 3 3h16c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3H3zm0 2h16c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1z"/><path d="M20.427 2.181 11 8.779 1.573 2.181A.998.998 0 1 0 .427 3.819l10 7a.999.999 0 0 0 1.146 0l10-7a.998.998 0 1 0-1.146-1.638z"/></svg>
-				<input type="email" name="Email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<div class="InputWrapper">
+					<svg class="Signup__form__icon mail" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M3 0C1.35 0 0 1.35 0 3v12c0 1.65 1.35 3 3 3h16c1.65 0 3-1.35 3-3V3c0-1.65-1.35-3-3-3H3zm0 2h16c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1H3c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1z"/><path d="M20.427 2.181 11 8.779 1.573 2.181A.998.998 0 1 0 .427 3.819l10 7a.999.999 0 0 0 1.146 0l10-7a.998.998 0 1 0-1.146-1.638z"/></svg>
+					<input type="email" name="email" placeholder="<?php _e( 'Enter your e-mail', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__form__item">
-				<svg class="Signup__form__icon company" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M19 4H3a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16c1.658 0 3-1.342 3-3V7a3 3 0 0 0-3-3zm0 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h16z"/><path d="M16 19V3c0-.795-.315-1.56-.879-2.121A2.992 2.992 0 0 0 13 0H9c-.795 0-1.56.315-2.121.879A2.992 2.992 0 0 0 6 3v16a1 1 0 0 0 2 0V3c0-.264.104-.519.291-.705l.004-.004A.995.995 0 0 1 9 2h4c.264 0 .519.104.705.291l.004.004A.995.995 0 0 1 14 3v16a1 1 0 0 0 2 0z"/></svg>
-				<input type="url" name="Domain" placeholder="<?php _e( 'Company name', 'ms' ); ?>" required="required"  autocomplete="off" maxlength="30">
-				<div class="Signup__form__item__domain"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
+				<div class="InputWrapper">
+					<svg class="Signup__form__icon company" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M19 4H3a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16c1.658 0 3-1.342 3-3V7a3 3 0 0 0-3-3zm0 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h16z"/><path d="M16 19V3c0-.795-.315-1.56-.879-2.121A2.992 2.992 0 0 0 13 0H9c-.795 0-1.56.315-2.121.879A2.992 2.992 0 0 0 6 3v16a1 1 0 0 0 2 0V3c0-.264.104-.519.291-.705l.004-.004A.995.995 0 0 1 9 2h4c.264 0 .519.104.705.291l.004.004A.995.995 0 0 1 14 3v16a1 1 0 0 0 2 0z"/></svg>
+					<input type="text" data-type="text" name="subdomain" placeholder="<?php _e( 'Company name', 'ms' ); ?>" value="" required="required"  autocomplete="off" maxlength="30">
+					<div class="Signup__form__item__domain"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
+				</div>
 				<div class="ErrorMessage"></div>
 
 				<div class="Signup__form__item__info">
@@ -43,21 +58,18 @@ function ms_signup_form_trial() {
 				<label for="sendOffersSignup"><p><?php _e( 'Send me product updates and other promotional offers.', 'ms' ); ?></p></label>
 			</div>
 
-			<div data-id="signUpError"></div>
+			<?php Trial_Signup::grecaptcha_parts(); ?>
+
+			<div data-id="signUpError" class="hidden"></div>
 
 			<div class="Signup__form__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup');">
-					<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
-				</div>
-
-				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
-						<div class="one spin-one"></div>
-						<div class="two spin-two"></div>
-						<div class="three spin-one"></div>
+				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton">
+					<div class="WorkingPanel" style="display: none;">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
 					</div>
-					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
-				</div>
+					<span><?php echo esc_html( $atts['button'] ); ?></span>
+				</button>
+
 				<div class="Signup__form__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-of-service/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
@@ -65,51 +77,7 @@ function ms_signup_form_trial() {
 		</div>
 	</div>
 
-	<?php // @codingStandardsIgnoreStart ?>
 	<?php
-		add_action( 'wp_footer', function() {
-	?>
-	
-	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
-	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_de.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_es.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_fr.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_br.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_sk.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_hu.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_nl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_pl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_it.js' ?>"></script>
-	<?php } else { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
-	<?php } ?>
-	<?php
-	global $crm_ver_app;
-	if ( ! isset( $crm_ver_app ) ) {
-				$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
-					?>
-	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-					<?php } }, 999 ); ?>
-	<?php // @codingStandardsIgnoreEnd ?>
-	
-	<?php
-	set_source( false, 'shortcodes/Signup' );
-	set_custom_source( 'filterMenu', 'js' );
 	return ob_get_clean();
 }
 add_shortcode( 'signupform-trial', 'ms_signup_form_trial' );

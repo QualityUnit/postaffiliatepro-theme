@@ -27,9 +27,6 @@
 		padding-top: 0;
 	}
 
-	[data-id="createButtonmain"][disabled] + .WorkingPanel {
-		top: -5px;
-	}
 }
 
 .Trial {
@@ -372,6 +369,13 @@
 
 			input {
 				height: 3.8em;
+			}
+
+			.FilterMenu {
+
+				&__title {
+					height: 3.8em;
+				}
 			}
 
 			[data-id="promoFieldmain"] {

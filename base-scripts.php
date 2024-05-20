@@ -16,7 +16,7 @@
 	}
 
 	const acceptButton = document.querySelector( ".Kolaciky__button--yes" )
-	const trialButton = document.querySelector( "#createButtonmain" )
+	const trialButton = document.querySelector( "button[data-id=createButtonmain]" )
 
 	acceptButton.addEventListener( "click", () => {
 		const demobarNow = document.querySelector( '#demobar' )
@@ -96,7 +96,7 @@
 </script>
 <?php
 if (
-		! is_page( array( 'request-demo', 'demo', 'call', 'trial', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
+		! is_page( array( 'request-demo', 'demo', 'call', 'trial', 'thank-you', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
 		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory' ) )
 		&& ! is_single( array( 'facebook', 'twitter', 'viber', 'instagram' ) )
 		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'post' ) )
@@ -105,7 +105,7 @@ if (
 ) {
 	require_once get_template_directory() . '/contactus-box.php';
 } elseif (
-		! is_page( array( 'request-demo', 'demo', 'trial', 'free-account' ) )
+		! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) )
 	) {
 	?>
 	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">

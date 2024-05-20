@@ -1,10 +1,13 @@
 <?php
+use QualityUnit\Trial_Signup;
 
 function ms_signup_sidebar( $atts ) {
 	if ( ! is_mobile() ) {
 		set_custom_source( 'filterMenu', 'js' );
 	}
 	
+	Trial_Signup::include_crm();
+
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Try it for', 'ms' ),
@@ -19,6 +22,7 @@ function ms_signup_sidebar( $atts ) {
 		$atts,
 		'signup-sidebar'
 	);
+
 	ob_start();
 	?>
 
@@ -26,48 +30,51 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<div data-id="signup">
-			<input data-id="plan" type="hidden" value="FreeTrial" autocomplete="off">
-			<input data-id="variation" type="hidden" value="freedesk" autocomplete="off">
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
+			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
+			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
 			<div data-id="nameFieldmain" class="Signup__sidebar__item">
-				<input type="text" name="Full name" placeholder="<?= esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				<div class="InputWrapper">
+					<input type="text" data-type="text" name="fullname" placeholder="<?php echo esc_attr( $atts['name'] ); ?>" value="" required="required" autocomplete="off" maxlength="100">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="mailFieldmain" class="Signup__sidebar__item">
-				<input type="email" name="Email" placeholder="<?= esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				<div class="InputWrapper">
+					<input type="email" name="email" placeholder="<?php echo esc_attr( $atts['email'] ); ?>" value="" required="required" autocomplete="off" maxlength="255">
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
-				<input type="url" name="Domain" placeholder="<?= esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
-				<div class="Signup__sidebar__item__domain">
-				<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
-				<div class="Signup__sidebar__item__info ComparePlans__tooltip">
-					<div class="Signup__sidebar__item__info__icon fontello-info">
-						<div class="Tooltip Tooltip--left"><?php _e( 'Choose a name for your PostAffiliate Pro subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+				<div class="InputWrapper">	
+					<input type="text" data-type="text" name="subdomain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
+					<div class="Signup__sidebar__item__domain">
+						<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
+						<div class="Signup__sidebar__item__info ComparePlans__tooltip">
+							<div class="Signup__sidebar__item__info__icon fontello-info">
+								<div class="Tooltip Tooltip--left"><?php _e( 'Choose a name for your PostAffiliate Pro subdomain. Most people use their company or team name.', 'ms' ); ?></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 				<div class="ErrorMessage"></div>
 			</div>
+		
+			<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
 
-			<div data-id="signUpError" class="signUpError"></div>
+			<div data-id="signUpError" class="hidden"></div>
 
-			<div class="Signup__sidebar__submit">
-				<div data-id="createButtonmain" class="Button Button--full" onclick="ga('send', 'event', 'SignUp', 'Trial', 'Trial Signup'); dataLayer.push({'Click Id': 'startYourfreeAccountBtn'});">
-					<span><?= esc_html( $atts['button'] ); ?></span>
-				</div>
-
-				<div class="WorkingPanel" style="display: none;">
-					<div class="animation">
-						<div class="one spin-one"></div>
-						<div class="two spin-two"></div>
-						<div class="three spin-one"></div>
-					</div>
-					<p><?php _e( 'Passing data through the machine...', 'ms' ); ?></p>
-				</div>
+			<div data-id="submitFieldmain" class="Signup__sidebar__submit">
+				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton">
+					<div class="WorkingPanel" style="display: none;">
+						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
+					</div>	
+					<span><?php echo esc_html( $atts['button'] ); ?></span>
+				</button>
+				
 				<div class="Signup__sidebar__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-of-service/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
@@ -101,52 +108,10 @@ function ms_signup_sidebar( $atts ) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 
-	<?php // @codingStandardsIgnoreStart ?>
 	<?php
-		add_action( 'wp_footer', function() {
-	?>
-	<script data-src="https://www.google.com/recaptcha/api.js?render=6LddyswZAAAAAJrOnNWj_jKRHEs_O_I312KKoMDJ"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/source.js' ?>"></script>
-	<?php if ( ICL_LANGUAGE_CODE === 'en' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'de' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_de.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'es' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_es.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'fr' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_fr.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pt-br' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_br.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'sk' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_sk.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'hu' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_hu.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'nl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_nl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'pl' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_pl.js' ?>"></script>
-	<?php } elseif ( ICL_LANGUAGE_CODE === 'it' ) { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_it.js' ?>"></script>
-	<?php } else { ?>
-		<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm_en.js' ?>"></script>
-	<?php } ?>
-	<?php
-	global $crm_ver_app;
-	if ( ! isset( $crm_ver_app ) ) {
-		$crm_ver_app = gmdate( 'ymdGis', filemtime( get_template_directory() . '/assets/scripts/static/crm.js' ) );
-	?>
-	<script id="jquery-js" data-src="<?= esc_url( includes_url() . 'js/jquery/jquery' . wpenv() . '.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-cookie-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.cookie.js?ver=' . THEME_VERSION); ?>"></script>
-	<script id="jquery-alphanum-js" data-src="<?= esc_url(  get_template_directory_uri() . '/assets/scripts/static/jquery.alphanum.js?ver=' . THEME_VERSION); ?>"></script>
-	<script data-src="<?= esc_url( get_template_directory_uri() ) . '/assets/scripts/static/crm.js?ver=' . $crm_ver_app ?>"></script>
-					<?php } }, 999 ); ?>
-	<?php // @codingStandardsIgnoreEnd ?>
-
-	<?php
-	
 	return ob_get_clean();
 }
 add_shortcode( 'signup-sidebar', 'ms_signup_sidebar' );

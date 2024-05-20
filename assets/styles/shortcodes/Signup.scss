@@ -2,6 +2,7 @@
 /* stylelint-disable selector-id-pattern, value-keyword-case */
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
+@forward "../elements/FilterMenu";
 
 .Signup {
 
@@ -89,6 +90,7 @@
 			padding-left: 4.28em;
 		}
 
+
 		.Button {
 			font-size: 1rem;
 			margin-top: 0;
@@ -97,20 +99,42 @@
 			width: 100%;
 			height: 3.5em;
 			text-align: center;
+
+			&[data-id="createButtonmain"][disabled] {
+
+				.WorkingPanel {
+
+					display: flex !important;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					z-index: 5;
+					margin-right: 0.75em;
+
+					.gear-wheels {
+						position: relative;
+						z-index: 9;
+
+						@include square(2.3125em);
+					}
+
+				}
+			}
 		}
 
 		[data-id="signUpError"] {
 			position: relative;
 			font-size: 14px;
+			line-height: 1.3;
 			text-align: center;
-			color: #f00;
-
-			div {
-				position: absolute;
-				bottom: 8px;
-				width: 100%;
-				background-color: #fff;
-			}
+			color: $saturated-red;
+			background: $desaturated-red;
+			border-color: $saturated-red;
+			border-width: $input-border-width-normal;
+			border-style: solid;
+			border-radius: ($border-radius - 2);
+			padding: 1em 0.5em;
+			margin-bottom: 1em;
 		}
 
 		[data-id="domainFieldmain"] {
@@ -126,8 +150,8 @@
 			@include color(color, font-color-level3);
 			font-size: 14px;
 			text-align: center;
-			cursor: pointer;
 			margin: 2em 0;
+			cursor: pointer;
 			padding: 0 2em;
 
 			input[type="checkbox"] {
@@ -142,11 +166,172 @@
 			}
 		}
 
+		[data-id="captchaFieldmain"] {
+
+			.grecaptcha-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.ErrorMessage {
+				width: 100%;
+				text-align: center;
+				left: 0;
+			}
+		}
+
 		&__item {
 
 			@include color(color, font-color-level3);
 			position: relative;
 			margin-bottom: 1.25em;
+
+			.InputWrapper {
+				position: relative;
+
+				&::before {
+
+					@include color(color, font-color-level3);
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: 20px;
+					font-size: 18px;
+					line-height: 1;
+					text-align: center;
+					width: 22px;
+					z-index: 1;
+
+				}
+			}
+
+			.FilterMenu {
+				z-index: initial;
+
+				&__title {
+
+					@include color(border-color, border-color-inputs);
+					@include color(color, font-color-level3);
+					@include color(background-color, main-background);
+					height: $input-height-normal;
+					border-width: $input-border-width-normal;
+					border-style: solid;
+					border-radius: ($border-radius - 2);
+					font-size: $input-font-size-normal;
+					font-weight: $font-weight-normal;
+					padding-left: 60px;
+
+					// override display none in responsive styles of FilterMenu default styles
+					display: flex !important;
+
+					&.active {
+
+						@include color(border-color, primary-color);
+						@include color(color, primary-color);
+					}
+
+					span {
+						line-height: 1.2;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+
+				// styles from FilterMenu we need to keep also in responsive design
+				&__items {
+
+					@include color(background-color, main-background);
+					position: absolute;
+					top: 100%;
+					left: 0;
+					display: none;
+					opacity: 0;
+					overflow: hidden;
+					border-radius: 0.625em;
+					width: 100%;
+					padding: 1em 1.45em;
+					transition: opacity 0.1s;
+					box-shadow: 0 0.063em 0.375em rgba($black, 0.16);
+
+					&--inn {
+						max-height: 19em;
+						position: relative;
+						margin-left: -1.45em;
+						margin-right: -1.85em;
+					}
+
+					&.scrollbar-visible {
+
+						&::before {
+
+							@include color(background-color, secondary-background);
+							display: block;
+							content: "";
+							position: absolute;
+							top: 0;
+							right: 0;
+							bottom: 0;
+							width: 0.7em;
+						}
+
+						.FilterMenu__items--inn {
+
+							@include scrollbar(0.5em);
+							overflow-y: scroll;
+							margin-right: -1.35em;
+						}
+					}
+
+					&.active {
+						display: block;
+						z-index: 3;
+					}
+
+					&.visible {
+						opacity: 1;
+					}
+				}
+
+				&__item {
+					overflow: visible;
+					position: relative;
+					display: flex;
+					align-content: center;
+					margin-bottom: 0.25em;
+					text-decoration: none !important;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+
+					@media (hover: hover) {
+
+						&:hover {
+							background-color: $pricing-gray;
+						}
+					}
+				}
+
+				&__item [type="checkbox"] + label,
+				&__item [type="radio"] + label,
+				a[href] &__item-title {
+					line-height: 1.4;
+					padding: 0.5em 1em;
+					border-radius: 0;
+					box-shadow: none;
+				}
+
+				&.active {
+
+					svg {
+
+						@include color(fill, primary-color);
+					}
+				}
+
+			}
 
 			&.active {
 				z-index: 4;
@@ -172,6 +357,20 @@
 					.requiredIcon {
 						display: none;
 					}
+				}
+			}
+
+			&.has-svg {
+
+				svg {
+
+					//@include color(fill, font-color-level3);
+					fill: $light-gray-icon;
+					position: absolute;
+					top: 50%;
+					left: 20px;
+					transform: translateY(-50%);
+					z-index: 4; // FilterMenu with icon
 				}
 			}
 
@@ -234,11 +433,9 @@
 			label.error {
 
 				@include color(color, error-color);
-				display: block;
-				position: absolute;
-				left: 20px;
 				font-size: 12px;
-				line-height: 1.7;
+				line-height: 1.3;
+				margin-top: 0.4em;
 			}
 
 			&:focus-within {
@@ -267,12 +464,41 @@
 				}
 			}
 
+			.DescriptionText {
+
+				color: $dark-gray;
+				font-size: 12px;
+				line-height: 1.3;
+				margin-top: 0.4em;
+			}
+
 			&.Valid {
 
 				@include color(color, successful-color);
 
 				input {
 					border-color: currentColor;
+				}
+
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, successful-color);
+						@include color(color, successful-color);
+
+					}
+
+					svg {
+
+						@include color(fill, successful-color);
+					}
+
+				}
+
+				.InputWrapper::before {
+
+					@include color(color, successful-color);
 				}
 
 				svg {
@@ -294,6 +520,27 @@
 
 				input {
 					border-color: currentColor;
+				}
+
+				.FilterMenu {
+
+					&__title {
+
+						@include color(border-color, error-color);
+						@include color(color, error-color);
+
+					}
+
+					svg {
+
+						@include color(fill, error-color);
+					}
+
+				}
+
+				.InputWrapper::before {
+
+					@include color(color, error-color);
 				}
 
 				svg {
