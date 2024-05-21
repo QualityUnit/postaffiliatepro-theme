@@ -21,7 +21,7 @@ if ( ! empty( $main_page ) ) {
 }
 
 $page_header_title = __( 'Affiliate Program Directory', 'ms' );
-$page_header_text  = __( 'A directory of companies and affiliate programs', 'ms' );
+$page_header_text  = __( 'Our Affiliate Program Directory is a vital resource for affiliate marketers and partners seeking lucrative and compatible programs. Here, every affiliate can discover a plethora of programs to leverage, tailored to meet their specific marketing needs and preferences. This database serves as a pivotal tool in the realm of affiliate marketing.', 'ms' );
 if ( is_tax( 'ms_directory_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();

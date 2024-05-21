@@ -2,8 +2,8 @@
 set_source( 'templates', 'pages/Category', 'css' );
 set_source( 'templates', 'filter', 'js' );
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_templates_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'Affiliate Communications Templates', 'ms' );
-$page_header_text  = null;
+$page_header_title = __( 'Affiliate marketing email templates', 'ms' );
+$page_header_text  = __( 'Welcome to your comprehensive resource for affiliate marketing email templates. These templates are designed to effectively communicate with potential affiliates and manage ongoing relationships with ease. Learn about their benefits and tips to streamline processes and boost your affiliate marketing success.', 'ms' );
 
 $main_page = get_posts(
 	array(
@@ -25,7 +25,9 @@ if ( ! empty( $main_page ) ) {
 if ( is_tax( 'ms_templates_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
+
 endif;
+
 $filter_items_categories = array(
 	array(
 		'checked' => true,

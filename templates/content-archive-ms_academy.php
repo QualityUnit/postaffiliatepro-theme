@@ -20,8 +20,8 @@ if ( ! empty( $main_page ) ) {
 
 
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_academy_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'Affiliate Marketing Academy', 'ms' );
-$page_header_text  = __( 'Become an affiliate marketing expert', 'ms' );
+$page_header_title = __( 'Affiliate marketing academy', 'ms' );
+$page_header_text  = __( 'Welcome to the Affiliate Marketing Academy, your ultimate guide to mastering the art of affiliate marketing. With insightful articles that span from foundational concepts to advanced strategies, this academy serves as a crucial resource for merchants, marketers, and advertisers at any stage of their affiliate marketing journey.', 'ms' );
 
 
 
@@ -29,6 +29,7 @@ if ( is_tax( 'ms_academy_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
 endif;
+
 $filter_items_categories = array(
 	array(
 		'checked' => true,

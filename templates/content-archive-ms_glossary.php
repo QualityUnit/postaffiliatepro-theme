@@ -21,8 +21,8 @@ if ( ! empty( $main_page ) ) {
 }
 
 
-$page_header_title = __( 'Affiliate Marketing Glossary', 'ms' );
-$page_header_text  = __( 'If you are just starting out with affiliate software or affiliate marketing, you might struggle with all the new terminology. We have compiled a complete list of affiliate marketing terms.', 'ms' );
+$page_header_title = __( 'Affiliate marketing glossary', 'ms' );
+$page_header_text  = __( 'Welcome to our comprehensive Affiliate Marketing Glossary, your essential guide to mastering the language of affiliate marketing. Spanning from the fundamental to the advanced, these popular affiliate marketing terms serve as an invaluable resource for understanding the mechanisms and strategies within the affiliate marketing industry.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
