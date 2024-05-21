@@ -85,7 +85,7 @@
 			</div>
 
 			<div class="Header__navigation__buttons">
-				<a href="<?= $post_slug == '/network' ? _e( '/call/', 'ms' ) : esc_url( $post_slug ) . _e( '/call/', 'ms' ); ?>"
+				<a href="<?= _e( '/network', 'ms' ) == $post_slug ? esc_url( '/call/', 'ms' ) : esc_url( $post_slug ) . esc_url( '/call/', 'ms' ); ?>"
 					 class="Button Button--outline">
 					<span><?php _e( 'Book a Call', 'ms' ); ?></span>
 				</a>
