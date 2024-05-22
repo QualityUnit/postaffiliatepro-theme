@@ -133,6 +133,7 @@ $bg-color: #f9f9fa;
 		left: 0;
 		top: 4em;
 		transition: opacity 0.2s;
+		z-index: 1;
 
 		&.active {
 			display: block;
