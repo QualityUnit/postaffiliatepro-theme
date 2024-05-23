@@ -16,6 +16,8 @@ if ( ! empty( $main_page ) ) {
 	$main_page_id  = $main_page[0]->ID;
 	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
 
+	$skipped_post = $translated_id; // skip the post with this ID
+
 	$mainpost     = get_post( $translated_id );
 	$post_title   = $mainpost->post_title;
 	$post_content = $mainpost->post_content;
@@ -72,7 +74,7 @@ $page_header_args = array(
 				<?php
 				while ( have_posts() ) :
 					the_post();
-					$skipped_post = 396937; // skip the post with this ID
+
 					if ( get_the_ID() == $skipped_post ) {
 						continue;
 					}

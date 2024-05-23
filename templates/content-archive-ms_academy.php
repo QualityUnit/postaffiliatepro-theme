@@ -13,6 +13,8 @@ if ( ! empty( $main_page ) ) {
 	$main_page_id  = $main_page[0]->ID;
 	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
 
+	$skipped_post = $translated_id; // skip the post with this ID
+
 	$mainpost     = get_post( $translated_id );
 	$post_title   = $mainpost->post_title;
 	$post_content = $mainpost->post_content;
@@ -74,7 +76,7 @@ $page_header_args = array(
 				<?php
 				while ( have_posts() ) :
 					the_post();
-					$skipped_post = 396932; // skip the post with this ID
+
 					if ( get_the_ID() == $skipped_post ) {
 						continue;
 					}
@@ -96,6 +98,7 @@ $page_header_args = array(
 
 					$pillar_check = get_post_meta( get_the_ID(), 'mb_academy_mb_academy_pillar', true ) === 'on';
 					$pillar_class = $pillar_check ? 'pillar' : '';
+
 					?>
 
 					<li class="Category__item <?= esc_attr( $pillar_class ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
