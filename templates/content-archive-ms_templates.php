@@ -72,6 +72,10 @@ $page_header_args = array(
 				<?php
 				while ( have_posts() ) :
 					the_post();
+					$skipped_post = 396937; // skip the post with this ID
+					if ( get_the_ID() == $skipped_post ) {
+						continue;
+					}
 
 					$category = '';
 
