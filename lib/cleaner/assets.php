@@ -117,7 +117,6 @@ function callback( $buffer ) {
 
 	// WP Scripts
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/wp-polyfill[^\≤]+>/', '', $buffer );
-	$buffer = preg_replace( '/<link[^\≤]+dist\/block-library\/style[^\≤]+>/', '', $buffer );
 
 	// JS for Babel async transpiling for old browsers like IE
 	$buffer = preg_replace( '/<script[^\≤]+dist\/vendor\/regenerator-runtime[^\≤]+>/', '', $buffer );
@@ -139,7 +138,7 @@ function buffer_end() {
 
 function remove_default_jquery( $html ) {  // @codingStandardsIgnoreLine
 		wp_dequeue_script( 'jquery' );
-		wp_deregister_script( 'jquery' );   
+		wp_deregister_script( 'jquery' );
 		wp_dequeue_script( 'jquery-ui-core' );
 		wp_deregister_script( 'jquery-ui-core' );
 }
