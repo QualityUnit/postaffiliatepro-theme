@@ -45,6 +45,47 @@
 		}
 	}
 
+	.academy__how,
+	.templates__how {
+
+		.Content > *:not([class*="FAQ"]) {
+
+			&:first-child {
+				margin-top: 2.5em;
+			}
+		}
+
+
+		@media (min-width: $breakpoint-tablet-landscape) {
+
+			.Split__title,
+			.Content > *:not([class*="FAQ"]) {
+				max-width: 40.625rem;
+				margin-left: auto;
+				margin-right: auto;
+
+			}
+
+			.Content {
+
+				.Post__m__negative[class*="FAQ"] {
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.Post__m__negative,
+				.BlockDiscover,
+				.BlockQuote--discover,
+				.wide,
+				.wp-block-embed,
+				.youtube__loader {
+					margin-left: -3.125em;
+					margin-right: -3.125em;
+				}
+			}
+		}
+	}
+
 	@media (min-width: $breakpoint-tablet) {
 
 		&__content {

@@ -4,8 +4,25 @@ set_custom_source( 'layouts/Archive' );
 set_source( false, 'layouts/Index' );
 set_custom_source( 'indexFilter', 'js' );
 
-$page_header_title = __( 'Affiliate Marketing Glossary', 'ms' );
-$page_header_text  = __( 'If you are just starting out with affiliate software or affiliate marketing, you might struggle with all the new terminology. We have compiled a complete list of affiliate marketing terms.', 'ms' );
+$main_page = get_posts(
+	array(
+		'name'      => 'affiliate-marketing-glossary',
+		'post_type' => 'ms_glossary',
+	)
+);
+
+if ( ! empty( $main_page ) ) {
+	$main_page_id  = $main_page[0]->ID;
+	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+	$mainpost     = get_post( $translated_id );
+	$post_title   = $mainpost->post_title;
+	$post_content = $mainpost->post_content;
+}
+
+
+$page_header_title = __( 'Affiliate marketing glossary', 'ms' );
+$page_header_text  = __( 'Welcome to our comprehensive Affiliate Marketing Glossary, your essential guide to mastering the language of affiliate marketing. Spanning from the fundamental to the advanced, these popular affiliate marketing terms serve as an invaluable resource for understanding the mechanisms and strategies within the affiliate marketing industry.', 'ms' );
 if ( is_tax( 'ms_glossary_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
@@ -24,7 +41,7 @@ $page_header_args = array(
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 	<div class="Index Archive__filter">
 		<div class="wrapper flex-tablet flex-align-center">
-			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?> 
+			<?= searchfield( __( 'Search glossary', 'urlslab' ) ); // @codingStandardsIgnoreLine ?>
 				<ul class="Index__top">
 					<?php $categories = get_categories( array( 'taxonomy' => 'ms_glossary_categories' ) ); ?>
 					<?php foreach ( $categories as $category ) { ?>
@@ -60,4 +77,22 @@ $page_header_args = array(
 				</div>
 			<?php } ?>
 	</div>
+
+	<?php
+	if ( ! empty( $main_page ) ) {
+		?>
+		<div class="wrapper mt-xxl glossary__how">
+			<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
+			<div class="Content">
+				<?php
+				$content = apply_filters( 'the_content', $post_content );
+				echo $content // @codingStandardsIgnoreLine;
+				?>
+			</div>
+		</div>
+		<?php
+	}
+	?>
+
+
 </div>

@@ -4,8 +4,24 @@ set_custom_source( 'layouts/Archive' );
 set_source( false, 'layouts/Index' );
 set_custom_source( 'indexFilter', 'js' );
 
+$main_page = get_posts(
+	array(
+		'name'      => 'affiliate-program-directory',
+		'post_type' => 'ms_directory',
+	)
+);
+
+if ( ! empty( $main_page ) ) {
+	$main_page_id  = $main_page[0]->ID;
+	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+	$mainpost     = get_post( $translated_id );
+	$post_title   = $mainpost->post_title;
+	$post_content = $mainpost->post_content;
+}
+
 $page_header_title = __( 'Affiliate Program Directory', 'ms' );
-$page_header_text  = __( 'A directory of companies and affiliate programs', 'ms' );
+$page_header_text  = __( 'Our Affiliate Program Directory is a vital resource for affiliate marketers and partners seeking lucrative and compatible programs. Here, every affiliate can discover a plethora of programs to leverage, tailored to meet their specific marketing needs and preferences. This database serves as a pivotal tool in the realm of affiliate marketing.', 'ms' );
 if ( is_tax( 'ms_directory_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
@@ -82,4 +98,20 @@ foreach ( $directoryposts as $directorypost ) {
 				</div>
 			<?php } ?>
 	</div>
+
+	<?php
+	if ( ! empty( $main_page ) ) {
+		?>
+		<div class="wrapper mt-xxl directory__how">
+			<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
+			<div class="Content">
+				<?php
+				$content = apply_filters( 'the_content', $post_content );
+				echo $content // @codingStandardsIgnoreLine;
+				?>
+			</div>
+		</div>
+		<?php
+	}
+	?>
 </div>
