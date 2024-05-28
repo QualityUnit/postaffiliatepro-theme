@@ -21,7 +21,7 @@ class CrmInstaller {
 
 		this.trackers = {
 			googleScript: "<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />",
-			capterraScript: "<script src='https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3'></script>",
+			capterraScript: '<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3" />',
 		};
 		this.pap = {
 			account: 'default1',
