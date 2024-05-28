@@ -85,11 +85,24 @@
 			</div>
 
 			<div class="Header__navigation__buttons">
-				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/call/', 'ms' ); ?>"
+
+				<?php
+				$current_path = $_SERVER['REQUEST_URI']; //@codingStandardsIgnoreLine;
+
+				// Default URL for /call
+				$call_url = __( '/call/', 'ms' );
+
+				// If the current path contains /network, use the /call URL
+				if ( str_contains( $current_path, __( '/network/', 'ms' ) ) ) {
+					$call_url = home_url( __( '/call/', 'ms' ) );
+				}
+				?>
+
+				<a href="<?= esc_url( $call_url ); ?>"
 					 class="Button Button--outline">
 					<span><?php _e( 'Book a Call', 'ms' ); ?></span>
 				</a>
-				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+				<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
 				</a>
 				<a href="<?php _e( '/login/', 'ms' ); ?>" class="Button Button--login">
