@@ -2,12 +2,34 @@
 set_source( 'templates', 'pages/Category', 'css' );
 set_source( 'templates', 'filter', 'js' );
 $categories        = array_unique( get_categories( array( 'taxonomy' => 'ms_templates_categories' ) ), SORT_REGULAR );
-$page_header_title = __( 'Affiliate Communications Templates', 'ms' );
-$page_header_text  = null;
+$page_header_title = __( 'Affiliate marketing email templates', 'ms' );
+$page_header_text  = __( 'Welcome to your comprehensive resource for affiliate marketing email templates. These templates are designed to effectively communicate with potential affiliates and manage ongoing relationships with ease. Learn about their benefits and tips to streamline processes and boost your affiliate marketing success.', 'ms' );
+
+$main_page = get_posts(
+	array(
+		'name'      => 'affiliate-marketing-email-templates',
+		'post_type' => 'ms_templates',
+	)
+);
+
+if ( ! empty( $main_page ) ) {
+	$main_page_id  = $main_page[0]->ID;
+	$translated_id = apply_filters( 'wpml_object_id', $main_page_id, 'ms_reviews' );
+
+	$skipped_post = $translated_id; // skip the post with this ID
+
+	$mainpost     = get_post( $translated_id );
+	$post_title   = $mainpost->post_title;
+	$post_content = $mainpost->post_content;
+}
+
+
 if ( is_tax( 'ms_templates_categories' ) ) :
 	$page_header_title = single_term_title( '', false );
 	$page_header_text  = term_description();
+
 endif;
+
 $filter_items_categories = array(
 	array(
 		'checked' => true,
@@ -52,6 +74,10 @@ $page_header_args = array(
 				<?php
 				while ( have_posts() ) :
 					the_post();
+
+					if ( get_the_ID() == $skipped_post ) {
+						continue;
+					}
 
 					$category = '';
 
@@ -111,5 +137,21 @@ $page_header_args = array(
 			</ul>
 		</div>
 	</div>
+
+	<?php
+	if ( ! empty( $main_page ) ) {
+		?>
+		<div class="wrapper mt-xxl templates__how">
+			<?= do_shortcode( '[split-title title="' . $post_title . '"]' ); ?>
+			<div class="Content">
+				<?php
+				$content = apply_filters( 'the_content', $post_content );
+				echo $content // @codingStandardsIgnoreLine;
+				?>
+			</div>
+		</div>
+		<?php
+	}
+	?>
 
 </div>
