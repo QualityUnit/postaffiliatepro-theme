@@ -85,20 +85,7 @@
 			</div>
 
 			<div class="Header__navigation__buttons">
-
-				<?php
-				$current_path = $_SERVER['REQUEST_URI']; //@codingStandardsIgnoreLine;
-
-				// Default URL for /call
-				$call_url = __( '/call/', 'ms' );
-
-				// If the current path contains /network, use the /call URL
-				if ( str_contains( $current_path, __( '/network/', 'ms' ) ) ) {
-					$call_url = home_url( __( '/call/', 'ms' ) );
-				}
-				?>
-
-				<a href="<?= esc_url( $call_url ); ?>"
+				<a href="<?php _e( '/call/', 'ms' ); ?>"
 					 class="Button Button--outline">
 					<span><?php _e( 'Book a Call', 'ms' ); ?></span>
 				</a>
