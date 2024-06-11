@@ -14,7 +14,7 @@ if ( ! empty( $header_category ) ) {
 		<div class="wrapper__wide"></div>
 	</div>
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar flowbo-skip">
 			<?php if ( sidebar_toc() !== false ) { ?>
 				<div class="SidebarTOC-wrapper">
 					<div class="SidebarTOC Post__SidebarTOC">

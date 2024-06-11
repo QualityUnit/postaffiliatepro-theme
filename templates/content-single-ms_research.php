@@ -14,7 +14,7 @@ do_action( 'wpml_switch_language', $current_lang );
 	</div>
 
 	<div class="wrapper__wide Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar flowbo-skip">
 			<div class="Post__sidebar__categories">
 				<h4 class="Post__sidebar__title"><?php _e( 'Categories', 'ms' ); ?></h4>
 				<ul class="CategoryTags">

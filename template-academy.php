@@ -16,7 +16,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 	</div>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar flowbo-skip">
 			<div class="Post__sidebar__logo">
 				<?php if ( has_post_thumbnail() ) { ?>
 					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>

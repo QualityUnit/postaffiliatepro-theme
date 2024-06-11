@@ -183,7 +183,7 @@ function inline_compact_header() {
 						if ( ! empty( $author_infos['text'] ) ) {
 							?>
 							<!-- Author description section -->
-							<div class="compact-header__text" itemprop="description"><?= wp_kses_post( $author_infos['text'] ); ?></div>
+							<div class="compact-header__text flowbo-skip" itemprop="description"><?= wp_kses_post( $author_infos['text'] ); ?></div>
 						<?php } ?>
 						<!-- Author description section end -->
 						<?php
@@ -191,7 +191,7 @@ function inline_compact_header() {
 						if ( ! empty( $text ) ) {
 							?>
 							<!-- Description section -->
-							<div class="compact-header__text"><?= wp_kses_post( $text ); ?></div>
+							<div class="compact-header__text flowbo-skip"><?= wp_kses_post( $text ); ?></div>
 						<?php } ?>
 						<!-- Description end -->
 					<?php } ?>

@@ -6,7 +6,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|free-account|demo|request-for-p
 }
 ?>
 
-<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment" data-scrollsidebars="true">
+<footer class="Footer urlslab-skip-keywords urlslab-skip-fragment flowbo-skip" data-scrollsidebars="true">
 	<div class="Footer__top">
 		<div class="wrapper">
 			<div class="Footer__top__row">
@@ -134,7 +134,7 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|free-account|demo|request-for-p
 	</div>
 </footer>
 
-<div class="Kolaciky urlslab-skip-all">
+<div class="Kolaciky flowbo-skip urlslab-skip-all">
 	<div class="wrapper">
 		<p>
 			<?php _e( 'Our website uses cookies. By continuing we assume your permission to deploy cookies as detailed in our', 'ms' ); ?>

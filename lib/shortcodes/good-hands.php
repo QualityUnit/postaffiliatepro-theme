@@ -43,7 +43,7 @@ function ms_good_hands_redesign( $atts ) {
 	ob_start();
 	?>
 
-	<section class="GoodHands hidden">
+	<section class="GoodHands flowbo-skip hidden">
 		<div class="wrapper">
 			<div class="GoodHands__text">
 				<h3><?php _e( 'You will be<br/>in Good Hands!', 'ms' ); ?></h3>
@@ -57,7 +57,7 @@ function ms_good_hands_redesign( $atts ) {
 						<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
 					</a>
 				</div>
-	
+
 				<ul class="GoodHands__logos flex">
 					<li class="GoodHands__logo">
 						<a href="<?php _e( '/awards/', 'ms' ); ?>" title="Capterra">
@@ -117,7 +117,7 @@ function ms_good_hands_redesign( $atts ) {
 	</section>
 
 	<script>
-		
+
 		function showGoodHands() {
 			const goodhands = document.querySelector('.GoodHands');
 			goodhands.classList.remove('hidden');

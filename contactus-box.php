@@ -3,7 +3,7 @@
 	require_once get_template_directory() . '/chat-button.php';
 ?>
 
-<div class="ContactUs__form hidden" data-targetId="contactUsForm">
+<div class="ContactUs__form flowbo-skip hidden" data-targetId="contactUsForm">
 	<button class="ContactUs__menu--close" data-close-target="contactUsForm" type="button">
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
@@ -195,7 +195,7 @@
 		}
 		if (serviceStatus?.outages?.length > 0) {
 			statusClass = 'outage';
-		} 
+		}
 		if (serviceStatus?.degradations?.length > 0) {
 			statusClass = 'degradation';
 		}

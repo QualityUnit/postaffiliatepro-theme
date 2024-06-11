@@ -825,7 +825,7 @@ function manager_industry( $manager_industry ) {
 						<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 					</div>
 
-					<div class="CTA__wrapper">
+					<div class="CTA__wrapper flowbo-skip">
 						<div class="CTA__content">
 							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
 							<div class="CTA__text"><?php _e( 'Start building an affiliate program today by signing up for our free 14-day trial.', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>

@@ -33,7 +33,7 @@ if ( isset( $categories ) ) {
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar">
+		<div class="Post__sidebar flowbo-skip">
 			<div class="Signup__sidebar-wrapper">
 				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
 			</div>

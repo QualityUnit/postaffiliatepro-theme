@@ -15,7 +15,7 @@ function ms_cta( $atts ) {
 	ob_start();
 	?>
 
-	<div class="CTA__wrapper">
+	<div class="CTA__wrapper flowbo-skip">
 		<div class="CTA__content">
 			<div class="CTA__title"><?= wp_kses_post( $atts['title'] ); ?></div>
 			<div class="CTA__text"><?= wp_kses_post( $atts['text'] ); ?></div>
