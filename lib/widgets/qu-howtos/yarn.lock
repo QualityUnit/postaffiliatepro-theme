@@ -3699,7 +3699,7 @@
     "@wordpress/dom-ready" "^4.0.0"
     "@wordpress/i18n" "^5.0.0"
 
-"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.53.0", "@wordpress/api-fetch@^6.7.0":
+"@wordpress/api-fetch@^6.0.1", "@wordpress/api-fetch@^6.13.0", "@wordpress/api-fetch@^6.4.0", "@wordpress/api-fetch@^6.7.0":
   version "6.53.0"
   resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-6.53.0.tgz#0f3bd1cca516011f64166299073943d9e550ce54"
   integrity sha512-jHYueGfGfe89akyw1A28WGl17qIKTukMTwol4rHkZY43ygUmSJiTF/FSsExzMwk/j7OmGGr+GTa1TPO/tc71Lw==
@@ -5103,7 +5103,7 @@
     "@wordpress/data" "^6.10.0"
     lodash "^4.17.21"
 
-"@wordpress/warning@^2.15.0", "@wordpress/warning@^2.16.0", "@wordpress/warning@^2.56.0", "@wordpress/warning@^2.7.0":
+"@wordpress/warning@^2.15.0", "@wordpress/warning@^2.16.0", "@wordpress/warning@^2.7.0":
   version "2.56.0"
   resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.56.0.tgz#6fabe9bf3671810e359a9f675b35d755becdcf17"
   integrity sha512-Bd1Zy5eWQPKoQsfQwD9T1KZWPpq+ZFyozirx+Z5MnX59J0i80p8KiEMcmXhPH+Os9An2PtlVV9j0gY9z5z0oAw==
