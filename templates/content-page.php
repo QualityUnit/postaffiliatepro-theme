@@ -13,7 +13,7 @@
 				<?php
 				if ( ! is_page( array( 'sitemap' ) ) ) {
 					?>
-					<div class="SimilarSources SimilarSources--blog">
+					<div class="SimilarSources SimilarSources--blog flowbo-skip">
 						<div class="wrapper">
 							<div class="SimilarSources__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
