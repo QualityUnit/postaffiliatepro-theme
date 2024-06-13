@@ -10,7 +10,7 @@ add_action(
 			'name_admin_bar' => __( 'Alternative', 'ms' ),
 		);
 		$rewrite = array(
-			'slug'       => 'alternatives',
+			'slug'       => 'alternatives-posts',
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => false,
@@ -28,7 +28,7 @@ add_action(
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => true,
 			'can_export'          => true,
-			'has_archive'         => true,
+			'has_archive'         => false,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
