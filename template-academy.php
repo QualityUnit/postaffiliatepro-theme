@@ -16,7 +16,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 	</div>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar flowbo-skip">
+		<div class="Post__sidebar flowhunt-skip">
 			<div class="Post__sidebar__logo">
 				<?php if ( has_post_thumbnail() ) { ?>
 					<?php the_post_thumbnail( 'logo_thumbnail' ); ?>
@@ -69,7 +69,7 @@ set_custom_source( 'custom_lightbox', 'js' );
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
-					<div class="SimilarSources flowbo-skip">
+					<div class="SimilarSources flowhunt-skip">
 						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>

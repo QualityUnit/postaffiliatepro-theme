@@ -13,7 +13,7 @@ while ( have_posts() ) :
 	<?php
 	if ( ! is_page( array( 'sitemap' ) ) ) {
 		?>
-		<div class="SimilarSources flowbo-skip">
+		<div class="SimilarSources flowhunt-skip">
 			<div class="wrapper">
 				<div class="SimilarSources__title h3"><?php _e( 'Related Articles to ', 'ms' ); ?><?php the_title(); ?></div>
 				<?php echo do_shortcode( '[urlslab-related-resources related-count="6" show-image="true" show-summary="true"]' ); ?>

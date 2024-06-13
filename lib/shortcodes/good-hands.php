@@ -43,7 +43,7 @@ function ms_good_hands_redesign( $atts ) {
 	ob_start();
 	?>
 
-	<section class="GoodHands flowbo-skip hidden">
+	<section class="GoodHands flowhunt-skip hidden">
 		<div class="wrapper">
 			<div class="GoodHands__text">
 				<h3><?php _e( 'You will be<br/>in Good Hands!', 'ms' ); ?></h3>

@@ -21,7 +21,7 @@
 		)
 	)
 	?>
-<header class="Header flowbo-skip urlslab-skip-keywords">
+<header class="Header flowhunt-skip urlslab-skip-keywords">
 	<div class="wrapper">
 		<div class="Header__logo urlslab-skip-lazy">
 			<a href="<?= esc_url( home_url( '/', 'relative' ) ); ?>" title="PostAffiliatePro affiliate software">

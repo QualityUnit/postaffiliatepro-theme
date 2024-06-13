@@ -825,7 +825,7 @@ function manager_industry( $manager_industry ) {
 						<?php echo do_shortcode( '[urlslab-faq]' ); ?>
 					</div>
 
-					<div class="CTA__wrapper flowbo-skip">
+					<div class="CTA__wrapper flowhunt-skip">
 						<div class="CTA__content">
 							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
 							<div class="CTA__text"><?php _e( 'Start building an affiliate program today by signing up for our free 14-day trial.', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>
@@ -839,7 +839,7 @@ function manager_industry( $manager_industry ) {
 					<div class="Post__content__resources">
 						<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
-						<div class="SimilarSources flowbo-skip">
+						<div class="SimilarSources flowhunt-skip">
 							<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 						</div>
 					</div>

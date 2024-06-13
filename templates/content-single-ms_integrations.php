@@ -90,7 +90,7 @@ foreach ( $integrations_config as $config ) {
 	<?php get_template_part( 'lib/custom-blocks/compact-header', null, $page_header_args ); ?>
 
 	<div class="wrapper Post__container">
-		<div class="Post__sidebar flowbo-skip">
+		<div class="Post__sidebar flowhunt-skip">
 			<div class="Signup__sidebar-wrapper">
 				<?= do_shortcode( '[signup-sidebar js-sticky="true"]' ); ?>
 			</div>
@@ -140,7 +140,7 @@ foreach ( $integrations_config as $config ) {
 				<div class="Post__content__resources">
 					<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 
-					<div class="SimilarSources flowbo-skip">
+					<div class="SimilarSources flowhunt-skip">
 						<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
 					</div>
 				</div>
