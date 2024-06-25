@@ -12,7 +12,7 @@ add_action(
 		$args   = array(
 			'label'               => __( 'Award', 'ms' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'excerpt', 'thumbnail', 'revisions', 'author' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,

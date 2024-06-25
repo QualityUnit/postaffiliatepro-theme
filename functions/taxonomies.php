@@ -10,7 +10,7 @@
 	require_once get_template_directory() . '/lib/taxonomies/directory-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/affiliate-manager.php';
 	require_once get_template_directory() . '/lib/taxonomies/about-categories.php';
-	require_once get_template_directory() . '/lib/taxonomies/learning-center-categories.php';
+	// require_once get_template_directory() . '/lib/taxonomies/learning-center-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/awards-years.php';
-	require_once get_template_directory() . '/lib/taxonomies/research-categories.php';
+	// require_once get_template_directory() . '/lib/taxonomies/research-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/videos-categories.php';

@@ -12,7 +12,7 @@ add_action(
 		$args   = array(
 			'label'               => __( 'Client', 'ms' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'thumbnail', 'revisions' ),
+			'supports'            => array( 'title', 'thumbnail', 'revisions', 'author' ),
 			'hierarchical'        => true,
 			'public'              => true,
 			'show_ui'             => true,
