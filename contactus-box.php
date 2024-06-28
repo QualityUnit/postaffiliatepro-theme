@@ -139,9 +139,12 @@
 	</nav>
 </div>
 
-<script id="urlslab-chatbot-script">
-	const options= {btnTarget: '#chatBot', chatbotId: 'bd88d24e-1c7d-4dac-87b3-83ae34223f5b',
-		chatbotUserId: 'b3JnLnBhYzRqLm9pZGMucHJvZmlsZS5PaWRjUHJvZmlsZToxMDUxMjgzNjQ3MzQxODgyMDI2NzVAQEBiZDg4ZDI0ZS0xYzdkLTRkYWMtODdiMy04M2FlMzQyMjNmNWI='};
+<script id="fh-chatbot-script">
+	const options = {
+		chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
+		workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+		btnTarget: '#chatBot'
+	};
 	acceptButton.addEventListener( "click", () => {
 		loadChatBot(options);
 	});
