@@ -69,32 +69,6 @@
 </script>
 
 <!-- LiveAgent - Chat Button -->
-
-<script>
-	function loadChatBot({ chatbotId, chatbotUserId, btnTarget }) {
-		const chatBotButton = document.querySelector(btnTarget);
-		chatBotButton.classList.remove('hidden');
-
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.async=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-		'https://www.urlslab.com/public/w/v1/urlslab-chat-widget.js',
-		function(e){
-			const chatbotManager = UrlslabChatbot.initChatbot({
-				showChatButton: false, // important to not show chat button on page load
-				chatbotId: chatbotId,
-				chatbotUserId: chatbotUserId,
-				welcomeMessage: 'Hi, I\'m PostAffiliatePro Bot. How can I help you?',
-				inputPlaceholder: 'Ask me any question...',
-				suggestedUserMessages: [],
-				urlSuffix: '?utm_medium=chatbot&utm_source=urlslab',
-				maxWindowWidth: '500px',
-			});
-			chatBotButton.addEventListener('click', () => {
-				chatbotManager.openChat();
-			});
-		});
-	}
-</script>
-
 <script type="text/javascript" id="fh-chatbot-script">
 	function loadChatBot( { chatbotId, workspaceId, btnTarget } ) {
 		const chatBotButton = document.querySelector( btnTarget );
