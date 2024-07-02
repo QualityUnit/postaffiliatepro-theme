@@ -29,7 +29,6 @@
 			}, 5000 )
 		}
 
-		gtmWithCookie()
 		if ( typeof createButton == 'function' ) {
 			createButton()
 		}
@@ -39,33 +38,18 @@
 		trialButton.addEventListener( "click", () => {
 			setCookie( 'cookieLaw', 'yes', 14 )
 			document.querySelector( '.Kolaciky' ).classList.add( 'hide' )
-
-			gtmWithCookie();
 		});
 	}
 </script>
 
 <!-- Google Tag Manager - No Cookies -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DLV457J560"></script>
 <script>
-	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-W4JBQR9');
-</script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<!-- Google Tag Manager - Accepted Cookies -->
-<script>
-	function gtmWithCookie() {
-		(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-52T6R8B');
-	}
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		gtmWithCookie()
-	}
+  gtag('config', 'G-DLV457J560');
 </script>
 
 <!-- LiveAgent - Chat Button -->
