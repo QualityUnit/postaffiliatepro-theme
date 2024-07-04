@@ -99,8 +99,8 @@ if (
 	</button>
 
 	<script type="text/javascript" id="fh-chatbot-script">
-		const chatBtnOptions = {	chatbotId: 'ee7cb389-4f00-441f-a287-07a43f72f1e3',
-			workspaceId: '4d1adbc8-edfa-48c1-b93a-a8096d28f5e7',
+		const chatBtnOptions = {	chatbotId: '90f8c3d3-e26c-4438-a502-9124ae2a0d27',
+			workspaceId: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
 			btnTarget: '#chatBotOnly'}
 		acceptButton.addEventListener( "click", () => {
 			loadChatBot(chatBtnOptions);
