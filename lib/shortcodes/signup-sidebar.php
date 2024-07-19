@@ -30,7 +30,7 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial" data-free-form>
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
