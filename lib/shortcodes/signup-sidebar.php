@@ -5,7 +5,7 @@ function ms_signup_sidebar( $atts ) {
 	if ( ! is_mobile() ) {
 		set_custom_source( 'filterMenu', 'js' );
 	}
-	
+
 	Trial_Signup::include_crm();
 
 	$atts = shortcode_atts(
@@ -30,7 +30,7 @@ function ms_signup_sidebar( $atts ) {
 		<div class="Signup__sidebar__title"><?= esc_html( $atts['title'] . ' ' ); ?><span class="highlight highlight-splash-dark"><?= esc_html( $atts['free'] ); ?></span></div>
 		<div class="Signup__sidebar__subtitle"><?= esc_html( $atts['subtitle'] ); ?></div>
 
-		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="FreeTrial" data-free-form>
+		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial" data-free-form>
 			<input data-id="grecaptcha" name="grecaptcha" type="hidden" value="" autocomplete="off">
 			<input data-id="ga_client_id" name="ga_client_id" type="hidden" value="" autocomplete="off">
 
@@ -49,7 +49,7 @@ function ms_signup_sidebar( $atts ) {
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__sidebar__item Signup__sidebar__item domain">
-				<div class="InputWrapper">	
+				<div class="InputWrapper">
 					<input type="text" data-type="text" name="subdomain" placeholder="<?php echo esc_attr( $atts['company'] ); ?>" required="required" autocomplete="off" maxlength="25">
 					<div class="Signup__sidebar__item__domain">
 						<div class="Signup__sidebar__item__domain-url"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
@@ -62,7 +62,7 @@ function ms_signup_sidebar( $atts ) {
 				</div>
 				<div class="ErrorMessage"></div>
 			</div>
-		
+
 			<?php Trial_Signup::grecaptcha_parts( 'sidebar' ); ?>
 
 			<div data-id="signUpError" class="hidden"></div>
@@ -71,10 +71,10 @@ function ms_signup_sidebar( $atts ) {
 				<button type="submit" data-id="createButtonmain" class="Button Button--full createTrialButton">
 					<div class="WorkingPanel" style="display: none;">
 						<img class="gear-wheels" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gear-wheels.gif' ); ?>" alt="gear wheels">
-					</div>	
+					</div>
 					<span><?php echo esc_html( $atts['button'] ); ?></span>
 				</button>
-				
+
 				<div class="Signup__sidebar__terms">
 					<p><?php _e( 'By signing up, I accept', 'ms' ); ?> <a title="<?php _e( 'T&amp;C', 'ms' ); ?>" href="<?php _e( '/terms-of-service/', 'ms' ); ?>"><?php _e( 'T&amp;C', 'ms' ); ?></a> <?php _e( 'and', 'ms' ); ?> <a title="<?php _e( 'Privacy Policy', 'ms' ); ?>" href="<?php _e( '/privacy-policy/', 'ms' ); ?>"><?php _e( 'Privacy Policy', 'ms' ); ?></a><?php _e( '.', 'ms' ); ?></p>
 				</div>
