@@ -273,9 +273,11 @@ class CrmInstaller {
 
 		if ( this.signupData.plan_type && typeof gtag !== 'undefined' ) {
 			try {
-				gtag( 'event', this.signupData.plan_type, {
-					event_category: 'PAP SignUp',
-				} );
+				// gtag( 'event', this.signupData.plan_type, {
+				// 	event_category: 'PAP SignUp',
+				// } )
+				gtag( 'set', 'user_data', { email: this.signupData.customer_email } );
+				gtag( 'event', 'Trial_sign_up', { send_to: 'G-DLV457J560' } );
 			} catch ( e ) {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', 'gtag' );
