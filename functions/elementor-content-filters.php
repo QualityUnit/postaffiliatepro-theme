@@ -29,4 +29,5 @@ function add_awards_to_header( $content ) {
 	return $content;
 }
 
-add_filter( 'the_content', 'add_awards_to_header' );
+// add_filter( 'the_content', 'add_awards_to_header' );
+// TODO: fix it or rewrite into JS
