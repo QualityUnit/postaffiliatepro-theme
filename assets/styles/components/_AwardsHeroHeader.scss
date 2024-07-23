@@ -4,7 +4,7 @@
 
 .AwardsHeroHeader {
 
-	.heroBanner__image &,
+	.heroBanner &,
 	.heroHeadline--bg &,
 	.Trial & {
 		display: flex;
@@ -65,7 +65,7 @@
 		}
 	}
 
-	.heroBanner__image & {
+	.heroBanner & {
 
 		display: none;
 		right: 0;
