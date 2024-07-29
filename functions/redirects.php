@@ -49,6 +49,29 @@ add_action( 'template_redirect', 'academy_category_redirect' );
 
 
 /**
+ * Redirect Templates Categories
+ */
+function templates_category_redirect() {
+	if ( is_tax( 'ms_templates_categories' ) ) {
+		wp_safe_redirect( '/templates/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'templates_category_redirect' );
+
+
+/**
+ * Redirect Templates Categories
+ */
+function people_category_redirect() {
+	if ( is_tax( 'ms_people_categories' ) ) {
+		wp_safe_redirect( '/', 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'people_category_redirect' );
+
+/**
   * Redirect Glossary Categories
   */
 function glossary_category_redirect() {
