@@ -111,7 +111,7 @@ function ms_good_hands_redesign( $atts ) {
 			</div>
 
 			<div class="GoodHands__image">
-				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/goodhands_image.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Book a consult', 'ms' ); ?>" />
+				<img src="<?= esc_url( get_template_directory_uri() . '/assets/images/goodhands_image.png?ver=' . THEME_VERSION ); ?>" alt="<?php _e( 'Consult an Expert', 'ms' ); ?>" />
 			</div>
 		</div>
 	</section>

@@ -360,7 +360,7 @@ if ( show_demo_bar() !== false ) {
 					<p class="DemoBar__dates--text"><?php _e( 'We’re available on multiple dates', 'ms' ); ?></p>
 				</div>
 			</div>
-			<a href="<?php _e( '/call/', 'ms' ); ?>"
+			<a href="<?php _e( '/demo/', 'ms' ); ?>"
 				onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a call' )"
 				class="DemoBar__button Button Button--full">
 				<span><?php _e( 'Schedule a call', 'ms' ); ?></span>

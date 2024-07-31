@@ -85,9 +85,9 @@
 			</div>
 
 			<div class="Header__navigation__buttons">
-				<a href="<?php _e( '/call/', 'ms' ); ?>"
+				<a href="<?php _e( '/demo/', 'ms' ); ?>"
 					 class="Button Button--outline">
-					<span><?php _e( 'Book a Call', 'ms' ); ?></span>
+					<span><?php _e( 'Consult an Expert', 'ms' ); ?></span>
 				</a>
 				<a href="<?= esc_url( $post_slug ); ?><?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
 					<span><?php _e( 'Free Trial', 'ms' ); ?></span>
