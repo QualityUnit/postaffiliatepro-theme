@@ -2,7 +2,7 @@
 
 function ms_awards_small( $atts ) {
 	if ( ! is_mobile() ) {
-		set_source( false, 'shortcodes/AwardsSmall' );
+		set_custom_source( 'shortcodes/AwardsSmall' );
 	}
 	$atts = shortcode_atts(
 		array(
