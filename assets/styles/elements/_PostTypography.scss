@@ -198,7 +198,8 @@
 				display: none;
 			}
 
-			ul:not([class]) {
+			ul:not([class]),
+			ul.wp-block-list {
 
 				@extend %checklist;
 
