@@ -44,7 +44,7 @@ define( 'THEME_VERSION', '1.15.22' );
 		'functions/header-banners.php', // Import ShortCodes
 		'functions/create-language-menu.php', // Function for generate languages
 		'functions/dynamic-award-badges.php', // Function to place award badges dynamically
-		'functions/dynamic-award-badges.php', // Function to place award badges dynamically
+		'functions/urlslab-related-posts', // Function to place award badges dynamically
 	);
 
 	foreach ( $theme_includes as $file ) {
