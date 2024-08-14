@@ -836,13 +836,7 @@ function manager_industry( $manager_industry ) {
 						<img class="CTA__image" src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/cta_img_new.png" alt="<?php _e( 'Build your own affiliate program', 'ms' ); ?>" />
 					</div>
 
-					<div class="Post__content__resources">
-						<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
-
-						<div class="SimilarSources flowhunt-skip">
-							<?php echo do_shortcode( '[urlslab-related-resources related-count="4" show-image="true" show-summary="true"]' ); ?>
-						</div>
-					</div>
+					<?php urlslab_display_related_resources(); ?>
 				</div>
 			</div>
 		</div>
