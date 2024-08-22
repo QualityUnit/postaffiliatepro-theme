@@ -29,7 +29,7 @@
 			}
 		} );
 
-		// Update the URL if the hostname contains 'liveagent' or 'live-agent'
+		// Update the URL if the hostname contains 'postaffiliate'
 		if ( currentUrl.hostname.includes( 'postaffiliate' ) ) {
 			url.href = currentUrl.toString();
 		}
