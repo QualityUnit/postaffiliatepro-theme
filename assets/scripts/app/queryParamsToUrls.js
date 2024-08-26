@@ -9,7 +9,12 @@
 	}
 
 	const queryParams = new URL( window.location ).searchParams;
-	const blacklist = [ 'p' ];
+	const blacklist = [
+		'p',
+		'attachment_id',
+		'_ga',
+		'text',
+	];
 	const allUrls = document.querySelectorAll( 'a[href]' );
 
 	allUrls.forEach( ( url ) => {
