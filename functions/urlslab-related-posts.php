@@ -9,7 +9,6 @@ function urlslab_display_related_resources() {
 		<div class="Post__content__resources">
 			<div class="Post__sidebar__title h4"><?php _e( 'Related Articles', 'ms' ); ?></div>
 			<div class="SimilarSources">
-				<?= do_shortcode( '[urlslab-related-resources url="' . get_the_permalink() . '" related-count="4" show-image="true" show-summary="true"]' ); ?>
 				<?= wp_kses_post( $related_resources ); ?>
 			</div>
 		</div>
