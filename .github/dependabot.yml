@@ -9,9 +9,9 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "mvstepanek"
+      - "thujcak"
     reviewers:
-      - "mvstepanek"
+      - "thujcak"
 
   - package-ecosystem: npm
     directory: "/"
@@ -22,9 +22,9 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "mvstepanek"
+      - "thujcak"
     reviewers:
-      - "mvstepanek"
+      - "thujcak"
 
   - package-ecosystem: npm
     directory: "/lib/widgets/qu-howtos"
@@ -35,9 +35,9 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "mvstepanek"
+      - "thujcak"
     reviewers:
-      - "mvstepanek"
+      - "thujcak"
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -47,6 +47,6 @@ updates:
     labels:
       - "type:dependencies"
     assignees:
-      - "mvstepanek"
+      - "thujcak"
     reviewers:
-      - "mvstepanek"
+      - "thujcak"
