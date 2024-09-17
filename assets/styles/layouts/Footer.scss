@@ -193,6 +193,7 @@
 
 	&__contacts,
 	&__social,
+	&__reviews,
 	&__newsletter {
 		padding-bottom: em(40);
 	}
@@ -262,7 +263,7 @@
 	}
 
 	&__social {
-		width: 40%;
+		width: 25%;
 
 		ul {
 			margin-left: em(-10, $font-size-default);
@@ -295,6 +296,27 @@
 					}
 				}
 
+			}
+		}
+	}
+
+	&__reviews {
+		width: 15%;
+		margin-bottom: 1em;
+
+		img,
+		picture {
+			width: 100%;
+			max-width: 6.25em;
+			height: auto;
+
+		}
+
+		&__capterra {
+			margin-bottom: 0.625em;
+
+			img {
+				height: 32px;
 			}
 		}
 	}
@@ -334,6 +356,7 @@
 
 		&__contacts,
 		&__social,
+		&__reviews,
 		&__newsletter {
 			display: flex;
 			flex-flow: wrap column;
@@ -358,7 +381,8 @@
 
 		&__contacts,
 		&__social,
-		&__newsletter {
+		&__newsletter,
+		&__reviews {
 			width: 100%;
 		}
 
