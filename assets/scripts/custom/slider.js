@@ -106,7 +106,7 @@ if ( testimonialsReference.length > 0 ) {
 				( entries ) => {
 					entries.forEach( ( entry ) => {
 						if ( entry.isIntersecting ) {
-							testimonials.mount( );
+							testimonials.mount();
 
 							const sliderObject = entry.target;
 							testimonialsObserver.unobserve( sliderObject );
