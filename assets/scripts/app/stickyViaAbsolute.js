@@ -47,7 +47,7 @@ if ( stickies.length && 'IntersectionObserver' in window ) {
 	}
 
 	// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
-	mql.addEventListener( 'change', ( ) => {
+	mql.addEventListener( 'change', () => {
 		handleSticky();
 	} );
 }
