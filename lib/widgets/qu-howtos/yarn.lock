@@ -3701,7 +3701,7 @@
     "@wordpress/i18n" "^4.56.0"
     "@wordpress/url" "^3.57.0"
 
-"@wordpress/api-fetch@^7.6.0", "@wordpress/api-fetch@^7.7.0":
+"@wordpress/api-fetch@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@wordpress/api-fetch/-/api-fetch-7.7.0.tgz#5e07f9bd433578700aedc7f09ed0b9a1449feb80"
   integrity sha512-Si/Ep5yXmxTpUT1Fxgd8PjhK6amohcSCUR50QGK9FIeCGoxBZiH7gi+VSvFAZsC2z8XvvP/tJZthB2j/9UHfPA==
@@ -3765,7 +3765,7 @@
   dependencies:
     "@babel/runtime" "^7.16.0"
 
-"@wordpress/blob@^4.6.0", "@wordpress/blob@^4.7.0":
+"@wordpress/blob@^4.7.0":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@wordpress/blob/-/blob-4.7.0.tgz#c69beb3e194168d253893728049d27409f214cfc"
   integrity sha512-JT6eMRNjgArGny5pTqC9fey5s4jA8u5msgkYLeiICm9T06ovXgxbaPToT7xnIKZKx5StrRV3wZNApNcylQmDKg==
@@ -4698,15 +4698,15 @@
     "@wordpress/i18n" "^5.7.0"
 
 "@wordpress/media-utils@^5":
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.6.0.tgz#f2f79792c6d66988d986e9b36ad02c7c888cc6ac"
-  integrity sha512-E4ZEfvRlCcjDlhaVMY5xVhluQKAPJbLiChznsnja0nLhMrvWfY5v13w48kiuvTh2Ss+QPBD0Fv310sgArbKo6w==
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/media-utils/-/media-utils-5.7.0.tgz#2fbaf30cf6dcf01bf3a06e372d3d2fd8a18b05e9"
+  integrity sha512-uWaU/El9f58fdj9gYWqlTvH2m+5MmV2SKl0jsQhJXL+NEBY8KWsXwAWJyNJ6LyAQztoU1evHIB7a07GJp7gksg==
   dependencies:
     "@babel/runtime" "^7.16.0"
-    "@wordpress/api-fetch" "^7.6.0"
-    "@wordpress/blob" "^4.6.0"
-    "@wordpress/element" "^6.6.0"
-    "@wordpress/i18n" "^5.6.0"
+    "@wordpress/api-fetch" "^7.7.0"
+    "@wordpress/blob" "^4.7.0"
+    "@wordpress/element" "^6.7.0"
+    "@wordpress/i18n" "^5.7.0"
 
 "@wordpress/notices@^3.10.0", "@wordpress/notices@^3.16.0", "@wordpress/notices@^3.3.2", "@wordpress/notices@^3.7.0":
   version "3.30.0"
@@ -5106,11 +5106,6 @@
   version "2.56.0"
   resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.56.0.tgz#6fabe9bf3671810e359a9f675b35d755becdcf17"
   integrity sha512-Bd1Zy5eWQPKoQsfQwD9T1KZWPpq+ZFyozirx+Z5MnX59J0i80p8KiEMcmXhPH+Os9An2PtlVV9j0gY9z5z0oAw==
-
-"@wordpress/warning@^3.6.0", "@wordpress/warning@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-3.7.0.tgz#b9d8b55a013042f96da4f85d3ef68d7e579b960e"
-  integrity sha512-wGbQfPlf8YV6gGhcGPYWUhHORct4xaBQSaDTJrwzlgHYyrrJUVXXgZxaM4+Aa23zQoA13nvFQHvfssOkwdh65g==
 
 "@wordpress/warning@^3.7.0":
   version "3.7.0"
