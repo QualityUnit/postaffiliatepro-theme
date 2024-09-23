@@ -4467,7 +4467,7 @@
     react "^18.2.0"
     react-dom "^18.2.0"
 
-"@wordpress/element@^6.6.0", "@wordpress/element@^6.7.0":
+"@wordpress/element@^6.7.0":
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-6.7.0.tgz#8d8ac6568909135b8b86131ee689a2724f36df05"
   integrity sha512-d0kiN8DCNDNoh5P5xLb496amoadvjsSnkyJHmQsw17qP4dHZaSLONiMi9yh3NQlwIu0pcbbn3WI/9ENA79HlFQ==
@@ -4577,7 +4577,7 @@
     sprintf-js "^1.1.1"
     tannin "^1.2.0"
 
-"@wordpress/i18n@^5.6.0", "@wordpress/i18n@^5.7.0":
+"@wordpress/i18n@^5.7.0":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@wordpress/i18n/-/i18n-5.7.0.tgz#fce292bed35c41663bdf9639f1fb4926e8ca3840"
   integrity sha512-o1cq1zutE5rMAM//Ra1hRfgHuWNBxFtd7XNk+BuAcILRENMaEoqAoGBmGj9lRtOcqAj+cdoWxFjBIxRa67vIrg==
