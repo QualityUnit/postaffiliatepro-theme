@@ -103,58 +103,6 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|free-account|demo|request-for-p
 					</ul>
 				</div>
 
-				<div class="Footer__middle__reviews urlslab-skip-all">
-					<div class="Footer__middle__title h5"><?php _e( 'Reviews', 'ms' ); ?></div>
-					<div class="Footer__middle__reviews__capterra">
-						<a href="https://www.capterra.com/p/147442/Post-Affiliate-Pro/reviews/">
-							<img src="https://brand-assets.capterra.com/badge/b57244d1-fde0-4558-8dba-92c5bd4ea8ac.svg" alt="Post Affiliate Pro reviews on Capterra" />
-						</a>
-						<script type="application/ld+json">
-							{
-								"@context": "https://schema.org/",
-								"@type": "SoftwareApplication",
-								"name": "Post Affiliate Pro",
-								"image": "https://www.postaffiliatepro.com/wp/urlslab-download/6552ea749beb0a4201878ea9e710ea60/pap-logo.svg",
-								"applicationCategory": "Affiliate Marketing Software, Marketing Automation, Performance Marketing",
-								"aggregateRating": {
-									"@type": "AggregateRating",
-									"ratingValue": "4.6",
-									"bestRating": "5",
-									"worstRating": "1",
-									"reviewCount": "627",
-									"url": "https://www.capterra.com/p/147442/Post-Affiliate-Pro/reviews/",
-									"ratingExplanation": "Based on user reviews from Capterra."
-								}
-							}
-						</script>
-					</div>
-
-					<div class="Footer__middle__reviews__crozdesk">
-						<a href="https://crozdesk.com/marketing/advertising-affiliate-software/post-affiliate-pro" target="_blank" title="Post Affiliate Pro - software ratings and reviews on Crozdesk">
-							<img src="//embed.crozdesk.com/badges/v2/rating/post-affiliate-pro" width="100" height="95" alt="Post Affiliate Pro reviews on Crozdesk" />
-						</a>
-						<script type="application/ld+json">
-							{
-								"@context": "https://schema.org/",
-								"@type": "SoftwareApplication",
-								"name": "Post Affiliate Pro",
-								"image": "https://www.postaffiliatepro.com/images/post-affiliate-pro-logo.png",
-								"applicationCategory": "Affiliate Marketing Software, Marketing Automation, Performance Marketing",
-								"aggregateRating": {
-									"@type": "AggregateRating",
-									"ratingValue": "4.5",
-									"bestRating": "5",
-									"worstRating": "1",
-									"reviewCount": "123",
-									"url": "https://crozdesk.com/marketing/advertising-affiliate-software/post-affiliate-pro",
-									"ratingExplanation": "Based on user reviews from Crozdesk."
-								}
-							}
-						</script>
-					</div>
-
-				</div>
-
 				<div class="Footer__middle__newsletter">
 					<div class="Footer__middle__title h5"><?php _e( 'Subscribe to our newsletter', 'ms' ); ?></div>
 					<?= do_shortcode( '[newsletterform]' ); ?>
