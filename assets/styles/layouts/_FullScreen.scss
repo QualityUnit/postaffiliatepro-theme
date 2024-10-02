@@ -148,6 +148,10 @@ body.page-template-template-demo {
 						}
 					}
 				}
+
+				@media (max-width: $breakpoint-tablet) {
+					display: none;
+				}
 			}
 		}
 
