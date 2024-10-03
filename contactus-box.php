@@ -67,6 +67,7 @@
 			<?php
 			if ( is_page() ) {
 				global $post;
+				$en_slug        = '';
 				$phone      = '+421 2 33 456 826';
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
 
