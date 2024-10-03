@@ -3788,9 +3788,9 @@
     react "^18.3.0"
 
 "@wordpress/base-styles@^5":
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-5.7.0.tgz#3042a61ce04268d7be6a4dcccb3d7a04191344dd"
-  integrity sha512-8bydQQ3MyDiKhZAPXBMeB97S3YPoJfJNJT73c3gRXn2qFNkJ9Q5gsSh1oL3i0Vq4s4Lf8l9bqaj8Wh8ncQPnbg==
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-5.8.0.tgz#dc75dd21cde6833b0a0d00d07ed331f17871822a"
+  integrity sha512-cvujoLPldetL/AAfImstkGR5pko1lW6XduzLzMmOZI/4v22R6kCmvtrmHXa0Hpin8NzIpeWL1/utFRmPJXn+Dg==
 
 "@wordpress/base-styles@^5.8.1":
   version "5.8.1"
@@ -5146,7 +5146,7 @@
   resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-2.56.0.tgz#6fabe9bf3671810e359a9f675b35d755becdcf17"
   integrity sha512-Bd1Zy5eWQPKoQsfQwD9T1KZWPpq+ZFyozirx+Z5MnX59J0i80p8KiEMcmXhPH+Os9An2PtlVV9j0gY9z5z0oAw==
 
-"@wordpress/warning@^3.7.0", "@wordpress/warning@^3.8.0":
+"@wordpress/warning@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-3.8.0.tgz#3171006e1402a847ebb31575432f54053026cf91"
   integrity sha512-d8osKgKA7LgVGTo29+7qjoxLM84bIBeayCjwRsr2bhK9Naum0O341+JRmtlwc6u/zbbuxZEkoyhxG9ZvKjaezA==
