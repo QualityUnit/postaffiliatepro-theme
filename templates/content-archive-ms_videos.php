@@ -94,8 +94,6 @@ $page_header_args = array(
 									<?= esc_html( wp_trim_words( do_shortcode( '[urlslab-video attribute="description" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ), 20 ) ); ?>
 								</a>
 							</div>
-
-							<div class="Category__item__duration"><?= esc_html( duration_to_time( do_shortcode( '[urlslab-video attribute="duration" id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ) ) ); ?> </div>
 					</li>
 
 					<?php
