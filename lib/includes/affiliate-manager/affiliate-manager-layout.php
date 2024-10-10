@@ -9,7 +9,7 @@ $page_header_args = array(
 	),
 	'title'              => single_cat_title( '', false ),
 	'manager_industries' => $manager_industries,
-	'text'               => do_shortcode( '[urlslab-generator id="4"]' ),
+	'text'               => do_shortcode( '[urlslab-generator id="4" input="{{page_url}}"]' ),
 	'affiliate_manager'  => __( 'Affiliate manager', 'ms' ),
 	'contacts_info'      => array(
 		'phone'    => $phone,

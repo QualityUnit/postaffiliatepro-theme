@@ -15,7 +15,7 @@ $page_header_args = array(
 	),
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="4" input="{{page_url}}"]' ),
 	'toc'   => true,
 );
 ?>
@@ -44,8 +44,6 @@ $page_header_args = array(
 						<span><?php _e( 'Create account for FREE', 'ms' ); ?></span>
 					</a>
 				</div>
-
-				<?= do_shortcode( '[expert-note]' ); ?>
 
 				<?php urlslab_display_related_resources(); ?>
 			</div>

@@ -12,7 +12,7 @@ $page_header_args = array(
 		'alt' => get_the_title(),
 	),
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="4" input="{{page_url}}"]' ),
 	'toc'   => true,
 );
 if ( has_post_thumbnail() ) {

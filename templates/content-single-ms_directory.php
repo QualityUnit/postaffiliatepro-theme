@@ -26,7 +26,7 @@ $page_header_args = array(
 	),
 	'logo'  => $page_header_logo,
 	'title' => get_the_title(),
-	'text'  => do_shortcode( '[urlslab-generator id="4"]' ),
+	'text'  => do_shortcode( '[urlslab-generator id="4" input="{{page_url}}"]' ),
 );
 
 if ( 'pap' === $software_id ) {

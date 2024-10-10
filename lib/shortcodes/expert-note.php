@@ -1,7 +1,7 @@
 <?php
 
 function ms_expert_note( $atts ) {
-		$shortcode_text = do_shortcode( '[urlslab-generator id="1"]' );
+		$shortcode_text = do_shortcode( '[urlslab-generator id="1"]' ); // not working
 		$atts           = shortcode_atts(
 			array(
 				'photo'    => get_template_directory_uri() . '/assets/images/andrej_saxon_new.png?ver=' . THEME_VERSION,
