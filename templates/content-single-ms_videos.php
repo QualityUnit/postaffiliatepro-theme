@@ -52,7 +52,7 @@ if ( $categories && $categories_url ) {
 					<?= do_shortcode( '[urlslab-video videoid="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '" attribute="title"]' ); ?>
 				</h3>
 
-				<?= do_shortcode( '[urlslab-generator id="https://www.youtube.com/watch?v=' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" input="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
+				<?= do_shortcode( '[urlslab-generator id="' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_shortcode_id', true ) . '" input="https://www.youtube.com/watch?v=' . get_post_meta( get_the_ID(), 'mb_videos_mb_videos_video_id', true ) . '"]' ); ?>
 
 				<div class="urlslab-video-transcript">
 					<h3><?php _e( 'Video transcript', 'ms' ); ?></h3>
