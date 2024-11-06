@@ -200,8 +200,8 @@
 					showChatButton: false, // important to not show chat button on page load
 					chatbotId: chatbotId,
 					workspaceId: workspaceId,
-					welcomeMessage: 'Hi, I\'m LiveAgent support Bot. How can I help you?',
-					inputPlaceholder: 'Ask me any  ...',
+					welcomeMessage: __( 'Hi, I\'m LiveAgent support Bot. How can I help you?' ),
+					inputPlaceholder: __( 'Ask me anything…' ),
 					suggestedUserMessages: [],
 					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
 					maxWindowWidth: '500px',
