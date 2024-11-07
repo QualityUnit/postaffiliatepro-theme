@@ -10,7 +10,13 @@ jobs:
     name: Add PR to the Project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v1.0.2
-        with:
-          project-url: https://github.com/orgs/QualityUnit/projects/25/views/1
-          github-token: ${{ secrets.PROJECT_CICD_PAT }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up GitHub CLI
+        uses: cli/cli-action@v2
+
+      - name: Add PR to Project
+        run: gh project item add --project "25" --content-id "${{ github.event.pull_request.node_id }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJECT_CICD_PAT }}
