@@ -6,7 +6,7 @@
 @use "../common/mixins" as *;
 @forward "../elements/Typography";
 @forward "../components/AwardsHeroHeader";
-@forward "_HeroBanner";
+@forward "HeroBanner";
 
 .heroHeadline__home,
 .heroHeadline {
