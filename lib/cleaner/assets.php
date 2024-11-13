@@ -219,4 +219,4 @@ function deregister_polyfill() {
 		wp_deregister_script( 'regenerator-runtime' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'deregister_polyfill' );
+// add_action( 'wp_enqueue_scripts', 'deregister_polyfill' );
