@@ -6,7 +6,8 @@
 
 	&__container {
 
-		.testimonials &.Archive__container {
+		&--success-stories {
+			padding: 3em 0 0;
 
 			.Archive__container__content {
 				margin-left: 0 !important;
@@ -34,10 +35,6 @@
 					}
 				}
 			}
-		}
-
-		&--success-stories {
-			padding: 3em 0 0;
 		}
 	}
 
