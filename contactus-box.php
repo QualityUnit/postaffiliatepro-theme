@@ -3,32 +3,29 @@
 	require_once get_template_directory() . '/chat-button.php';
 ?>
 
-<div class="ContactUs__form flowhunt-skip hidden" data-targetId="contactUsForm">
+<div class="ContactUs__form flowhunt-skip hidden" id="#contactUsForm" data-targetId="contactUsForm">
 	<button class="ContactUs__menu--close" data-close-target="contactUsForm" type="button">
 		<svg class="icon-close"><use xlink:href="<?= esc_url( get_template_directory_uri() . '/assets/images/icons.svg?' . THEME_VERSION . '#close' ); ?>"></use></svg>
 	</button>
-	<script type="text/javascript">
-		<?php
-		$form_id = 'v5kyj497';
-		if ( ICL_LANGUAGE_CODE === 'de' ) {
-			$form_id = 'hzf0ixe0';
-		}
-		if ( ICL_LANGUAGE_CODE === 'es' ) {
-			$form_id = '77b02acd';
-		}
-		if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
-			$form_id = 'm7h7vl7x';
-		}
-		?>
-		function showContactForm() {
-			(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
-		}
-
-		if ( getCookieFrontend( "cookieLaw" ) ) {
-			showContactForm()
-		}
-	</script>
 </div>
+
+<script type="text/javascript">
+	<?php
+	$form_id = 'v5kyj497';
+	if ( ICL_LANGUAGE_CODE === 'de' ) {
+		$form_id = 'hzf0ixe0';
+	}
+	if ( ICL_LANGUAGE_CODE === 'es' ) {
+		$form_id = '77b02acd';
+	}
+	if ( ICL_LANGUAGE_CODE === 'pt-br' ) {
+		$form_id = 'm7h7vl7x';
+	}
+	?>
+	function showContactForm() {
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};document.querySelector('#contactUsForm').insertAdjacentElement('beforeend',s);})(document, 'https://support.qualityunit.com/scripts/track.js', function(e){ LiveAgent.createForm('<?= esc_attr( $form_id ); ?>', e); });
+	}
+</script>
 
 <div class="ContactUs">
 	<button class="ContactUs__button" data-target="contactUsMenu" type="button">
@@ -67,7 +64,7 @@
 			<?php
 			if ( is_page() ) {
 				global $post;
-				$en_slug        = '';
+				$en_slug    = '';
 				$phone      = '+421 2 33 456 826';
 				$current_id = apply_filters( 'wpml_object_id', $post->ID, 'page', false, 'en' );
 
@@ -98,7 +95,7 @@
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" alt="<?php _e( "LiveAgent's Form", 'ms' ); ?>" />
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before sending contact form.', 'ms' ); ?></span>
 				</div>
-				<span class="ContactUs__menu--link ContactUs__menu--link__form red" data-target="contactUsForm" data-close-target="contactUsMenu">
+				<span class="ContactUs__menu--link ContactUs__menu--link__form red" onClick="showContactForm()" data-target="contactUsForm" data-close-target="contactUsMenu">
 					<?php _e( 'Contact form', 'ms' ); ?>
 					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>form.svg" alt="<?php _e( "LiveAgent's Form", 'ms' ); ?>" />
 				</span>
