@@ -201,7 +201,7 @@
 					chatbotId: chatbotId,
 					workspaceId: workspaceId,
 					welcomeMessage: '<? esc_html( __( 'Hi, I\'m LiveAgent support Bot. How can I help you?' ) ); ?>',
-					inputPlaceholder: '<? esc_html( __( 'Ask me anything…' ) ); ?>',
+					inputPlaceholder: '<? esc_html( __( 'Ask me anything...' ) ); ?>',
 					suggestedUserMessages: [],
 					urlSuffix: '?utm_medium=chatbot&utm_source=flowhunt',
 					maxWindowWidth: '500px',
