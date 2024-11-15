@@ -3,6 +3,17 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 
+.youtube_urlslab_loader {
+
+	picture,
+	img {
+
+		@media (min-width: $breakpoint-desktop) {
+			height: 24.25em !important;
+		}
+	}
+}
+
 .youtube__loader {
 
 	@include color(color, font-color-light);
@@ -37,6 +48,7 @@
 	&--elementor iframe.youtube__loader--embed {
 		top: 0;
 	}
+
 
 	& &--img {
 		object-fit: cover;
