@@ -7,7 +7,7 @@ function shortenTestimonial() {
 	// First, we are going to get height of each block before making a grid layout
 	document.querySelectorAll( testimonialsBlocks ).forEach( ( item ) => {
 		const testimonial = item;
-		const itemHeight = testimonial.offsetHeight; // height in pixels
+		const itemHeight = testimonial.clientHeight; // height in pixels
 
 		const itemContent = testimonial.querySelector(
 			'.Testimonials__item__content'
@@ -17,7 +17,7 @@ function shortenTestimonial() {
 		// eslint-disable-next-line no-mixed-operators
 		testimonial.dataset.height = Math.ceil( itemHeight / ( 16 * 3 ) + 1 );
 
-		if ( itemContent.offsetHeight > 272 ) {
+		if ( item.clientHeight > 270 ) {
 			itemContent.classList.add( 'overflow' );
 		}
 
@@ -36,7 +36,9 @@ function shortenTestimonial() {
 
 if ( document.querySelectorAll( testimonialsBlocks ).length > 0 ) {
 	// Handles on load
-	shortenTestimonial();
+	setTimeout( () => {
+		shortenTestimonial();
+	}, 10 );
 
 	// Handles case when user changes orientation of device from portrait > landscape, ie. iPad Pro
 	mqtl.addEventListener( 'change', ( event ) => {
