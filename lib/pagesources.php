@@ -13,7 +13,7 @@ foreach ( $archive_type as $specific_page ) {
 set_source( 'post', 'pages/post', 'css' );
 
 // Article (success stories)
-set_source( 'single-ms_success-stories', 'pages/SuccessStoriesArticle', 'css' );
+set_source( 'success-stories', 'pages/SuccessStoriesArticle', 'css' );
 
 // Pricing page
 set_source( 'pricing', 'pages/pricing', 'css' );
