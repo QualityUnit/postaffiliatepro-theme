@@ -1,8 +1,16 @@
 <?php
 function ms_alternatives() {
+	global $wpdb;
+	global $sitepress;
+
+	$orig_lang = ICL_LANGUAGE_CODE;
+	$sitepress->switch_lang( 'en' );
+	$mypostids = $wpdb->get_col( "select ID from $wpdb->posts where post_name LIKE '%-alternative'" );
+
 	$alternatives_posts = get_posts(
 		array(
-			'post_type'        => 'ms_alternatives',
+			'post__in'         => $mypostids,
+			'post_type'        => 'page',
 			'fields'           => 'ids',
 			'numberposts'      => -1,
 			'order'            => 'ASC',
@@ -10,6 +18,7 @@ function ms_alternatives() {
 			'suppress_filters' => false,
 		)
 	);
+	$sitepress->switch_lang( $orig_lang );
 	ob_start();
 	?>
 

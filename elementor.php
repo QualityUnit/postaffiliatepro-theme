@@ -12,7 +12,7 @@ while ( have_posts() ) :
 	<?php
 	if ( ! is_page( array( 'sitemap' ) ) && ! is_front_page() ) {
 
-		$related_resources = do_shortcode( '[urlslab-related-resources url="' . get_the_permalink() . '" related-count="4" show-image="true" show-summary="true"]' );
+		$related_resources = do_shortcode( '[urlslab-related-resources url="' . get_the_permalink() . '" related-count="6" show-image="true" show-summary="true"]' );
 
 		if ( ! empty( $related_resources ) ) {
 			?>
