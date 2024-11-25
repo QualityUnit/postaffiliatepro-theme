@@ -1,6 +1,7 @@
 <?php
 
 function ms_clients( $atts ) {
+	set_source( false, 'shortcodes/Clients' );
 	$atts = shortcode_atts(
 		array(
 			'posts' => '6',
@@ -36,7 +37,6 @@ function ms_clients( $atts ) {
 	</div>
 
 	<?php
-	set_custom_source( 'shortcodes/Clients' );
 	return ob_get_clean();
 }
 add_shortcode( 'clients', 'ms_clients' );

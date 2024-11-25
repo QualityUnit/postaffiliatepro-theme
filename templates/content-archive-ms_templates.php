@@ -93,12 +93,12 @@ $page_header_args = array(
 
 					$category = substr( $category, 0, -1 );
 
-					$pillar_check = get_post_meta( get_the_ID(), 'mb_templates_mb_templates_pillar', true ) === 'on';
-					$pillar_class = $pillar_check ? 'pillar' : '';
+					$pillar_check    = get_post_meta( get_the_ID(), 'mb_templates_mb_templates_pillar', true ) === 'on';
+					$pillar_class    = $pillar_check ? 'pillar' : '';
 					$thumbnail_class = $pillar_check ? 'Category__item__thumbnail__image' : '';
 					?>
 
-					<li class="Category__item <?= esc_attr( $pillar_class ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
+					<li class="Category__item redesign <?= esc_attr( $pillar_class ); ?>" data-category="<?= esc_attr( $category ); ?>" data-href="<?php the_permalink(); ?>">
 						<a href="<?php the_permalink(); ?>" class="Category__item__thumbnail">
 							<?php if ( has_post_thumbnail() ) : ?>
 								<?php the_post_thumbnail( 'blog_post_thumbnail' ); ?>
@@ -112,11 +112,9 @@ $page_header_args = array(
 								<?php endif; ?>
 							<?php endif; ?>
 						</a>
-						<?php if ( $pillar_check ) : ?>
-						<div class="Category__item__wrap">
-							<?php endif; ?>
-							<h3 class="Category__item__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<div class="Category__item__excerpt item-excerpt">
+						<div class="Category__item__content">
+							<h3 class="Category__item__content__title item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<div class="Category__item__content__excerpt item-excerpt">
 								<a href="<?php the_permalink(); ?>">
 									<?= esc_html( wp_trim_words( get_the_excerpt(), 16 ) ); ?>
 									<?php if ( $pillar_check ) : ?>
@@ -124,9 +122,6 @@ $page_header_args = array(
 									<?php endif; ?>
 								</a>
 							</div>
-							<?php if ( $pillar_check ) : ?>
-						</div>
-					<?php endif; ?>
 					</li>
 
 					<?php
