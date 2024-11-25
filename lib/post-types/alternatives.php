@@ -32,7 +32,7 @@ add_action(
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
-			'capability_type'     => 'post',
+			'capability_type'     => 'page',
 			'show_in_rest'        => true,
 		);
 		register_post_type( 'ms_alternatives', $args );
