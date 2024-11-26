@@ -14,4 +14,4 @@
 	require_once get_template_directory() . '/lib/taxonomies/awards-years.php';
 	// require_once get_template_directory() . '/lib/taxonomies/research-categories.php';
 	require_once get_template_directory() . '/lib/taxonomies/videos-categories.php';
-	require_once get_template_directory() . '/lib/taxonomies/pages-categories.php';
+	require_once get_template_directory() . '/lib/taxonomies/successstories-categories.php';
