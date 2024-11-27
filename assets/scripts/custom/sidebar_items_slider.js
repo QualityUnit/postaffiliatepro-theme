@@ -11,40 +11,8 @@ let slider = null;
 
 const mql = window.matchMedia( '(min-width: 1024px)' );
 
-function loadImg( element ) {
-	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
-		element.setAttribute( 'laprocessing', 'y' );
-		element.parentElement.childNodes.forEach( ( childNode ) => {
-			loadImg( childNode );
-		} );
-		element.removeAttribute( 'laprocessing' );
-	}
-
-	if ( element.hasAttribute( 'data-srcset' ) ) {
-		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
-		element.removeAttribute( 'data-srcset' );
-	}
-
-	if ( element.hasAttribute( 'data-src' ) ) {
-		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
-		element.removeAttribute( 'data-src' );
-	}
-	element.style.opacity = '1';
-}
-
 function activateSidebars() {
-	//let isScrolling;
 	if ( sidebarSlider !== null ) {
-		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-src]:not(script)' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
-				unloaded.forEach( ( elem ) => {
-					const el = elem;
-					loadImg( el );
-				} );
-			}
-		} );
-
 		// Limiting size and adding dynamic scrolling if more than defined number of items are in menu
 		if ( sidebarSliderItems.length > sidebarSliderShow ) {
 			sidebarSliderItems.forEach( ( item ) => {
@@ -82,59 +50,34 @@ function activateSidebars() {
 				mql.addEventListener( 'change', ( event ) => {
 					if ( event.matches ) {
 						setTimeout( () => {
-							track.style.height = `${
-								track.clientHeight + sidebarSliderMargin
-							}px`;
+							track.style.height = `${ track.clientHeight + sidebarSliderMargin }px`;
 						}, 100 );
 					}
 				} );
 
 				slider.on( 'active', () => {
-					const arrowPrev = query(
-						'.SidebarItemsSlider .splide__arrow--prev'
-					);
-					const arrowNext = query(
-						'.SidebarItemsSlider .splide__arrow--next'
-					);
+					const arrowPrev = query( '.SidebarItemsSlider .splide__arrow--prev' );
+					const arrowNext = query( '.SidebarItemsSlider .splide__arrow--next' );
 
 					if ( arrowPrev.disabled === true ) {
-						query( '.SidebarItemsSlider .splide__arrows' ).classList.add(
-							'is-first'
-						);
-						query( '.SidebarItemsSlider .splide__arrows' ).classList.remove(
-							'is-last'
-						);
+						query( '.SidebarItemsSlider .splide__arrows' ).classList.add( 'is-first' );
+						query( '.SidebarItemsSlider .splide__arrows' ).classList.remove( 'is-last' );
 					}
 
 					slider.on( 'moved', () => {
 						if ( arrowNext.disabled === true ) {
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.add( 'is-last' );
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.remove( 'is-first' );
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.add( 'is-last' );
 						}
 
 						if ( arrowPrev.disabled === true ) {
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.add( 'is-first' );
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.remove( 'is-last' );
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.add( 'is-first' );
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.remove( 'is-last' );
 						}
 
-						if (
-							arrowPrev.disabled === false &&
-							arrowNext.disabled === false
-						) {
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarItemsSlider .splide__arrows'
-							).classList.remove( 'is-last' );
+						if ( arrowPrev.disabled === false && arrowNext.disabled === false ) {
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.remove( 'is-first' );
+							query( '.SidebarItemsSlider .splide__arrows' ).classList.remove( 'is-last' );
 						}
 					} );
 				} );
