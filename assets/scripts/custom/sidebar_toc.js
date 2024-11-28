@@ -45,41 +45,10 @@ function tocRemoveActive() {
 	} );
 }
 
-function loadImg( element ) {
-	if ( element.tagName === 'IMG' && element.parentElement.tagName === 'PICTURE' && ! element.hasAttribute( 'laprocessing' ) ) {
-		element.setAttribute( 'laprocessing', 'y' );
-		element.parentElement.childNodes.forEach( ( childNode ) => {
-			loadImg( childNode );
-		} );
-		element.removeAttribute( 'laprocessing' );
-	}
-
-	if ( element.hasAttribute( 'data-srcset' ) ) {
-		element.setAttribute( 'srcset', element.getAttribute( 'data-srcset' ) );
-		element.removeAttribute( 'data-srcset' );
-	}
-
-	if ( element.hasAttribute( 'data-src' ) ) {
-		element.setAttribute( 'src', element.getAttribute( 'data-src' ) );
-		element.removeAttribute( 'data-src' );
-	}
-	element.style.opacity = '1';
-}
-
 function activateSidebars() {
 	let isScrolling;
 
 	if ( sidebarTOC !== null ) {
-		window.addEventListener( 'load', () => {
-			if ( queryAll( '[data-src]:not(script)' ) !== null ) {
-				const unloaded = document.querySelectorAll( '[data-src]:not(script)' );
-				unloaded.forEach( ( elem ) => {
-					const el = elem;
-					loadImg( el );
-				} );
-			}
-		} );
-
 		tocItems.forEach( ( element, index ) => {
 			const el = element;
 			el.dataset.number = index;
@@ -88,8 +57,7 @@ function activateSidebars() {
 				e.preventDefault();
 				const elemHref = el.getAttribute( 'href' );
 				const toPosition = document.querySelector( elemHref ).offsetTop;
-				const titleHeight = document.querySelector( elemHref )
-					.clientHeight;
+				const titleHeight = document.querySelector( elemHref ).clientHeight;
 
 				tocRemoveActive();
 				el.classList.add( 'active' );
@@ -142,51 +110,28 @@ function activateSidebars() {
 				} );
 
 				slider.on( 'active', () => {
-					const arrowPrev = query(
-						'.SidebarTOC .splide__arrow--prev'
-					);
-					const arrowNext = query(
-						'.SidebarTOC .splide__arrow--next'
-					);
+					const arrowPrev = query( '.SidebarTOC .splide__arrow--prev' );
+					const arrowNext = query( '.SidebarTOC .splide__arrow--next' );
 
 					if ( arrowPrev.disabled === true ) {
-						query( '.SidebarTOC .splide__arrows' ).classList.add(
-							'is-first'
-						);
-						query( '.SidebarTOC .splide__arrows' ).classList.remove(
-							'is-last'
-						);
+						query( '.SidebarTOC .splide__arrows' ).classList.add( 'is-first' );
+						query( '.SidebarTOC .splide__arrows' ).classList.remove( 'is-last' );
 					}
 
 					slider.on( 'moved', () => {
 						if ( arrowNext.disabled === true ) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.add( 'is-last' );
+							query( '.SidebarTOC .splide__arrows' ).classList.remove( 'is-first' );
+							query( '.SidebarTOC .splide__arrows' ).classList.add( 'is-last' );
 						}
 
 						if ( arrowPrev.disabled === true ) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.add( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-last' );
+							query( '.SidebarTOC .splide__arrows' ).classList.add( 'is-first' );
+							query( '.SidebarTOC .splide__arrows' ).classList.remove( 'is-last' );
 						}
 
-						if (
-							arrowPrev.disabled === false &&
-							arrowNext.disabled === false
-						) {
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-first' );
-							query(
-								'.SidebarTOC .splide__arrows'
-							).classList.remove( 'is-last' );
+						if ( arrowPrev.disabled === false && arrowNext.disabled === false ) {
+							query( '.SidebarTOC .splide__arrows' ).classList.remove( 'is-first' );
+							query( '.SidebarTOC .splide__arrows' ).classList.remove( 'is-last' );
 						}
 					} );
 				} );
@@ -203,10 +148,7 @@ function activateSidebars() {
 				shareIcons.classList.add( 'inactive' );
 
 				shareIcons.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
-					window.innerHeight
-				) {
+				if ( footer.getBoundingClientRect().top - 217 < window.innerHeight ) {
 					shareIcons.classList.add( 'scrolled' );
 				}
 			}
@@ -215,9 +157,7 @@ function activateSidebars() {
 				headerItems.forEach( ( element ) => {
 					if ( element.getBoundingClientRect().top <= headerHeight ) {
 						const elemHref = element.getAttribute( 'id' );
-						const activateItem = query(
-							`.SidebarTOC a[href*=${ elemHref }`
-						);
+						const activateItem = query( `.SidebarTOC a[href*=${ elemHref }]` );
 
 						tocRemoveActive();
 						activateItem.classList.add( 'active' );
@@ -225,10 +165,7 @@ function activateSidebars() {
 				} );
 
 				sidebarTOC.classList.remove( 'scrolled' );
-				if (
-					footer.getBoundingClientRect().top - 217 <
-					window.innerHeight
-				) {
+				if ( footer.getBoundingClientRect().top - 217 < window.innerHeight ) {
 					sidebarTOC.classList.add( 'scrolled' );
 				}
 			}
@@ -242,8 +179,7 @@ function activateSidebars() {
 				if ( tocItems.length > 8 ) {
 					const activeHref = query( '.SidebarTOC a.active' );
 					const firstTitle = query( '.Content h2:first-of-type' );
-					const firstTitlePos = firstTitle.getBoundingClientRect()
-						.top;
+					const firstTitlePos = firstTitle.getBoundingClientRect().top;
 
 					if ( firstTitlePos < headerHeight && activeHref !== null ) {
 						slider.go( activeHref.dataset.number, true );
