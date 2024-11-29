@@ -32,6 +32,44 @@
 				height: 33em;
 			}
 		}
+
+
+		.elementor-swiper-button {
+
+			@include square(2em);
+			font-size: 1rem;
+			background: url(../images/slider_btn.svg) center center no-repeat;
+			background-size: contain;
+			right: 0;
+			transform: none;
+
+			&:hover,
+			&:active {
+				background-image: url(../images/slider_btn_hover.svg);
+			}
+
+			&-prev {
+				transform: scaleX(-1);
+				left: 0;
+				right: auto;
+			}
+
+			> * {
+				display: none;
+			}
+
+			@media (min-width: $breakpoint-tablet) {
+
+				@include square(3.125em);
+				right: 4em;
+
+				&-prev {
+					left: 4em;
+				}
+			}
+		}
+
+
 	}
 
 	.elementor-swiper.has-pagination {
@@ -105,37 +143,3 @@
 	}
 }
 
-.elementor-swiper-button {
-
-	@include square(2em);
-	font-size: 1rem;
-	background: url(../images/slider_btn.svg) center center no-repeat;
-	background-size: contain;
-	right: 0;
-	transform: none;
-
-	&:hover,
-	&:active {
-		background-image: url(../images/slider_btn_hover.svg);
-	}
-
-	&-prev {
-		transform: scaleX(-1);
-		left: 0;
-		right: auto;
-	}
-
-	> * {
-		display: none;
-	}
-
-	@media (min-width: $breakpoint-tablet) {
-
-		@include square(3.125em);
-		right: 4em;
-
-		&-prev {
-			left: 4em;
-		}
-	}
-}
