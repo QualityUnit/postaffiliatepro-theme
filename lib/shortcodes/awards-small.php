@@ -2,7 +2,7 @@
 
 function ms_awards_small( $atts ) {
 	if ( ! is_mobile() ) {
-		set_source( false, 'shortcodes/AwardsSmall' );
+		set_custom_source( 'shortcodes/AwardsSmall' );
 	}
 	$atts = shortcode_atts(
 		array(
@@ -28,7 +28,7 @@ function ms_awards_small( $atts ) {
 			$counter            = 0;
 		while ( $query_awards_posts->have_posts() ) :
 			$query_awards_posts->the_post();
-				
+
 			if ( get_previous_post() && $counter < 4 ) { // @codingStandardsIgnoreLine
 				$next_post    = get_previous_post(); // @codingStandardsIgnoreLine
 				$next_excerpt = preg_replace( '/(20\d{2})/', '$1, ', $next_post->post_excerpt );
@@ -39,10 +39,10 @@ function ms_awards_small( $atts ) {
 				<li <?php post_class( 'AwardsSmall__item' ); ?>>
 					<a href="<?= esc_url( get_post_meta( get_the_ID(), 'mb_awards_mb_awards_url', true ) ); ?>" target="_blank"><?php the_post_thumbnail( 'blog_thumbnail' ); ?></a>
 				</li>
-					<?php 
+					<?php
 				}
 			}
-			endwhile; 
+			endwhile;
 		?>
 				<?php wp_reset_postdata(); ?>
 		</ul>
