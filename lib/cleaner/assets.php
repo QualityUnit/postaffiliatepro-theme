@@ -69,7 +69,6 @@ add_action(
 				wp_deregister_style( 'elementor-icons-fa-brands' );
 				wp_deregister_style( 'elementor-animations' );
 				wp_deregister_style( 'elementor-lazyload' );
-			//              wp_deregister_style( 'swiper' );
 				wp_deregister_style( 'wp-nux' );
 				wp_deregister_style( 'wpml-legacy-horizontal-list-0' );
 				wp_deregister_style( 'mediaelement' );
@@ -81,7 +80,6 @@ add_action(
 				// Scripts
 				wp_dequeue_script( 'font-awesome-4-shim' );
 				wp_deregister_script( 'elementor-sticky' );
-			//              wp_deregister_script( 'elementor-pro-webpack-runtime' );
 				wp_deregister_script( 'wpml-xdomain-data' );
 				wp_deregister_script( 'wpml-xdomain-data-js-extra' );
 		}
