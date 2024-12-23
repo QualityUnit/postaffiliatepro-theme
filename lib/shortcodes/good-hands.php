@@ -50,10 +50,10 @@ function ms_good_hands_redesign( $atts ) {
 				<p><?php _e( 'Join our community of happy clients and provide excellent customer support with Post Affiliate Pro.', 'ms' ); ?></p>
 
 				<div class="Buttons">
-					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--full">
+					<a href="<?php _e( '/trial/', 'ms' ); ?>" class="Button Button--outline">
 						<span><?php _e( 'Start 14-days free trial', 'ms' ); ?></span>
 					</a>
-					<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--outline">
+					<a href="<?php _e( '/demo/', 'ms' ); ?>" onclick="ga( 'send', 'event', 'Demo bar Button', 'start', 'Schedule a demo' )" class="Button Button--full">
 						<span><?php _e( 'Schedule a demo', 'ms' ); ?></span>
 					</a>
 				</div>
