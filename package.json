@@ -47,7 +47,7 @@
 		"husky": "^9.1.6",
 		"minimist": "^1.2",
 		"prettier": "^3.3",
-		"stylelint": "^15.11"
+		"stylelint": "^16.12"
 	},
 	"dependencies": {
 		"gulp-replace": "^1.1.4",
