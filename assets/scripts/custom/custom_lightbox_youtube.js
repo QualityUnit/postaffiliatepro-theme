@@ -20,8 +20,6 @@ if ( videoVertical.length > 0 ) {
 	} );
 }
 
-const body = document.querySelector( 'body' );
-
 // Removing preinserted data-ytid attribute from URLslab due to iFrame conflict - we don't want to insert iFrame to replace image
 const blockVideos = document.querySelectorAll( '[class*="Block--video"] .youtube_urlslab_loader[data-ytid], .GutenbergVideo .youtube_urlslab_loader[data-ytid]' );
 
@@ -58,16 +56,20 @@ function loadYouTubeModal( yt, target ) {
 }
 
 function removeYouTubeModal( event, target ) {
-	event.stopPropagation();
-	target.classList.remove( 'active' );
-	body.classList.remove( 'lb-disable-scrolling' );
+	const body = document.querySelector( 'body' );
 
-	setTimeout( () => {
-		target.remove();
-	}, 500 );
+	event.stopPropagation();
+	if ( target ) {
+		target.classList.remove( 'active' );
+		setTimeout( () => {
+			target.remove();
+		}, 500 );
+	}
+	body.classList.remove( 'lb-disable-scrolling' );
 }
 
 if ( modalVideo.length > 0 ) {
+	const body = document.querySelector( 'body' );
 	modalVideo.forEach( ( videoLink ) => {
 		videoLink.addEventListener( 'click', ( event ) => {
 			const modalConst = document.createElement( 'div' );
