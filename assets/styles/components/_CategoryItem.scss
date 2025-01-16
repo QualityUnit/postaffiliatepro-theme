@@ -50,9 +50,17 @@
 				}
 
 				&.integrationMethod {
+					margin-bottom: 1em;
+
+					picture {
+						display: flex;
+						align-items: center;
+					}
 
 					img {
 						width: auto;
+						height: auto;
+						object-fit: contain;
 					}
 				}
 			}
