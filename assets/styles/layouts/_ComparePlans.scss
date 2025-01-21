@@ -128,7 +128,23 @@
 		}
 
 		&__button {
-			width: 100%;
+
+			&.Button {
+				width: 100%;
+				text-align: center;
+
+				@media (min-width: $breakpoint-desktop) {
+					padding: 0 2em;
+				}
+
+				@media (min-width: $breakpoint-tablet-landscape) {
+					padding: 0 2em;
+				}
+
+				span {
+					line-height: 1.5;
+				}
+			}
 		}
 
 		&__list {
