@@ -304,23 +304,17 @@ $colors: (
 
 			&.chat[class] {
 
-				.circleRollButton.circleRollButton[class],
-				.circleRollButtonSpin[class] {
-					all: unset !important;
-					position: relative;
-					filter: drop-shadow(0 0.25em 1em rgba($black-real, 0.15));
 
-					.circleRollButtonSpin[class] * {
-						display: none !important;
-					}
+				.circleChatButtonWrap.circleChatButtonWrap[class] {
+
+					position: relative;
+					transform: scale(0.6115);
+					transform-origin: 0 0;
+					box-shadow: none !important;
 
 					&:hover {
-						all: unset !important;
-
-						.circleRollButtonText[class] {
-							all: unset !important;
-							display: none !important;
-						}
+						box-shadow: none !important;
+						filter: none;
 					}
 
 					&::after {
@@ -338,7 +332,6 @@ $colors: (
 				}
 
 				> div[id] > div {
-					all: unset !important;
 
 					@include square(3.5em);
 					position: static !important;
@@ -364,10 +357,6 @@ $colors: (
 				}
 			}
 
-			> div:not(.fakeChatButton) {
-				background: url(../images/fakeChatButton.svg?#{$version}) center center no-repeat;
-				border-radius: 50%;
-			}
 		}
 
 		&--close {

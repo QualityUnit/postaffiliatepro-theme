@@ -70,6 +70,8 @@
 		loadGoogle()
 	}
 </script>
+
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -212,6 +214,7 @@
 			});
 	}
 </script>
+
 <?php
 if (
 		! is_page( array( 'request-demo', 'demo', 'call', 'trial', 'thank-you', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
@@ -226,22 +229,13 @@ if (
 		! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) )
 	) {
 	?>
-	<button class="ContactUs__chatBotOnly hidden" id="chatBotOnly" rel="nofollow noopener external">
-		<img class="ContactUs__icon" src="<?= esc_url( get_template_directory_uri() . '/assets/images/contact/chatbot.svg' ); ?>" />
-	</button>
-
-	<script type="text/javascript" id="fh-chatbot-script">
-		const chatBtnOptions = {	chatbotId: '90f8c3d3-e26c-4438-a502-9124ae2a0d27',
-			workspaceId: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
-			btnTarget: '#chatBotOnly'}
-		acceptButton.addEventListener( "click", () => {
-			loadChatBot(chatBtnOptions);
-		});
-
-		if ( getCookieFrontend( "cookieLaw" ) ) {
-			loadChatBot(chatBtnOptions);
-		}
+	<!-- Start of LiveAgent integration script: Chat button: PAP - Website multiwidget - chatbot -->
+	<script type="text/javascript">
+		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
+			'https://support.ladesk.com/scripts/track.js',
+			function(e){ LiveAgent.createButton('l82h9psn', e); });
 	</script>
+	<!-- End of LiveAgent integration script -->
 	<?php
 }
 
