@@ -1,6 +1,7 @@
 <?php
 	$icons = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
+	require_once get_template_directory() . '/ai-chat-button.php';
 ?>
 
 <div class="ContactUs__form flowhunt-skip hidden" id="#contactUsForm" data-targetId="contactUsForm">
@@ -125,52 +126,20 @@
 			<li class="ContactUs__menu--item chatbot">
 				<div class="ContactUs__menu--link fakeChatButton hidden">
 					<span class="fakeChatButton__text"><?php _e( 'Chat with a bot', 'ms' ); ?></span>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 					<span class="fakeChatButton__msg"><?php _e( 'Please accept our cookies before we start a chat.', 'ms' ); ?></span>
 				</div>
-				<button class="ContactUs__menu--link blue" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
+				<button class="ContactUs__menu--link chat purple" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
 					<?php _e( 'Chat with a bot', 'ms' ); ?>
-					<img class="ContactUs__icon" src="<?= esc_url( $icons ); ?>chatbot.svg" />
 				</button>
 			</li>
 		</ul>
 	</nav>
 </div>
 
-<script id="fh-chatbot-script">
-	const options = {
-		chatbotId: '90f8c3d3-e26c-4438-a502-9124ae2a0d27',
-		workspaceId: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
-		btnTarget: '#chatBot'
-	};
-	acceptButton.addEventListener( "click", () => {
-		loadChatBot(options);
-	});
 
-	if ( getCookieFrontend( "cookieLaw" ) ) {
-		loadChatBot(options);
-	}
-</script>
 
 <script>
-	const contactUsBtn = document.querySelector('.ContactUs__button');
 	const statusUrl = 'https://status.postaffiliatepro.com/';
-
-	contactUsBtn.addEventListener('click', async () => {
-			const menu = document.querySelector('.ContactUs__menu--wrap');
-			const statusInfo = document.querySelector('#contactUsStatus');
-
-			if ( menu?.classList.contains('hidden') ) {
-				const serviceStatus = await quStatusWidget.getStatus().then( ( result ) => {
-					return displayStatusIndicator( result );
-				});
-				if ( serviceStatus === 'outage' ) {
-					const statusInfoLink = statusInfo.querySelector(`[data-status^=${serviceStatus}]`);
-					statusInfoLink.style.display = 'flex';
-					statusInfoLink.addEventListener( 'click', () => window.open( statusUrl, '_blank' ) );
-				}
-			}
-	})
 
 	const quStatusWidget = {
 		statusJsonUrl: `${statusUrl}/status.json`,
