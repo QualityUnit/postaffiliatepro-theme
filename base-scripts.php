@@ -34,9 +34,6 @@
 		consentGranted();
 		grafana();
 		postAffiliate();
-		if ( typeof createButton == 'function' ) {
-			createButton();
-		}
 	} )
 
 	if ( trialButton !== null ) {
@@ -217,26 +214,53 @@
 
 <?php
 if (
-		! is_page( array( 'request-demo', 'demo', 'call', 'trial', 'thank-you', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
-		&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory' ) )
-		&& ! is_single( array( 'facebook', 'twitter', 'viber', 'instagram' ) )
-		&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'post' ) )
-		&& ! is_category( array( 'blog', 'news', 'reviews', 'growth', 'support', 'live-chat', 'help-desk-software' ) )
-		&& ! is_search()
+	! is_page( array( 'pricing', 'request-demo', 'demo', 'call', 'trial', 'thank-you', 'appsumo-signup', 'free-account', 'andrej', 'johngordon', 'michaela', 'tom', 'typing-test', 'tipptest', 'prueba-de-tipeo', 'test-de-saisie', 'test-di-digitazione', 'teste-de-digitacao', 'typetest', 'gepelesi-teszt', 'test-pisania', 'test-na-umenie-nabirat-tekst', 'dazi-ceshi' ) )
+	&& ! is_post_type_archive( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory' ) )
+	&& ! is_single( array( 'facebook', 'twitter', 'viber', 'instagram' ) )
+	&& ! is_singular( array( 'ms_glossary', 'ms_templates', 'ms_academy', 'ms_directory', 'ms_about', 'post' ) )
+	&& ! is_category( array( 'blog', 'news', 'reviews', 'growth', 'support', 'live-chat', 'help-desk-software' ) )
+	&& ! is_search()
 ) {
 	require_once get_template_directory() . '/contactus-box.php';
-} elseif (
-		! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) )
-	) {
+} elseif ( is_page( 'pricing' ) ) {
+	?>
+	<!-- Start of LiveAgent integration script: Chat button: PAP - Pricing -->
+	<script type="text/javascript">
+		(function(d, src, c) {
+			var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+			s.id = 'la_x2s6df8d';
+			s.defer = true;
+			s.src = src;
+			s.onload = s.onreadystatechange = function() {
+				var rs = this.readyState;
+				if (rs && rs !== 'complete' && rs !== 'loaded') return;
+				c(this);
+			};
+			t.parentElement.insertBefore(s, t.nextSibling);
+		})(document, 'https://support.ladesk.com/scripts/track.js',
+			function(e) { LiveAgent.createButton('l33ptq36', e); });
+	</script>
+	<!-- End of LiveAgent integration script -->
+	<?php
+} elseif ( ! is_page( array( 'request-demo', 'demo', 'trial', 'thank-you', 'free-account' ) ) ) {
 	?>
 	<!-- Start of LiveAgent integration script: Chat button: PAP - Website multiwidget - chatbot -->
 	<script type="text/javascript">
-		(function(d, src, c) { var t=d.scripts[d.scripts.length - 1],s=d.createElement('script');s.id='la_x2s6df8d';s.defer=true;s.src=src;s.onload=s.onreadystatechange=function(){var rs=this.readyState;if(rs&&(rs!='complete')&&(rs!='loaded')){return;}c(this);};t.parentElement.insertBefore(s,t.nextSibling);})(document,
-			'https://support.ladesk.com/scripts/track.js',
-			function(e){ LiveAgent.createButton('l82h9psn', e); });
+		(function(d, src, c) {
+			var t = d.scripts[d.scripts.length - 1], s = d.createElement('script');
+			s.id = 'la_x2s6df8d';
+			s.defer = true;
+			s.src = src;
+			s.onload = s.onreadystatechange = function() {
+				var rs = this.readyState;
+				if (rs && rs !== 'complete' && rs !== 'loaded') return;
+				c(this);
+			};
+			t.parentElement.insertBefore(s, t.nextSibling);
+		})(document, 'https://support.ladesk.com/scripts/track.js',
+			function(e) { LiveAgent.createButton('l82h9psn', e); });
 	</script>
 	<!-- End of LiveAgent integration script -->
 	<?php
 }
-
 ?>
