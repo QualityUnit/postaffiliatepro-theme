@@ -1,7 +1,6 @@
 <?php
 	$icons = get_template_directory_uri() . '/assets/images/contact/';
 	require_once get_template_directory() . '/chat-button.php';
-	require_once get_template_directory() . '/ai-chat-button.php';
 ?>
 
 <div class="ContactUs__form flowhunt-skip hidden" id="contactUsForm" data-targetId="contactUsForm">
@@ -112,13 +111,8 @@
 			</li>
 			<li class="ContactUs__menu--item">
 				<span class="ContactUs__menu--link chat blue" id="chatBtn" data-close-target="contactUsMenu">
-					<?php _e( 'Chat with an agent', 'ms' ); ?>
+					<?php _e( 'Chat', 'ms' ); ?>
 				</span>
-			</li>
-			<li class="ContactUs__menu--item chatbot">
-				<button class="ContactUs__menu--link chat purple" id="chatBot" data-close-target="contactUsMenu"  rel="nofollow noopener external">
-					<?php _e( 'Chat with a bot', 'ms' ); ?>
-				</button>
 			</li>
 		</ul>
 	</nav>
