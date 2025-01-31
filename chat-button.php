@@ -47,7 +47,5 @@
 						});
 			}, timeout );
 		}
-		if ( getCookieFrontend( "cookieLaw" ) ) {
 			createButton()
-		}
 	</script>
