@@ -264,3 +264,15 @@ if (
 	<?php
 }
 ?>
+
+<?php if(is_page('trial')) { ?>
+	<!--Start of  Post Affiliate Pro integration script: CrozDesk Conversion Tracking-->
+	<script type='text/javascript'>
+		(function() {
+			var cdx = document.createElement("script");  cdx.type = "text/javascript";  cdx.async = true;
+			cdx.src = "https://trk.crozdesk.com/JJ2ye4YXFVAt3ozNznyx";
+			var s = document.getElementsByTagName("script")[0];  s.parentNode.insertBefore(cdx,s);
+		})();
+	</script>
+	<!--End of  Post Affiliate Pro integration script-->
+<?php } ?>
