@@ -265,7 +265,7 @@ if (
 }
 ?>
 
-<?php if(is_page('trial')) { ?>
+<?php if ( is_page( 'trial' ) ) { ?>
 	<!--Start of  Post Affiliate Pro integration script: CrozDesk Conversion Tracking-->
 	<script type='text/javascript'>
 		(function() {
