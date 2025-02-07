@@ -74,14 +74,22 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
+	// Default cookie permission for the rest of the world
 	gtag('consent', 'default', {
+		'ad_storage': 'granted',
 		'ad_user_data': 'granted',
-		'analytics_storage': 'granted'
-	})
+		'ad_personalization': 'granted',
+		'analytics_storage': 'granted',
+		'functionality_storage': 'granted',
+	});
 
+	// Override settings: Block cookies for EU countries
 	gtag('consent', 'default', {
+		'ad_storage': 'denied',
 		'ad_user_data': 'denied',
+		'ad_personalization': 'denied',
 		'analytics_storage': 'denied',
+		'functionality_storage': 'denied',
 		'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO']
 	})
 
@@ -105,10 +113,14 @@
 		}
 	});
 
+	// After consent is granted, all cookies and tracking are enabled
 	function consentGranted() {
 		gtag('consent', 'update', {
-			'ad_user_data': 'granted',
-			'analytics_storage': 'granted'
+			'ad_storage': 'granted',  // Advertising cookies (Google Ads)
+			'ad_user_data': 'granted', // Data for Google Ads
+			'ad_personalization': 'granted', // Personalized ads
+			'analytics_storage': 'granted', // Google Analytics cookies
+			'functionality_storage': 'granted', // Functional cookies
 		})
 	}
 </script>
