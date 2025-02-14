@@ -11,8 +11,8 @@ function ms_signup_network_form( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title'    => __( 'Start Free Trial', 'ms' ),
-			'label1'   => __( '14 or 30 days free trial', 'ms' ),
-			'tooltip1' => __( 'Free trial for 14 days with a free email, or 30 days with a company email', 'ms' ),
+			'label1'   => __( '30 days free trial', 'ms' ),
+			'tooltip1' => __( 'Free trial for 30 days with a company email', 'ms' ),
 			'label2'   => __( 'No Credit Card required', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
@@ -21,11 +21,11 @@ function ms_signup_network_form( $atts ) {
 
 	ob_start();
 	?>
-	
+
 	<style type="text/css">
 		.Signup__form input{width:100%}.Signup__form__item{position: relative}.Signup__form__icon{fill: #bec2c9;position: absolute;z-index: 3;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);left: 1.3125em;width: 1.375em;}
 	</style>
-	
+
 	<div class="Signup__form">
 		<h3 class="Signup__form__title"><?= esc_html( $atts['title'] ); ?></h3>
 
@@ -48,7 +48,7 @@ function ms_signup_network_form( $atts ) {
 				<div class="InputWrapper">
 					<svg class="Signup__form__icon user" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M18 19v-2a4.999 4.999 0 0 0-5-5H5a4.999 4.999 0 0 0-5 5v2a1 1 0 0 0 2 0v-2c0-.796.317-1.558.879-2.121h.001A2.996 2.996 0 0 1 5 14h8c.796 0 1.558.317 2.121.879v.001c.563.562.879 1.325.879 2.12v2a1 1 0 0 0 2 0zm-9-9c2.763 0 5-2.237 5-5 0-2.762-2.237-5-5-5S4 2.238 4 5c0 2.763 2.238 5 5 5zm0-2a3 3 0 1 1 0-6 3 3 0 1 1 0 6z"/></svg>
 					<input type="text" data-type="text" name="fullname" placeholder="<?php _e( 'Full name', 'ms' ); ?>" value="" required="required" autocomplete="off" maxlength="100">
-				</div>	
+				</div>
 				<div class="ErrorMessage"></div>
 			</div>
 
@@ -61,7 +61,7 @@ function ms_signup_network_form( $atts ) {
 			</div>
 
 			<div data-id="domainFieldmain" class="Signup__form__item">
-				<div class="InputWrapper">	
+				<div class="InputWrapper">
 					<svg class="Signup__form__icon company" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path d="M19 4H3a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h16c1.658 0 3-1.342 3-3V7a3 3 0 0 0-3-3zm0 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h16z"/><path d="M16 19V3c0-.795-.315-1.56-.879-2.121A2.992 2.992 0 0 0 13 0H9c-.795 0-1.56.315-2.121.879A2.992 2.992 0 0 0 6 3v16a1 1 0 0 0 2 0V3c0-.264.104-.519.291-.705l.004-.004A.995.995 0 0 1 9 2h4c.264 0 .519.104.705.291l.004.004A.995.995 0 0 1 14 3v16a1 1 0 0 0 2 0z"/></svg>
 					<input type="text" data-type="text" name="subdomain" placeholder="<?php _e( 'Company name', 'ms' ); ?>" value="" required="required"  autocomplete="off" maxlength="30">
 					<div class="Signup__form__item__domain"><?php _e( '.postaffiliatepro.com', 'ms' ); ?></div>
