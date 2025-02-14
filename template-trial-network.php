@@ -43,7 +43,7 @@
 					</a>
 				</div>
 				<h1 class="Trial__main__title"><?php _e( 'Try Our 1-Month <span class="highlight-background">Free Trial</span>', 'ms' ); ?></h1>
-				<p class="Trial__main__text"><?php _e( 'Experience working with PostAffiliatePro for free with our 14 or 30 days free trial. Enjoy testing every feature needed for your business starting today.', 'ms' ); ?></p>
+				<p class="Trial__main__text"><?php _e( 'Experience working with PostAffiliatePro for free with our 30 days free trial. Enjoy testing every feature needed for your business starting today.', 'ms' ); ?></p>
 
 				<?= do_shortcode( '[signupform-network]' ); ?>
 

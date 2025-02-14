@@ -828,7 +828,7 @@ function manager_industry( $manager_industry ) {
 					<div class="CTA__wrapper flowhunt-skip">
 						<div class="CTA__content">
 							<div class="CTA__title"><?php _e( 'Build your own affiliate program', 'ms' ); ?></div>
-							<div class="CTA__text"><?php _e( 'Start building an affiliate program today by signing up for our free 14-day trial.', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>
+							<div class="CTA__text"><?php _e( 'Start building an affiliate program today by signing up for our free 30-day trial.', 'ms' ) . get_post_meta( get_the_ID(), 'company_name', true ); ?></div>
 							<a href="<?php _e( '/trial', 'ms' ); ?>" class="CTA__button Button">
 								<span><?php _e( 'Start 1-Month trial for FREE', 'ms' ); ?></span>
 							</a>
