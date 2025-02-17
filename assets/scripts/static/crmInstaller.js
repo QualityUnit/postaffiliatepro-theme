@@ -1,4 +1,4 @@
-/* global _paq, Piwik, gtag, PostAffTracker, FHTrck, analytics, twq */
+/* global _paq, Piwik, gtag, PostAffTracker, analytics, twq */
 /* global quCrmData, getCookie, setCookie */
 
 class CrmInstaller {
@@ -402,7 +402,7 @@ class CrmInstaller {
 				console.warn( 'Tracking script failed:', 'FHTrck' );
 			}
 		}
-	}
+	};
 
 	handlePaqAction = () => {
 		if ( typeof _paq !== 'undefined' ) {
