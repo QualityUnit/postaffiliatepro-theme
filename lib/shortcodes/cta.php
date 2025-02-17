@@ -4,7 +4,7 @@ function ms_cta( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'title'  => 'Give Post Affilite Pro a chance',
-			'text'   => 'Start using Post Affiliate Pro today with our 14-days trial',
+			'text'   => 'Start using Post Affiliate Pro today with our 30-days trial',
 			'button' => 'Create account for FREE',
 			'link'   => '/trial',
 		),
