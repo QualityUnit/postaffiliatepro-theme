@@ -402,7 +402,7 @@ class CrmInstaller {
 				console.warn( 'Tracking script failed:', 'FHTrck' );
 			}
 		}
-	}
+	};
 
 	handlePaqAction = () => {
 		if ( typeof _paq !== 'undefined' ) {
