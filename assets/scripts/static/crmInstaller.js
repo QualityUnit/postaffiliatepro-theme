@@ -1,4 +1,4 @@
-/* global _paq, Piwik, gtag, PostAffTracker, analytics, twq */
+/* global _paq, Piwik, gtag, PostAffTracker, FHTrck, analytics, twq */
 /* global quCrmData, getCookie, setCookie */
 
 class CrmInstaller {
