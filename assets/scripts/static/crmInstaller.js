@@ -394,16 +394,12 @@ class CrmInstaller {
 	};
 
 	handleFlowHuntAction = async () => {
-		if (typeof FHTrck !== 'undefined') {
+		if ( typeof FHTrck !== 'undefined' ) {
 			try {
-				await FHTrck.trackLinks([
-					this.signupData.customer_email,
-					this.signupData.subdomain,
-					this.signupData.id
-				]);
+				await FHTrck.trackLinks( [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ] );
 			} catch (e) {
 				// eslint-disable-next-line no-console
-				console.warn('Tracking script failed:', 'FHTrck');
+				console.warn( 'Tracking script failed:', 'FHTrck' );
 			}
 		}
 	}
