@@ -299,11 +299,8 @@ if (
 		j.src=i;
 		f.parentNode.insertBefore(j,f);
 	})(window,document,'script','FHTrck','https://app.flowhunt.io/fh_trk.min.js');
-</script>
 
-<!-- Initialize after script loads -->
-<script>
-	window.onload = function() {
+	function initFHTrck() {
 		if (window.FHTrck) {
 			FHTrck.init({
 				workspace_id: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
@@ -312,5 +309,10 @@ if (
 				appendSessionToLinks: true,
 			});
 		}
-	};
+	}
+	if (window.addEventListener) {
+		window.addEventListener('load', initFHTrck, false);
+	} else if (window.attachEvent) {
+		window.attachEvent('onload', initFHTrck);
+	}
 </script>
