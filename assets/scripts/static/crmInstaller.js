@@ -396,7 +396,6 @@ class CrmInstaller {
 	handleFlowHuntAction = async () => {
 		if ( typeof FHTrck !== 'undefined' ) {
 			try {
-				await FHTrck.trackLinks( [ this.signupData.customer_email, this.signupData.subdomain, this.signupData.id ] );
 				await FHTrck.trackEvent( {
 					event_name: 'trial_signup',
 					event_value: 0.1,
