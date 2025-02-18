@@ -291,28 +291,25 @@ if (
 
 
 <script>
-	(function(w,d,s,l,i){
-		w[l]=w[l]||[];
-		var f=d.getElementsByTagName(s)[0],
-			j=d.createElement(s);
-		j.async=true;
-		j.src=i;
-		f.parentNode.insertBefore(j,f);
-	})(window,document,'script','FHTrck','https://app.flowhunt.io/fh_trk.min.js');
+	(function(d,t) {
+		var script = d.createElement(t);
+		script.id = 'fh_tracking';
+		script.async = true;
+		script.src = 'https://app.flowhunt.io/fh_trk.min.js';
 
-	function initFHTrck() {
-		if (window.FHTrck) {
-			FHTrck.init({
-				workspace_id: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
-				customer_id: 1795092665,
-				cookiesEnabled: getCookieFrontend( "cookieLaw" ) ? true : false,
-				appendSessionToLinks: true,
-			});
-		}
-	}
-	if (window.addEventListener) {
-		window.addEventListener('load', initFHTrck, false);
-	} else if (window.attachEvent) {
-		window.attachEvent('onload', initFHTrck);
-	}
+		script.onload = script.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) return;
+
+			if (window.FHTrck) {
+				window.FHTrck.init({
+					workspace_id: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
+					customer_id: 1795092665,
+					cookiesEnabled: getCookieFrontend("cookieLaw") ? true : false,
+					appendSessionToLinks: true,
+				});
+			}
+		};
+		document.body.insertBefore(script, document.body.lastChild);
+	})(document, 'script');
 </script>
