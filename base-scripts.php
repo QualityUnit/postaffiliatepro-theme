@@ -310,8 +310,6 @@ if (
 				});
 			}
 		};
-
-		var placeholder = document.getElementById('fhTrackingPlaceholder');
-		placeholder.parentNode.insertBefore(script, placeholder);
+		document.body.insertBefore(script, document.body.lastChild);
 	})(document, 'script');
 </script>
