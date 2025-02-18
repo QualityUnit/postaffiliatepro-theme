@@ -291,31 +291,27 @@ if (
 
 
 <script>
-	(function(w,d,s,l,i){
-		// Create script loading promise
-		const loadScript = new Promise((resolve) => {
-			w[l] = w[l] || [];
-			var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s);
-			j.async = true;
-			j.src = i;
-			// Add onload handler to resolve the promise
-			j.onload = resolve;
-			f.parentNode.insertBefore(j,f);
-		});
+	(function(d,t) {
+		var script = d.createElement(t);
+		script.id = 'fh_tracking';
+		script.async = true;
+		script.src = 'https://app.flowhunt.io/fh_trk.min.js';
 
-		// Initialize FHTrck immediately after script loads
-		loadScript.then(() => {
+		script.onload = script.onreadystatechange = function() {
+			var rs = this.readyState;
+			if (rs && (rs != 'complete') && (rs != 'loaded')) return;
+
 			if (window.FHTrck) {
-				FHTrck.init({
+				window.FHTrck.init({
 					workspace_id: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
 					customer_id: 1795092665,
 					cookiesEnabled: getCookieFrontend("cookieLaw") ? true : false,
 					appendSessionToLinks: true,
 				});
 			}
-		}).catch(error => {
-			console.warn('Failed to initialize FHTrck:', error);
-		});
-	})(window,document,'script','FHTrck','https://app.flowhunt.io/fh_trk.min.js');
+		};
+
+		var placeholder = document.getElementById('fhTrackingPlaceholder');
+		placeholder.parentNode.insertBefore(script, placeholder);
+	})(document, 'script');
 </script>
