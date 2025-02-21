@@ -304,7 +304,7 @@ if (
 			if (window.FHTrck) {
 				window.FHTrck.init({
 					workspace_id: 'a9fb50ed-062e-45a2-8219-7ff3462c4483',
-					customer_id: 1795092665,
+					customer_id: '1795092665',
 					cookiesEnabled: getCookieFrontend("cookieLaw") ? true : false,
 					appendSessionToLinks: true,
 				});
