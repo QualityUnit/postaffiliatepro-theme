@@ -125,6 +125,14 @@
 	}
 </script>
 
+<?php if ( is_page( array( 'demo', 'pricing' ) ) ) : ?>
+	<script>
+		if ( getCookieFrontend( "cookieLaw" ) ) {
+			gtag('config', 'AW-942942148');
+		}
+	</script>
+<?php endif; ?>
+
 
 <!-- Post Affiliate Pro -->
 <script type="text/javascript">
