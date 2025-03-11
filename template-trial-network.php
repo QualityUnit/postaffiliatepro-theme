@@ -46,20 +46,6 @@
 				<p class="Trial__main__text"><?php _e( 'Experience working with PostAffiliatePro for free with our 30 days free trial. Enjoy testing every feature needed for your business starting today.', 'ms' ); ?></p>
 
 				<?= do_shortcode( '[signupform-network]' ); ?>
-
-				<div class="Trial__main__logos">
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_capterra.svg" alt="<?php _e( 'Capterra', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
-
-					<div class="Trial__main__logo">
-						<a href="<?php _e( '/awards/', 'ms' ); ?>">
-							<img src="<?= esc_url( get_template_directory_uri() ); ?>/assets/images/rating_g2.svg" alt="<?php _e( 'G2 Crowd', 'ms' ); ?>" class="urlslab-skip-lazy">
-						</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
