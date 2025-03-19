@@ -29,6 +29,10 @@
 			}
 		}
 
+		> .elementor-widget-wrap {
+			z-index: 1;
+		}
+
 		@media (min-width: $breakpoint-tablet) {
 
 			.elementor-inner-section .elementor-row {
