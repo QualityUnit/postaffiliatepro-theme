@@ -77,9 +77,9 @@ if ( empty( preg_grep( '/^(login|trial|thank-you|free-account|demo|request-for-p
 							</a>
 						</li>
 						<li>
-							<a href="<?php _e( 'https://twitter.com/qualityunit', 'ms' ); ?>" target="_blank"
-								 title="<?php _e( 'Post Affiliate Pro\'s Twitter', 'ms' ); ?>" rel="nofollow noopener">
-								<svg>
+							<a href="<?php _e( 'https://x.com/pappro', 'ms' ); ?>" target="_blank"
+								 title="<?php _e( 'Post Affiliate Pro\'s X', 'ms' ); ?>" rel="nofollow noopener">
+								<svg class="icon icon-social-twitter">
 									<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons.svg?ver=' . THEME_VERSION . '#social-twitter' ); ?>"></use>
 								</svg>
 							</a>
