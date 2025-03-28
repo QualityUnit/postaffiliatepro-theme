@@ -24,8 +24,18 @@ scss/at-extend-no-missing-placeholder */
 
 	&--narrow {
 		max-height: var(--maxHeight);
-		padding-top: 1.5em;
-		padding-bottom: 1.5em;
+		padding-top: 1.5em !important;
+		padding-bottom: 1.5em !important;
+
+		&.is-expanded {
+			padding-top: 4.375em !important;
+			padding-bottom: 4.375em !important;
+
+			@media (max-width: $breakpoint-tablet-landscape - 1px) {
+				padding-top: 4.125em !important;
+				padding-bottom: 5.5em !important;
+			}
+		}
 	}
 
 	&:not(:first-child) {
@@ -41,6 +51,14 @@ scss/at-extend-no-missing-placeholder */
 		overflow: hidden;
 	}
 
+	.wrapper {
+
+		@media (max-width: $breakpoint-tablet) {
+			padding-left: 1.25em !important;
+			padding-right: 1.25em !important;
+		}
+	}
+
 	.elementor {
 
 		&-widget {
@@ -48,33 +66,55 @@ scss/at-extend-no-missing-placeholder */
 			&-heading {
 
 				&:not(:last-child) {
-					margin-bottom: em(16);
+					margin-bottom: 0;
+
+					@media (max-width: $breakpoint-tablet-landscape - 1px) {
+						margin-bottom: em(10);
+					}
 				}
 
 				h2 {
 
-					font-size: em(32);
+					font-size: em(30);
+					line-height: 1.5;
 					margin: 0;
 					color: $black;
 
-					@media (min-width: $breakpoint-mobile) {
-						font-size: em(48);
+					span {
+						font-weight: $font-weight-normal;
 					}
 
 					@media (min-width: $breakpoint-tablet-landscape) {
-						font-size: em(55);
+						font-size: em(40);
 					}
+				}
+
+				h4 {
+					margin: 0;
+					line-height: 1;
+					font-size: em(17);
+
+					@media (min-width: $breakpoint-tablet-landscape) {
+						line-height: 1.82;
+						font-size: em(20);
+					}
+
 				}
 			}
 
 			&-shortcode {
 
 				&:not(:last-child) {
-					margin-bottom: em(40);
+					margin-top: em(16);
+					margin-bottom: em(16);
 				}
 
 				.elementor-shortcode {
 					display: inline-block;
+
+					.Countdown__item {
+						line-height: 1;
+					}
 				}
 			}
 
@@ -86,15 +126,16 @@ scss/at-extend-no-missing-placeholder */
 				}
 
 				&:not(:last-child) {
-					margin-bottom: em(28);
+					margin-bottom: 0;
 				}
 
 				p {
 					font-size: em($font-size-default);
-					line-height: 1.5;
+					line-height: normal;
+					margin-bottom: 0;
 
-					@media (min-width: $breakpoint-mobile) {
-						font-size: em($font-size-bigger);
+					@media (min-width: $breakpoint-tablet-landscape) {
+						line-height: 2.05;
 					}
 				}
 			}
@@ -110,9 +151,10 @@ scss/at-extend-no-missing-placeholder */
 					flex-wrap: wrap;
 					align-items: center;
 					justify-content: center;
+					gap: em(10);
 
 					> * {
-						margin: 0.25em;
+						margin: 0;
 					}
 
 					p {
@@ -136,6 +178,7 @@ scss/at-extend-no-missing-placeholder */
 	&__btn[class] {
 
 		width: auto;
+		height: 3.125em;
 		padding: 0 2em;
 		margin: 0;
 		border: 0;
@@ -146,6 +189,10 @@ scss/at-extend-no-missing-placeholder */
 
 		&.Button--copy {
 			padding: 0 1em;
+
+			&.border-radius-0 {
+				border-radius: 0;
+			}
 		}
 
 		span::before {
@@ -186,6 +233,10 @@ scss/at-extend-no-missing-placeholder */
 			font-weight: $font-weight-semi;
 			background-color: rgba($white, 0.5);
 			color: $black;
+
+			&.textarea-pseudo {
+				font-size: $font-size-default;
+			}
 		}
 
 		&-btn[class] {
@@ -198,10 +249,15 @@ scss/at-extend-no-missing-placeholder */
 		}
 
 		@media (max-width: ($breakpoint-mobile - 1)) {
-			flex-direction: column;
+
+			&-btn[class] {
+				min-width: em(150);
+				padding: 0 1em;
+			}
 
 			&-text {
-				height: $button-height-normal;
+				padding: 0 1em;
+				height: auto;
 			}
 		}
 	}
