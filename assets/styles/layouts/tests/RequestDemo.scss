@@ -73,13 +73,8 @@ body {
 		width: 100% !important;
 
 		@media (min-width: $breakpoint-tablet) {
-			min-height: 637px;
-			max-height: 637px;
-		}
-
-		@media (min-width: $breakpoint-desktop) {
-			min-height: 579px;
-			max-height: 579px;
+			min-height: 670px;
+			max-height: 670px;
 		}
 	}
 
