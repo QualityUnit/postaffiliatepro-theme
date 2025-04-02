@@ -71,11 +71,7 @@ body {
 
 	iframe {
 		width: 100% !important;
-
-		@media (min-width: $breakpoint-tablet) {
-			min-height: 670px;
-			max-height: 670px;
-		}
+		height: auto;
 	}
 
 	.elementor-section .elementor-container {
