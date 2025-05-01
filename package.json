@@ -51,6 +51,6 @@
 	},
 	"dependencies": {
 		"gulp-replace": "^1.1.4",
-		"sass": "^1.85.1"
+		"sass": "^1.87.0"
 	}
 }
