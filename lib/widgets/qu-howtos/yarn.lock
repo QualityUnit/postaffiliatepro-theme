@@ -3951,9 +3951,9 @@
     react "^18.3.0"
 
 "@wordpress/base-styles@^5", "@wordpress/base-styles@^5.19.0":
-  version "5.19.0"
-  resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-5.19.0.tgz#86543771c1ea8a0e393104c990b7ae456faafb02"
-  integrity sha512-rDRt2G2H1uRLZGRF/aXe2WZGNJJ2yzBup1VaiYBNRKS7io2YRu54vEYMgh/ll1el5eMN+jO9t4A54Ew/DO470Q==
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/base-styles/-/base-styles-5.22.0.tgz#f0a63f1af040a89239e8b8074ccf22f83937102e"
+  integrity sha512-bsuVyCfdmDCIIMq1NdoeFGJzKMkd0qFlqNPeW1Hiz9yKtU+dJmccwrACCUVFydDS9zSVpN1VdI0NerFQMyr5wA==
 
 "@wordpress/blob@^3.16.0", "@wordpress/blob@^3.22.0", "@wordpress/blob@^3.3.1", "@wordpress/blob@^3.7.0":
   version "3.56.0"
