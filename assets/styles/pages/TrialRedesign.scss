@@ -98,10 +98,9 @@
 
 		@media (min-width: $breakpoint-desktop-box) {
 			grid-template-columns: $width-left auto;
-			min-height: 46em;
 		}
 
-		@media (max-height: 63rem) and (min-width: $breakpoint-tablet-landscape) {
+		@media (max-height: 67.5rem) and (min-width: $breakpoint-tablet-landscape) {
 			position: relative;
 			min-height: 100vh;
 			padding-top: 4em;
@@ -205,6 +204,13 @@
 				left: 4em;
 				max-width: 35em;
 				min-height: 15.625em;
+			}
+		}
+
+		@media (max-height: 67.5rem) and (min-width: $breakpoint-tablet-landscape) {
+
+			&::before {
+				background-position: left top;
 			}
 		}
 
@@ -483,7 +489,6 @@
 				left: $width-left;
 			}
 		}
-
 
 	}
 }
