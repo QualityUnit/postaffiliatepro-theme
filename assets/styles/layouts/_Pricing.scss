@@ -228,6 +228,14 @@ $pricing-border: 1px;
 		}
 	}
 
+	&:has(.PricingTable__column__price--sale ) {
+
+		.PricingTable__column__price {
+			margin-top: 3.125em ;
+		}
+
+	}
+
 	&__column {
 		position: relative;
 		padding: 4em 1em 1.875em;
@@ -269,26 +277,70 @@ $pricing-border: 1px;
 			}
 		}
 
+		&__wrap {
+			position: relative;
+		}
+
 		&__price {
-			line-height: 1.375;
+			display: flex;
+			align-items: flex-end;
+			column-gap: 0.325em;
+			margin: 1.5em 0 0.3em;
+			line-height: 1;
+
+			&--basic {
+				font-size: 3rem;
+				font-weight: $font-weight-semi;
+			}
+
+			&:has(.PricingTable__column__price--sale) {
+
+				.PricingTable__column__price--basic {
+					position: relative;
+					font-size: 2rem;
+
+					sup {
+						font-size: 0.8125rem;
+					}
+
+					span {
+						position: relative;
+
+						&::before {
+							content: "";
+							position: absolute;
+							width: 100%;
+							height: 2px;
+							background-color: $black;
+							top: 50%;
+							left: 0;
+						}
+					}
+
+				}
+			}
 
 			sup {
 				position: relative;
-				top: -0.6em;
-				line-height: 1;
-				vertical-align: middle;
-				font-size: 0.4em;
+				font-size: 0.9375rem;
+				font-weight: $font-weight-normal;
+				margin-right: 0.15em;
+				top: -0.25em;
 			}
 
-			&__amount {
-				font-size: 2.5em;
+			&--sale {
+				color: $saturated-red;
+				font-size: 3rem;
+				font-weight: $font-weight-semi;
 			}
 
-			&__label {
+			&__text {
 
-				&--l {
-					font-size: 1.5em;
+				p {
+					font-weight: 600;
+					font-size: 0.875rem;
 				}
+
 			}
 		}
 
@@ -325,12 +377,6 @@ $pricing-border: 1px;
 			}
 		}
 
-		&__button {
-
-			&:not(:last-child) {
-				margin-bottom: 0.6em;
-			}
-		}
 
 		.Button {
 			width: 100%;
