@@ -1,0 +1,111 @@
+/* stylelint-disable selector-class-pattern,
+no-descending-specificity, value-keyword-case
+*/
+@use "../common/variables" as *;
+@use "../common/mixins" as *;
+
+.LabelTag {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $pricing-gray;
+	border-radius: 1.25em;
+	font-size: 0.75rem;
+	padding: 0.25em 1.166em;
+
+	&--free--months {
+		display: flex;
+		align-items: center;
+		column-gap: 0.3125em;
+		color: $red;
+		margin-left: auto;
+
+		.LabelTag {
+			padding: 0.25em 1em 0.25em 1.1em;
+
+			&--small {
+
+				@include posCustom(1.525em, auto, auto, 0);
+				position: absolute;
+				width: fit-content;
+				margin: 0 !important;
+				padding: 2px 0.625em;
+				font-size: 14px;
+				line-height: 1.15;
+				font-weight: $font-weight-semi;
+
+				&.red {
+					color: $white;
+					background-color: $saturated-red;
+				}
+
+			}
+		}
+
+		&--enterprise {
+			align-items: flex-start;
+			margin-bottom: 1em;
+
+			.LabelTag--small {
+
+				@include posCustom(0,unset,0,0);
+				position: relative;
+				width: fit-content !important;
+			}
+		}
+
+		.pink {
+			background: linear-gradient(45deg, $red, $light-red);
+			color: $white;
+		}
+
+		strong {
+			font-size: 1.5rem;
+			margin-right: 0.3em;
+		}
+	}
+
+	&.popular {
+		position: absolute;
+		top: -30px;
+		left: -1px;
+		width: calc(100% + 2px) !important;
+		border-radius: 0.75em 0.75em 0 0;
+		margin: 0 !important;
+		background-color: $saturated-blue;
+		padding: 0.45em 1.166em;
+
+		p {
+			font-weight: 500;
+		}
+	}
+
+	&.green {
+		background-color: #7bdb30;
+		color: $white;
+	}
+
+	+ .LabelTag {
+		margin-left: 0.5em;
+	}
+
+	&--big {
+		font-size: 1rem;
+		font-weight: $font-weight-semi;
+		padding: 0.25em 1.5em;
+	}
+
+
+	.icon {
+
+		@include square(1rem);
+		margin-right: 0.5em;
+	}
+
+	p {
+		margin: 0;
+		font-size: 0.875rem;
+		font-weight: $font-weight-semi;
+	}
+
+}

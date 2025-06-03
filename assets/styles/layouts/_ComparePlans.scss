@@ -3,6 +3,7 @@
 @use "../common/variables" as *;
 @use "../common/mixins" as *;
 @use "Pricing" as *;
+@use "../elements/LabelTag" as *;
 
 .ComparePlans {
 
@@ -302,6 +303,31 @@
 		padding: 8px 1.5rem;
 		border-right: 1px solid $light-gray;
 		text-align: center;
+
+		.price:has(.price--sale) {
+
+			.price--basic {
+				text-decoration: line-through;
+				font-weight: 400;
+			}
+
+		}
+
+		.price {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			column-gap: 0.425em;
+
+			.price--basic {
+				font-weight: 600;
+			}
+
+			&--sale {
+				color: $saturated-red;
+				font-weight: 600;
+			}
+		}
 
 		&:last-child {
 			margin-left: 2em;
