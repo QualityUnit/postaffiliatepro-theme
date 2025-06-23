@@ -19,10 +19,6 @@ class CrmInstaller {
 			main: installationElement,
 		};
 
-		this.trackers = {
-			googleScript: "<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />",
-			capterraScript: '<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3" />',
-		};
 		this.pap = {
 			account: 'default1',
 			action: 'PAPtrial',
@@ -361,16 +357,13 @@ class CrmInstaller {
 		this.fields.main.querySelector( '.BuildingApp' ).classList.remove( 'invisible' );
 	};
 
+	// Main tracking method that executes all individual trackers
 	handleTrackersAction = () => {
-		Object.values( this.trackers ).forEach( ( tracker ) => {
-			this.fields.main.insertAdjacentHTML( 'beforeend', tracker );
-		} );
-		if ( typeof fbq !== 'undefined' ) {
-			this.fields.main.insertAdjacentHTML(
-				'beforeend',
-				`<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { console.warn( 'Tracking script failed:', 'fbq' ); }</script>`
-			);
-		}
+		// Run all trackers individually
+		this.handleGoogleTracker();
+		this.handleCapterraTracker();
+		this.handleFbPixelTracker();
+		this.handleLinkedInTracker();
 	};
 
 	handlePapAction = () => {
@@ -431,6 +424,72 @@ class CrmInstaller {
 				// eslint-disable-next-line no-console
 				console.warn( 'Tracking script failed:', '_paq' );
 			}
+		}
+	};
+
+	// Google pixel tracker
+	handleGoogleTracker = () => {
+		try {
+			this.fields.main.insertAdjacentHTML( 'beforeend',
+				"<img height='1' width='1' src='//www.googleadservices.com/pagead/conversion/942942148/imp.gif?label=xi5gCO_vxm0QxM_QwQM&amp;guid=ON&amp;script=0' />"
+			);
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// Capterra tracker
+	handleCapterraTracker = () => {
+		try {
+			this.fields.main.insertAdjacentHTML( 'beforeend',
+				'<img src="https://ct.capterra.com/capterra_tracker.gif?vid=2104150&vkey=c406f6f680b73b33c564d84edb87bde3" />'
+			);
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	};
+
+	// Facebook pixel tracker
+	handleFbPixelTracker = () => {
+		if ( typeof fbq !== 'undefined' ) {
+			try {
+				this.fields.main.insertAdjacentHTML(
+					'beforeend',
+					`<script>try{ fbq('track', 'StartTrial' ); } catch ( e ) { }</script>`
+				);
+				return true;
+			} catch ( e ) {
+				return false;
+			}
+		}
+		return false;
+	};
+
+	// LinkedIn tracker
+	handleLinkedInTracker = () => {
+		try {
+			window._linkedin_partner_id = '8470513';
+			window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+			window._linkedin_data_partner_ids.push( window._linkedin_partner_id );
+
+			if ( ! window.lintrk ) {
+				window.lintrk = function( a, b ) {
+					window.lintrk.q = window.lintrk.q || [];
+					window.lintrk.q.push( [ a, b ] );
+				};
+			}
+
+			const s = document.getElementsByTagName( 'script' )[ 0 ];
+			const b = document.createElement( 'script' );
+			b.type = 'text/javascript';
+			b.async = true;
+			b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+			s.parentNode.insertBefore( b, s );
+			return true;
+		} catch ( e ) {
+			return false;
 		}
 	};
 }
