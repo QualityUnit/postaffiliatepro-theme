@@ -12,6 +12,8 @@
 	.wrapper {
 		counter-reset: numbers-counter;
 
+		@include boxBackground($img-path: "../../images/", $color: "default" );
+
 		> .elementor-column-wrap {
 			z-index: 1;
 
@@ -30,7 +32,7 @@
 		}
 
 		> .elementor-widget-wrap {
-			z-index: 1;
+			z-index: 2;
 		}
 
 		@media (min-width: $breakpoint-tablet) {
@@ -38,16 +40,6 @@
 			.elementor-inner-section .elementor-row {
 				justify-content: space-between;
 				align-items: stretch;
-			}
-
-			&::after {
-				content: "";
-
-				@include posCustom(5em, 1em, 1em, 3em);
-				position: absolute;
-				display: block;
-				background: url(../images/illustration-numbers.svg) right bottom no-repeat;
-				background-size: contain;
 			}
 
 		}
@@ -60,37 +52,55 @@
 
 	.elementor-container {
 		position: relative;
+		gap: 1.75em;
 	}
 
 	.elementor-col-33 {
 
 		@extend .Box--primary;
-		padding-top: 1.5em !important;
-		margin-bottom: 1.5em;
+		padding: 2.5em 2.25em 5.625em;
+		border-radius: $border-radius-16;
+		background: $white;
+		box-shadow: 0 15px 15px -15px rgba(9, 0, 44, 0.05);
+		margin-bottom: 0.75em;
 		counter-increment: numbers-counter;
 
 		.elementor-widget-heading {
 
 			&::before {
 				content: "0" counter(numbers-counter);
-				font-size: 5.25rem;
-				line-height: 1.3;
-				font-weight: 600;
-				color: $light-primary;
+				color: $primary;
+				font-size: 5rem;
+				font-weight: $font-weight-bold;
+				line-height: 1;
 			}
 		}
 
 		h2 {
-			font-size: 1.5rem;
-			margin-bottom: 0.25em;
+			color: $black-real;
+			font-size: $font-size-bigger;
+			font-weight: $font-weight-bold;
+			margin-bottom: 0.33em;
 		}
 
 		p {
-			margin-bottom: 0;
+			color: $black-real;
+			font-size: $font-size-smaller;
+			line-height: 1.57;
+		}
+
+		&:hover {
+
+			.elementor-widget-heading {
+
+				&::before {
+					color: $white;
+				}
+			}
 		}
 
 		@media (min-width: $breakpoint-tablet) {
-			min-height: 20.2em;
+			min-height: 20.06em;
 			width: calc(50% - 1em);
 		}
 
