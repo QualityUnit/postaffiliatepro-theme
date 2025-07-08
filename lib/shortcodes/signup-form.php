@@ -28,6 +28,14 @@ function ms_signup_form( $atts ) {
 	<div class="Signup__form">
 		<h3 class="Signup__form__title"><?= esc_html( $atts['title'] ); ?></h3>
 		<div class="Signup__form__labels">
+			<div class="Signup__form__labels__label limited">
+				<?php _e( 'Limited pricing offer', 'ms' ); ?>
+				<div class="Tooltip">
+					<div class="fontello-info">
+						<div class="Tooltip__text Tooltip__text--left"><?php _e( 'This offer is temporary, but the discount isn’t. Get up to 40% off for life.', 'ms' ); ?></div>
+					</div>
+				</div>
+			</div>
 			<span class="Signup__form__labels__label">
 				<?= esc_html( $atts['label1'] ); ?>&nbsp;
 				<span class="Signup__form__labels__label__tooltip">
@@ -35,7 +43,7 @@ function ms_signup_form( $atts ) {
 					<span class="Signup__form__labels__label__tooltip__text Tooltip"><?= esc_html( $atts['tooltip1'] ); ?></span>
 				</span>
 			</span>
-			<span class="Signup__form__labels__label"><?= esc_html( $atts['label2'] ); ?>&nbsp;</span>
+			<span class="Signup__form__labels__label hidden"><?= esc_html( $atts['label2'] ); ?>&nbsp;</span>
 		</div>
 
 		<form data-form-type="signup-trial-form" data-id="signup" data-plan-type="Trial">
