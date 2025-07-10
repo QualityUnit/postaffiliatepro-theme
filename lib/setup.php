@@ -73,7 +73,7 @@ add_action(
 				'name'          => __( 'Footer Column #1', 'ms' ),
 				'id'            => 'footer_column_1',
 				'before_widget' => '<div class="%1$s %2$s">',
-				'after_widget'  => '<div class="Footer__top__cta"><a href="' . __( '/trial/' ) . '" class="Button Button--outline"><span>' . __( 'Start free trial' ) . '</span></a><a href="' . __( '/demo/' ) . '" class="Button Button--full"><span>' . __( 'Consult an Expert' ) . '</span></a></div></div>',
+				'after_widget'  => '<div class="Footer__top__cta"><a href="' . __( '/trial/' ) . '" class="Button Button--outline"><span>' . __( 'Start a free trial' ) . '</span></a><a href="' . __( '/demo/' ) . '" class="Button Button--full"><span>' . __( 'Consult an Expert' ) . '</span></a></div></div>',
 				'before_title'  => '<div class="Footer__top__column__title Footer__top__column__title--image h5"><img src="' . get_template_directory_uri() . '/assets/images/pap-logo.svg" alt="' . get_bloginfo( 'name' ) . '">',
 				'after_title'   => '</div>',
 			)

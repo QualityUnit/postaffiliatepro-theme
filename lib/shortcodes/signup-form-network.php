@@ -10,10 +10,10 @@ function ms_signup_network_form( $atts ) {
 
 	$atts = shortcode_atts(
 		array(
-			'title'    => __( 'Start Free Trial', 'ms' ),
-			'label1'   => __( '30 days free trial', 'ms' ),
+			'title'    => __( 'Start a Free Trial', 'ms' ),
+			'label1'   => __( '30-day free trial', 'ms' ),
 			'tooltip1' => __( 'Free trial for 30 days with a company email', 'ms' ),
-			'label2'   => __( 'No Credit Card required', 'ms' ),
+			'label2'   => __( 'No credit card required', 'ms' ),
 			'button'   => __( 'Create account for FREE', 'ms' ),
 		),
 		$atts,
