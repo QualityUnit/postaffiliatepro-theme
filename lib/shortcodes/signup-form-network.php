@@ -34,7 +34,7 @@ function ms_signup_network_form( $atts ) {
 				<?php _e( 'Limited pricing offer', 'ms' ); ?>
 				<div class="Tooltip">
 					<div class="fontello-info">
-						<div class="Tooltip__text Tooltip__text--left"><?php _e( 'This offer is temporary, but the discount isn’t. Get up to 40% off for life.', 'ms' ); ?></div>
+						<div class="Tooltip__text Tooltip__text--left"><?php _e( 'This offer is temporary, but the discount isn’t. Get up to 23% off for life.', 'ms' ); ?></div>
 					</div>
 				</div>
 			</div>
