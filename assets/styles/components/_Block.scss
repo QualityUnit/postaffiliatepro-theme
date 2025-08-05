@@ -574,18 +574,16 @@
 	.grid {
 		position: relative;
 
+		.elementor-widget-icon-list {
+
+			.elementor-icon-list-item {
+				background-color: $white-gray;
+				box-shadow: none;
+			}
+		}
+
 		@media (min-width: $breakpoint-tablet-small) {
 			padding: 4em 0;
-
-			&::after {
-
-				@include posCustom(-4em);
-				position: absolute;
-				content: "";
-				background: url(../images/grid-illustration.svg) center center no-repeat;
-				background-size: contain;
-				z-index: -1;
-			}
 		}
 	}
 
