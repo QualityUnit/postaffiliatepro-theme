@@ -441,47 +441,25 @@
 
 	/* Scroll Buttons to Signup Form */
 	if ( query( '.Signup__form' ) !== null ) {
-		if ( queryAll( ".Reviews a[href*='trial']" ).length > 0 ) {
-			queryAll( ".Reviews a[href*='trial']" ).forEach( ( element ) => {
-				scroll( element );
-			} );
+		const btnList = [
+			".Reviews a[href*='trial']",
+			".Reviews a[href*='free-account']",
+			".Portals a[href*='trial']",
+			".Block a[href*='trial']",
+			".Block a[href*='free-account']",
+			".BlockPricing a[href*='trial']",
+		];
+		btnList.forEach( ( selector ) => {
+			const elements = queryAll( selector );
+			if ( elements.length > 0 ) {
+				elements.forEach( ( element ) => {
+					if ( ! element.classList.contains( 'no-scroll' ) ) {
+						scroll( element );
+					}
+				} );
+			}
 		}
-
-		if ( queryAll( ".Reviews a[href*='free-account']" ).length > 0 ) {
-			queryAll( ".Reviews a[href*='free-account']" ).forEach(
-				( element ) => {
-					scroll( element );
-				}
-			);
-		}
-
-		if ( queryAll( ".Portals a[href*='trial']" ).length > 0 ) {
-			queryAll( ".Portals a[href*='trial']" ).forEach( ( element ) => {
-				scroll( element );
-			} );
-		}
-
-		if ( queryAll( ".Block a[href*='trial']" ).length > 0 ) {
-			queryAll( ".Block a[href*='trial']" ).forEach( ( element ) => {
-				scroll( element );
-			} );
-		}
-
-		if ( queryAll( ".Block a[href*='free-account']" ).length > 0 ) {
-			queryAll( ".Block a[href*='free-account']" ).forEach(
-				( element ) => {
-					scroll( element );
-				}
-			);
-		}
-
-		if ( queryAll( ".BlockPricing a[href*='trial']" ).length > 0 ) {
-			queryAll( ".BlockPricing a[href*='trial']" ).forEach(
-				( element ) => {
-					scroll( element );
-				}
-			);
-		}
+		);
 	}
 
 	/* Copy to clipboard */
